@@ -45,7 +45,7 @@ function send(obj) {
 }
 
 function sendWallPhotoText(id, photo_id) {
-	VK.api('wall.post', {message: $('#textarea').val(), attachments: 'photo-45653560_' + photo + ', http://vk.com/app2721918_33610634', owner_id: id}, function(data) {
+	VK.api('wall.post', {message: $('#textarea').val(), attachments: 'photo-45653560_' + photo + ', https://vk.com/app2721918_33610634', owner_id: id}, function(data) {
 		if (data.error.error_code == 214) VK.callMethod('showRequestBox', id, $('#textarea').val(), $('#textarea').val());
 	});
 }
