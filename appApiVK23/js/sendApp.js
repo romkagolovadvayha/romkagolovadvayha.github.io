@@ -10,7 +10,7 @@ function $_GET(key) { return decodeURIComponent(window.location.search.match(new
 // получаем результат первого запроса к api
 var api_result = JSON.parse($_GET('api_result'));
 $('.profile').html('<img width="40px" src="' + api_result.response[0].photo_50 + '"/><div>' + api_result.response[0].first_name + '<br/>' + api_result.response[0].last_name + '</div>');
-
+alert($_GET('api_result'));
 var sendApp = angular.module('sendApp', []);
 sendApp.controller('FriendListCtrl', function($scope) {
 
