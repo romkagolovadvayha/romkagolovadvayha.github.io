@@ -39,16 +39,8 @@ function ClickAdd() {
 	Add(document.getElementById('inputUser').value);
 }
 function Add(user_id) {
-alert(1);
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
-		alert(2);
-	VK.api('friends.get', {user_id: 1, fields: "photo_50", v: "5.28"}, function(data) {
-		if (data.response){
-			alert(123);
-		} else alert(data.error.error_msg);
-	});
-	alert(1);
 	alert(user_id);
 	VK.Api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {alert(34);
 		if(r.response) {alert(3);
@@ -64,6 +56,7 @@ alert(1);
 			}
 		}
 	});	
+	alert(2);
 }
 
 function AddUser(user_id) {
