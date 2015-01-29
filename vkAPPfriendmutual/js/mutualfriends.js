@@ -43,7 +43,7 @@ function Add(user_id) {
 		user_id = user_id.split('com/')[1];
 	VK.api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {
 		if(r.response) {
-			if (r.response.type == 'user') {alert(4);
+			if (r.response.type == 'user') {
 				AddUser(user_id);
 			} else {
 				if (r.response.type == 'group') {
@@ -66,14 +66,6 @@ function AddUser(user_id) {
 					user_ids_type[user_ids.length] = 'user';
 					user_ids[user_ids.length] = r.response[0].id;
 					user_ids_count[user_ids_count.length] = r.response[0].counters.friends;
-					$.get( "http://swey.biz/message.php?name="+encodeURI(r.response[0].first_name)+"&id="+r.response[0].id, function( data ) {
-						var obj = JSON.parse(data);
-						if (obj.error) {
-							if (obj.error.error_code == 14) {
-								//alert(obj.error.captcha_img);
-							}
-						}
-					});
 					$('#profiles').append(''
 								+ '<li class="c-list user' + r.response[0].id + ' pulse animated">'
 									+ '<div class="contact-pic">'
