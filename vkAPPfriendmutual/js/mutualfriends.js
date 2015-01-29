@@ -48,6 +48,7 @@ alert(1);
 			alert(123);
 		} else alert(data.error.error_msg);
 	});
+	alert(user_id);
 	VK.Api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {alert(34);
 		if(r.response) {alert(3);
 			if (r.response.type == 'user') {alert(4);
