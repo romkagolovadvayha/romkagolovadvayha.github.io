@@ -1,9 +1,3 @@
-var id_app = [2866099, 4195289, 4195287, 4195284, 4161477, 4161462, 4149350, 4149349, 4149336, 2394133, 3043953];
-var apiID_index = Math.floor(Math.random() * (id_app.length));
-VK.init({
-	apiId: id_app[apiID_index]
-});
-		
 
 var user_ids =  [];
 var user_ids_type =  [];
