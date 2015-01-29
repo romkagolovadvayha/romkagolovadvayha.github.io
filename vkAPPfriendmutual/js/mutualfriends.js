@@ -46,9 +46,9 @@ function Add(user_id) {
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
 	alert(user_id);
-	VK.api.call('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(data) {
+	VK.api('friends.get', {user_id: 1, fields: "photo_50", v: "5.28"}, function(data) {
 		if (data.response){
-			alert(r.response.type);
+			alert(123);
 		} else alert(data.error.error_msg);
 	});
 	VK.Api.call('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) { alert(34);
