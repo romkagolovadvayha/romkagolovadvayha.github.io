@@ -3,7 +3,7 @@
 VK.init({
     apiId: 2721918 // ID вашего приложени§ VK
 });
-
+alert();
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
 alert($_GET('api_result'));
