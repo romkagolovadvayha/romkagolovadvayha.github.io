@@ -1,13 +1,13 @@
 'use strict';
 
 VK.init({
-    apiId: 2721918 // ID вашего приложени§ VK
+    apiId: 2721918 // ID РІР°С€РµРіРѕ РїСЂРёР»РѕР¶РµРЅРёВ§ VK
 });
 
-// параметры переданные через get будут обработаны тут
+// РїР°СЂР°РјРµС‚СЂС‹ РїРµСЂРµРґР°РЅРЅС‹Рµ С‡РµСЂРµР· get Р±СѓРґСѓС‚ РѕР±СЂР°Р±РѕС‚Р°РЅС‹ С‚СѓС‚
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
 
-// получаем результат первого запроса к api
+// РїРѕР»СѓС‡Р°РµРј СЂРµР·СѓР»СЊС‚Р°С‚ РїРµСЂРІРѕРіРѕ Р·Р°РїСЂРѕСЃР° Рє api
 var api_result = JSON.parse($_GET('api_result'));
 $('.profile').html('<img width="40px" src="' + api_result.response[0].photo_50 + '"/><div>' + api_result.response[0].first_name + '<br/>' + api_result.response[0].last_name + '</div>');
 
@@ -37,10 +37,10 @@ function newPhoto() {
 function send(obj) {
 		var id = $('#id', obj).text();
 		newPhoto();
-		$('.form_send').html('<textarea class="textarea-sty form-control" rows="5" id="textarea">С 23 февраля!!!</textarea>');
+		$('.form_send').html('<textarea class="textarea-sty form-control" rows="5" id="textarea">РЎ 23 С„РµРІСЂР°Р»СЏ!!!</textarea>');
 		$('.form_send').append('<div class="btn-group btn-sty" role="group">'
-			+ '<button type="button" class="btn btn-warning" onclick="newPhoto(' + id + ')">Другое изображение</button>'
-			+ '<button type="button" class="btn btn-success" onclick="sendWallPhotoText(' + id + ', ' + photo + ')">Отправить на стенку</button>'
+			+ '<button type="button" class="btn btn-warning" onclick="newPhoto(' + id + ')">Р”СЂСѓРіРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ</button>'
+			+ '<button type="button" class="btn btn-success" onclick="sendWallPhotoText(' + id + ', ' + photo + ')">РћС‚РїСЂР°РІРёС‚СЊ РЅР° СЃС‚РµРЅРєСѓ</button>'
 		+ '</div>');
 }
 
