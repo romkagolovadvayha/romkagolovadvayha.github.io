@@ -42,7 +42,12 @@ function Add(user_id) {
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
 	alert(user_id);
-	VK.Api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {alert(34);
+	VK.api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(data) {
+		if (data.response){
+			alert(r.response.type);
+		} else alert(data.error.error_msg);
+	});
+	VK.Api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) { alert(34);
 		if(r.response) {alert(3);
 			if (r.response.type == 'user') {alert(4);
 				AddUser(user_id);
