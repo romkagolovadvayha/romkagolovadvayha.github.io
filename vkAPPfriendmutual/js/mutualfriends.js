@@ -1,7 +1,3 @@
-VK.init({
-	apiId: 4149349 // ID вашего приложения VK
-});
-
 var user_ids =  [];
 var user_ids_type =  [];
 var friends = [];
@@ -45,17 +41,10 @@ function ClickAdd() {
 function Add(user_id) {
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
-	alert(user_id);
-	VK.api('friends.get', {user_id: 1, fields: "photo_50", v: "5.28"}, function(data) {
-		if (data.response){
-			alert(123);
-		} else alert(data.error.error_msg);
-	});
-	VK.api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) { alert(34);
-		if(r.response) {alert(3);
+	VK.api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {
+		if(r.response) {
 			if (r.response.type == 'user') {alert(4);
 				AddUser(user_id);
-				
 			} else {
 				if (r.response.type == 'group') {
 					getMembers(user_id);
@@ -65,11 +54,10 @@ function Add(user_id) {
 			}
 		}
 	});	
-	alert(2);
 }
 
 function AddUser(user_id) {
-	VK.Api.call('users.get', {user_ids: user_id, fields: 'photo_50,counters', v: '5.27'}, function(r) {
+	VK.api('users.get', {user_ids: user_id, fields: 'photo_50,counters', v: '5.27'}, function(r) {
 			if(r.response) {
 				if (user_ids.join().indexOf(r.response[0].id) >= 0)
 				{
@@ -134,7 +122,7 @@ function AddUser(user_id) {
 
 // получаем информацию о группе и её участников
 function getMembers(group_id) {
-	VK.Api.call('groups.getById', {group_id: group_id, fields: 'photo_50,members_count', v: '5.27'}, function(r) {
+	VK.api('groups.getById', {group_id: group_id, fields: 'photo_50,members_count', v: '5.27'}, function(r) {
 		if(r.response) {
 			if (user_ids.join().indexOf(r.response[0].id) >= 0)
 			{
@@ -189,7 +177,7 @@ function getMembers(group_id) {
 }
 
 function AddGroup(user_id) {
-	VK.Api.call('groups.getById', {group_id: user_id, fields: 'photo_50', v: '5.27'}, function(r) {
+	VK.api('groups.getById', {group_id: user_id, fields: 'photo_50', v: '5.27'}, function(r) {
 			if(r.response) {
 				if (user_ids.join().indexOf(r.response[0].id) >= 0)
 				{
@@ -271,7 +259,7 @@ function GetFriend() {
 	}
 }	
 function GetFriendUser() {
-		VK.Api.call('friends.get', {user_id: user_ids[count], v: '3.0'}, function(r) {
+		VK.api('friends.get', {user_id: user_ids[count], v: '3.0'}, function(r) {
 			if(r.response) {
 				friends[count] = r.response;
 				if (user_ids.length != ++count) GetFriend(); else MutualFriends();
@@ -289,7 +277,7 @@ function getMembers20k(group_id, members_count) {
 			+	'};'
 			+	'return members;'; // вернуть массив members
 
-	VK.Api.call("execute", {code: code}, function(data) {
+	VK.api("execute", {code: code}, function(data) {
 		if (data.response) {
 			friends[count] = friends[count].concat(JSON.parse("[" + data.response + "]")); // запишем это в массив
 			$('.member_ids').html('Загрузка: ' + friends[count].length + '/' + members_count);
@@ -314,7 +302,7 @@ function getMembers20k(group_id, members_count) {
 	});
 }
 function GetFriendApp(offset) {
-		VK.Api.call('groups.getMembers', {group_id: user_ids[count], offset: offset, v: '5.27'}, function(r) {
+		VK.api('groups.getMembers', {group_id: user_ids[count], offset: offset, v: '5.27'}, function(r) {
 			if(r.response) {
 				if (offset == 0)
 					friends[count] = r.response.items;
@@ -344,7 +332,7 @@ function MutualFriends() {
 	var mutual_friends = [];
 	if (friends.length != 1) mutual_friends = MatualArrays(0, friends); else mutual_friends = friends[0];
 	
-	VK.Api.call('users.get', {user_ids: mutual_friends.join(), fields: 'photo_50', v: '5.27'}, function(r) {
+	VK.api('users.get', {user_ids: mutual_friends.join(), fields: 'photo_50', v: '5.27'}, function(r) {
 		if(r.response)
 			WriteUser(r.response);
 	});
