@@ -1,3 +1,1 @@
-<?
-  echo 'phoka pusto';
-?>
+
