@@ -1,3 +1,7 @@
+VK.init({
+	apiId: 4149349 // ID вашего приложения VK
+});
+
 var user_ids =  [];
 var user_ids_type =  [];
 var friends = [];
