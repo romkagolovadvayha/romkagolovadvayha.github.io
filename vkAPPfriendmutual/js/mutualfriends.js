@@ -39,14 +39,15 @@ function ClickAdd() {
 	Add(document.getElementById('inputUser').value);
 }
 function Add(user_id) {
-alert();
+alert(1);
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
+		alert(2);
 	VK.Api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {
 		if(r.response) {
 			if (r.response.type == 'user') {
 				AddUser(user_id);
-				alert();
+				alert(3);
 			} else {
 				if (r.response.type == 'group') {
 					getMembers(user_id);
