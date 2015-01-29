@@ -51,7 +51,7 @@ function Add(user_id) {
 			alert(123);
 		} else alert(data.error.error_msg);
 	});
-	VK.Api.call('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) { alert(34);
+	VK.api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) { alert(34);
 		if(r.response) {alert(3);
 			if (r.response.type == 'user') {alert(4);
 				AddUser(user_id);
