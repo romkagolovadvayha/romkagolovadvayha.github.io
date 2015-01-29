@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru" ng-app="sendApp">
+	<head>
+		<script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+		<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="https://romkagolovadvayha.github.io/appApiVK23/style.css">
+		<link rel="stylesheet" href="https://daneden.github.io/animate.css/animate.min.css" />
+		<script src="https://angular.github.io/angular-phonecat/step-2/app/bower_components/angular/angular.js"></script>
+	</head>
+	<body>
+	<div class="content">
+		<div class="top bounceInDown animated">
+			<div class="profile"></div>
+		</div>
+		<div class="left bounceInLeft animated" ng-controller="FriendListCtrl">
+			<div class="form">
+				<input type="text" ng-model="query" class="form-control form-control2" placeholder="Имя..." aria-describedby="basic-addon1">
+			</div>
+			<ul>
+				<li ng-repeat="friend in friends | filter:query">
+					<div class="friend" onclick="send(this)">
+						<div id="id" style="display: none;">{{friend.id}}</div>
+						<div class="photo"><img width="40px" height="40px" src="{{friend.photo_50}}"/></div>
+						<div class="text">{{friend.first_name}}<br/>{{friend.last_name}}</div>
+					</div>
+					<div class="hr"></div>
+				</li>
+			</ul>
+			<div class="left_bottom"></div>
+		</div>
+		<div class="right bounceInRight animated" align="center">
+			<div class="photoimg">
+				<div class="info" style="background-image: url(bg.png);">
+					<h1>Подборка лучших открыток ко дню защитника отечества!</h1><br/>
+					Чтобы отправить открытку, вам нужно выбрать человека из списка друзей слево.
+					<img src=""/>
+				</div>
+			</div>
+			<div class="form_send"></div>
+		</div>
+	</div>
+	<script src="https://romkagolovadvayha.github.io/appApiVK23/js/sendApp.js"></script>
+	</body>
+</html>
