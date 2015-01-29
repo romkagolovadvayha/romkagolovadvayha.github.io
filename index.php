@@ -1,1 +1,3 @@
-<?echo 'phoka pusto';?>
+<?
+  echo 'phoka pusto';
+?>
