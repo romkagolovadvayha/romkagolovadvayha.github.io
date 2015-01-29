@@ -44,10 +44,10 @@ alert(1);
 		user_id = user_id.split('com/')[1];
 		alert(2);
 	VK.Api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {
-		if(r.response) {
-			if (r.response.type == 'user') {
+		if(r.response) {alert(3);
+			if (r.response.type == 'user') {alert(4);
 				AddUser(user_id);
-				alert(3);
+				
 			} else {
 				if (r.response.type == 'group') {
 					getMembers(user_id);
