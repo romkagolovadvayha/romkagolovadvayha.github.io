@@ -1,81 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Фотокарта</title>
-	<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="leaflet.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-</head>
-<body>
-	<div class="auth">
-		<div class="content" align="center">
-			<span class="logo glyphicon glyphicon-camera"></span>
-			<div class="alert alert-info">
-				Чтобы продолжить авторизуйтесь через социальную сеть вконтакте!
+<!doctype html>
+<html lang="ru" ng-app="sendApp">
+	<head>
+		<script src="http://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="http://daneden.github.io/animate.css/animate.min.css" />
+		<script src="http://angular.github.io/angular-phonecat/step-2/app/bower_components/angular/angular.js"></script>
+	</head>
+	<body>
+	<div class="content">
+		<div class="top bounceInDown animated">
+			<div class="profile"></div>
+		</div>
+		<div class="left bounceInLeft animated" ng-controller="FriendListCtrl">
+			<div class="form">
+				<input type="text" ng-model="query" class="form-control form-control2" placeholder="Имя..." aria-describedby="basic-addon1">
 			</div>
-			<div class="btn btn-primary dropdown-toggle" onclick="VK.Auth.login(authInfo);"><span class="glyphicon glyphicon-user"></span> Войти через вконтакте</div>
+			<ul>
+				<li ng-repeat="friend in friends | filter:query">
+					<div class="friend" onclick="send(this)">
+						<div id="id" style="display: none;">{{friend.id}}</div>
+						<div class="photo"><img width="40px" height="40px" src="{{friend.photo_50}}"/></div>
+						<div class="text">{{friend.first_name}}<br/>{{friend.last_name}}</div>
+					</div>
+					<div class="hr"></div>
+				</li>
+			</ul>
+			<div class="left_bottom"></div>
+		</div>
+		<div class="right bounceInRight animated" align="center">
+			<div class="photoimg">
+				<div class="info" style="background-image: url(bg.png);">
+					<h1>Подборка лучших открыток ко дню защитника отечества!</h1><br/>
+					Чтобы отправить открытку, вам нужно выбрать человека из списка друзей слево.
+					<img src=""/>
+				</div>
+			</div>
+			<div class="form_send"></div>
 		</div>
 	</div>
-	<div id="map"></div>
-	<script src="leaflet.js"></script>
-	<script src="http://maximeh.github.io/leaflet.bouncemarker/bouncemarker.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script>
-		VK.init({
-			apiId: 4149349 // ID вашего приложения VK
-		});
-		function authInfo(response) {
-			if (response.session) {
-				getPhotos(5000, 20);
-				$('.auth').hide();
-			} else {
-				$('.auth').show();
-			}	
-		}
-		var map = L.map('map',{maxBounds:[[-90, -180],[90, 180]]}).setView([56.8497, 53.2198], 4);
-		L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { minZoom: 2 }).addTo(map);
-
-		var map_сordinates = [[55.7503, 37.6233],[56.8497, 53.2198],[55.7858, 49.1500],[59.9659,30.3434],[57.9848,56.3598],[54.5975,56.0961],[54.9271,73.4106],[51.5360,39.1772],[55.0091,82.9193],[56.4867,85.0177],[58.1272,52.6636],[51.1586,71.4907],[49.8946,73.2348],[50.4365,30.5255],[56.0415,51.9645]];
-
-		var map_old_photo = [];
-
-		function getPhotos(radius_, count_) {
-			var code = 'return [';
-			for (var i=0;i<map_сordinates.length;i++) 
-			{
-				code += 'API.photos.search({"lat": "' + map_сordinates[i][0] + '", "long": "' + map_сordinates[i][1] + '", "radius": "' + radius_ + '", "count": "' + count_ + '", "sort": 0, "v": "5.27"})';
-				if (i != map_сordinates.length-1) 
-					code += ',';
-			}
-			code += '];';
-			
-			VK.Api.call('execute', {'code': code}, function(data) {
-				if (data.response) {
-					for (var i=0;i<data.response.length;i++) 
-					{	
-						for (var j=0;j<data.response[i].items.length;j++)
-						{
-							if (data.response[i].items[j].id != map_old_photo[i]) 
-							{
-								var myIcon = L.divIcon({html: '<div style="background-image: url(' + data.response[i].items[j].photo_75 + ');" class="icon_photo"></div>'});
-								L.marker([data.response[i].items[j].lat, data.response[i].items[j].long], {
-									bounceOnAdd: true,
-									icon: myIcon,
-									riseOnHover: true
-								}).addTo(map).bindPopup('<center><a href="http://vk.com/photo' + data.response[i].items[j].owner_id + '_' + data.response[i].items[j].id + '" target="_blank">Просмотреть на сайте<br/><div style="background-image: url(' + data.response[i].items[j].photo_604 + ');" class="icon_photo2"></div></a></center>');
-								if (j == 0) map_old_photo[i] = data.response[i].items[0].id;
-							} else break;
-						}
-					}
-					setTimeout(function() { getPhotos(50000, 20); }, 3000);
-				} else alert(data.error.error_code + ' ' + data.error.error_msg);
-			});
-		}
-		VK.Auth.getLoginStatus(authInfo);
-		VK.UI.button('login_button');
-	</script>
-</body>
+	<!--<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>-->
+	<script src="js/sendApp.js"></script>
+	</body>
 </html>
