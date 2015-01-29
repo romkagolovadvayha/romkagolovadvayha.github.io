@@ -1,3 +1,4 @@
+alert();
 'use strict';
 
 VK.init({
