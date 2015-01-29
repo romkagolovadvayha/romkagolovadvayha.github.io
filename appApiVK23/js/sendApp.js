@@ -1,12 +1,11 @@
-'use strict';
 
 VK.init({
     apiId: 2721918 // ID вашего приложени§ VK
 });
-alert();
+
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
-alert($_GET('api_result'));
+
 // получаем результат первого запроса к api
 var api_result = JSON.parse($_GET('api_result'));
 $('.profile').html('<img width="40px" src="' + api_result.response[0].photo_50 + '"/><div>' + api_result.response[0].first_name + '<br/>' + api_result.response[0].last_name + '</div>');
