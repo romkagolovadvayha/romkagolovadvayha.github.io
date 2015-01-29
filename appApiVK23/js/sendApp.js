@@ -1,10 +1,9 @@
-alert();
 'use strict';
-
+alert();
 VK.init({
     apiId: 2721918
 });
-
+alert();
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
 
