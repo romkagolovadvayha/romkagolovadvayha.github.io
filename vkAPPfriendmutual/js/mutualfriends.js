@@ -1,4 +1,3 @@
-
 var user_ids =  [];
 var user_ids_type =  [];
 var friends = [];
@@ -40,12 +39,14 @@ function ClickAdd() {
 	Add(document.getElementById('inputUser').value);
 }
 function Add(user_id) {
+alert();
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
 	VK.Api.call('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {
 		if(r.response) {
 			if (r.response.type == 'user') {
 				AddUser(user_id);
+				alert();
 			} else {
 				if (r.response.type == 'group') {
 					getMembers(user_id);
