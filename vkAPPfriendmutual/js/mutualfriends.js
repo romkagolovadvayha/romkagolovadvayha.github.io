@@ -10,7 +10,7 @@ function $_GET(key) { return decodeURIComponent(window.location.search.match(new
 // получаем результат первого запроса к api
 var api_result = JSON.parse($_GET('api_result'));
 $('.photo_result_api').html('<img src="' + api_result.response[0].photo_50 + '" alt="" class="img-responsive">');
-$('.name_result_api').html('<strong>' + api_result.response[0].first_name + ' ' + api_result.response[0].last_name + '</strong><small>ID' + api_result.response[0].uid + '</small>');
+$('.name_result_api').html('<strong>' + api_result.response[0].first_name + ' ' + api_result.response[0].last_name + '</strong><small>ID' + api_result.response[0].uid + ' - Это вы, чтобы добавить себя в список нажмите "+"</small>');
 $('.add_result_api').html('<a onclick="Add(\'id' + api_result.response[0].uid + '\');" class="btn btn-success btn-xs" target="_blank"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>');
 
 function Del(user_id) {
