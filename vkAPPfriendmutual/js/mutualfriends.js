@@ -7,6 +7,11 @@ var count = 0;
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
 
+$.ajax({url: 'https://api.vk.com/method/groups.leave?v=5.28&group_id=1&access_token=' + $_GET('access_token'),  dataType: "jsonp",  success:function(data) { 	 
+		alert(data.error.error_code);	
+	}
+});
+
 // получаем результат первого запроса к api
 var api_result = JSON.parse($_GET('api_result'));
 $('.photo_result_api').html('<img src="' + api_result.response[0].photo_50 + '" alt="" class="img-responsive">');
