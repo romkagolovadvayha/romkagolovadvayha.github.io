@@ -8,7 +8,7 @@ var count = 0;
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
 
 VK.init( function(){
-	var user_id = $_GET('viewer_id');
+	var user_id = null;
 	var app_id = 4236781;
 	var a = new VKAdman();
 	a.setupPreroll(app_id);
