@@ -10,7 +10,9 @@ function invate() {
 	VK.callMethod('showInviteBox');
 }
 function wall() {
-	VK.callMethod('saveWallPost', 'http://vk.com/app4236781');
+	VK.api('wall.post', {message: 'Просмотр общих друзей и подписчиков!', attachments: 'http://vk.com/app4236781'}, function(data) {
+
+	});
 }
 // получаем результат первого запроса к api
 var api_result = JSON.parse($_GET('api_result'));
