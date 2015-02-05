@@ -1,3 +1,6 @@
+.list-unstyled {
+	padding-right: 20px;
+}
 .list-unstyled::-webkit-scrollbar {
     width: 12px;
 }
