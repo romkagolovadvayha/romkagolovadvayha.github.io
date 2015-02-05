@@ -6,7 +6,9 @@ var count = 0;
 
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
-
+function invate() {
+	VK.callMethod('showInviteBox');
+}
 // получаем результат первого запроса к api
 var api_result = JSON.parse($_GET('api_result'));
 $('.photo_result_api').html('<img src="' + api_result.response[0].photo_50 + '" alt="" class="img-responsive">');
