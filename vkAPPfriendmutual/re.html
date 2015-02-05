@@ -8,7 +8,7 @@
   VK.init({
   	apiId: 4236781
   });
-VK.Api.call('users.get', {uids: 6492}, function(r) { 
+VK.Api('users.get', {uids: 6492}, function(r) { 
   if(r.response) { 
     alert('Привет, ' + r.response[0].first_name); 
   } 
