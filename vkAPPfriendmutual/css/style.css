@@ -3631,3 +3631,16 @@ table th{
   left: 0;
   top: 0;
 }
+.list-unstyled::-webkit-scrollbar {
+    width: 12px;
+}
+.list-unstyled::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+    border-left: 1px solid #ccc;
+}
+.list-unstyled::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+.list-unstyled::-webkit-scrollbar-thumb:hover {
+	background-color: #aaa;
+}
