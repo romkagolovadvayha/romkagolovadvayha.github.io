@@ -6,7 +6,7 @@ var count = 0;
 
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
-alert($_GET('viewer_id'));
+
 VK.init( function(){
 	var user_id = $_GET('viewer_id');
 	var app_id = 4236781;
