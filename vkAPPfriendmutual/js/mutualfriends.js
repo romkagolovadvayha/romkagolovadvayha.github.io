@@ -10,7 +10,7 @@ function invate() {
 	VK.callMethod('showInviteBox');
 }
 function wall() {
-	VK.api('wall.post', {message: 'Просмотр общих друзей и подписчиков!', attachments: 'photo33610634_350256389, https://vk.com/app4236781_33610634'}, function(data) {
+	VK.api('wall.post', {message: 'Просмотр общих друзей и подписчиков у любых людей и сообществ!', attachments: 'photo33610634_350256389, https://vk.com/app4236781'}, function(data) {
 
 	});
 }
