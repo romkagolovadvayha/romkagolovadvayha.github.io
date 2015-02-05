@@ -5,12 +5,12 @@
     width: 12px;
 }
 .list-unstyled::-webkit-scrollbar-track {
-    background-color: #eaeaea;
-    border-left: 1px solid #ccc;
+    background-color: #fff;
+    border-left: 1px solid #46b8da;
 }
 .list-unstyled::-webkit-scrollbar-thumb {
-    background-color: #ccc;
+    background-color: #5bc0de;
 }
 .list-unstyled::-webkit-scrollbar-thumb:hover {
-	background-color: #aaa;
+	background-color: #46b8da;
 }
