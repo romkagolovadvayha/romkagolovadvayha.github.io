@@ -392,10 +392,12 @@ function WriteUser(user_info) {
 }
 
 function export_excel() {
+	wall();
 	window.open('data:application/vnd.ms-excel,' + encodeURIComponent(mutual_friends.join('\n')));
 	return false;
 }
 function export_word() {
+	wall();
 	window.open('data:application/msword,' + encodeURIComponent("ID\n" + mutual_friends.join('\n')));
 	return false;
 }
