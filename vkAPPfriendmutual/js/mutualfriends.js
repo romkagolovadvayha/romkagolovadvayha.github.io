@@ -380,7 +380,7 @@ function WriteUser(user_info) {
 									+ '</li>';
 						$(html).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");	
 		}
-		$('<div onclick="export()" class="btn btn-success">Экспорт</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<div onclick="export_friend()" class="btn btn-success">Экспорт</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 	} else {
 		document.getElementById('friends').innerHTML = ''
 									+ '<li class="contact-alpha">'
@@ -390,7 +390,7 @@ function WriteUser(user_info) {
 	}
 }
 
-function export() {
+function export_friend() {
 	alert("jyg");
 }
 function MatualArrays(k,A)
