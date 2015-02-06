@@ -344,8 +344,9 @@ function GetFriendApp(offset) {
 			}
 		});
 }
+var mutual_friends = [];
 function MutualFriends() {
-	var mutual_friends = [];
+	mutual_friends = [];
 	if (friends.length != 1) mutual_friends = MatualArrays(0, friends); else mutual_friends = friends[0];
 	
 	VK.api('users.get', {user_ids: mutual_friends.join(), fields: 'photo_50', v: '5.27'}, function(r) {
@@ -380,7 +381,7 @@ function WriteUser(user_info) {
 									+ '</li>';
 						$(html).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");	
 		}
-		$('<div onclick="export_friend()" class="btn btn-success">Экспорт</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<div onclick="export_excel()" class="btn btn-success">Экспорт Excel</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 	} else {
 		document.getElementById('friends').innerHTML = ''
 									+ '<li class="contact-alpha">'
@@ -390,9 +391,9 @@ function WriteUser(user_info) {
 	}
 }
 
-function export_friend() {
-	window.open('data:application/vnd.ms-excel,' + encodeURIComponent('4234\n454353'));
-	return false
+function export_excel() {
+	window.open('data:application/vnd.ms-excel,' + encodeURIComponent(mutual_friends.join('\n')));
+	return false;
 }
 function MatualArrays(k,A)
 {                                 
