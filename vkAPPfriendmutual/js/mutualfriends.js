@@ -380,7 +380,7 @@ function WriteUser(user_info) {
 									+ '</li>';
 						$(html).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");	
 		}
-		$('<div id="word" class="btn btn-default">Скачать Word</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<div id="export" class="btn btn-success">Экспорт</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 	} else {
 		document.getElementById('friends').innerHTML = ''
 									+ '<li class="contact-alpha">'
@@ -389,17 +389,10 @@ function WriteUser(user_info) {
 									+ '</li><div class="errorL">Нет общего!</div>';
 	}
 }
-// to excel
-$('#excel').click(function(){
-	window.open('data:application/vnd.ms-excel,' + encodeURIComponent(mutual_friends.join('\n')));
-	return false
-});
-
 
 // to word
-$('#word').click(function(){
-	window.open('data:application/msword,' + encodeURIComponent(mutual_friends.join('\n')));
-	return false
+$('#export').click(function(){
+	alert(mutual_friends.join('\n'));
 });
 function MatualArrays(k,A)
 {                                 
