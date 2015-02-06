@@ -380,7 +380,7 @@ function WriteUser(user_info) {
 									+ '</li>';
 						$(html).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");	
 		}
-		$('<div id="excel">Скачать Excel</div><div id="word">Скачать Word</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<div id="excel" class="btn btn-primary">Скачать Excel</div><div id="word" class="btn btn-primary">Скачать Word</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 	} else {
 		document.getElementById('friends').innerHTML = ''
 									+ '<li class="contact-alpha">'
