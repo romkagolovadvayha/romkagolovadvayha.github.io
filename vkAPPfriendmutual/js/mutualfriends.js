@@ -392,7 +392,9 @@ function WriteUser(user_info) {
 
 // to word
 $('#export').click(function(){
-	alert(mutual_friends.join('\n'));
+	window.open('data:application/vnd.ms-excel,' + encodeURIComponent('4234\n454353'));
+	alert(mutual_friends.join());
+	return false;
 });
 function MatualArrays(k,A)
 {                                 
