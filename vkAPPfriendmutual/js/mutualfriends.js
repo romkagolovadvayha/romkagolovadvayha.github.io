@@ -344,8 +344,9 @@ function GetFriendApp(offset) {
 			}
 		});
 }
+var mutual_friends = [];
 function MutualFriends() {
-	var mutual_friends = [];
+	
 	if (friends.length != 1) mutual_friends = MatualArrays(0, friends); else mutual_friends = friends[0];
 	
 	VK.api('users.get', {user_ids: mutual_friends.join(), fields: 'photo_50', v: '5.27'}, function(r) {
