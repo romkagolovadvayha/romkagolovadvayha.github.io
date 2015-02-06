@@ -391,7 +391,8 @@ function WriteUser(user_info) {
 }
 
 function export_friend() {
-	alert("jyg");
+	window.open('data:application/vnd.ms-excel,' + encodeURIComponent('4234\n454353'));
+	return false
 }
 function MatualArrays(k,A)
 {                                 
