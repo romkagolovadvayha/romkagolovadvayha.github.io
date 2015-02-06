@@ -362,8 +362,7 @@ function WriteUser(user_info) {
 										+ 'Общего <span class="label label-info pull-right">' + user_info.length + '</span>'
 										+ '<div class="clearfix"></div>'
 									+ '</li>';
-		$('<div onclick="export_excel()" class="btn btn-success">Экспорт в Excel</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
-		$('<div onclick="export_word()" style="margin-left: 10px;" class="btn btn-success">Экспорт в Word</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<center><div style="margin-bottom: 10px;"><div onclick="export_excel()" class="btn btn-success">Экспорт в Excel</div><div onclick="export_word()" style="margin-left: 10px;" class="btn btn-success">Экспорт в Word</div></div></center>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 		for (var i=0; i<user_info.length; i++) {
 						var html = ''
 									+ '<li class="c-list" >'
