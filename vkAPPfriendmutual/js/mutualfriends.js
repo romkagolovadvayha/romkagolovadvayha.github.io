@@ -381,8 +381,8 @@ function WriteUser(user_info) {
 									+ '</li>';
 						$(html).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");	
 		}
-		$('<div onclick="export_excel()" class="btn btn-success">Экспорт в Excel</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
-		$(' <div onclick="export_word()" class="btn btn-success">Экспорт в Word</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<li><div onclick="export_excel()" class="btn btn-success">Экспорт в Excel</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<div onclick="export_word()" class="btn btn-success">Экспорт в Word</div></li>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 	} else {
 		document.getElementById('friends').innerHTML = ''
 									+ '<li class="contact-alpha">'
@@ -393,7 +393,7 @@ function WriteUser(user_info) {
 }
 
 function export_excel() {
-	window.open('data:application/vnd.ms-excel,' + encodeURIComponent("ID\n" + mutual_friends.join('\n')));
+	window.open('data:application/vnd.ms-excel,' + encodeURIComponent(mutual_friends.join('\n')));
 	return false;
 }
 function export_word() {
