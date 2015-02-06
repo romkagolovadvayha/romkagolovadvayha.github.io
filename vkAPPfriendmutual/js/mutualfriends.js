@@ -380,16 +380,7 @@ function WriteUser(user_info) {
 									+ '</li>';
 						$(html).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");	
 		}
-		var export = '<div class="btn-group">'
-  +'<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'
-    +'Action <span class="caret"></span>'
-  +'</button>'
-  +'<ul class="dropdown-menu" role="menu">'
-    +'<li><a id="excel">Скачать Excel</a></li>'
-    +'<li><a id="word">Скачать Word</a></li>'
-  +'</ul>'
-+'</div>';
-		$(export).hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
+		$('<div id="word" class="btn btn-default">Скачать Word</div>').hide().appendTo("#friends").delay(i * 1000/(i+1)).show("puff");
 	} else {
 		document.getElementById('friends').innerHTML = ''
 									+ '<li class="contact-alpha">'
