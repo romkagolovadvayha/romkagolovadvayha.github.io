@@ -298,7 +298,7 @@ function getMembers20k(group_id, members_count) {
 			friends[count] = friends[count].concat(JSON.parse("[" + data.response + "]")); // запишем это в массив
 			$('.member_ids').html('Загрузка: ' + friends[count].length + '/' + members_count);
 			if (members_count >  friends[count].length) { // если еще не всех участников получили
-				setTimeout(function() { getMembers20k(group_id, members_count); }, 500); // задержка 0.5 с. после чего запустим еще раз
+				setTimeout(function() { getMembers20k(group_id, members_count); }, 1000); // задержка 0.5 с. после чего запустим еще раз
 				document.getElementById('friends').innerHTML = ''
 								+ '<li class="contact-alpha">'
 									+ 'Общего <span class="label label-info pull-right">0</span>'
