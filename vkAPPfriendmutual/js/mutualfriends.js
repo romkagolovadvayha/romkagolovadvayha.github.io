@@ -63,6 +63,8 @@ function ClickAdd() {
 	Add(document.getElementById('inputUser').value);
 }
 function Add(user_id) {
+	count = 0;
+	friends = [];
 	if (user_id.indexOf("com/") >= 0)
 		user_id = user_id.split('com/')[1];
 	VK.api('utils.resolveScreenName', {screen_name: user_id, v: '5.27'}, function(r) {
