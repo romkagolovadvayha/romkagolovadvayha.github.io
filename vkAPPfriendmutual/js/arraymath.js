@@ -18,7 +18,6 @@ function ArrayMath() {
 		var n = X.length, m = Y.length, i=0, k=0, j=0, Z = [];
 		
 		while ((i<=n-1)&(j<=m-1)) {
-			alert();
 			if (X[i] == Y[j])
 			{
 				Z[k] = X[i];
