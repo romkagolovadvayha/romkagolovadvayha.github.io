@@ -13,16 +13,27 @@ function ArrayMath() {
 		return C;
 	}
 
-	this.Intersection = function(A,B)
+	this.Intersection = function(X,Y)
 	{
-	    var m = A.length, n = B.length, c = 0, C = [];
-	    for (var i = 0; i < m; i++)
-	     { var j = 0, k = 0;
-	       while (B[j] !== A[ i ] && j < n) j++;
-	       while (C[k] !== A[ i ] && k < c) k++;
-	       if (j != n && k == c) C[c++] = A[ i ];
-	     }
-	   return C;
+		var n = X.length, m = Y.length, i=0, k=0, j=0, Z = [];
+		
+		while ((i<=n-1)&(j<=m-1)) {
+			alert();
+			if (X[i] == Y[j])
+			{
+				Z[k] = X[i];
+				k++;
+				i++;
+				j++;
+			} else {
+				if (X[i] < Y[j]) {
+					i++;
+				} else {
+					j++;
+				}
+			}
+		}
+	 	return Z;
 	}
 
 	this.Sum = function(A,B)
