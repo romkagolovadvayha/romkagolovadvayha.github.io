@@ -14,7 +14,7 @@ document.onkeyup = function (e) {
 	// Отменяем действие браузера
 	return false;
 }
-function invate() {
+function invite() {
 	VK.callMethod('showInviteBox');
 }
 function wall() {
