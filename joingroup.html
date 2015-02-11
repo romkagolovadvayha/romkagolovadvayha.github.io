@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+		<style>
+			@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+			html, body {
+				margin: 0;
+				padding: 0;
+				font-family: 'Roboto', sans-serif;
+				background-color: #ecf0f1;
+			}
+			.main {
+				width: 350px;
+				height: 300px;
+				left: 50%;
+				top: 140px;
+				position: absolute;
+				margin-left: -175px;
+				font-size: 40px;
+				font-weight: 700;
+				color: #2c3e50;
+			}
+			.main .info {
+				margin-top: 20px;
+				font-size: 14px;
+				padding: 10px;
+				font-weight: 500;
+			}
+			.main .btn {
+				margin-top: 50px;
+				overflow: hidden;
+				width: 200px;
+				height: 32px;
+				color: #ecf0f1;
+				position: relative;
+				background-color: #337ab7;
+				border-color: #2e6da4;
+				text-align: center;
+				line-height: 32px;
+				font-size: 16px;
+				font-weight: 500;
+				border-radius: 3px;
+			}
+			.main .btn:hover {
+				background-color: #3072aa;
+				border-color: #2b6699;
+			}
+			.main .btn .vk_btn {
+				position: absolute;
+				opacity: 0.0;
+				margin-left: 0px;
+				margin-top: -118px;
+			}
+		</style>
+		<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+    </head>
+    <body>
+		<div class="main" align="center">
+			Кликните мышью на кнопку
+			<div class="btn">
+				<div class="vk_btn">
+					<div id="vk_groups"></div>
+				</div>
+				<div class="text">Я кнопка :)</div>
+			</div>
+			<div class="info"></div>
+		</div>
+		<script type="text/javascript">
+			VK.Widgets.Group("vk_groups", {mode: 1, width: "200", height: "200"}, 10827415);
+			VK.Observer.subscribe("widgets.groups.joined", function f()
+			{
+				$('.info').html('Вы подписались на <a href="http://vk.com/web_faq" target="_blank">группу вконтакте</a>, чтобы отписаться нажмите на кнопку выше еще раз!');
+				$('.text').html('Отписаться!');
+			});
+			VK.Observer.subscribe("widgets.groups.leaved", function f()
+			{
+				$('.info').html('Вы отписались от <a href="http://vk.com/web_faq" target="_blank">группы вконтакте</a>, чтобы подписаться нажмите на кнопку выше еще раз!');
+				$('.text').html('Подписаться!');
+			});
+		</script>
+    </body>
+</html>
