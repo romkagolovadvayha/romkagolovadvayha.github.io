@@ -6,6 +6,17 @@ var count = 0;
 
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
+function get_friends_app() {
+	var code =  'return API.friends.getAppUsers({"v": "5.28"}).items;'; // вернуть массив members
+
+	VK.api("execute", {code: code}, function(data) {
+		if (data.response) {
+			alert(data.response);
+		} else {
+			alert(data.error.error_msg); // в случае ошибки выведем её
+		}
+	});
+}
 document.onkeyup = function (e) {
 	e = e || window.event;
 	if (e.keyCode === 13) {
