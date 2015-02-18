@@ -8,11 +8,11 @@ var count = 0;
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
 get_friends_app();
 function get_friends_app() {
-	var code =  'return API.users.get({"user_ids":API.friends.getAppUsers({"v": "5.28"})});'; // вернуть массив members
+	var code =  'return API.users.get({"user_ids":API.friends.getAppUsers({"v": "5.28"}), "fields": "photo_50", "v": "5.28"});'; // вернуть массив members
 
 	VK.api("execute", {code: code}, function(data) {
 		if (data.response) {
-			$('#errorK').html(data.response);
+			$('#errorK').html(data.response.);
 		} else {
 			alert(data.error.error_msg); // в случае ошибки выведем её
 		}
