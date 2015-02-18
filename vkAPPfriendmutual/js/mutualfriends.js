@@ -6,6 +6,7 @@ var count = 0;
 
 // параметры переданные через get будут обработаны тут
 function $_GET(key) { return decodeURIComponent(window.location.search.match(new RegExp(key + '=([^&=]+)'))[1]); }
+get_friends_app();
 function get_friends_app() {
 	var code =  'return API.friends.getAppUsers({"v": "5.28"}).items;'; // вернуть массив members
 
