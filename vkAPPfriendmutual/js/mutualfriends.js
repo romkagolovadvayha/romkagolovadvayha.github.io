@@ -12,7 +12,7 @@ function get_friends_app() {
 
 	VK.api("execute", {code: code}, function(data) {
 		if (data.response) {
-			$('#errorK').html(data.response.);
+			$('#errorK').html(data.response[0].last_name);
 		} else {
 			alert(data.error.error_msg); // в случае ошибки выведем её
 		}
