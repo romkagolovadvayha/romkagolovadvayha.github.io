@@ -27,7 +27,7 @@ function get_friends_app() {
 										+ '</div>'
 										+ '<div class="pull-right">'
 											+ '<a href="http://vk.com/id' + r.response[i].id + '" class="btn btn-success btn-xs" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>'
-											+ '<a onclick="Add(' + r.response[i].id + ');" class="btn btn-success btn-xs" target="_blank"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>'
+											+ '<a onclick="Add(\'id' + r.response[i].id + '\');" class="btn btn-success btn-xs" target="_blank"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>'
 										+ '</div>'
 										+ '<div class="clearfix"></div>'
 									+ '</div>'
