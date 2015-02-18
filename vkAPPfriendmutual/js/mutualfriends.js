@@ -10,12 +10,28 @@ get_friends_app();
 function get_friends_app() {
 	var code =  'return API.users.get({"user_ids":API.friends.getAppUsers({"v": "5.28"}), "fields": "photo_50", "v": "5.28"});'; // вернуть массив members
 
-	VK.api("execute", {code: code}, function(data) {
-		if (data.response) {
-			$('#friend_app_count').html(data.response.length);
+	VK.api("execute", {code: code}, function(r) {
+		if (r.response) {
+			$('#friend_app_count').html(r.response.length);
 			$('#errorK').html('');
-			for(var i = 0; i < data.response.length; i++)
-				$('#errorK').append(data.response[i].first_name + ' ' + data.response[i].last_name + '<br/>');
+			for(var i = 0; i < r.response.length; i++)
+					$('#errorK').append(''
+								+ '<li class="c-list user' + r.response[i].id + ' pulse animated">'
+									+ '<div class="contact-pic">'
+										+ '<a href="#"><img src="' + r.response[i].photo_50 + '" alt="" class="img-responsive"/></a>'
+									+ '</div>'
+									+ '<div class="contact-details">'
+										+ '<div class="pull-left">'
+											+ '<strong>' + r.response[i].first_name + ' ' + r.response[i].last_name + '</strong>'
+											+ '<small>ID' + r.response[i].id + '</small>'
+										+ '</div>'
+										+ '<div class="pull-right">'
+											+ '<a href="http://vk.com/id' + r.response[i].id + '" class="btn btn-success btn-xs" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>'
+											+ '<a onclick="Del(' + r.response[i].id + ');" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>'
+										+ '</div>'
+										+ '<div class="clearfix"></div>'
+									+ '</div>'
+								+ '</li>');
 		} else {
 			alert(data.error.error_msg); // в случае ошибки выведем её
 		}
