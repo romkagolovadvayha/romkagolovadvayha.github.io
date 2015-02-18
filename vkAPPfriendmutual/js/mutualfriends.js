@@ -16,7 +16,7 @@ function get_friends_app() {
 			$('#errorK').html('');
 			for(var i = 0; i < r.response.length; i++)
 					$('#errorK').append(''
-								+ '<li class="c-list user' + r.response[i].id + ' pulse animated">'
+								+ '<li class="c-list">'
 									+ '<div class="contact-pic">'
 										+ '<a href="#"><img src="' + r.response[i].photo_50 + '" alt="" class="img-responsive"/></a>'
 									+ '</div>'
