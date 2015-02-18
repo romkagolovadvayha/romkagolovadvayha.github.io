@@ -12,9 +12,10 @@ function get_friends_app() {
 
 	VK.api("execute", {code: code}, function(r) {
 		if (r.response) {
-			$('#friend_app_count').html(r.response.length);
-			$('#errorK').html('');
-			for(var i = 0; i < r.response.length; i++)
+			if (r.response.length > 0) {
+				$('#friend_app_count').html(r.response.length);
+				$('#errorK').html('');
+				for(var i = 0; i < r.response.length; i++)
 					$('#errorK').append(''
 								+ '<li class="c-list">'
 									+ '<div class="contact-pic">'
@@ -32,6 +33,7 @@ function get_friends_app() {
 										+ '<div class="clearfix"></div>'
 									+ '</div>'
 								+ '</li>');
+			}
 		} else {
 			alert(data.error.error_msg); // в случае ошибки выведем её
 		}
