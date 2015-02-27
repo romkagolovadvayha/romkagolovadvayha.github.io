@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+html, body {
+	margin: 10px;
+	padding: 0;
+	background-color: #ecf0f1;
+	font-family: 'Roboto', sans-serif;
+}
+.text {
+	height: 400px;
+	background-color: rgba(255, 255, 255, 0.5);
+	outline: none;
+	border: solid 1px rgba(51, 122, 183, 0.5);
+	width: 100%;
+	display: block;
+	color: #000;
+	resize: none;
+	font-size: 14px;
+	transition: 0.1s;
+	padding: 0;
+}
+.text:focus {
+	background-color: #fff;
+	transition: 0.1s;
+}
+.start {
+	margin-top: 10px;
+	overflow: hidden;
+	width: 200px;
+	height: 32px;
+	color: #ecf0f1;
+	position: relative;
+	background-color: #337ab7;
+	border-color: #2e6da4;
+	text-align: center;
+	line-height: 32px;
+	font-weight: 500;
+	transition: 0.1s;
+	padding: 5px;
+	text-transform: uppercase;
+	font-size: 18px;
+	cursor: pointer;
+}
+.start:hover {
+	background-color: #3072aa;
+	border-color: #2b6699;
+	transition: 0.1s;
+	color: #fff;
+	font-size: 26px;
+}
+.result {
+	margin-top: 3px;
+}
+.result .error {
+	color: rgb(192, 57, 43);
+	border: 1px solid rgba(192, 57, 43, 0.3);
+	background-color: rgba(192, 57, 43, 0.1);
+	padding: 10px;
+	font-size: 12px;
+}
+.result .success {
+	color: rgb(39, 174, 96);
+	border: 1px solid rgba(39, 174, 96, 0.3);
+	background-color: rgba(39, 174, 96, 0.1);
+	padding: 10px;
+	font-size: 12px;
+}
