@@ -21,7 +21,7 @@ sendApp.controller('FriendListCtrl', function($scope) {
 		
 });
 
-var photo = 353958054;
+var photo = 45653560;
 
 function newPhoto() {
 	VK.api('photos.get', {owner_id: "-45653560", album_id: 165477320, count: 1000, v: "5.28"}, function(data) {
