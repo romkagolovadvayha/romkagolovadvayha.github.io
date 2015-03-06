@@ -21,7 +21,7 @@ sendApp.controller('FriendListCtrl', function($scope) {
 		
 });
 
-var photo = 45653560;
+var photo = 212452888;
 
 function newPhoto() {
 	VK.api('photos.get', {owner_id: "-45653560", album_id: 165477320, count: 1000, v: "5.28"}, function(data) {
@@ -33,7 +33,7 @@ function newPhoto() {
 function send(obj) {
 		var id = $('#id', obj).text();
 		newPhoto();
-		$('.form_send').html('<textarea class="textarea-sty form-control" rows="5" id="textarea">С 23 февраля!!!</textarea>');
+		$('.form_send').html('<textarea class="textarea-sty form-control" rows="5" id="textarea">С 8 марта!!!</textarea>');
 		$('.form_send').append('<div class="btn-group btn-sty" role="group">'
 			+ '<button type="button" class="btn btn-warning" onclick="newPhoto(' + id + ')">Другое изображение</button>'
 			+ '<button type="button" class="btn btn-success" onclick="sendWallPhotoText(' + id + ', ' + photo + ')">Отправить на стенку</button>'
