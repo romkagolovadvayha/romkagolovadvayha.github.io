@@ -27,7 +27,7 @@
 		function authInfo(response) {
 		  if (response.session) {
 		  	VK.Api.call("account.getAppPermissions", {user_id: response.session.mid}, function(data) {
-				if(data.response > VK.access.VIDEO) {
+				if(data.response >= VK.access.VIDEO) {
 					$('.vk-assign').html('<label for="vkAssignImp">Хочу показывать ссылку</label><br/><label><input id="vkAssignImp" class="checkbox" type="checkbox">http://vk.com/id' + response.session.mid + '</label>');
 				}
 			});
