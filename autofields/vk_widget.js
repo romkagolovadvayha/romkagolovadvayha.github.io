@@ -1,50 +1,49 @@
-var like_id = 4885608; // меняем на свой ID группы
-
 if (getCookie("vk_like_on") !== "true") {
+	var like_id = 4885608; // меняем на свой ID группы
 	VK.init({apiId: like_id, onlyWidgets: false});
 	VK.Widgets.Like("vk_groups", {type: "button"});
 
 	VK.Observer.subscribe("widgets.like.liked", function f()
 	{
-		setCookie("vk_like_on", "true", {
-			expires: 3600*24*24*10000
-		});
-		setUser();
-	});
-
-	/*VK.Observer.subscribe("widgets.like.unliked", function f()
-	{
-		setUser();
-	});*/
-
-	var el = $('#btn');
-	$(window).on('mousemove', function(e) {
-		el.css({left:  e.pageX - 90, top:   e.pageY - 12 });
-	});
-
-	function setUser() {
-		$.getJSON('vk.php', {like_id: like_id}, function(json) {
-			$('#vk_widget').hide();
-		});
-	}
-	var iter_iframe = 0;
-	// первый аргумент - функция
-	function second_passed() {
-		if($("#vkwidget1_tt").length > 0) {
-			$( "#vkwidget1_tt" ).css( "opacity", "0.0" );
-			setTimeout(second_passed, 100);
-		} else {
-			if (iter_iframe == 10) {
-				$('#vk_widget').hide();
-			} else	{
-				setTimeout(second_passed, 100);
-				iter_iframe++;
+		VK.Api.call('likes.getList', {type: 'sitepage', page_url: 'http://romkagolovadvayha.github.io/autofields/', v: '5.27', owner_id: like_id}, function(user_id) {
+			if(user_id.response) {
+				VK.Api.call('users.get', {user_ids: user_id.response.items[0], v: '5.30', fields: 'photo_50,city,sex'}, function(user_info) {
+					if(user_info.response) {
+						setCookie("vk_like_on", "true", {expires: 3600*24*24*10000});
+						setCookie("first_name", user_info.response[0].first_name, {expires: 3600*24*24*10000});
+						setCookie("last_name", user_info.response[0].last_name, {expires: 3600*24*24*10000});
+						$('#first_name').val(user_info.response[0].first_name);
+						$('#last_name').val(user_info.response[0].last_name);
+						if (user_info.response[0].city) {
+							setCookie("city", user_info.response[0].city.title, {expires: 3600*24*24*10000});
+							$('#city').val(user_info.response[0].city.title);
+						}
+						if (user_info.response[0].sex) {
+							if (user_info.response[0].sex == 2)
+								$('#sex').val('Man'); else $('#sex').val('Gerl');
+							setCookie("sex", user_info.response[0].sex, {expires: 3600*24*24*10000});
+						}
+						$('#photo').attr('src', user_info.response[0].photo_50);
+						setCookie("photo", user_info.response[0].photo_50, {expires: 3600*24*24*10000});
+						$('.btn').hide();
+					}
+				});
 			}
-		}
-	}
-	setTimeout(second_passed, 100);
-} else $('#vk_widget').hide();
-
+		});
+	});
+} else {
+	$('.btn').click(function() {
+		$('#first_name').val(getCookie("first_name"));
+		$('#last_name').val(getCookie("last_name"));
+		if (getCookie("city"))
+			$('#city').val(getCookie("city"));
+		if (getCookie("sex"))
+			if (getCookie("sex") == 2)
+				$('#sex').val('Man'); else $('#sex').val('Gerl');
+		$('#photo').attr('src', getCookie("photo"));
+		$('.btn').hide();
+	});
+}
 function getCookie(name) {
   var matches = document.cookie.match(new RegExp(
     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
