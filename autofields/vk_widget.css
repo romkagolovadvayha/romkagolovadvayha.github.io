@@ -1,0 +1,32 @@
+@import url(//fonts.googleapis.com/css?family=Roboto:400,500,700);
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: tahoma, verdana, arial, sans-serif, Lucida Sans;
+	background-color: #ecf0f1;
+}
+.btn {
+	overflow: hidden;
+	width: 100px;
+	height: 22px;
+	color: #FFFFFF;
+	position: relative;
+	background-color: #5F83AA;
+	border-color: #2e6da4;
+	text-align: center;
+	line-height: 22px;
+	font-size: 11px;
+	font-weight: 500;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.btn:hover {
+	background-color: #3072aa;
+	border-color: #2b6699;
+}
+.btn .vk_btn {
+	position: absolute;
+	opacity: 0.0;
+	margin-left: 0px;
+	margin-top: 0px;
+}
