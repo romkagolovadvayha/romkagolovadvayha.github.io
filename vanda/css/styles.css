@@ -140,7 +140,8 @@ body {
     position: relative;
 }
 .content_main {
-    margin-top: 40px;
+    margin-top: 100px;
+    margin-bottom: 50px;
 }
 .container_chart span {
     position: absolute;

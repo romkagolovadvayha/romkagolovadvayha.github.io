@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Isotope CSS Styles -->
+    <link href="css/isotope.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<header class="top-menu">
+    <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-if="user.is_superuser || user.is_staff" ng-class="{active: $routeSegment.startsWith('home')}"><a href="{[{'home' | routeSegmentUrl}]}">Дашборд</a></li>
+            <li ng-if="(user.is_superuser || user.is_staff) && $routeSegment.startsWith('customer')" ng-class="{active: $routeSegment.startsWith('customer')}"><a href="{[{'customer' | routeSegmentUrl}]}" >Новый клиент</a></li>
+            <li class="active" ng-if="user.is_superuser || !user.is_staff" ng-class="{active: $routeSegment.startsWith('visits')}"><a href="{[{'visits' | routeSegmentUrl}]}" >Занятия</a></li>
+            <li ng-if="user.is_superuser || user.is_staff" ng-class="{active: $routeSegment.startsWith('groups')}"><a href="{[{'groups' | routeSegmentUrl}]}" >Группы</a></li>
+            <li ng-if="user.is_superuser || user.is_staff" ng-class="{active: $routeSegment.startsWith('groups')}"><a href="{[{'groups' | routeSegmentUrl}]}" >Группы</a></li>
+            <li ng-if="user.is_superuser || user.is_staff" ng-class="{active: $routeSegment.startsWith('list-customers')}"><a href="{[{'list-customers' | routeSegmentUrl}]}" >Клиенты</a></li>
+            <li ng-if="(user.is_superuser || user.is_staff) && $routeSegment.startsWith('payment')" ng-class="{active: $routeSegment.startsWith('payment')}"><a href="{[{'payment' | routeSegmentUrl}]}" >Оплата</a></li>
+            <li ng-if="user.is_superuser || user.is_staff" ng-class="{active: $routeSegment.startsWith('transactions')}"><a href="{[{'transactions' | routeSegmentUrl}]}" >Транзакции</a></li>
+            <li ng-if="user.is_superuser" ng-class="{active: $routeSegment.startsWith('settings')}"><a href="{[{'settings' | routeSegmentUrl}]}" >Настройки</a></li>
+        </ul>
+    </div>
+</header>
+<section class="window_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="menu-left animated fadeInLeft">
+                    <div class="logo"><img src="images/logo.png"/></div>
+                    <div class="list-group">
+                        <a href="{[{'home' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('home')}"
+                           ng-if="user.is_superuser || user.is_staff">
+                            <span></span>
+                            <i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Дашборд
+                        </a>
+                        <a href="{[{'customer' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('customer')}"
+                           ng-if="(user.is_superuser || user.is_staff)">
+                            <span></span>
+                            <i class="fa fa-user-plus fa-fw"></i>&nbsp;&nbsp;Новый клиент
+                        </a>
+                        <a href="{[{'visits' | routeSegmentUrl}]}" class="list-group-item active"
+                           ng-class="{active: $routeSegment.startsWith('visits')}"
+                           ng-if="user.is_superuser || !user.is_staff">
+                            <span></span>
+                            <i class="fa fa-graduation-cap fa-fw"></i>&nbsp;&nbsp;Занятия
+                        </a>
+                        <a href="{[{'groups' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('groups')}"
+                           ng-if="user.is_superuser || user.is_staff">
+                            <span></span>
+                            <i class="fa fa-list-alt fa-fw"></i>&nbsp;&nbsp;Группы
+                        </a>
+                        <a href="{[{'list-customers' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('list-customers')}"
+                           ng-if="user.is_superuser || user.is_staff">
+                            <span></span>
+                            <i class="fa fa-users fa-fw"></i>&nbsp;&nbsp;Клиенты
+                        </a>
+                        <a href="{[{'payment' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('payment')}"
+                           ng-if="(user.is_superuser || user.is_staff)">
+                            <span></span>
+                            <i class="fa fa-rub fa-fw"></i>&nbsp;&nbsp;Оплата
+                        </a>
+                        <a href="{[{'transactions' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('transactions')}"
+                           ng-if="user.is_superuser || user.is_staff">
+                            <span></span>
+                            <i class="fa fa-files-o fa-fw"></i>&nbsp;&nbsp;Транзакции
+                        </a>
+                        <a href="{[{'profile' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('profile')}">
+                            <span></span>
+                            <i class="fa fa-briefcase fa-fw"></i>&nbsp;&nbsp;Профиль
+                        </a>
+                        <a href="{[{'settings' | routeSegmentUrl}]}" class="list-group-item"
+                           ng-class="{active: $routeSegment.startsWith('settings')}"
+                           ng-if="user.is_superuser">
+                            <span></span>
+                            <i class="fa fa-cogs fa-fw"></i>&nbsp;&nbsp;Настройки
+                        </a>
+                        <a href="/logout/ULDSnjjgw0TZbXMR5nXehPtiwrMCUrLC/" target="_self" class="list-group-item">
+                            <span></span>
+                            <i class="fa fa-power-off fa-fw"></i>&nbsp;&nbsp;Выход
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row top_right">
+                    <div class="h1">
+                        <i class="fa fa-graduation-cap fa-fw"></i>
+                        <h1>Группа 1 - Занятия</h1>
+                    </div>
+                </div>
+                <div class="row content_main">
+                    <button role="back" class="btn btn-default" ng-click="historyBack()">
+                        <i class="fa fa-backward"></i>&nbsp;К списку групп
+                    </button>
+                    <table class="table table-striped table-header-rotated" ng-show="group.clients">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <!-- ngRepeat: lesson in group.schedule --><th class="rotate-45 ng-scope" ng-repeat="lesson in group.schedule">
+                            <div><span class="ng-binding"><time class="ng-binding">22 июня</time> тестовое</span></div>
+                        </th><!-- end ngRepeat: lesson in group.schedule --><th class="rotate-45 ng-scope" ng-repeat="lesson in group.schedule">
+                            <div><span class="ng-binding"><time class="ng-binding">25 июня</time> тестовое 2</span></div>
+                        </th><!-- end ngRepeat: lesson in group.schedule --><th class="rotate-45 ng-scope" ng-repeat="lesson in group.schedule">
+                            <div><span class="ng-binding"><time class="ng-binding">28 июня</time> тестовое 3</span></div>
+                        </th><!-- end ngRepeat: lesson in group.schedule --><th class="rotate-45 ng-scope" ng-repeat="lesson in group.schedule">
+                            <div><span class="ng-binding"><time class="ng-binding">1 июля</time> по ПДД</span></div>
+                        </th><!-- end ngRepeat: lesson in group.schedule -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- ngRepeat: student in group.clients --><tr ng-repeat="student in group.clients" class="ng-scope">
+                            <th class="row-header ng-binding">Маслов И.В.</th>
+                            <!-- ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)" checked="checked">
+                        </td><!-- end ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)" checked="checked">
+                        </td><!-- end ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)" checked="checked">
+                        </td><!-- end ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)">
+                        </td><!-- end ngRepeat: lesson in group.schedule -->
+                        </tr><!-- end ngRepeat: student in group.clients --><tr ng-repeat="student in group.clients" class="ng-scope">
+                            <th class="row-header ng-binding">Лукьянов А.А.</th>
+                            <!-- ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)">
+                        </td><!-- end ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)">
+                        </td><!-- end ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)">
+                        </td><!-- end ngRepeat: lesson in group.schedule --><td ng-repeat="lesson in group.schedule" class="ng-scope">
+                            <input type="checkbox" class="form-control" ng-checked="analyzeVisit(lesson.visitors, student.passport_number)" ng-click="turnVisit(lesson.title, student.passport_number)">
+                        </td><!-- end ngRepeat: lesson in group.schedule -->
+                        </tr><!-- end ngRepeat: student in group.clients -->
+                        </tbody>
+                    </table>
+                    <div class="form-group ng-scope" role="group" ng-click="printCeoControl()" ng-show="group.clients">
+                        <button type="button" class="btn btn-default btn-lg" ng-click="">
+                            <i class="fa fa-print"></i>&nbsp;&nbsp;Распечатать для директорской проверки
+                        </button><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.stack.js"></script>
+<!-- Everything else -->
+<script language="javascript" src="js/custom.js"></script>
+<!-- Stellar core JavaScript -->
+<script language="javascript" src="js/jquery.stellar.min.js"></script>
+<!-- Waypoints core JavaScript -->
+<script language="javascript" src="js/waypoints.min.js"></script>
+<!-- Underscore core JavaScript -->
+<script language="javascript" src="js/underscore-min.js"></script>
+<!-- Easing core JavaScript -->
+<script language="javascript" src="js/jquery.easing.1.3.js"></script>
+<!-- Isotope core JavaScript -->
+<script language="javascript" src="js/jquery.isotope.min.js"></script>
+</body>
+</html>
