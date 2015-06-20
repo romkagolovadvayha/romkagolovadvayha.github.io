@@ -39,7 +39,7 @@ function getMembers20k(group_id, members_count) {
 				setTimeout(function() { getMembers20k(group_id, members_count); }, 333); // задержка 0.333 с. после чего запустим еще раз
 			else // если конец то 
 {
-				alert('Ура тест закончен! В массиве membersGroups теперь ' + membersGroups.length + ' элементов.');
+				//alert('Ура тест закончен! В массиве membersGroups теперь ' + membersGroups.length + ' элементов.');
 					/*for (var i = 0; i < membersGroups.length; i++) {
 						
 					}*/
