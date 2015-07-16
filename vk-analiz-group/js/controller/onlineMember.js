@@ -68,6 +68,8 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         animation: false
     };
 
+    $scope.labelsMembersLastSeenTime = ["более 3 дней назад", "более 5 дней назад"];
+    $scope.dataMembersLastSeenTime = [1, 1];
     $scope.labelsMobile = [0,0,0,0,0,0,0,0,0,0];
     $scope.seriesMobile = ['Онлайн с телефона'];
     $scope.dataMobile = [
@@ -102,14 +104,15 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
 
     var memberOnline = [];
     var memberOnlineMobile = [];
+    var membersLastSeenTime = [];
     var count = 0;
 
     $scope.mutualmemberOnline = function (group_id, members_count) {
-        var countOnline = 0;
-        var countOnlineMobile = 0;
         var date = new Date();
         var time = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
+        // Онлайн
+        var countOnline = 0;
         for (var i = 0; i < memberOnline.length; i++) {
             if (memberOnline[i] == 1) {
                 countOnline++;
@@ -131,6 +134,8 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         $scope.data = data;
         $scope.labels = labels;
 
+        // Онлайн с телефонов
+        var countOnlineMobile = 0;
         for (var i = 0; i < memberOnlineMobile.length; i++) {
             if (memberOnlineMobile[i] == '1') {
                 countOnlineMobile++;
@@ -148,33 +153,54 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         $scope.dataMobile[0].push(countOnlineMobile);
         $scope.labelsMobile.push(time);
 
+        // Последний раз онлайн более
+        if ($scope.dataMembersLastSeenTime[0] <= 1) {
+            for (var i = 0; i < membersLastSeenTime.length; i++) {
+                if (membersLastSeenTime[i] > 0) {
+                    var now = new Date();
+                    var diff = new Date(membersLastSeenTime[i] * 1000 - now);
+                    if (diff.getUTCDay() > 3) {
+                        $scope.dataMembersLastSeenTime[0]++;
+                        if (diff.getUTCDay() > 5) {
+                            $scope.dataMembersLastSeenTime[1]++;
+                        }
+                    }
+                }
+            }
+        }
+
         count = 0;
         memberOnline = [];
         memberOnlineMobile = [];
+        membersLastSeenTime = [];
         $timeout(function () {
             $scope.getMembers20k(group_id, members_count);
         }, 4000);
     };
 
     $scope.getMembers20k = function (group_id, members_count) {
-        var fields = 'online,online_mobile';
+        var fields = 'online,online_mobile,last_seen';
         var code = 'var arrMembers = API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "fields": "' + fields + '", "count": "1000", "offset": ' + memberOnline.length + '}).items;'
-            + 'var membersOnline = arrMembers@.online;' // делаем первый запрос и создаем массив
-            + 'var membersOnlineMobile = arrMembers@.online_mobile;' // делаем первый запрос и создаем массив
+            + 'var membersLastSeenTime = arrMembers@.last_seen@.time;'
+            + 'var membersOnline = arrMembers@.online;'
+            + 'var membersOnlineMobile = arrMembers@.online_mobile;'
             + 'var offset = 1000;' // это сдвиг по участникам группы
             + 'while (offset < 25000 && (offset + ' + memberOnline.length + ') < ' + members_count + ')' // пока не получили 20000 и не прошлись по всем участникам
             + '{'
             + 'arrMembers = API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "fields": "' + fields + '", "count": "1000", "offset": (' + memberOnline.length + ' + offset)}).items;'
             + 'membersOnline = membersOnline + "," + arrMembers@.online;' // сдвиг участников на offset + мощность массива
-            + 'membersOnlineMobile = membersOnlineMobile + "," + arrMembers@.online_mobile;' // сдвиг участников на offset + мощность массива
+            + 'membersLastSeenTime = membersLastSeenTime + "," + arrMembers@.last_seen@.time;'
+            + 'membersOnlineMobile = membersOnlineMobile + "," + arrMembers@.online_mobile;'
             + 'offset = offset + 1000;' // увеличиваем сдвиг на 1000
             + '};'
-            + 'return [membersOnline, membersOnlineMobile];'; // вернуть массив members
+            + 'return [membersOnline, membersOnlineMobile, membersLastSeenTime];'; // вернуть массив members
         VK.Api.call("execute", {code: code}, function (data) {
             if (data.response) {
-                memberOnline = memberOnline.concat(JSON.parse("[" + data.response[0] + "]")); // запишем это в массив
-                memberOnlineMobile = memberOnlineMobile + data.response[1]; // запишем это в массив
-                //$('.member_ids').html('Загрузка: ' + memberOnline.length + '/' + members_count);
+                memberOnline = memberOnline.concat(JSON.parse("[" + data.response[0] + "]"));
+                memberOnlineMobile = memberOnlineMobile + data.response[1];
+                membersLastSeenTime = membersLastSeenTime.concat(JSON.parse("[" + data.response[2].replace(/,,/g,",0,").replace(/,,/g,",") + "]"));
+                //membersLastSeenTime = membersLastSeenTime.concat(JSON.parse("[" + data.response[2] + "]"));
+
                 if (members_count > memberOnline.length) { // если еще не всех участников получили
                     setTimeout(function () {
                         $scope.getMembers20k(group_id, members_count);
