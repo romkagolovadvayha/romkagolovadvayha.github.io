@@ -11,25 +11,33 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         screen_name: null
     };
     $scope.groupFormActive = false;
-    $scope.start = function () {
+
+    $scope.start = function (response) {
         var url = $scope.groupUrl;
         if (url) {
-            if (url.indexOf("com/") >= 0)
-                url = url.split('com/')[1];
-            VK.Api.call('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
-                if (data.response) {
-                    if (data.response.type == 'group') {
-                        $scope.getGroupsInfo(data.response.object_id);
-                        //$scope.startStats(data.response.object_id);
-                    } else {
-                        $scope.writeError('Неверно указана ссылка');
+            if (response && response.session) {
+                if (url.indexOf("com/") >= 0)
+                    url = url.split('com/')[1];
+                VK.Api.call('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
+                    if (data.response) {
+                        if (data.response.type == 'group') {
+                            $scope.getGroupsInfo(data.response.object_id);
+                            //$scope.startStats(data.response.object_id);
+                        } else {
+                            $scope.writeError('Неверно указана ссылка');
+                        }
                     }
-                }
-            });
+                });
+            } else VK.Auth.login($scope.start);
         } else {
             $scope.writeError('Введите ссылку');
         }
     };
+
+    $scope.startVK = function () {
+        VK.Auth.getLoginStatus($scope.start);
+    };
+
 
     $scope.writeError = function (error) {
         ngToast.success(error);
@@ -51,23 +59,46 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         $scope.groupFormActive = false;
     };
 
-    $scope.labels = [];
+    $scope.labels = [0,0,0,0,0,0,0,0,0,0];
     $scope.series = ['Онлайн'];
     $scope.data = [
-        []
+        [0,0,0,0,0,0,0,0,0,0]
     ];
     $scope.options = {
         animation: false
     };
 
-    $scope.labelsMobile = [];
+    $scope.labelsMobile = [0,0,0,0,0,0,0,0,0,0];
     $scope.seriesMobile = ['Онлайн с телефона'];
     $scope.dataMobile = [
-        []
+        [0,0,0,0,0,0,0,0,0,0]
     ];
     $scope.optionsMobile = {
         animation: false
     };
+
+    $scope.colours = [
+        { // grey
+            fillColor: 'rgba(148,159,177,0.2)',
+            strokeColor: 'rgba(148,159,177,1)',
+            pointColor: 'rgba(148,159,177,1)',
+            pointStrokeColor: '#fff',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(148,159,177,0.8)'
+        }
+    ];
+
+
+    $scope.coloursMobile = [
+        { // dark grey
+            fillColor: 'rgba(77,83,96,0.2)',
+            strokeColor: 'rgba(77,83,96,1)',
+            pointColor: 'rgba(77,83,96,1)',
+            pointStrokeColor: '#fff',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(77,83,96,1)'
+        }
+    ];
 
     var memberOnline = [];
     var memberOnlineMobile = [];
@@ -84,17 +115,21 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
                 countOnline++;
             }
         }
-
-        if ($scope.data[0].length >= 10) {
-            for (var j = 0; j < $scope.data[0].length - 1; j++) {
-                $scope.data[0][j] = $scope.data[0][j + 1];
-                $scope.labels[j] = $scope.labels[j + 1];
+        var data = $scope.data;
+        var labels = $scope.labels;
+        if (data[0].length >= 10) {
+            for (var j = 0; j < data[0].length - 1; j++) {
+                data[0][j] = data[0][j + 1];
+                labels[j] = labels[j + 1];
             }
-            $scope.data[0].length--;
-            $scope.labels.length--;
+            data[0].length--;
+            labels.length--;
         }
-        $scope.data[0].push(countOnline);
-        $scope.labels.push(time);
+        data[0].push(countOnline);
+        labels.push(time);
+
+        $scope.data = data;
+        $scope.labels = labels;
 
         for (var i = 0; i < memberOnlineMobile.length; i++) {
             if (memberOnlineMobile[i] == '1') {
