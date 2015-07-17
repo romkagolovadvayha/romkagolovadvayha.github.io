@@ -55,12 +55,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" align="center" style="margin-top: 50px;">
+                <div class="row" align="center">
                     <div class="col-md-6">
                         <h2>Были на сайте:</h2>
-                        <canvas id="doughnut" class="chart chart-doughnut" data="dataMembersLastSeenTime"
+                        <canvas class="chart chart-doughnut" data="dataMembersLastSeenTime"
                                 labels="labelsMembersLastSeenTime"></canvas>
                     </div>
+                    <div class="col-md-6">
+                        <h2>Страны:</h2>
+                        <canvas class="chart chart-doughnut" data="dataMembersCountry"
+                                labels="labelsMembersCountry"></canvas>
+                    </div>
+                </div>
+                <div class="row" align="center">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <h2>Активные:</h2>
+                        <canvas class="chart chart-PolarArea" data="dataMembersDeactivated"
+                                labels="labelsMembersDeactivated"></canvas>
+                    </div>
+                    <div class="col-md-1"></div>
                 </div>
             </div>
             <div class="col-md-6">

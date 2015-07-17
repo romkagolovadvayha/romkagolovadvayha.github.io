@@ -59,10 +59,10 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         $scope.groupFormActive = false;
     };
 
-    $scope.labels = [0,0,0,0,0,0,0,0,0,0];
+    $scope.labels = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     $scope.series = ['Онлайн'];
     $scope.data = [
-        [0,0,0,0,0,0,0,0,0,0]
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
     $scope.options = {
         animation: false
@@ -70,10 +70,14 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
 
     $scope.labelsMembersLastSeenTime = ["более 3 дней назад", "более 5 дней назад"];
     $scope.dataMembersLastSeenTime = [1, 1];
-    $scope.labelsMobile = [0,0,0,0,0,0,0,0,0,0];
+    $scope.labelsMembersCountry = ["Россия", "Украина", "Беларусь", "Казахстан", "Азербайджан", "Армения", "Грузия"];
+    $scope.dataMembersCountry = [1, 1, 1, 1, 1, 1, 1];
+    $scope.labelsMembersDeactivated = ["Забаненные", "Удаленные"];
+    $scope.dataMembersDeactivated = [1, 1];
+    $scope.labelsMobile = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     $scope.seriesMobile = ['Онлайн с телефона'];
     $scope.dataMobile = [
-        [0,0,0,0,0,0,0,0,0,0]
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ];
     $scope.optionsMobile = {
         animation: false
@@ -105,6 +109,8 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
     var memberOnline = [];
     var memberOnlineMobile = [];
     var membersLastSeenTime = [];
+    var membersCountry = [];
+    var membersDeactivated = [];
     var count = 0;
 
     $scope.mutualmemberOnline = function (group_id, members_count) {
@@ -169,21 +175,55 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
             }
         }
 
+        // Страны
+        if ($scope.dataMembersCountry[0] <= 1) {
+            for (var i = 0; i < membersCountry.length; i++) {
+                if (membersCountry[i] == '1') {
+                    $scope.dataMembersCountry[0]++;
+                } else if (membersCountry[i] == '2') {
+                    $scope.dataMembersCountry[1]++;
+                } else if (membersCountry[i] == '3') {
+                    $scope.dataMembersCountry[2]++;
+                } else if (membersCountry[i] == '4') {
+                    $scope.dataMembersCountry[3]++;
+                } else if (membersCountry[i] == '5') {
+                    $scope.dataMembersCountry[4]++;
+                } else if (membersCountry[i] == '6') {
+                    $scope.dataMembersCountry[5]++;
+                } else if (membersCountry[i] == '7') {
+                    $scope.dataMembersCountry[6]++;
+                }
+            }
+        }
+
+        // Активность
+        if ($scope.dataMembersDeactivated[0] <= 1) {
+            if (membersDeactivated.split("banned").length) {
+                $scope.dataMembersDeactivated[0] = membersDeactivated.split("banned").length;
+            }
+            if (membersDeactivated.split("deleted").length) {
+                $scope.dataMembersDeactivated[1] = membersDeactivated.split("deleted").length;
+            }
+        }
+
         count = 0;
         memberOnline = [];
         memberOnlineMobile = [];
         membersLastSeenTime = [];
+        membersCountry = [];
+        membersDeactivated = [];
         $timeout(function () {
             $scope.getMembers20k(group_id, members_count);
         }, 4000);
     };
-
     $scope.getMembers20k = function (group_id, members_count) {
-        var fields = 'online,online_mobile,last_seen';
+        var fields = 'online,online_mobile,last_seen,country';
         var code = 'var arrMembers = API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "fields": "' + fields + '", "count": "1000", "offset": ' + memberOnline.length + '}).items;'
             + 'var membersLastSeenTime = arrMembers@.last_seen@.time;'
             + 'var membersOnline = arrMembers@.online;'
             + 'var membersOnlineMobile = arrMembers@.online_mobile;'
+            + 'var membersCountry = arrMembers@.country@.id;'
+            + 'var membersDeactivated = arrMembers@.deactivated;'
             + 'var offset = 1000;' // это сдвиг по участникам группы
             + 'while (offset < 25000 && (offset + ' + memberOnline.length + ') < ' + members_count + ')' // пока не получили 20000 и не прошлись по всем участникам
             + '{'
@@ -191,15 +231,18 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
             + 'membersOnline = membersOnline + "," + arrMembers@.online;' // сдвиг участников на offset + мощность массива
             + 'membersLastSeenTime = membersLastSeenTime + "," + arrMembers@.last_seen@.time;'
             + 'membersOnlineMobile = membersOnlineMobile + "," + arrMembers@.online_mobile;'
+            + 'membersCountry = membersCountry + "," + arrMembers@.country@.id;'
+            + 'membersDeactivated = membersDeactivated + "," + arrMembers@.deactivated;'
             + 'offset = offset + 1000;' // увеличиваем сдвиг на 1000
             + '};'
-            + 'return [membersOnline, membersOnlineMobile, membersLastSeenTime];'; // вернуть массив members
+            + 'return [membersOnline, membersOnlineMobile, membersLastSeenTime, membersCountry, membersDeactivated];'; // вернуть массив members
         VK.Api.call("execute", {code: code}, function (data) {
             if (data.response) {
                 memberOnline = memberOnline.concat(JSON.parse("[" + data.response[0] + "]"));
-                memberOnlineMobile = memberOnlineMobile + data.response[1];
-                membersLastSeenTime = membersLastSeenTime.concat(JSON.parse("[" + data.response[2].replace(/,,/g,",0,").replace(/,,/g,",") + "]"));
-                //membersLastSeenTime = membersLastSeenTime.concat(JSON.parse("[" + data.response[2] + "]"));
+                memberOnlineMobile += data.response[1];
+                membersLastSeenTime = membersLastSeenTime.concat(JSON.parse("[" + data.response[2].match(/\d+/g) + "]"));
+                membersCountry = membersCountry.concat(JSON.parse("[" + data.response[3].match(/\d+/g) + "]"));
+                membersDeactivated = membersDeactivated + data.response[4];
 
                 if (members_count > memberOnline.length) { // если еще не всех участников получили
                     setTimeout(function () {
