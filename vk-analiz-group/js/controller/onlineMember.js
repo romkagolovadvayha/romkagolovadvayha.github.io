@@ -2,8 +2,9 @@
  * OnlineMemberCtrl
  */
 'use strict';
-app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
-
+app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
+    //cfpLoadingBar.start();
+    //cfpLoadingBar.complete();
     $scope.group = {
         name: null,
         members_count: null,
@@ -13,6 +14,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
     $scope.groupFormActive = false;
 
     $scope.start = function (response) {
+        cfpLoadingBar.start();
         var url = $scope.groupUrl;
         if (url) {
             if (response && response.session) {
@@ -24,12 +26,17 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
                             $scope.getGroupsInfo(data.response.object_id);
                             //$scope.startStats(data.response.object_id);
                         } else {
+                            cfpLoadingBar.complete();
                             $scope.writeError('Неверно указана ссылка');
                         }
                     }
                 });
-            } else VK.Auth.login($scope.start);
+            } else {
+                cfpLoadingBar.complete();
+                VK.Auth.login($scope.start);
+            }
         } else {
+            cfpLoadingBar.complete();
             $scope.writeError('Введите ссылку');
         }
     };
@@ -232,6 +239,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout) {
         membersLastSeenTime = [];
         membersCountry = [];
         membersDeactivated = [];
+        cfpLoadingBar.complete();
         $timeout(function () {
             $scope.getMembers20k(group_id, members_count);
         }, 4000);
