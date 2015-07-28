@@ -70,7 +70,6 @@ app.controller('IndexCtrl', function ($scope) {
 
         });
     };
-    //$scope.clearStorage('questions_list', '[]');
 
     $scope.getQuestionsList = function() {
         VK.Api.call('storage.get', {key: 'questions_list', global: 1}, function (dataGet) {

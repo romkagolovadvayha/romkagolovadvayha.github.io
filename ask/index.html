@@ -79,6 +79,9 @@
                                     <a href="">
                                         <i class="fa fa-refresh"></i> ОБНОВИТЬ СТРАНИЦУ
                                     </a>
+                                    <a href="" ng-click="clearStorage('questions_list', '[]')" style="opacity: 0">
+                                        ОЧИСТИТЬ
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -90,7 +93,8 @@
                                     <section class="scrollable wrapper">
                                         <div class="clearfix">
                                             <section class="panel panel-info col-lg-6 no-padder">
-                                                    <textarea class="form-control no-border" ng-model="question_text" rows="2"
+                                                    <textarea class="form-control no-border" ng-model="question_text"
+                                                              rows="2"
                                                               placeholder="Введите вопрос..."></textarea>
                                                 <footer class="panel-footer bg-light lter" style="min-height: 40px;">
                                                     <button class="btn btn-danger pull-right btn-sm font-bold btn-3d-vk">
@@ -112,7 +116,8 @@
                                             </section>
                                         </div>
                                         <div class="btn-group m-b" data-toggle="buttons">
-                                            <label class="btn btn-sm btn-white active" ng-click="typeQuestionCallback('')">
+                                            <label class="btn btn-sm btn-white active"
+                                                   ng-click="typeQuestionCallback('')">
                                                 <input type="radio" name="options">
                                                 Все
                                             </label>
@@ -130,8 +135,10 @@
                                             <div ng-repeat="question in questionsList | orderBy:'-id' | filter: { type: typeQuestion }">
                                                 <article id="comment-id-1" class="comment-item">
                                                     <span class="fa-stack pull-left m-l-xs">
-                                                        <i class="fa fa-circle fa-stack-2x" ng-class="question.type == 1 ? 'text-success' : 'text-danger'"></i>
-                                                        <i class="fa fa-stack-1x text-white" ng-class="question.type == 1 ? 'fa-thumbs-up' : 'fa-thumbs-down'"></i>
+                                                        <i class="fa fa-circle fa-stack-2x"
+                                                           ng-class="question.type == 1 ? 'text-success' : 'text-danger'"></i>
+                                                        <i class="fa fa-stack-1x text-white"
+                                                           ng-class="question.type == 1 ? 'fa-thumbs-up' : 'fa-thumbs-down'"></i>
                                                     </span>
                                                     <section class="comment-body m-b-lg">
                                                         <header>
