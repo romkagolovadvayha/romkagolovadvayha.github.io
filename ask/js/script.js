@@ -1,6 +1,6 @@
 var app = angular.module('application', []);
 
 VK.init({
-    apiId: 4885608,
+    apiId: 2866099,
     onlyWidgets: false
 });

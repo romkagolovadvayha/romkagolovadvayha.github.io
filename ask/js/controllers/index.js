@@ -3,7 +3,7 @@
  */
 'use strict';
 app.controller('IndexCtrl', function ($scope) {
-    $scope.like_id = 4885608;
+    $scope.like_id = 2866099;
     $scope.questionsList = [];
     $scope.question_text = "";
     $scope.type = true;
@@ -30,7 +30,7 @@ app.controller('IndexCtrl', function ($scope) {
     $scope.setUser = function() {
         VK.Api.call('likes.getList', {
             type: 'sitepage',
-            page_url: 'http://romkagolovadvayha.github.io/ask',
+            page_url: window.location,
             extended: 1,
             owner_id: $scope.like_id
         }, function (data) {
