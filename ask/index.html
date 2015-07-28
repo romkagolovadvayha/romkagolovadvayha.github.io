@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html ng-app="application">
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="library/bootstrap-3.3.5-dist/css/bootstrap.min.css" media="screen, projection" rel="stylesheet"
+          type="text/css">
+    <link href="library/fuelux/fuelux.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <link href="library/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/styles.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="http://vk.com/js/api/openapi.js?116"></script>
+</head>
+<body ng-controller="IndexCtrl">
+<section class="hbox stretch"> <!-- .aside -->
+    <aside class="bg-danger aside aside-lg b-r no-borders nav-vertical animated fadeInDownBig" id="nav">
+        <section class="vbox">
+            <header class="nav-bar">
+                <a href="#" class="nav-brand" data-toggle="fullscreen"><i class="fa fa-question"></i></a>
+            </header>
+            <section class="w-f">
+                <div class="nav-user hidden-xs pos-rlt">
+                    <div class="nav-avatar pos-rlt">
+                        <a href="#" class="thumb-sm avatar animated rollIn">
+                            <img src="https://hsto.org/getpro/habr/avatars/949/d5b/616/949d5b61677e39863cb808ce84103c2d.jpg"
+                                 alt="" class="">
+                            <span class="caret caret-white"></span>
+                        </a>
+                    </div>
+                </div>
+                <nav class="nav-primary hidden-xs">
+                    <ul class="nav">
+                        <li>
+                            <a href="https://github.com/romkagolovadvayha" target="_blank">
+                                <i class="fa fa-git"></i>
+                                <span>Github</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://vk.com/daaaaaaaaa" target="_blank">
+                                <i class="fa fa-vk"></i>
+                                <span>Вконтакте</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://habrahabr.ru/users/dooza/" target="_blank">
+                                H
+                                <span>Habrahabr</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/romkagolovadvayha/" target="_blank">
+                                <i class="fa fa-camera-retro"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/Empekror_Bin789" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </section>
+    </aside>
+    <!-- /.aside --> <!-- .vbox -->
+    <section id="content">
+        <section class="hbox stretch bg-white-only"> <!-- .aside -->
+            <!-- /.aside --> <!-- .aside -->
+            <aside class="">
+                <section class="vbox animated fadeInRightBig">
+                    <header class="header bg-white pos-rlt navbar navbar-default show"><span class="arrow left"></span>
+
+                        <div class="collapse navbar-collapse pull-in">
+                            <ul class="nav navbar-nav">
+                                <li class="sevice_url">
+                                    <a href="">
+                                        <i class="fa fa-refresh"></i> ОБНОВИТЬ СТРАНИЦУ
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </header>
+                    <section>
+                        <section class="hbox stretch">
+                            <aside>
+                                <section class="vbox">
+                                    <section class="scrollable wrapper">
+                                        <div class="clearfix">
+                                            <section class="panel panel-info col-lg-6 no-padder">
+                                                    <textarea class="form-control no-border" ng-model="question_text" rows="2"
+                                                              placeholder="Введите вопрос..."></textarea>
+                                                <footer class="panel-footer bg-light lter" style="min-height: 40px;">
+                                                    <button class="btn btn-danger pull-right btn-sm font-bold btn-3d-vk">
+                                                        Задать вопрос
+                                                        <div class="vk_groups_btn">
+                                                            <div id="vk_groups"></div>
+                                                        </div>
+                                                    </button>
+                                                    <button class="btn btn-white pull-left btn-sm font-bold btn-3d"
+                                                            data-toggle="button" ng-click="typeCallback()">
+                                                            <span class="text">
+                                                                <i class="fa fa-thumbs-up text-success"></i> Положительный
+                                                            </span>
+                                                            <span class="text-active">
+                                                                <i class="fa fa-thumbs-down text-danger"></i> Негативный
+                                                            </span>
+                                                    </button>
+                                                </footer>
+                                            </section>
+                                        </div>
+                                        <div class="btn-group m-b" data-toggle="buttons">
+                                            <label class="btn btn-sm btn-white active" ng-click="typeQuestionCallback('')">
+                                                <input type="radio" name="options">
+                                                Все
+                                            </label>
+                                            <label class="btn btn-sm btn-white" ng-click="typeQuestionCallback(1)">
+                                                <input type="radio" name="options">
+                                                Положительные
+                                            </label>
+                                            <label class="btn btn-sm btn-white" ng-click="typeQuestionCallback(0)">
+                                                <input type="radio" name="options">
+                                                Негативные
+                                            </label>
+                                        </div>
+                                        <section class="comment-list block">
+
+                                            <div ng-repeat="question in questionsList | orderBy:'-id' | filter: { type: typeQuestion }">
+                                                <article id="comment-id-1" class="comment-item">
+                                                    <span class="fa-stack pull-left m-l-xs">
+                                                        <i class="fa fa-circle fa-stack-2x" ng-class="question.type == 1 ? 'text-success' : 'text-danger'"></i>
+                                                        <i class="fa fa-stack-1x text-white" ng-class="question.type == 1 ? 'fa-thumbs-up' : 'fa-thumbs-down'"></i>
+                                                    </span>
+                                                    <section class="comment-body m-b-lg">
+                                                        <header>
+                                                            <a href="#">
+                                                                <strong>
+                                                                    {{ question.first_name }} {{ question.last_name }}
+                                                                </strong>
+                                                            </a>
+                                                            <span class="text-muted text-xs"> {{ momentDate(question.date) }} </span>
+                                                        </header>
+                                                        <div>
+                                                            {{ question.text }}
+                                                        </div>
+                                                    </section>
+                                                </article>
+
+                                                <article id="comment-id-2" class="comment-reply">
+                                                    <article class="comment-item"><a class="pull-left thumb-sm"> <img
+                                                            src="https://hsto.org/getpro/habr/avatars/949/d5b/616/949d5b61677e39863cb808ce84103c2d.jpg"
+                                                            class="img-circle"> </a>
+                                                        <section class="comment-body m-b-lg">
+                                                            <header>
+                                                                <a href="#">
+                                                                    <strong>Роман Мещеряков</strong>
+                                                                </a>
+                                                                <span class="text-muted text-xs"> 26 минут назад </span>
+                                                            </header>
+                                                            <div> Morbi id neque quam. Aliquam.</div>
+                                                        </section>
+                                                    </article>
+                                                </article>
+                                            </div>
+                                            <!--
+                                            <article id="comment-id-2" class="comment-item"><span
+                                                    class="fa-stack pull-left m-l-xs"> <i
+                                                    class="fa fa-circle text-danger fa-stack-2x"></i> <i
+                                                    class="fa fa-thumbs-down fa-stack-1x text-white"></i> </span>
+                                                <section class="comment-body m-b-lg">
+                                                    <header><a href="#"><strong>Jonathan</strong></a> completed a task
+                                                        <span class="text-muted text-xs"> 1 hour ago </span></header>
+                                                    <div>Consecteter adipiscing elit.</div>
+                                                </section>
+                                            </article>
+
+                                            <article id="comment-id-2" class="comment-reply">
+                                                <article class="comment-item"><a class="pull-left thumb-sm"> <img
+                                                        src="https://hsto.org/getpro/habr/avatars/949/d5b/616/949d5b61677e39863cb808ce84103c2d.jpg"
+                                                        class="img-circle"> </a>
+                                                    <section class="comment-body m-b-lg">
+                                                        <header><a href="#"><strong>Роман Мещеряков</strong></a> <span
+                                                                class="text-muted text-xs"> 26 минут назад </span>
+                                                        </header>
+                                                        <div> Morbi id neque quam. Aliquam.</div>
+                                                    </section>
+                                                </article>
+                                            </article>
+
+
+
+                                            <article id="comment-id-1" class="comment-item"><span
+                                                    class="fa-stack pull-left m-l-xs"> <i
+                                                    class="fa fa-circle text-success fa-stack-2x"></i> <i
+                                                    class="fa fa-thumbs-up fa-stack-1x text-white"></i> </span>
+                                                <section class="comment-body m-b-lg">
+                                                    <header><a href="#"><strong>John smith</strong></a> shared a <a
+                                                            href="#" class="text-info">video</a> to you <span
+                                                            class="text-muted text-xs"> 24 minutes ago </span></header>
+                                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+                                                        id neque quam.
+                                                    </div>
+                                                </section>
+                                            </article>
+
+                                            <article id="comment-id-2" class="comment-reply">
+                                                <article class="comment-item"><a class="pull-left thumb-sm"> <img
+                                                        src="https://hsto.org/getpro/habr/avatars/949/d5b/616/949d5b61677e39863cb808ce84103c2d.jpg"
+                                                        class="img-circle"> </a>
+                                                    <section class="comment-body m-b-lg">
+                                                        <header><a href="#"><strong>Роман Мещеряков</strong></a> <span
+                                                                class="text-muted text-xs"> 26 минут назад </span>
+                                                        </header>
+                                                        <div> Morbi id neque quam. Aliquam.</div>
+                                                    </section>
+                                                </article>
+                                            </article>
+                                            <!-- / .comment-reply -->
+
+                                        </section>
+
+
+                                        <a href="#" class="btn btn-white btn-sm"><i class="fa fa-plus icon-muted"></i>
+                                            more</a></section>
+                                </section>
+                            </aside>
+                        </section>
+                    </section>
+                </section>
+            </aside>
+            <!-- /.aside --> </section>
+    </section>
+    <!-- /.vbox -->
+</section>
+
+<script type="text/javascript" src="library/jquery/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="library/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="library/angularjs-1.4.2/angular.min.js"></script>
+<script type="text/javascript" src="library/angularjs-1.4.2/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="library/angularjs-1.4.2/angular-animate.min.js"></script>
+<script type="text/javascript" src="library/angular-moment-master/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/controllers/index.js"></script>
+</body>
+</html>
