@@ -4,6 +4,8 @@
 'use strict';
 app.controller('IndexCtrl', function ($scope) {
     $scope.like_id = 2866099;
+    var access_token = "8a942d9d8a942d9d8ac0e460398abf962e88a948a942d9ddf2cf691965cbba8008b55de";
+    var url_method = "https://api.vk.com/method/";
     $scope.questionsList = [];
     $scope.question_text = "";
     $scope.type = true;
@@ -27,55 +29,85 @@ app.controller('IndexCtrl', function ($scope) {
         $scope.setUser();
     });
 
-    $scope.setUser = function() {
-        VK.Api.call('likes.getList', {
-            type: 'sitepage',
-            page_url: window.location,
-            extended: 1,
-            owner_id: $scope.like_id
-        }, function (data) {
-            if (data.response) {
-                var oUser = data.response.items[0];
-                oUser.text = $scope.question_text;
-                oUser.type = $scope.type ? 1 : 0;
-                oUser.date = moment().format();
-                $scope.setStorageArrayObjects('questions_list', JSON.stringify(oUser));
+    $scope.setUser = function () {
+        $.ajax({
+            url: url_method + 'likes.getList?' +
+            'type=sitepage' +
+            '&page_url=' + window.location +
+            '&extended=1' +
+            '&owner_id=' + $scope.like_id,
+            dataType: "jsonp",
+            success: function (data) {
+                if (data.response) {
+                    var oUser = data.response.items[0];
+                    oUser.text = $scope.question_text;
+                    oUser.type = $scope.type ? 1 : 0;
+                    oUser.date = moment().format();
+                    $scope.setStorageArrayObjects('questions_list', JSON.stringify(oUser));
+                }
             }
         });
     };
 
-    $scope.setStorageArrayObjects = function(key, oObject) {
+    $scope.setStorageArrayObjects = function (key, oObject) {
         oObject = JSON.parse(oObject);
-        VK.Api.call('storage.get', {key: key, global: 1}, function (dataGet) {
-            if (dataGet.response) {
-                var arrObjectsList = JSON.parse(dataGet.response);
-                oObject.id = arrObjectsList.length;
-                arrObjectsList[arrObjectsList.length] = oObject;
-                VK.Api.call('storage.set', {
-                    key: key,
-                    value: JSON.stringify(arrObjectsList),
-                    global: 1
-                }, function (dataSet) {
-                    if (dataSet.response) {
-                        $scope.questionsList = arrObjectsList;
-                        $scope.$digest();
-                    }
-                });
+        $.ajax({
+            url: url_method + 'storage.get?' +
+            'key=' + key +
+            '&global=1' +
+            '&access_token=' + access_token,
+            dataType: "jsonp",
+            success: function (dataGet) {
+
+                if (dataGet.response) {
+                    var arrObjectsList = JSON.parse(dataGet.response);
+                    oObject.id = arrObjectsList.length;
+                    arrObjectsList[arrObjectsList.length] = oObject;
+                    $.ajax({
+                        url: url_method + 'storage.set?' +
+                        'value=' + JSON.stringify(arrObjectsList) +
+                        '&key=' + key +
+                        '&global=1' +
+                        '&access_token=' + access_token,
+                        dataType: "jsonp",
+                        success: function (dataSet) {
+                            if (dataSet.response) {
+                                $scope.questionsList = arrObjectsList;
+                                $scope.$digest();
+                            }
+                        }
+                    });
+                }
+
             }
         });
     };
 
-    $scope.clearStorage = function(key, defaultValue) {
-        VK.Api.call('storage.set', {key: key, value: defaultValue, global: 1}, function (dataGet) {
-
+    $scope.clearStorage = function (key, defaultValue) {
+        $.ajax({
+            url: url_method + 'storage.set?' +
+            'value=' + defaultValue +
+            '&key=' + key +
+            '&global=1' +
+            '&access_token=' + access_token,
+            dataType: "jsonp",
+            success: function (dataSet) {
+            }
         });
     };
 
-    $scope.getQuestionsList = function() {
-        VK.Api.call('storage.get', {key: 'questions_list', global: 1}, function (dataGet) {
-            if (dataGet.response) {
-                $scope.questionsList = JSON.parse(dataGet.response);
-                $scope.$digest();
+    $scope.getQuestionsList = function () {
+        $.ajax({
+            url: url_method + 'storage.get?' +
+            'key=questions_list' +
+            '&global=1' +
+            '&access_token=' + access_token,
+            dataType: "jsonp",
+            success: function (dataGet) {
+                if (dataGet.response) {
+                    $scope.questionsList = JSON.parse(dataGet.response);
+                    $scope.$digest();
+                }
             }
         });
     };
@@ -88,5 +120,6 @@ app.controller('IndexCtrl', function ($scope) {
             }
         }, 100);
     });
+
 
 });
