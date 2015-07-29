@@ -42,7 +42,7 @@ app.controller('IndexCtrl', function ($scope) {
                     var oUser = data.response.items[0];
                     oUser.text = $scope.question_text;
                     oUser.type = $scope.type ? 1 : 0;
-                    oUser.date = moment().format();
+                    oUser.date = moment().toISOString();
                     $scope.setStorageArrayObjects('questions_list', JSON.stringify(oUser));
                 }
             }

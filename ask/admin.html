@@ -80,6 +80,11 @@
                                         <i class="fa fa-refresh"></i> ОБНОВИТЬ СТРАНИЦУ
                                     </a>
                                 </li>
+                                <li class="sevice_url">
+                                    <a href="" ng-click="clearStorage('questions_list', '[]')" style="opacity: 0">
+                                        ОЧИСТИТЬ
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </header>
@@ -88,30 +93,6 @@
                             <aside>
                                 <section class="vbox">
                                     <section class="scrollable wrapper">
-                                        <div class="clearfix">
-                                            <section class="panel panel-info col-lg-6 no-padder">
-                                                    <textarea class="form-control no-border" ng-model="question_text"
-                                                              rows="2"
-                                                              placeholder="Введите вопрос..."></textarea>
-                                                <footer class="panel-footer bg-light lter" style="min-height: 40px;">
-                                                    <button class="btn btn-danger pull-right btn-sm font-bold btn-3d-vk">
-                                                        Задать вопрос
-                                                        <div class="vk_groups_btn">
-                                                            <div id="vk_groups"></div>
-                                                        </div>
-                                                    </button>
-                                                    <button class="btn btn-white pull-left btn-sm font-bold btn-3d"
-                                                            data-toggle="button" ng-click="typeCallback()">
-                                                            <span class="text">
-                                                                <i class="fa fa-thumbs-up text-success"></i> Положительный
-                                                            </span>
-                                                            <span class="text-active">
-                                                                <i class="fa fa-thumbs-down text-danger"></i> Негативный
-                                                            </span>
-                                                    </button>
-                                                </footer>
-                                            </section>
-                                        </div>
                                         <div class="btn-group m-b" data-toggle="buttons">
                                             <label class="btn btn-sm btn-white active"
                                                    ng-click="typeQuestionCallback('')">
@@ -141,7 +122,7 @@
                                                         <header>
                                                             <a href="#">
                                                                 <strong>
-                                                                    Анонимный вопрос
+                                                                    {{ question.first_name }} {{ question.last_name }}
                                                                 </strong>
                                                             </a>
                                                             <span class="text-muted text-xs"> {{ momentDate(question.date) }} </span>
