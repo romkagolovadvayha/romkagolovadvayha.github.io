@@ -112,24 +112,38 @@
                                                 </footer>
                                             </section>
                                         </div>
-                                        <div class="btn-group m-b" data-toggle="buttons">
-                                            <label class="btn btn-sm btn-white active"
-                                                   ng-click="typeQuestionCallback('')">
-                                                <input type="radio" name="options">
-                                                Все
-                                            </label>
-                                            <label class="btn btn-sm btn-white" ng-click="typeQuestionCallback(1)">
-                                                <input type="radio" name="options">
-                                                Положительные
-                                            </label>
-                                            <label class="btn btn-sm btn-white" ng-click="typeQuestionCallback(0)">
-                                                <input type="radio" name="options">
-                                                Негативные
-                                            </label>
+                                        <div class="row">
+                                            <div class="col-md-3" align="center">
+                                                <div class="btn-group m-b" data-toggle="buttons">
+                                                    <label class="btn btn-sm btn-white active"
+                                                           ng-click="typeQuestionCallback('')">
+                                                        <input type="radio" name="options">
+                                                        Все
+                                                    </label>
+                                                    <label class="btn btn-sm btn-white"
+                                                           ng-click="typeQuestionCallback(1)">
+                                                        <input type="radio" name="options">
+                                                        Положительные
+                                                    </label>
+                                                    <label class="btn btn-sm btn-white"
+                                                           ng-click="typeQuestionCallback(0)">
+                                                        <input type="radio" name="options">
+                                                        Негативные
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input ng-model="query" id="search"
+                                                       class="form-control" style="height: 30px;line-height: 30px;"
+                                                       placeholder="Поиск по записям...">
+                                            </div>
                                         </div>
                                         <section class="comment-list block">
 
-                                            <div ng-repeat="question in questionsList | orderBy:'-id' | filter: { type: typeQuestion }">
+                                            <div dir-paginate="question in questionsList
+                                                    | orderBy:'-id' | filter: {type: typeQuestion, text: query}
+                                                    | itemsPerPage: pageSize"
+                                                 current-page="currentPage">
                                                 <article id="comment-id-1" class="comment-item">
                                                     <span class="fa-stack pull-left m-l-xs">
                                                         <i class="fa fa-circle fa-stack-2x"
@@ -146,8 +160,10 @@
                                                             </a>
                                                             <span class="text-muted text-xs"> {{ momentDate(question.date) }} </span>
                                                         </header>
-                                                        <div>
-                                                            {{ question.text }}
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                {{ question.text }}
+                                                            </div>
                                                         </div>
                                                     </section>
                                                 </article>
@@ -163,71 +179,23 @@
                                                                 </a>
                                                                 <span class="text-muted text-xs"> 26 минут назад </span>
                                                             </header>
-                                                            <div> Morbi id neque quam. Aliquam.</div>
+                                                            <div>Ответы в разработке :)</div>
                                                         </section>
                                                     </article>
                                                 </article>
                                             </div>
-                                            <!--
-                                            <article id="comment-id-2" class="comment-item"><span
-                                                    class="fa-stack pull-left m-l-xs"> <i
-                                                    class="fa fa-circle text-danger fa-stack-2x"></i> <i
-                                                    class="fa fa-thumbs-down fa-stack-1x text-white"></i> </span>
-                                                <section class="comment-body m-b-lg">
-                                                    <header><a href="#"><strong>Jonathan</strong></a> completed a task
-                                                        <span class="text-muted text-xs"> 1 hour ago </span></header>
-                                                    <div>Consecteter adipiscing elit.</div>
-                                                </section>
-                                            </article>
-
-                                            <article id="comment-id-2" class="comment-reply">
-                                                <article class="comment-item"><a class="pull-left thumb-sm"> <img
-                                                        src="https://hsto.org/getpro/habr/avatars/949/d5b/616/949d5b61677e39863cb808ce84103c2d.jpg"
-                                                        class="img-circle"> </a>
-                                                    <section class="comment-body m-b-lg">
-                                                        <header><a href="#"><strong>Роман Мещеряков</strong></a> <span
-                                                                class="text-muted text-xs"> 26 минут назад </span>
-                                                        </header>
-                                                        <div> Morbi id neque quam. Aliquam.</div>
-                                                    </section>
-                                                </article>
-                                            </article>
-
-
-
-                                            <article id="comment-id-1" class="comment-item"><span
-                                                    class="fa-stack pull-left m-l-xs"> <i
-                                                    class="fa fa-circle text-success fa-stack-2x"></i> <i
-                                                    class="fa fa-thumbs-up fa-stack-1x text-white"></i> </span>
-                                                <section class="comment-body m-b-lg">
-                                                    <header><a href="#"><strong>John smith</strong></a> shared a <a
-                                                            href="#" class="text-info">video</a> to you <span
-                                                            class="text-muted text-xs"> 24 minutes ago </span></header>
-                                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                                                        id neque quam.
-                                                    </div>
-                                                </section>
-                                            </article>
-
-                                            <article id="comment-id-2" class="comment-reply">
-                                                <article class="comment-item"><a class="pull-left thumb-sm"> <img
-                                                        src="https://hsto.org/getpro/habr/avatars/949/d5b/616/949d5b61677e39863cb808ce84103c2d.jpg"
-                                                        class="img-circle"> </a>
-                                                    <section class="comment-body m-b-lg">
-                                                        <header><a href="#"><strong>Роман Мещеряков</strong></a> <span
-                                                                class="text-muted text-xs"> 26 минут назад </span>
-                                                        </header>
-                                                        <div> Morbi id neque quam. Aliquam.</div>
-                                                    </section>
-                                                </article>
-                                            </article>
-                                            <!-- / .comment-reply -->
+                                            <div class="animate-repeat" class="animate-repeat"
+                                                 ng-show="(questionsList | filter: {type: typeQuestion, text: query}).length == 0">
+                                                Ничего не найдено!
+                                            </div>
 
                                         </section>
 
+                                        <dir-pagination-controls boundary-links="true"
+                                                                 template-url="library/angularUtils-master/src/directives/pagination/dirPagination.tpl.html"></dir-pagination-controls>
 
-                                        <a href="#" class="btn btn-white btn-sm"><i class="fa fa-plus icon-muted"></i>
-                                            more</a></section>
+
+                                    </section>
                                 </section>
                             </aside>
                         </section>
@@ -240,10 +208,11 @@
 </section>
 
 <script type="text/javascript" src="library/jquery/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="library/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="library/angularjs-1.4.2/angular.min.js"></script>
+<script type="text/javascript" src="library/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="library/angularjs-1.4.2/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="library/angularjs-1.4.2/angular-animate.min.js"></script>
+<script type="text/javascript" src="library/angularjs-1.4.2/angular-animate.js"></script>
+<script type="text/javascript" src="library/angularUtils-master/src/directives/pagination/dirPagination.js"></script>
 <script type="text/javascript" src="library/angular-moment-master/moment-with-locales.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/controllers/index.js"></script>

@@ -3,11 +3,13 @@
  */
 'use strict';
 app.controller('IndexCtrl', function ($scope) {
-    $scope.like_id = 2866099;
+    var like_id = 2866099;
     var url_method = "http://ca59531.tmweb.ru/";
     $scope.questionsList = [];
     $scope.question_text = "";
     $scope.type = true;
+    $scope.currentPage = 1;
+    $scope.pageSize = 3;
 
     $scope.typeQuestion = "";
     $scope.typeQuestionCallback = function (filter) {
@@ -34,7 +36,7 @@ app.controller('IndexCtrl', function ($scope) {
             'type=sitepage' +
             '&page_url=' + window.location +
             '&extended=1' +
-            '&owner_id=' + $scope.like_id,
+            '&owner_id=' + like_id,
             dataType: "jsonp",
             success: function (data) {
                 if (data.response) {
@@ -53,8 +55,7 @@ app.controller('IndexCtrl', function ($scope) {
         $.ajax({
             url: url_method + 'storage.get?' +
             'key=' + key +
-            '&global=1' +
-            '&access_token=' + access_token,
+            '&global=1',
             dataType: "jsonp",
             success: function (dataGet) {
 
@@ -66,8 +67,7 @@ app.controller('IndexCtrl', function ($scope) {
                         url: url_method + 'storage.set?' +
                         'value=' + JSON.stringify(arrObjectsList) +
                         '&key=' + key +
-                        '&global=1' +
-                        '&access_token=' + access_token,
+                        '&global=1',
                         dataType: "jsonp",
                         success: function (dataSet) {
                             if (dataSet.response) {
@@ -87,8 +87,7 @@ app.controller('IndexCtrl', function ($scope) {
             url: url_method + 'storage.set?' +
             'value=' + defaultValue +
             '&key=' + key +
-            '&global=1' +
-            '&access_token=' + access_token,
+            '&global=1',
             dataType: "jsonp",
             success: function (dataSet) {
             }
@@ -100,8 +99,7 @@ app.controller('IndexCtrl', function ($scope) {
         $.ajax({
             url: url_method + 'storage.get?' +
             'key=questions_list' +
-            '&global=1' +
-            '&access_token=' + access_token,
+            '&global=1',
             dataType: "jsonp",
             success: function (dataGet) {
                 if (dataGet.response) {
@@ -110,7 +108,6 @@ app.controller('IndexCtrl', function ($scope) {
                 }
             }
         });
-
 
     };
     $scope.getQuestionsList();
