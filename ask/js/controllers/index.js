@@ -4,7 +4,6 @@
 'use strict';
 app.controller('IndexCtrl', function ($scope) {
     $scope.like_id = 2866099;
-    var access_token = "8a942d9d8a942d9d8ac0e460398abf962e88a948a942d9ddf2cf691965cbba8008b55de";
     var url_method = "http://ca59531.tmweb.ru/";
     $scope.questionsList = [];
     $scope.question_text = "";
@@ -52,7 +51,7 @@ app.controller('IndexCtrl', function ($scope) {
     $scope.setStorageArrayObjects = function (key, oObject) {
         oObject = JSON.parse(oObject);
         $.ajax({
-            url: url_method + 'storage.get/index.php?' +
+            url: url_method + 'storage.get?' +
             'key=' + key +
             '&global=1' +
             '&access_token=' + access_token,
@@ -64,7 +63,7 @@ app.controller('IndexCtrl', function ($scope) {
                     oObject.id = arrObjectsList.length;
                     arrObjectsList[arrObjectsList.length] = oObject;
                     $.ajax({
-                        url: url_method + 'storage.set/index.php?' +
+                        url: url_method + 'storage.set?' +
                         'value=' + JSON.stringify(arrObjectsList) +
                         '&key=' + key +
                         '&global=1' +
@@ -85,7 +84,7 @@ app.controller('IndexCtrl', function ($scope) {
 
     $scope.clearStorage = function (key, defaultValue) {
         $.ajax({
-            url: url_method + 'storage.set/index.php?' +
+            url: url_method + 'storage.set?' +
             'value=' + defaultValue +
             '&key=' + key +
             '&global=1' +
@@ -97,37 +96,20 @@ app.controller('IndexCtrl', function ($scope) {
     };
 
     $scope.getQuestionsList = function () {
-        /*$.ajax({
-            url: 'https://oauth.vk.com/access_token?' +
-            'client_id=2866099' +
-            '&client_secret=Zxw7PZQMVV9SP0oTABVS' +
-            '&v=3' +
-            '&grant_type=client_credentials',
-            dataType: "jsonp",
-            success: function (data) {
-                alert(data);
-                //access_token = data.response.access_token;
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.log(jqXHR);
-                console.log(textStatus);
-                console.log(errorThrown);
-            }
-        });*/
 
         $.ajax({
-         url: url_method + 'storage.get/index.php?' +
-         'key=questions_list' +
-         '&global=1' +
-         '&access_token=' + access_token,
-         dataType: "jsonp",
-         success: function (dataGet) {
-         if (dataGet.response) {
-         $scope.questionsList = JSON.parse(dataGet.response);
-         $scope.$digest();
-         }
-         }
-         });
+            url: url_method + 'storage.get?' +
+            'key=questions_list' +
+            '&global=1' +
+            '&access_token=' + access_token,
+            dataType: "jsonp",
+            success: function (dataGet) {
+                if (dataGet.response) {
+                    $scope.questionsList = JSON.parse(dataGet.response);
+                    $scope.$digest();
+                }
+            }
+        });
 
 
     };
