@@ -20,6 +20,7 @@
     <link href="library/angular-chart.js-master/dist/angular-chart.css" rel="stylesheet">
     <link href="library/angular-loading-bar-master/build/loading-bar.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="//daneden.github.io/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- OPEN API VK -->
     <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
@@ -34,7 +35,7 @@
 
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="row block" ng-hide="form_post && !error_post">
+                <div class="row block bounce animated" ng-hide="form_post && !error_post">
                     <div class="icon_vk">
                         <i class="fa fa-vk"></i>
                     </div>
@@ -123,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row block" ng-show="form_post && !error_post">
+                <div class="row block bounce animated" ng-show="form_post && !error_post">
                     <div class="icon_vk">
                         <i class="fa fa-vk"></i>
                     </div>
