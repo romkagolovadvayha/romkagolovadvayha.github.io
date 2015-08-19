@@ -75,18 +75,18 @@
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-12" align="center">
                             <div class="input-group" style="float:left;margin-right: 10px;">
-                                <select name="country" class="form-control">
-                                    <option value="0">Любая страна</option>
-                                    <option value="1">Россия</option>
-                                    <option value="2">Украина</option>
-                                    <option value="3">Беларусь</option>
+                                <select name="country" class="form-control" ng-model="country">
+                                    <option value="Любая">Любая страна</option>
+                                    <option value="Россия">Россия</option>
+                                    <option value="Украина">Украина</option>
+                                    <option value="Беларусь">Беларусь</option>
                                 </select>
                             </div>
                             <div class="input-group" style="float:left;margin-right: 10px;">
-                                <select name="sex" class="form-control">
-                                    <option value="0">Любой пол</option>
-                                    <option value="1">Мужской</option>
-                                    <option value="2">Женский</option>
+                                <select name="sex" class="form-control" ng-model="sex">
+                                    <option value="Любой">Любой пол</option>
+                                    <option value="Мужской">Мужской</option>
+                                    <option value="Женский">Женский</option>
                                 </select>
                             </div>
                             <div class="input-group hi" style="text-align: left;">
@@ -131,8 +131,12 @@
                         <i class="fa fa-line-chart"></i>
                     </div>
                     Ссылка на группу: {{ groupUrl }}<br>
-                    Количество участников: {{ count_members }}<br>
-                    Сумма к оплате: {{ price.member * ((count_members) ? count_members : 0) }}<br>
+                    Количество участников: {{ count_members }}<br><br>
+                    <b>Критерии:</b><br>
+                    Страна: {{ country }}<br>
+                    Пол: {{ sex }}<br>
+                    <br>
+                    Сумма к оплате: {{ price.member * ((count_members) ? count_members : 0) }} рублей.
                 </div>
                 <div class="right_il">
                     <h2>Правила для групп</h2>

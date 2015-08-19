@@ -8,6 +8,9 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
     $scope.error_post = false;
     $scope.count_members = 1000;
 
+    $scope.country = "Любая";
+    $scope.sex = "Любой";
+
     $scope.price = {
         member: 3 / 100,
         sex: 2 / 100,
