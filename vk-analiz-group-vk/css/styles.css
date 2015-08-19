@@ -1,0 +1,54 @@
+.alert-success.alert-dismissible {
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 0;
+}
+
+.alert-success.alert-dismissible .media {
+    margin: 0;
+    color: #fff;
+}
+
+.alert-success.alert-dismissible .media .img {
+    border: 1px solid #1A663A;
+}
+
+.alert-success {
+    background-color: #2ecc71;
+    border-color: #29b865;
+    color: #fff;
+    border-radius: 0;
+}
+
+.alert-success.alert-dismissible .close {
+    color: #ecf0f1;
+    text-shadow: none;
+    right: 3px;
+    filter: alpha(opacity=100);
+    opacity: 1;
+    outline: none;
+}
+
+.alert-success.alert-dismissible .close:hover {
+    color: #fff;
+}
+
+.form-control, .btn-default, .form-control:focus, .btn-default:focus, .btn-default:active, .form-control:active {
+    border-radius: 0;
+    outline: none;
+}
+
+.btn-default:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.alert-danger {
+    border-radius: 0;
+}
+
+.ng-toast .alert-success {
+    text-transform: uppercase;
+    font-size: 12px;
+}

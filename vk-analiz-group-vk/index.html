@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html ng-app="application">
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>Статистика пользователей группы</title>
+
+    <!-- Seo -->
+    <meta name="description"
+          content="Анализ участников группы в режиме онлайн">
+    <meta name="keywords"
+          content="Онлайн с телефонов, онлайн участники, активные пользователи">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <!-- CSS БИБЛИОТЕКИ -->
+    <link href="library/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="library/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="library/ngToast-master/dist/ngToast.min.css" rel="stylesheet">
+    <link href="library/angular-chart.js-master/dist/angular-chart.css" rel="stylesheet">
+    <link href="library/angular-loading-bar-master/build/loading-bar.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- OPEN API VK -->
+    <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+
+</head>
+<body ng-controller="OnlineMemberCtrl">
+<toast></toast>
+<header>
+    <div class="container" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="input-group">
+                        <input type="text" class="form-control"
+                               ng-model="groupUrl"
+                               ng-disabled="groupFormActive"
+                               placeholder="Введите ссылку на группу...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"
+                            ng-disabled="groupFormActive"
+                            ng-click="startVK()">Старт
+                    </button>
+                </span>
+                    </div>
+                    <div class="alert alert-success alert-dismissible" ng-show="groupFormActive">
+                        <button type="button" class="close" ng-click="reset()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="media">
+                            <div class="media-left">
+                                <div class="img">
+                                    <a href="https://vk.com/{{ group.screen_name }}" target="_blank">
+                                        <img class="media-object" ng-src="{{ group.photo_50 }}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <strong>{{ group.name }}</strong><br/>
+                                Участников: {{ group.members_count }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" align="center">
+                    <div class="col-md-6">
+                        <h2>Были на сайте:</h2>
+                        <canvas class="chart chart-doughnut" data="dataMembersLastSeenTime"
+                                labels="labelsMembersLastSeenTime"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>Страны:</h2>
+                        <canvas class="chart chart-doughnut" data="dataMembersCountry"
+                                labels="labelsMembersCountry"></canvas>
+                    </div>
+                </div>
+                <div class="row" align="center">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <h2>Активные:</h2>
+                        <canvas class="chart chart-PolarArea" data="dataMembersDeactivated"
+                                labels="labelsMembersDeactivated"></canvas>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <canvas options="options" class="chart chart-line" data="data"
+                                labels="labels" legend="true" series="series" colours="colours">
+                        </canvas>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <canvas options="optionsMobile" class="chart chart-line" data="dataMobile"
+                                labels="labelsMobile" legend="true" series="seriesMobile" colours="coloursMobile">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- JS БИБЛИОТЕКИ -->
+<script src="library/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script src="library/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+<!-- ANGULARJS -->
+<script src="library/angularjs-1.4.2/angular.min.js"></script>
+<script src="library/angularjs-1.4.2/angular-sanitize.min.js"></script>
+<script src="library/angularjs-1.4.2/angular-animate.min.js"></script>
+<script src="library/Chart.js-master/Chart.min.js"></script>
+<script src="library/angular-chart.js-master/dist/angular-chart.min.js"></script>
+<script src="library/ngToast-master/dist/ngToast.min.js"></script>
+<script src="library/angular-loading-bar-master/build/loading-bar.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/controller/onlineMember.js"></script>
+</body>
+</html>
