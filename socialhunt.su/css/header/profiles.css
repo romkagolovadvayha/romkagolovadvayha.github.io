@@ -1,0 +1,146 @@
+header .profiles {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    right: 40px;
+    top: 200px;
+}
+
+/* Float 2 */
+@-webkit-keyframes floating2 {
+    from {
+        -webkit-transform: translate(0, 0px);
+    }
+    55% {
+        -webkit-transform: translate(5px, 10px);
+    }
+    to {
+        -webkit-transform: translate(0, -0px);
+    }
+}
+
+@-moz-keyframes floating2 {
+    from {
+        -moz-transform: translate(0, 0px);
+    }
+    65% {
+        -moz-transform: translate(5px, 10px);
+    }
+    to {
+        -moz-transform: translate(0, -0px);
+    }
+}
+
+@-o-keyframes floating2 {
+    from {
+        -o-transform: translate(0, 0px);
+    }
+    65% {
+        -o-transform: translate(5px, 10px);
+    }
+    to {
+        -o-transform: translate(0, -0px);
+    }
+}
+
+@keyframes floating2 {
+    from {
+        transform: translate(0, 0px);
+    }
+    65% {
+        transform: translate(5px, 10px);
+    }
+    to {
+        transform: translate(0, -0px);
+    }
+}
+
+.si-floating2 {
+    -webkit-animation: floating2 infinite ease-in-out 3s;
+    -moz-animation: floating2 infinite ease-in-out 3s;
+    -o-animation: floating2 infinite ease-in-out 3s;
+    animation: floating2 infinite ease-in-out 3s;
+}
+
+/* Float 3 */
+@-webkit-keyframes floating3 {
+    from {
+        -webkit-transform: translate(0, 0px);
+    }
+    55% {
+        -webkit-transform: translate(0px, 10px);
+    }
+    to {
+        -webkit-transform: translate(0, -0px);
+    }
+}
+
+@-moz-keyframes floating3 {
+    from {
+        -moz-transform: translate(0, 0px);
+    }
+    65% {
+        -moz-transform: translate(0px, 10px);
+    }
+    to {
+        -moz-transform: translate(0, -0px);
+    }
+}
+
+@-o-keyframes floating3 {
+    from {
+        -o-transform: translate(0, 0px);
+    }
+    65% {
+        -o-transform: translate(0px, 10px);
+    }
+    to {
+        -o-transform: translate(0, -0px);
+    }
+}
+
+@keyframes floating3 {
+    from {
+        transform: translate(0, 0px);
+    }
+    65% {
+        transform: translate(0px, 10px);
+    }
+    to {
+        transform: translate(0, -0px);
+    }
+}
+
+.si-floating3 {
+    -webkit-animation: floating3 infinite ease-in-out 3s;
+    -moz-animation: floating3 infinite ease-in-out 3s;
+    -o-animation: floating3 infinite ease-in-out 3s;
+    animation: floating3 infinite ease-in-out 3s;
+}
+
+header .profiles .arrow {
+    font-family: PWNewArrows;
+    font-size: 120px;
+    color: #fff;
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+}
+
+header .profiles .profile_1 {
+    position: absolute;
+    width: 212px;
+    height: 144px;
+    left: 0;
+    top: 30px;
+    background: url(../../images/header/profiles/1.png);
+}
+
+header .profiles .profile_2 {
+    position: absolute;
+    width: 216px;
+    height: 135px;
+    right: 0;
+    background: url(../../images/header/profiles/2.png);
+}
