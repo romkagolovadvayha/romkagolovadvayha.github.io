@@ -1,0 +1,44 @@
+header .info .button {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'PT Sans', sans-serif;
+    text-align: center;
+    position: relative;
+    width: 237px;
+    line-height: 40px;
+    text-transform: uppercase;
+    border: 3px solid #FFF;
+    background-color: rgba(255, 255, 255, 0.22);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+header .info .button:hover {
+    background-color: rgba(255, 255, 255, 0.52);
+    transition: 0.2s;
+}
+
+header .info .button .shadow {
+    background: url(../../images/button_shadow.png);
+    width: 302px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -151px;
+    bottom: -15px;
+}
+
+header .info .phone {
+    margin-top: 0;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    font-family: 'PT Sans Narrow', sans-serif;
+    text-align: center;
+    position: relative;
+    width: 180px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
