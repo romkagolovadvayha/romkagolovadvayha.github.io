@@ -19,6 +19,7 @@ header ul li {
     display: inline-block;
     margin-right: 70px;
     text-align: left;
+    float: right;
 }
 
 header ul li span {
