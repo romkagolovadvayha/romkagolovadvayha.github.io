@@ -52,14 +52,18 @@ header .info .logo h2 {
 }
 
 header .info h3 {
-    width: 500px;
+    width: 540px;
     margin-top: -60px;
     font-weight: bold;
     font-family: 'PT Sans Narrow', sans-serif;
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
     position: relative;
     z-index: 1;
+}
+
+header .info h3 span {
+    display: block;
 }
 
 header .info p {
