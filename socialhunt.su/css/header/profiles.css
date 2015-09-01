@@ -125,7 +125,7 @@ header .profiles .arrow {
     transform: rotate(180deg);
     position: absolute;
     bottom: -100px;
-    left: -100px;
+    left: -60px;
 }
 
 header .profiles .profile_1 {

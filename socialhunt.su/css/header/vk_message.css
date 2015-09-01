@@ -1,6 +1,6 @@
 header .vk_message {
     background-color: rgb(255, 255, 255);
-    width: 450px;
+    width: 330px;
     height: 95px;
     position: absolute;
     bottom: 157px;
@@ -12,7 +12,7 @@ header .vk_message {
 }
 
 header .vk_message .title {
-    width: 330px;
+    width: 450px;
     font-size: 24px;
     font-family: 'PT Sans Narrow', tahoma, arial, verdana, sans-serif, Lucida Sans;
     color: #fff;
@@ -72,7 +72,7 @@ header .vk_message .im_editable {
 }
 
 header .vk_message .answer {
-    left: -140px;
+    left: -145px;
     bottom: -70px;
     position: absolute;
     transform: rotate(-50deg);
