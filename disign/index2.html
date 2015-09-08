@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Web Application | todo</title>
+    <meta name="description"
+          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/app.v2.css" type="text/css"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/font.css" type="text/css" cache="false"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src="http://flatfull.com/themes/todo/js/ie/respond.min.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/html5.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/excanvas.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/fix.js" cache="false"></script> <![endif]--></head>
+<body>
+<section class="hbox stretch"> <!-- .aside -->
+    <aside class="bg-dark aside-sm" id="nav">
+        <section class="vbox">
+            <header class="dker nav-bar"><a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen"
+                                            data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#"
+                                                                                                   class="nav-brand"
+                                                                                                   data-toggle="fullscreen">Название</a>
+                <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"> <i
+                        class="fa fa-comment-o"></i> </a></header>
+            <section>
+                <div class="lter nav-user hidden-xs pos-rlt">
+                    <div class="nav-avatar pos-rlt"><a href="#" class="thumb-sm avatar animated rollIn"
+                                                       data-toggle="dropdown"> <img
+                            src="http://flatfull.com/themes/todo/images/avatar.jpg" alt=""
+                            class=""> <span
+                            class="caret caret-white"></span> </a>
+                        <ul class="dropdown-menu m-t-sm"><span class="arrow top"></span>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="profile.html">Профиль</a></li>
+                            <li><a href="#"> <span class="badge bg-danger pull-right">3</span> Уведомления </a></li>
+                            <li class="divider"></li>
+                            <li><a href="docs.html">Помощь</a></li>
+                            <li><a href="signin.html">Выход</a></li>
+                        </ul>
+                        <div class="visible-xs m-t m-b"><a href="#" class="h3">Андрей Попов</a>
+
+                            <p><i class="fa fa-map-marker"></i> Ижевск, Россия</p></div>
+                    </div>
+                    <div class="nav-msg"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
+                            class="badge badge-white count-n">1</b> </a>
+                        <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                            <div class="arrow left"></div>
+                            <section class="panel bg-white">
+                                <header class="panel-heading"><strong>У вас <span class="count-n">1</span>
+                                    сообщения</strong></header>
+                                <div class="list-group"><a href="#" class="media list-group-item"> <span
+                                        class="pull-left thumb-sm"> <img
+                                        src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                                        class="img-circle"> </span> <span
+                                        class="media-body block m-b-none"> Сегодня вы должны обзвонить 28 человек<br> <small
+                                        class="text-muted">08 сентября 2015
+                                </small> </span> </a></div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+                <nav class="nav-primary hidden-xs">
+                    <ul class="nav">
+                        <li class="dropdown-submenu active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-newspaper-o"></i> <span>Дашборд</span> </a>
+                        </li>
+                        <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                class="fa fa-file-text"></i> <span>Клиенты</span> </a>
+                        </li>
+                        <li><a href=""> <b class="badge bg-primary pull-right">3</b> <i
+                                class="fa fa-envelope-o"></i> <span>Почта</span> </a></li>
+                        <li><a href="notes.html"> <i class="fa fa-pencil"></i> <span>Заметки</span> </a></li>
+                    </ul>
+                </nav>
+            </section>
+            <footer class="footer bg-gradient hidden-xs"><a href="modal.lockme.html" data-toggle="ajaxModal"
+                                                            class="btn btn-sm btn-link m-r-n-xs pull-right"> <i
+                    class="fa fa-power-off"></i> </a> <a href="#nav" data-toggle="class:nav-vertical"
+                                                         class="btn btn-sm btn-link m-l-n-sm"> <i
+                    class="fa fa-bars"></i> </a></footer>
+        </section>
+    </aside>
+    <!-- /.aside --> <!-- .vbox -->
+    <section id="content">
+        <section class="hbox stretch">
+            <aside class="aside bg-white b-r" id="subNav">
+                <div class="wrapper b-b font-bold">Категории товаров</div>
+                <ul class="nav">
+                    <li class="b-b"><a href="#">Гостиница</a></li>
+                    <li class="b-b"><a href="#">Автозавод</a></li>
+                    <li class="b-b"><a href="#">Кафе</a></li>
+                    <li class="b-b"><a href="#">Столовая</a></li>
+                    <li class="b-b"><a href="#">Магазин продуктов</a></li>
+                    <li class="b-b"><a href="#">Пиццерия</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <section class="vbox">
+                    <header class="header bg-white b-b clearfix">
+                        <div class="row m-t-sm">
+                            <div class="col-sm-6 m-b-xs"><a href="#subNav" data-toggle="class:hide"
+                                                            class="btn btn-sm btn-info active"><i
+                                    class="fa fa-caret-right text fa fa-large"></i><i
+                                    class="fa fa-caret-left text-active fa fa-large"></i></a> <a href="#"
+                                                                                                 class="btn btn-sm btn-success"><i
+                                    class="fa fa-plus"></i> Категорию</a>
+                                <a href="#"
+                                    class="btn btn-sm btn-success"><i
+                                    class="fa fa-plus"></i> Товар</a></div>
+                            <div class="col-sm-6 m-b-xs">
+                                <div class="input-group"><input type="text" class="input-sm form-control"
+                                                                placeholder="Поиск по товарам"> <span class="input-group-btn"> <button
+                                        class="btn btn-sm btn-white" type="button">Искать
+                                </button> </span></div>
+                            </div>
+                        </div>
+                    </header>
+                    <section class="scrollable wrapper w-f">
+                        <section class="panel">
+                            <div class="table-responsive">
+                                <table class="table table-striped m-b-none">
+                                    <thead>
+                                    <tr>
+                                        <th width="20"><input type="checkbox"></th>
+                                        <th width="20"></th>
+                                        <th class="th-sortable" data-toggle="class">Наименование <span class="th-sort"> <i
+                                                class="fa fa-sort-down text"></i> <i
+                                                class="fa fa-sort-up text-active"></i> <i
+                                                class="fa fa-sort"></i> </span></th>
+                                        <th>Продаж</th>
+                                        <th>Дата</th>
+                                        <th width="30"></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="checkbox" name="post[]" value="5"></td>
+                                        <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a>
+                                        </td>
+                                        <td>Ёршик туалетный</td>
+                                        <td>291</td>
+                                        <td>01.09.2015</td>
+                                        <td><a href="#" class="active" data-toggle="class"><i
+                                                class="fa fa-check text-success text-active"></i><i
+                                                class="fa fa-times text-danger text"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="post[]" value="6"></td>
+                                        <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a>
+                                        </td>
+                                        <td>Освежитель воздуха</td>
+                                        <td>8</td>
+                                        <td>02.09.2015</td>
+                                        <td><a href="#" class="active" data-toggle="class"><i
+                                                class="fa fa-check text-success text-active"></i><i
+                                                class="fa fa-times text-danger text"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="post[]" value="7"></td>
+                                        <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a>
+                                        </td>
+                                        <td>Салфетки Plus</td>
+                                        <td>23</td>
+                                        <td>01.09.2015</td>
+                                        <td><a href="#" class="active" data-toggle="class"><i
+                                                class="fa fa-check text-success text-active"></i><i
+                                                class="fa fa-times text-danger text"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" name="post[]" value="8"></td>
+                                        <td><a href="#modal" data-toggle="modal"><i class="fa fa-search-plus"></i></a>
+                                        </td>
+                                        <td>Спрей Videodown</td>
+                                        <td>21</td>
+                                        <td>02.09.2015</td>
+                                        <td><a href="#" class="active" data-toggle="class"><i
+                                                class="fa fa-check text-success text-active"></i><i
+                                                class="fa fa-times text-danger text"></i></a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </section>
+                    <footer class="footer bg-white b-t">
+                        <div class="row m-t-sm text-center-xs">
+                            <div class="col-sm-4">
+                                <!--<select class="input-sm form-control input-s-sm inline">-->
+                                <!--<option value="0">Bulk action</option>-->
+                                <!--<option value="1">Delete selected</option>-->
+                                <!--<option value="2">Bulk edit</option>-->
+                                <!--<option value="3">Export</option>-->
+                                <!--</select>-->
+                                <!--<button class="btn btn-sm btn-white">Apply</button>-->
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <small class="text-muted inline m-t-sm m-b-sm">6 из 5 242 товаров</small>
+                            </div>
+                            <!--<div class="col-sm-4 text-right text-center-xs">-->
+                                <!--<ul class="pagination pagination-sm m-t-none m-b-none">-->
+                                    <!--<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>-->
+                                    <!--<li><a href="#">1</a></li>-->
+                                    <!--<li><a href="#">2</a></li>-->
+                                    <!--<li><a href="#">3</a></li>-->
+                                    <!--<li><a href="#">4</a></li>-->
+                                    <!--<li><a href="#">5</a></li>-->
+                                    <!--<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        </div>
+                    </footer>
+                </section>
+            </aside>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
+    <!-- /.vbox --> </section>
+<script src="http://flatfull.com/themes/todo/js/app.v2.js"></script>
+<!-- Bootstrap --> <!-- App -->
+<script src="http://flatfull.com/themes/todo/js/slimscroll/jquery.slimscroll.min.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/libs/moment.min.js"></script>
+</body>
+</html>
