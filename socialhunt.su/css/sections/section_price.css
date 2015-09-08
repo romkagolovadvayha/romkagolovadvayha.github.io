@@ -1,0 +1,57 @@
+.section_price {
+    min-width: 1000px;
+    width: 100%;
+    padding-bottom: 60px;
+    margin-top: -13px;
+    background-color: #fff;
+    z-index: 2;
+    position: relative;
+}
+
+.section_price .container {
+    min-width: 1000px;
+}
+
+.section_price ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.section_price ul li {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    font-family: 'PT Sans', tahoma, arial, verdana, sans-serif, Lucida Sans;
+    list-style: none;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 35px;
+    margin-left: 35px;
+    text-align: center;
+    /*border-radius: 8px 15px;*/
+    /*box-shadow: 1px 1px 0 #d35400;*/
+    background-color: #e98b39;
+    border: 1px solid #d35400;
+    width: 250px;
+    height: 400px;
+}
+
+.section_price ul li span {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-size: 30px;
+    display: block;
+    font-weight: bold;
+    font-family: 'PT Sans', tahoma, arial, verdana, sans-serif, Lucida Sans;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+    /*border: 1px solid #000;*/
+    margin-bottom: 10px;
+}

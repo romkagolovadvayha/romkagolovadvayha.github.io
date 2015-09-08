@@ -83,7 +83,7 @@ header .profiles {
         -moz-transform: translate(0px, 10px);
     }
     to {
-        -moz-transform: translate(0, -0px);
+        -moz-transform: translate(0, 0);
     }
 }
 
@@ -95,7 +95,7 @@ header .profiles {
         -o-transform: translate(0px, 10px);
     }
     to {
-        -o-transform: translate(0, -0px);
+        -o-transform: translate(0, 0);
     }
 }
 
@@ -107,7 +107,7 @@ header .profiles {
         transform: translate(0px, 10px);
     }
     to {
-        transform: translate(0, -0px);
+        transform: translate(0, 0);
     }
 }
 

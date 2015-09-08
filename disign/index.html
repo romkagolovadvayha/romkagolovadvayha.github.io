@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Web Application | todo</title>
+    <meta name="description"
+          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/app.v2.css" type="text/css"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/font.css" type="text/css" cache="false"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src="http://flatfull.com/themes/todo/js/ie/respond.min.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/html5.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/excanvas.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/fix.js" cache="false"></script> <![endif]--></head>
+<body>
+<section class="hbox stretch"> <!-- .aside -->
+    <aside class="bg-dark aside-sm" id="nav">
+        <section class="vbox">
+            <header class="dker nav-bar"><a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen"
+                                            data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#"
+                                                                                                   class="nav-brand"
+                                                                                                   data-toggle="fullscreen">Название</a>
+                <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"> <i
+                        class="fa fa-comment-o"></i> </a></header>
+            <section>
+                <div class="lter nav-user hidden-xs pos-rlt">
+                    <div class="nav-avatar pos-rlt"><a href="#" class="thumb-sm avatar animated rollIn"
+                                                       data-toggle="dropdown"> <img src="http://flatfull.com/themes/todo/images/avatar.jpg" alt=""
+                                                                                    class=""> <span
+                            class="caret caret-white"></span> </a>
+                        <ul class="dropdown-menu m-t-sm"><span class="arrow top"></span>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="profile.html">Профиль</a></li>
+                            <li><a href="#"> <span class="badge bg-danger pull-right">3</span> Уведомления </a></li>
+                            <li class="divider"></li>
+                            <li><a href="docs.html">Помощь</a></li>
+                            <li><a href="signin.html">Выход</a></li>
+                        </ul>
+                        <div class="visible-xs m-t m-b"><a href="#" class="h3">Андрей Попов</a>
+
+                            <p><i class="fa fa-map-marker"></i> Ижевск, Россия</p></div>
+                    </div>
+                    <div class="nav-msg"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
+                            class="badge badge-white count-n">1</b> </a>
+                        <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                            <div class="arrow left"></div>
+                            <section class="panel bg-white">
+                                <header class="panel-heading"><strong>У вас <span class="count-n">1</span>
+                                    сообщения</strong></header>
+                                <div class="list-group"><a href="#" class="media list-group-item"> <span
+                                        class="pull-left thumb-sm"> <img src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                                                                         class="img-circle"> </span> <span
+                                        class="media-body block m-b-none"> Сегодня вы должны обзвонить 28 человек<br> <small
+                                        class="text-muted">08 сентября 2015
+                                </small> </span> </a></div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+                <nav class="nav-primary hidden-xs">
+                    <ul class="nav">
+                        <li class="dropdown-submenu active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-newspaper-o"></i> <span>Дашборд</span> </a>
+                        </li>
+                        <li class="dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
+                                class="fa fa-file-text"></i> <span>Клиенты</span> </a>
+                        </li>
+                        <li><a href=""> <b class="badge bg-primary pull-right">3</b> <i
+                                class="fa fa-envelope-o"></i> <span>Почта</span> </a></li>
+                        <li><a href="notes.html"> <i class="fa fa-pencil"></i> <span>Заметки</span> </a></li>
+                    </ul>
+                </nav>
+            </section>
+            <footer class="footer bg-gradient hidden-xs"><a href="modal.lockme.html" data-toggle="ajaxModal"
+                                                            class="btn btn-sm btn-link m-r-n-xs pull-right"> <i
+                    class="fa fa-power-off"></i> </a> <a href="#nav" data-toggle="class:nav-vertical"
+                                                         class="btn btn-sm btn-link m-l-n-sm"> <i
+                    class="fa fa-bars"></i> </a></footer>
+        </section>
+    </aside>
+    <!-- /.aside --> <!-- .vbox -->
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-light dker bg-gradient"><p>Дашборд</p></header>
+            <section class="scrollable">
+                <div class="slim-scroll wrapper" data-height="auto" data-disable-fade-out="true" data-distance="0">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <section class="panel">
+                                        <header class="panel-heading bg-primary lter no-borders">
+                                            <div class="clearfix"><a href="#" class="pull-left thumb avatar border m-r">
+                                                <img src="http://flatfull.com/themes/todo/images/avatar.jpg" class="img-circle"> </a>
+
+                                                <div class="clear">
+                                                    <div class="h3 m-t-xs m-b-xs">Андрей Попов <i
+                                                            class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
+                                                    </div>
+                                                    <small class="text-muted">Продавец консультант</small>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="list-group no-radius alt"><a class="list-group-item" href="#"> <span
+                                                class="badge bg-success">25</span> <i
+                                                class="fa fa-comment icon-muted"></i> План звонков на сегодня </a> <a
+                                                class="list-group-item" href="#"> <span class="badge bg-info">16</span>
+                                            <i class="fa fa-envelope icon-muted"></i> Перевыполнение плана </a></div>
+                                    </section>
+                                    <section class="panel">
+                                        <header class="panel-heading">Чат</header>
+                                        <section class="chat-list panel-body">
+                                            <article id="chat-id-1" class="chat-item left"><a href="#"
+                                                                                              class="pull-left thumb-sm avatar"><img
+                                                    src="https://pp.vk.me/c627920/v627920644/fbae/xXPsX3e34N0.jpg" class="img-circle"></a>
+                                                <section class="chat-body">
+                                                    <div class="panel text-sm m-b-none">
+                                                        <div class="panel-body"><span class="arrow left"></span>Всем привет, я уже на работе :)
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted"><i class="fa fa-check text-success"></i> 2
+                                                        минуты назад
+                                                    </small>
+                                                </section>
+                                            </article>
+                                            <article id="chat-id-1" class="chat-item right"><a href="#"
+                                                                                               class="pull-right thumb-sm avatar"><img
+                                                    src="http://flatfull.com/themes/todo/images/avatar.jpg" class="img-circle"></a>
+                                                <section class="chat-body">
+                                                    <div class="panel bg bg-success text-sm m-b-none">
+                                                        <div class="panel-body"><span class="arrow right"></span>
+                                                            Я тоже уже на работе и сделал 1 продажу.
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted"><i class="fa fa-check text-success"></i> 1
+                                                        минуту назад
+                                                    </small>
+                                                </section>
+                                            </article>
+                                            <article id="chat-id-1" class="chat-item left"><a href="#"
+                                                                                              class="pull-left thumb-sm avatar"><img
+                                                    src="https://pp.vk.me/c627920/v627920644/fbae/xXPsX3e34N0.jpg" class="img-circle"></a>
+                                                <section class="chat-body">
+                                                    <div class="panel text-sm m-b-none">
+                                                        <div class="panel-body"><span class="arrow left"></span>Ого! Ты такой быстрый!
+                                                        </div>
+                                                    </div>
+                                                    <small class="text-muted"><i class="fa fa-check text-success"></i> 1
+                                                        минуту назад
+                                                    </small>
+                                                </section>
+                                            </article>
+                                            <!-- chat form -->
+                                            <article class="chat-item" id="chat-form"><a
+                                                    class="pull-left thumb-sm avatar"><img src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                                                                                           class="img-circle"></a>
+                                                <section class="chat-body">
+                                                    <form action="" class="m-b-none">
+                                                        <div class="input-group"><input type="text" class="form-control"
+                                                                                        placeholder="Сообщение...">
+                                                            <span class="input-group-btn"> <button
+                                                                    class="btn btn-success" type="button">Отправить
+                                                            </button> </span></div>
+                                                    </form>
+                                                </section>
+                                            </article>
+                                        </section>
+                                    </section>
+                                </div>
+                                <div class="col-sm-6">
+                                    <section class="panel">
+                                        <div class="panel-body">
+                                            <div class="clearfix text-center m-t">
+                                                <div class="inline">
+                                                    <div class="easypiechart" data-percent="75" data-line-width="5"
+                                                         data-loop="false" data-bar-color="#92cf5c" data-track-Color="#f5f5f5"
+                                                         data-scale-Color="false" data-size="150">
+                                                        <div class="thumb-lg"><img src="http://flatfull.com/themes/todo/images/avatar.jpg" class="img-circle">
+                                                        </div>
+                                                    </div>
+                                                    <div class="h4 m-t m-b-xs">Андрей Попов</div>
+                                                    <small class="text-muted m-b">Продавец консультант</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <footer class="panel-footer bg-dark lter text-center">
+                                            <div class="row pull-out">
+                                                <div class="col-xs-4">
+                                                    <div class="padder-v"><span class="m-b-xs h4 block">245</span>
+                                                        <small class="text-muted">Продажи</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4 bg-success">
+                                                    <div class="padder-v"><span class="m-b-xs h4 block">55</span>
+                                                        <small class="text-muted">Доп. услуги</small>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-4">
+                                                    <div class="padder-v"><span class="m-b-xs h4 block">2,035</span>
+                                                        <small class="text-muted">Звонков</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </section>
+                                    <section class="panel no-borders hbox">
+                                        <aside class="bg-info r-l text-center v-middle">
+                                            <div class="wrapper"><i class="fa fa-sun-o fa-4x"></i></div>
+                                        </aside>
+                                        <aside>
+                                            <div class="wrapper text-center"><p class="h1">25°</p> <span>Отличная погода для звонков</span>
+                                            </div>
+                                        </aside>
+                                    </section>
+                                    <section class="panel bg-warning no-borders">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div class="wrapper"><p>Время для звонков</p>
+
+                                                    <p class="h2 font-bold">32.5%</p>
+
+                                                    <div class="progress progress-xs progress-striped active m-b-sm">
+                                                        <div class="progress-bar progress-bar-warning"
+                                                             data-toggle="tooltip" data-original-title="32.5%"
+                                                             style="width: 32.5%"></div>
+                                                    </div>
+                                                    <div class="text-sm">Рабочий день</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 wrapper text-center">
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <section class="panel">
+                                <header class="panel-heading">История последних действий</header>
+                                <section class="panel-body slim-scroll" data-height="530px">
+                                    <article class="media"><span class="pull-left thumb-sm"><img src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                                                                                                 class="img-circle"></span>
+
+                                        <div class="media-body">
+                                            <div class="pull-right media-xs text-center text-muted"><strong class="h4">12:18</strong><br>
+                                                <small class="label bg-light">время</small>
+                                            </div>
+                                            <a href="#" class="h4">Звонок клиенту</a>
+                                            <small class="block"><a href="#" class="">Виктор Донских</a> <span
+                                                    class="label label-success">Успешно</span></small>
+                                            <small class="block m-t-sm">Продан лак для ванных, 2 ершика.
+                                            </small>
+                                        </div>
+                                    </article>
+                                    <div class="line pull-in"></div>
+                                    <article class="media"><span class="pull-left thumb-sm text-center"><i
+                                            class="fa fa-user fa fa-2x text-muted"></i></span>
+
+                                        <div class="media-body">
+                                            <div class="pull-right media-xs text-center text-muted"><strong class="h4">07</strong><br>
+                                                <small class="label bg-light">сентябрь</small>
+                                            </div>
+                                            <a href="#" class="h4">Добавлен новый клиент</a>
+                                            <small class="block"><a href="#" class="">Виктор Донских</a> <span
+                                                    class="label label-info"></span></small>
+                                            <small class="block m-t-sm">Владелец заводов, газет и пароходов.
+                                            </small>
+                                        </div>
+                                    </article>
+                                    <div class="line pull-in"></div>
+                                    <article class="media">
+                                        <div class="media-body">
+                                            <div class="pull-right media-xs text-center text-muted"><strong class="h4">07</strong><br>
+                                                <small class="label bg-light">сентябрь</small>
+                                            </div>
+                                            <a href="#" class="h4 text-success">Вход с мобильного телефона</a>
+                                            <small class="block m-t-sm">IPhone 5S, 07:32</small>
+                                        </div>
+                                    </article>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
+    <!-- /.vbox --> </section>
+<script src="http://flatfull.com/themes/todo/js/app.v2.js"></script>
+<!-- Bootstrap --> <!-- App -->
+<script src="http://flatfull.com/themes/todo/js/slimscroll/jquery.slimscroll.min.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/libs/moment.min.js"></script>
+</body>
+</html>

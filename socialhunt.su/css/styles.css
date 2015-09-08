@@ -1,7 +1,9 @@
 @import url(fonts.css);
-@import url(header/header.css);
-@import url(modal.css);
 @import url(animation.css);
+@import url(header/header.css);
+@import url(sections/section_count.css);
+@import url(sections/section_price.css);
+@import url(modal.css);
 @import url(button_style.css);
 
 body, html {
@@ -57,4 +59,8 @@ body, html {
     top: 0;
     left: 0;
     right: 0;
+}
+
+.container {
+    min-width: 1000px;
 }
