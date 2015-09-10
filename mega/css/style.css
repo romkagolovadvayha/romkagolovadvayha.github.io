@@ -1,0 +1,85 @@
+/**
+*** FONTS ***
+*/
+@import url(fonts.css);
+
+/**
+*** NAVIGATION ***
+*/
+@import url(nav.css);
+
+/**
+*** HEADER ***
+*/
+@import url(header.css);
+
+/**
+*** SECTION ***
+*/
+@import url(section__1.css);
+
+/**
+*** SELECTION OVERRIDE ***
+*/
+::selection {
+    color: #FFF;
+    background: #c2e3f8;
+}
+
+::-moz-selection {
+    color: #FFF;
+    background: #c2e3f8;
+}
+
+/**
+* Links
+*/
+a {
+    color: #6ebff3;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #4487b2;
+}
+
+/**
+*** MISC ***
+*/
+.right {
+    float: right !important;
+}
+
+body {
+    position: relative;
+    background: #fcbb58 url(../images/bg.png) center center repeat;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+blockquote i.fa {
+    font-size: 22px;
+    color: #6ebff3;
+    position: absolute;
+    background: #fff;
+    width: 48px;
+    height: 48px;
+    -webkit-border-radius: 58px;
+    -moz-border-radius: 58px;
+    border-radius: 58px;
+    display: block;
+    text-indent: 14px;
+    line-height: 48px;
+    left: -25px;
+    top: 4px;
+}
+
+.content-section.low-rider {
+    padding-bottom: 20px;
+}
+
+.relative {
+    position: relative;
+}

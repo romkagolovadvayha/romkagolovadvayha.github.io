@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^project/(.*)$ php/api.php?q=1&md5=$1 [L,QSA]
+RewriteRule ^images/(.*).jpg$ php/api.php?q=2&md5=$1 [L,QSA]
+</IfModule>

@@ -1,0 +1,152 @@
+.section_1 {
+    position: relative;
+    background-color: #1C4771;
+    z-index: 2;
+    margin-top: 100px;
+    min-height: 500px;
+    padding-bottom: 40px;
+}
+
+.section_1 .top_bg {
+    background: transparent url(../images/bg_section_top.png) center center no-repeat;
+    height: 108px;
+    margin-top: -108px;
+    position: absolute;
+    width: 100%;
+}
+
+.section_1 ul {
+    list-style: none;
+}
+
+.section_1 ul li a {
+    text-align: left;
+    display: block;
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+    padding-left: 45px;
+    min-height: 50px;
+    line-height: 50px;
+    width: 227px;
+}
+
+.section_1 ul li.active a {
+    font-family: FaraoBlackOT, sans-serif;
+    font-size: 22px;
+    color: #31496f;
+    margin-bottom: 15px;
+    min-height: 61px;
+    background: url(../images/menu/1.png) center center no-repeat;
+    line-height: 61px;
+}
+
+.section_1 ul li.profile a {
+    margin-top: 30px;
+    margin-left: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: underline;
+    position: relative;
+}
+
+.profile .icon {
+    background: url(../images/exit.png) left center no-repeat;
+    height: 15px;
+    width: 18px;
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.section_1 ul li.profile .icon {
+    left: 15px;
+    margin-top: -7px;
+}
+
+.section_1 form label {
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-align: right;
+    color: #fff;
+}
+
+@media (max-width: 980px) {
+    .section_1 form label {
+        text-align: center;
+    }
+}
+
+.section_1 form input.text {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    height: 45px;
+    line-height: 45px;
+    font-size: 24px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    color: #31496f;
+}
+
+.section_1 form .element {
+    margin-bottom: 20px;
+}
+
+
+input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+input[type="checkbox"] + label {
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    background: url(../images/nocheck.png) left center no-repeat;
+    padding-left: 35px;
+    padding-top: 3px;
+    margin-left: 20px;
+    cursor: pointer;
+    text-align: left;
+    width: auto;
+    display: inline-block;
+}
+input[type="checkbox"]:checked + label {
+    background: url(../images/check.png) left center no-repeat;
+}
+
+.section_1 .submit {
+    font-family: 'pf_din_text_cond_probold', sans-serif;
+    color: #fff;
+    font-size: 21px;
+    width: 205px;
+    height: 53px;
+    line-height: 53px;
+    background-color: #d3212a;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.43);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.section_1 .submit:hover {
+    background-color: #e8222c;
+}
+
+.section_1 .text_center_24 {
+    margin-top: 100px;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+}
+
+.section_1 .text_center_16 {
+    margin: 20px 0;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+}

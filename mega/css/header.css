@@ -1,0 +1,18 @@
+header {
+
+}
+
+header .line {
+    background: url(../images/line.png) center center no-repeat;
+    height: 6px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 46px;
+    font-family: FaraoBlackOT, sans-serif;
+    text-transform: uppercase;
+}
