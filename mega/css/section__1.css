@@ -106,8 +106,9 @@ input[type="checkbox"] + label {
     background: url(../images/nocheck.png) left center no-repeat;
     padding-left: 35px;
     padding-top: 3px;
-    margin-left: 20px;
+    margin-left: 0;
     cursor: pointer;
+    font-size: 14px;
     text-align: left;
     width: auto;
     display: inline-block;
@@ -151,5 +152,5 @@ input[type="checkbox"]:checked + label {
 }
 
 .section_1 .label_text {
-    min-width: 100px;
+    min-width: 110px;
 }
