@@ -22,51 +22,55 @@
 </head>
 <body>
 
-<!-- Begin Navigation -->
-<nav class="navbar navbar-default" data-offset-top="60" role="navigation">
-    <div class="container relative">
+<div class="top_page">
 
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar">
-                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-            </button>
-            <a class="navbar-brand" href="/">
-                <img src="images/logo.png" alt=""/>
-            </a>
-            <ul class="mini"></ul>
-        </div>
+    <!-- Begin Navigation -->
+    <nav class="navbar navbar-default" data-offset-top="60" role="navigation">
+        <div class="container relative">
 
-        <div id="top-navbar" class="collapse navbar-collapse">
-            <div class="right">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">О проекте</a></li>
-                    <li><a href="#">Академия перемен</a></li>
-                    <li><a href="#">Тест на меняемость</a></li>
-                    <li><a href="#">Конкурс</a></li>
-                    <li class="photo_from_mega"><a href="#">Фотографии из меги</a></li>
-                    <li class="profile"><a href="#">
-                        <div class="icon"></div>
-                        Маша Иванова</a></li>
-                </ul>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="images/logo.png" alt=""/>
+                </a>
+                <ul class="mini"></ul>
             </div>
+
+            <div id="top-navbar" class="collapse navbar-collapse">
+                <div class="right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">О проекте</a></li>
+                        <li><a href="#">Академия перемен</a></li>
+                        <li><a href="#">Тест на меняемость</a></li>
+                        <li><a href="#">Конкурс</a></li>
+                        <li class="photo_from_mega"><a href="#">Фотографии из меги</a></li>
+                        <li class="profile"><a href="#">
+                            <div class="icon"></div>
+                            Маша Иванова</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
+    </nav>
+    <!-- End Navigation -->
 
-    </div>
-</nav>
-<!-- End Navigation -->
+    <!-- Begin Header -->
+    <header>
+        <div class="line"></div>
+        <h1>Личный кабинет</h1>
+    </header>
+    <!-- End Header -->
 
-<!-- Begin Header -->
-<header>
-    <div class="line"></div>
-    <h1>Личный кабинет</h1>
-</header>
-<!-- End Header -->
+</div>
 
 <!-- Begin Section_1 -->
 <section class="section_1">
     <div class="top_bg"></div>
     <div class="container">
-        <div class="row" style="margin-top: 40px;">
+        <div class="row" style="margin-top: 20px;">
             <div class="col-md-4" align="center">
                 <ul>
                     <li class="active">
@@ -96,7 +100,7 @@
                 <form>
                     <div class="row element">
                         <div class="col-md-4">
-                            <label for="name">Имя</label>
+                            <label class="label_text" for="name">Имя</label>
                         </div>
                         <div class="col-md-8" align="center">
                             <input id="name" type="text" class="text" name="name" value="Маша">
@@ -104,7 +108,7 @@
                     </div>
                     <div class="row element">
                         <div class="col-md-4">
-                            <label for="fio">Фамилия</label>
+                            <label class="label_text" for="fio">Фамилия</label>
                         </div>
                         <div class="col-md-8" align="center">
                             <input id="fio" type="text" class="text" name="fio" value="Иванова">
@@ -112,7 +116,7 @@
                     </div>
                     <div class="row element">
                         <div class="col-md-4">
-                            <label for="email">E-mail</label>
+                            <label class="label_text" for="email">E-mail</label>
                         </div>
                         <div class="col-md-8" align="center">
                             <input id="email" type="text" class="text" name="email" value="ivanova@mail.ru">
@@ -120,7 +124,7 @@
                     </div>
                     <div class="row element">
                         <div class="col-md-4">
-                            <label for="password_1">Новый пароль</label>
+                            <label class="label_text" for="password_1">Новый пароль</label>
                         </div>
                         <div class="col-md-8" align="center">
                             <input id="password_1" type="password" class="text" name="password_1" value="Мfesdgsgfdаша">
@@ -128,7 +132,7 @@
                     </div>
                     <div class="row element">
                         <div class="col-md-4">
-                            <label for="password_2">Повтори пароль</label>
+                            <label class="label_text" for="password_2">Повтори пароль</label>
                         </div>
                         <div class="col-md-8" align="center">
                             <input id="password_2" type="password" class="text" name="password_2" value="Мfesdgsgfdаша">
@@ -163,6 +167,34 @@
     </div>
 </section>
 <!-- End Section_1 -->
+
+<!-- Begin Footer -->
+<footer>
+    <div class="container">
+        <div class="row" align="center">
+            <div class="col-md-3 company">
+                © ООО «ИКЕА МОС (Торговля и Недвижимость)», 2015
+            </div>
+            <div class="col-md-2 url">
+                <a href="#">Правила конкурса</a>
+            </div>
+            <div class="col-md-2 soc">
+                <a href="#"><img src="images/soc/f.png"></a>
+                <a href="#"><img src="images/soc/vk.png"></a>
+                <a href="#"><img src="images/soc/odn.png"></a>
+                <a href="#"><img src="images/soc/inst.png"></a>
+                <a href="#"><img src="images/soc/twi.png"></a>
+            </div>
+            <div class="col-md-2 url">
+                <a href="#">Служба поддержки</a>
+            </div>
+            <div class="col-md-3 tag">
+                #МЕГАменяйся
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
 
 <!-- Scripts -->
 <script language="javascript" src="js/jquery-1.11.0.min.js"></script>

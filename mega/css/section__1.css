@@ -2,9 +2,7 @@
     position: relative;
     background-color: #1C4771;
     z-index: 2;
-    margin-top: 100px;
-    min-height: 500px;
-    padding-bottom: 40px;
+    margin-top: -50px;
 }
 
 .section_1 .top_bg {
@@ -13,6 +11,7 @@
     margin-top: -108px;
     position: absolute;
     width: 100%;
+    background-size: cover;
 }
 
 .section_1 ul {
@@ -36,14 +35,14 @@
     font-family: FaraoBlackOT, sans-serif;
     font-size: 22px;
     color: #31496f;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     min-height: 61px;
     background: url(../images/menu/1.png) center center no-repeat;
     line-height: 61px;
 }
 
 .section_1 ul li.profile a {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 25px;
     text-transform: uppercase;
     color: #fff;
@@ -84,9 +83,9 @@
 
 .section_1 form input.text {
     font-family: 'pf_din_text_cond_promedium', sans-serif;
-    height: 45px;
-    line-height: 45px;
-    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
     border-radius: 3px;
     border: none;
     text-align: center;
@@ -94,7 +93,7 @@
 }
 
 .section_1 form .element {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 
@@ -120,10 +119,10 @@ input[type="checkbox"]:checked + label {
 .section_1 .submit {
     font-family: 'pf_din_text_cond_probold', sans-serif;
     color: #fff;
-    font-size: 21px;
+    font-size: 18px;
     width: 205px;
-    height: 53px;
-    line-height: 53px;
+    height: 40px;
+    line-height: 40px;
     background-color: #d3212a;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.43);
@@ -136,7 +135,7 @@ input[type="checkbox"]:checked + label {
 }
 
 .section_1 .text_center_24 {
-    margin-top: 100px;
+    margin-top: 50px;
     font-family: 'pf_din_text_cond_proregular', sans-serif;
     font-size: 24px;
     text-align: center;
@@ -149,4 +148,8 @@ input[type="checkbox"]:checked + label {
     font-size: 16px;
     text-align: center;
     color: #fff;
+}
+
+.section_1 .label_text {
+    min-width: 100px;
 }
