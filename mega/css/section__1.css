@@ -505,7 +505,7 @@ input[type="checkbox"]:checked + label {
     }
 }
 
-@media (min-height: 1000px) {
+@media (min-height: 900px) {
     .bg_diplom {
         background: none !important;
         margin-left: -320px !important;
@@ -519,7 +519,7 @@ input[type="checkbox"]:checked + label {
     }
 }
 
-@media (min-height: 700px) {
+@media (min-height: 720px) {
     .section_1 {
         padding-bottom: 100px !important;
     }
