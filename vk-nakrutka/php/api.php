@@ -33,6 +33,19 @@
 <? } ?>
 
 <? if ($_GET['q'] == 2) {
-    $user_id = $_GET['viewer_id'];
-    header( 'Refresh: 0; url=https://vk.com/app5065489' );
+    $ip = $_SERVER["REMOTE_ADDR"];;
+    $md5 = $_GET['md5'];
+    $date = date('c');
+    $query = "INSERT INTO `projects_items` (`project_md5`, `date`, `ip`) VALUES ('$md5', '$date', '$ip')";
+    $result = mysql_query($query);
+    header( 'Refresh: 0; url=https://vk.com/app5065489?' .$md5  );
+} ?>
+
+<? if ($_GET['q'] == 3) {
+    $ip = $_SERVER["REMOTE_ADDR"];;
+    $md5 = $_GET['md5'];
+    $date = date('c');
+    $query = "INSERT INTO `projects_items` (`project_md5`, `date`, `ip`) VALUES ('$md5', '$date', '$ip')";
+    $result = mysql_query($query);
+    header( 'Refresh: 0; url=https://vk.com/app5065489?' .$md5  );
 } ?>
