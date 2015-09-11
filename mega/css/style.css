@@ -96,3 +96,7 @@ blockquote i.fa {
 a > img:hover {
     opacity: 0.7;
 }
+
+.container {
+    position: relative;
+}

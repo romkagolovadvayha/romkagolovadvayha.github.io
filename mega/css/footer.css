@@ -1,3 +1,9 @@
+footer {
+    position: relative;
+    margin-top: -40px;
+    z-index: 4;
+}
+
 footer .company {
     font-family: 'pf_din_text_cond_promedium', sans-serif;
     font-size: 14px;

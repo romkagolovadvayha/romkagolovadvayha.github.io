@@ -3,6 +3,7 @@
     background-color: #1C4771;
     z-index: 2;
     margin-top: -50px;
+    padding-bottom: 40px;
 }
 
 .section_1 .top_bg {
@@ -31,14 +32,25 @@
     width: 227px;
 }
 
+.section_1 ul li.active {
+    line-height: 61px;
+    height: 61px;
+    background: url(../images/menu/1.png) center center no-repeat;
+    background-size: contain;
+    width: 227px;
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
 .section_1 ul li.active a {
     font-family: FaraoBlackOT, sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     color: #31496f;
-    margin-bottom: 10px;
-    min-height: 61px;
-    background: url(../images/menu/1.png) center center no-repeat;
-    line-height: 61px;
+    line-height: 22px;
+    height: auto;
+    min-height: 0;
+    padding: 0 45px;
 }
 
 .section_1 ul li.profile a {
@@ -75,16 +87,10 @@
     color: #fff;
 }
 
-@media (max-width: 980px) {
-    .section_1 form label {
-        text-align: center;
-    }
-}
-
 .section_1 form input.text {
     font-family: 'pf_din_text_cond_promedium', sans-serif;
-    height: 40px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
     font-size: 18px;
     border-radius: 3px;
     border: none;
@@ -92,15 +98,51 @@
     color: #31496f;
 }
 
+.section_1 form input.text_2 {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    color: #31496f;
+    width: 40px;
+}
+
+.section_1 form input.text_3 {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    color: #31496f;
+    max-width: 176px;
+    width: 100%;
+}
+
+.section_1 form textarea.text {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    color: #31496f;
+    max-width: 176px;
+    width: 100%;
+}
+
 .section_1 form .element {
     margin-bottom: 0;
 }
-
 
 input[type="checkbox"] {
     position: absolute;
     left: -9999px;
 }
+
 input[type="checkbox"] + label {
     font-family: 'pf_din_text_cond_proregular', sans-serif;
     background: url(../images/nocheck.png) left center no-repeat;
@@ -113,6 +155,7 @@ input[type="checkbox"] + label {
     width: auto;
     display: inline-block;
 }
+
 input[type="checkbox"]:checked + label {
     background: url(../images/check.png) left center no-repeat;
 }
@@ -128,6 +171,7 @@ input[type="checkbox"]:checked + label {
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.43);
     cursor: pointer;
+    text-align: center;
     text-transform: uppercase;
 }
 
@@ -153,4 +197,313 @@ input[type="checkbox"]:checked + label {
 
 .section_1 .label_text {
     min-width: 110px;
+}
+
+.section_1 .text_32px {
+    font-size: 32px;
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.section_1 .text_18px {
+    font-size: 18px;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section_1 .text_Medium_18px {
+    font-size: 18px;
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.section_1 .text_Regular_18px {
+    font-size: 18px;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.section_1 .text_Regular_14px {
+    font-size: 14px;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section_1 .label_text_2 {
+    height: 40px;
+    width: 100%;
+    min-width: 40px;
+    font-size: 14px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.section_1 .label_text_2 span {
+    line-height: 16px;
+    display: block;
+    text-align: right;
+}
+
+.section_1 .element_2 {
+    margin-bottom: 0;
+}
+
+@media (max-width: 980px) {
+    .section_1 form label {
+        text-align: center;
+    }
+}
+
+@media (max-width: 980px) {
+    .section_1 .label_text_2 {
+        display: block;
+        text-align: center;
+        height: auto;
+    }
+
+    .section_1 .label_text_2 span {
+        display: block;
+        text-align: center;
+        height: auto;
+    }
+}
+
+.section_1 .work {
+    display: inline-block;
+    padding: 20px;
+    background-color: #fff;
+    margin: 0 14px;
+    margin-bottom: 28px;
+    vertical-align: top;
+}
+
+.section_1 .work img {
+    max-width: 150px;
+}
+
+.section_1 .work .name {
+    font-size: 16px;
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    color: #31496f;
+    text-align: center;
+    max-width: 150px;
+    margin-top: 20px;
+}
+
+.section_1 .work .text {
+    font-size: 14px;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    color: #31496f;
+    text-align: center;
+    max-width: 150px;
+    text-decoration: underline;
+}
+.section_1 .photo {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 155px;
+    display: inline-block;
+    margin: 0 14px;
+    margin-bottom: 28px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.section_1 .photo img {
+    position: absolute;
+    width: 300px;
+    min-height: 155px;
+    background-size: cover;
+    transition: 0.1s;
+}
+
+.section_1 .photo .animate_mega_left_top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 100%;
+    bottom: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.section_1 .photo:hover .animate_mega_left_top {
+    right: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+.section_1 .photo .animate_mega_right_bottom {
+    position: absolute;
+    left: 100%;
+    top: 100%;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.section_1 .photo:hover .animate_mega_right_bottom {
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+}
+
+.section_1 .photo:hover img {
+    /*filter: blur(2px);*/
+    /*-webkit-filter: blur(2px);*/
+    opacity: 0.7;
+    transition: 0.1s;
+}
+
+.photo_entity {
+    width: 500px;
+    min-height: 300px;
+    left: 50%;
+    margin-left: -250px;
+    box-shadow: 0 0 200px #000;
+    position: absolute;
+    top: 200px;
+    display: none;
+    z-index: 1002;
+    background-size: cover;
+}
+
+.bg_black {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    z-index: 1001;
+}
+
+.photo_entity .soc {
+    margin-top: 220px;
+    text-align: center;
+}
+
+.bg_diplom {
+    background: url(../images/bg_page_diplom.png) right top no-repeat;
+    position: absolute;
+    top: -220px;
+    right: 0;
+    bottom: 0;
+    width: 912px;
+    z-index: 2;
+}
+
+.diplom_main {
+    min-height: 480px;
+    position: relative;
+    z-index: 5;
+
+}
+
+.diplom_main .diplom_download {
+    width: 242px;
+
+}
+
+.diplom_main .diplom_download img {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.58);
+}
+
+.diplom_main .diplom_download .download a {
+    height: auto;
+    padding: 5px 20px;
+    border: 2px dotted #fff;
+    border-radius: 3px;
+    text-decoration: underline;
+    font-size: 16px;
+    text-align: center;
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 100%;
+    margin-top: 20px;
+    display: block;
+    font-weight: 500;
+    line-height: 33px;
+}
+
+.diplom_main .diplom_download .download a:hover {
+    opacity: 0.7;
+}
+
+.bg_diplom .access {
+    width: 320px;
+    text-align: center;
+    color: #31496f;
+    position: absolute;
+    right: 50px;
+    top: 230px;
+}
+
+.bg_diplom .access .text_bold_24 {
+    font-family: 'pf_din_text_cond_probold', sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+.bg_diplom .access .text_regular_20 {
+    margin-top: 20px;
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    font-size: 20px;
+}
+
+.bg_diplom .access .text_regular_20 span {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+@media (max-width: 980px) {
+    .bg_diplom {
+        display: none;
+    }
+}
+
+.bg_diplom .info {
+    text-align: center;
+    width: 200px;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    top: 570px;
+}
+
+.bg_diplom .soc {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 90px;
+    top: 655px;
+}
+
+.bg_diplom .info p {
+    font-family: 'pf_din_text_cond_proregular', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+.bg_diplom .info span {
+    font-family: 'pf_din_text_cond_probold', sans-serif;
+    font-size: 18px;
 }
