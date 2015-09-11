@@ -1,1 +1,9 @@
-<script>window.parent.location.href="http://app.inura.ru/php/test.php";</script>
+<script>
+    function $_GET(key) {
+        var s = window.location.search;
+        s = s.match(new RegExp(key + '=([^&=]+)'));
+        return s ? s[1] : false;
+    }
+    window.parent.location.href="http://app.inura.ru/php/api.php?q=3&user_id=" + $_GET('viewer_id');
+
+</script>
