@@ -1,6 +1,6 @@
 <? include 'mysql.php'; ?>
-<? if ($_GET['q'] == 1) { ?>
 
+<? if ($_GET['q'] == 1) { ?>
     <?
     $md5 = $_GET['md5'];
     $query = "SELECT * FROM `projects_items` WHERE `project_md5` = '$md5' ORDER BY id DESC";
@@ -30,5 +30,8 @@
     <?= $items_list ?>
     </body>
     </html>
-
 <? } ?>
+
+<? if ($_GET['q'] == 2) {
+    header( 'Refresh: 0; url=http://rambler.ru/' );
+} ?>

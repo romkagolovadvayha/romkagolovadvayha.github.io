@@ -23,17 +23,26 @@ app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) 
                 $scope.writeError('Неверно заполнены поля!');
             else {
                 $.ajax({
-                    url: 'tyfy',
+                    url: '/php/add_project.php?'
+                    + '&project_url=' + $scope.project_redirect_url
+                   + '&project_name=' + $scope.project_name,
                     dataType: "jsonp",
                     success: function (data) {
-
+                        console.log(data);
+                        $scope.url_1 = "http://app.inura.ru/images/" + data + ".jpg";
+                        $scope.url_2 = "http://app.inura.ru/project/" + data + "";
+                        $scope.writeError('Проект успешно создан!');
+                        $scope.$digest();
+                    },
+                    error: function(data) {
+                        console.log(data);
+                        $scope.url_1 = "http://app.inura.ru/images/" + data.responseText + ".jpg";
+                        $scope.url_2 = "http://app.inura.ru/project/" + data.responseText + "";
+                        $scope.writeError('Проект успешно создан!');
+                        $scope.$digest();
                     }
                 });
-                var id = 324234;
-                var md5 = MD5($scope.project_name + id);
-                $scope.url_1 = "http://app.inura.ru/images/" + md5 + ".jpg";
-                $scope.url_2 = "http://app.inura.ru/project/" + md5 + "";
-                $scope.writeError('Проект успешно создан!');
+
             }
     };
 
