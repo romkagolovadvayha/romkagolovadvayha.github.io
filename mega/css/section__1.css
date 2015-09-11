@@ -595,3 +595,19 @@ input[type="checkbox"]:checked + label {
 .diplom_texxt .text_regular_20 {
     margin-bottom: 20px;
 }
+
+body .section_1{
+    padding-bottom: 80px!important;
+    position:static;
+}
+body footer{
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+}
+@media (max-width: 992px){
+    body footer{
+        position:relative;
+    }
+}
