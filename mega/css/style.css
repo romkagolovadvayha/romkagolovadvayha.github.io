@@ -55,6 +55,10 @@ a:hover {
     float: right !important;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     position: relative;
     background-color: #1C4771;
