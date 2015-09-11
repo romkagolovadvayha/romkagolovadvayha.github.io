@@ -62,6 +62,7 @@ html, body {
 body {
     position: relative;
     background-color: #1C4771;
+    min-height: 100vh;
 }
 
 .hidden {

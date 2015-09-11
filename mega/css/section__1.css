@@ -3,7 +3,7 @@
     background-color: #1C4771;
     z-index: 2;
     margin-top: -50px;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 
 .section_1 .top_bg {
@@ -17,6 +17,8 @@
 
 .section_1 ul {
     list-style: none;
+    position: relative;
+    z-index: 11;
 }
 
 .section_1 ul li a {
@@ -403,7 +405,9 @@ input[type="checkbox"]:checked + label {
     background: url(../images/bg_page_diplom.png) right top no-repeat;
     position: absolute;
     top: -220px;
-    right: 0;
+    /*right: 0;*/
+    left: 50%;
+    margin-left: -220px;
     bottom: 0;
     width: 912px;
     z-index: 2;
@@ -477,6 +481,53 @@ input[type="checkbox"]:checked + label {
 @media (max-width: 980px) {
     .bg_diplom {
         display: none;
+    }
+}
+@media (max-width: 1350px) {
+    .bg_diplom {
+        margin-left: -290px !important;
+    }
+}
+
+@media (max-width: 1250px) {
+    .bg_diplom {
+        background: none !important;
+        margin-left: -420px !important;
+    }
+    .bg_diplom .access {
+        color: #fff !important;
+    }
+}
+
+@media (min-height: 600px) {
+    .fullhd > div > div {
+        padding-top: 60px !important;
+    }
+}
+
+@media (min-height: 1000px) {
+    .bg_diplom {
+        background: none !important;
+        margin-left: -320px !important;
+        margin-top: 100px;
+    }
+    .bg_diplom .access {
+        color: #fff !important;
+    }
+    .fullhd {
+        padding-top: 100px;
+    }
+}
+
+@media (min-height: 700px) {
+    .section_1 {
+        padding-bottom: 100px !important;
+    }
+}
+
+@media (min-height: 768px) {
+    .section_1 {
+        padding-bottom: 145px !important;
     }
 }
 
