@@ -29,14 +29,14 @@ app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) 
                     dataType: "jsonp",
                     success: function (data) {
                         console.log(data);
-                        $scope.url_1 = "http://app.inura.ru/images/" + data + ".jpg";
+                        $scope.url_1 = "http://app.inura.ru/image/" + data + ".jpg";
                         $scope.url_2 = "http://app.inura.ru/project/" + data + "";
                         $scope.writeError('Проект успешно создан!');
                         $scope.$digest();
                     },
                     error: function(data) {
                         console.log(data);
-                        $scope.url_1 = "http://app.inura.ru/images/" + data.responseText + ".jpg";
+                        $scope.url_1 = "http://app.inura.ru/image/" + data.responseText + ".jpg";
                         $scope.url_2 = "http://app.inura.ru/project/" + data.responseText + "";
                         $scope.writeError('Проект успешно создан!');
                         $scope.$digest();

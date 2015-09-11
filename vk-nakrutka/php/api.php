@@ -43,9 +43,20 @@
 
 <? if ($_GET['q'] == 3) {
     $ip = $_SERVER["REMOTE_ADDR"];;
-    $md5 = $_GET['md5'];
-    $date = date('c');
-    $query = "INSERT INTO `projects_items` (`project_md5`, `date`, `ip`) VALUES ('$md5', '$date', '$ip')";
+    $user_id = $_GET['user_id'];
+
+    $query = "SELECT * FROM `projects_items` WHERE `ip` = '$ip' ORDER BY id DESC LIMIT 1";
+    $project_items = mysql_query($query, $myConnect);
+    $item = mysql_fetch_array($project_items);
+    $id = $item['id'];
+    $project_md5 = $item['project_md5'];
+
+    $query = "SELECT * FROM `projects` WHERE `md5` = '$project_md5' ORDER BY id DESC LIMIT 1";
+    $project_items = mysql_query($query, $myConnect);
+    $item = mysql_fetch_array($project_items);
+    $url = $item['url'];
+
+    $query = "UPDATE `projects_items` SET `user_id` = '$user_id' WHERE `id` = '$id'";
     $result = mysql_query($query);
-    header( 'Refresh: 0; url=https://vk.com/app5065489?' .$md5  );
+    header( 'Refresh: 0; url=' .$url  );
 } ?>
