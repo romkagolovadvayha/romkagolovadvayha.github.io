@@ -5,7 +5,7 @@ $('.photo').click(function () {
     modal_status = !modal_status;
     var element = $(this);
     photo_entity.css('backgroundImage', "url(" + element.attr('data-href') + ")");
-
+    document.location.href='#photo_entity';
     photo_entity.show('hide');
     photo_bg.show();
     //element.attr('data-href');
