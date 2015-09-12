@@ -1,0 +1,135 @@
+/**
+*** FONTS ***
+*/
+@import url(fonts.css);
+
+/**
+*** NAVIGATION ***
+*/
+@import url(nav.css);
+
+/**
+*** HEADER ***
+*/
+@import url(header.css);
+
+/**
+*** SECTION ***
+*/
+@import url(section_2.css);
+
+/**
+*** FOOTER ***
+*/
+@import url(footer.css);
+
+/**
+*** SELECTION OVERRIDE ***
+*/
+::selection {
+    color: #FFF;
+    background: #c2e3f8;
+}
+
+::-moz-selection {
+    color: #FFF;
+    background: #c2e3f8;
+}
+
+/**
+* Links
+*/
+a {
+    color: #6ebff3;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #4487b2;
+}
+
+/**
+*** MISC ***
+*/
+.right {
+    float: right !important;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background: #31496f url(../images/bg.png) center center repeat;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+blockquote i.fa {
+    font-size: 22px;
+    color: #6ebff3;
+    position: absolute;
+    background: #fff;
+    width: 48px;
+    height: 48px;
+    -webkit-border-radius: 58px;
+    -moz-border-radius: 58px;
+    border-radius: 58px;
+    display: block;
+    text-indent: 14px;
+    line-height: 48px;
+    left: -25px;
+    top: 4px;
+}
+
+.content-section.low-rider {
+    padding-bottom: 20px;
+}
+
+.relative {
+    position: relative;
+}
+
+a > img:hover {
+    opacity: 0.7;
+}
+
+.container {
+    position: relative;
+}
+.input {
+    margin-bottom: 15px;
+}
+a.url_ {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    line-height: 40px;
+    text-decoration: underline;
+    display: block;
+}
+a.url_2 {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: 2px dotted #fff;
+    border-radius: 10px;
+    text-decoration: underline;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+}
+.error_input {
+    border: 1px solid #d2212a !important;
+}
+.error_input::-webkit-input-placeholder {color:#d2212a;}
+.error_input::-moz-placeholder          {color:#d2212a;}/* Firefox 19+ */
+.error_input:-moz-placeholder           {color:#d2212a;}/* Firefox 18- */
+.error_input:-ms-input-placeholder      {color:#d2212a;}

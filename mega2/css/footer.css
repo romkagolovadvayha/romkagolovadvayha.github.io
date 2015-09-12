@@ -1,0 +1,39 @@
+footer {
+    position: relative;
+    margin-top: -40px;
+    z-index: 4;
+}
+
+footer .company {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #5582c8;
+    text-transform: uppercase;
+}
+
+footer .url a {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    line-height: 40px;
+    text-decoration: underline;
+}
+
+footer .soc {
+    text-align: center;
+    line-height: 40px;
+}
+
+footer .soc a {
+    margin: 0 3px;
+}
+
+footer .tag {
+    font-family: 'pf_din_text_cond_promedium', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #f7f7f7;
+    text-decoration: underline;
+}
