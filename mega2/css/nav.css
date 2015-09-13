@@ -34,6 +34,11 @@
     margin-left: 30px;
 }
 
+.navbar-default .navbar-nav > li.active_ > a {
+    color: #fcbb58 !important;
+    border-color: #fcbb58 !important;
+}
+
 .navbar-default .navbar-nav > li.photo_from_mega > a {
     height: auto;
     margin-top: -8px;

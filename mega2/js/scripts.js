@@ -24,3 +24,91 @@ $('#auth .submit').click(function () {
             element.parent().children('input').removeClass('error_input');
     });
 });
+
+$('.link_input img').click(function () {
+    $(this).parent().children('input').toggle();
+});
+
+var el = $('.work');
+el.each(function (i, event) {
+    var element = $(this);
+    element.children('img').attr("src", element.data('src'));
+});
+
+var modal_photo_concurs = $('#modal_photo_concurs');
+$('.work .text').click(function () {
+    var element = $(this).parent().parent();
+    destination = 200;
+    $('body, html').animate({scrollTop: destination}, 1100);
+    modal_photo_concurs.show('show');
+    modal_photo_concurs.children('img').attr("src", element.data('src'));
+    modal_photo_concurs.children('.row').children('.title').html(element.data('title'));
+    modal_photo_concurs.children('.row').children('.text').html(element.children('.full_text').html());
+    modal_photo_concurs.children('.row').children('.name').html(element.children('.name').html() + " " + '<span>' + element.data('category') + '</span>');
+    $('.close_click').show();
+    return false;
+});
+
+$('#modal_photo_concurs .close').click(function () {
+    modal_photo_concurs.hide('hide');
+    $('.close_click').hide();
+});
+
+$('.close_click').click(function () {
+    modal_photo_concurs.hide('hide');
+    $('.close_click').hide();
+});
+
+$('.select .element_active').click(function () {
+    $(this).parent().children('.element_active').hide();
+    $(this).parent().children('.elements').show();
+});
+
+
+$('.select_filter .element_active').click(function () {
+    $(this).parent().children('.elements').show();
+});
+
+$('.element').click(function () {
+    var elements = $(this).parent();
+    elements.children('.active').removeClass('active');
+    $(this).addClass('active');
+    elements.parent().children('.element_active').html($(this).html());
+    elements.hide();
+    elements.parent().children('.element_active').show();
+});
+
+var photo_element = $('.photo_element');
+photo_element.each(function () {
+    $(this).children('img').attr('src', $(this).data('src'));
+});
+
+photo_element.click(function () {
+    var modal_photo = $('.modal_photo');
+    modal_photo.children('.window').css('background-image', 'url(' + $(this).data('src') + ')');
+    modal_photo.show('show');
+    $('.modal_photo .window .window_1').show();
+    $('.modal_photo .window .window_2').hide();
+    return false;
+});
+
+$('.close_modal_photo').click(function () {
+    var modal_photo = $('.modal_photo');
+    modal_photo.hide('hide');
+    return false;
+});
+
+$('.arrow_top').click(function () {
+    destination = 0;
+    $('body, html').animate({scrollTop: destination}, 500);
+});
+
+$('#me').click(function () {
+    $('.modal_photo .window .window_1').hide();
+    $('.modal_photo .window .window_2').show();
+});
+
+$('#me_no').click(function () {
+    $('.modal_photo .window .window_1').show();
+    $('.modal_photo .window .window_2').hide();
+});
