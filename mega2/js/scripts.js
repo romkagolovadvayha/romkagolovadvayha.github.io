@@ -38,24 +38,27 @@ el.each(function (i, event) {
 var modal_photo_concurs = $('#modal_photo_concurs');
 $('.work .text').click(function () {
     var element = $(this).parent().parent();
-    destination = 200;
-    $('body, html').animate({scrollTop: destination}, 1100);
+    //destination = 200;
+    //$('body, html').animate({scrollTop: destination}, 1100);
     modal_photo_concurs.show('show');
-    modal_photo_concurs.children('img').attr("src", element.data('src'));
-    modal_photo_concurs.children('.row').children('.title').html(element.data('title'));
-    modal_photo_concurs.children('.row').children('.text').html(element.children('.full_text').html());
-    modal_photo_concurs.children('.row').children('.name').html(element.children('.name').html() + " " + '<span>' + element.data('category') + '</span>');
+    $('html').css('overflow', 'hidden');
+    modal_photo_concurs.children('.window').children('img').attr("src", element.data('src'));
+    modal_photo_concurs.children('.window').children('.row').children('.title').html(element.data('title'));
+    modal_photo_concurs.children('.window').children('.row').children('.text').html(element.children('.full_text').html());
+    modal_photo_concurs.children('.window').children('.row').children('.name').html(element.children('.name').html() + " " + '<span>' + element.data('category') + '</span>');
     $('.close_click').show();
     return false;
 });
 
 $('#modal_photo_concurs .close').click(function () {
     modal_photo_concurs.hide('hide');
+    $('html').css('overflow', 'visible');
     $('.close_click').hide();
 });
 
 $('.close_click').click(function () {
     modal_photo_concurs.hide('hide');
+    $('html').css('overflow', 'visible');
     $('.close_click').hide();
 });
 

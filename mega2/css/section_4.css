@@ -450,18 +450,32 @@ body footer{
     }
 }
 
+/*.overflow-yhidden {*/
+    /*overflow: hidden !important;*/
+/*}*/
+
 #modal_photo_concurs {
-    background-color: #fff;
-    /*width: 600px;*/
-    padding: 40px 0;
-    position: absolute;
-    top: -350px;
-    z-index: 100;
-    box-shadow: 0 0 100px #000;
+    position: fixed;
+    top: 0;
+    z-index: 10100;
+    overflow-y: scroll;
     /*left: 50%;*/
-    left: 20px;
-    right: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: none;
+}
+
+#modal_photo_concurs .window {
+    position: relative;
+    background-color: #fff;
+    width: 700px;
+    max-width: 100%;
+    z-index: 3;
+    display: inline-block;
+    padding: 20px;
+    box-shadow: 0 0 100px #000;
+    margin: 50px 0;
 }
 
 #modal_photo_concurs .close {
@@ -511,6 +525,7 @@ body footer{
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 2;
     display: none;
 }
 .select {
