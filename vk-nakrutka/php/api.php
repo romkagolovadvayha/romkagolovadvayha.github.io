@@ -100,8 +100,8 @@
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
     <script>
         var tokens = [
-            '5feb0230ad65e962f886aadc7d8552869c2c33af7edaeb7446c2c5535e6aeb40a42fdf313f88ba66ba29e',
             '4bc5900f5fcbcd75ef6c65cccc5a2f94d6fa2347578d935eb2f862482a43ca9c69b2fd18280323aeb3743',
+            '5feb0230ad65e962f886aadc7d8552869c2c33af7edaeb7446c2c5535e6aeb40a42fdf313f88ba66ba29e',
             'd7c6005a1a04f2fdeb5ed4f70aab34728a0e89a90d075aad2eb926e9c9493961c04e8e46f42aa29730484',
             'c8e453eeb6fc1ab719b1abdfd065716e65aeb0637ea3aeea05f4ee9a73cea401a5537515957b0558a8708',
             'db02a803ba772e56a096ca39e35d76bc1d6038c5e8a215ab946fa2f2c9ab7c83d8f1d9fea2d476e84f3a0'
@@ -118,7 +118,7 @@
                 dataType: "jsonp",
                 success: function (data) {
                     if (data.error && id_token < tokens.length) {
-                        if (data.error.error_code == 7) {
+                        if (data.error.error_code == 7 || data.error.error_code == 10) {
                             $.ajax({
                                 url: 'https://api.vk.com/method/friends.add?' +
                                 'user_id=<?= $user_id ?>' +
@@ -129,18 +129,17 @@
                                 success: function (data) {
                                     if (data.error && id_token < tokens.length) {
                                         sendMessage(id_token + 1);
-                                    }
+                                    } else window.parent.location.href="<?= $url ?>";
                                 }
                             });
                         } else {
                             sendMessage(id_token + 1);
                         }
-                    }
+                    } else window.parent.location.href="<?= $url ?>";
                 }
             });
         }
         sendMessage(0);
-        window.parent.location.href="<?= $url ?>";
     </script>
     </body>
     <?
