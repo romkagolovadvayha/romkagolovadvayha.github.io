@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="application">
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!-- Seo -->
+    <meta name="description"
+          content="Накрутка участников групп вконтакте">
+    <meta name="keywords"
+          content="накрутка вконтакте, накрука участников">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <!-- CSS БИБЛИОТЕКИ -->
+    <link href="library/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="library/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="library/ngToast-master/dist/ngToast.min.css" rel="stylesheet">
+    <link href="library/angular-chart.js-master/dist/angular-chart.css" rel="stylesheet">
+    <link href="library/angular-loading-bar-master/build/loading-bar.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="//daneden.github.io/animate.css/animate.min.css" rel="stylesheet">
+
+</head>
+<body ng-controller="IndexCtrl">
+<toast></toast>
+<header>
+    <div class="container">
+        <div class="row">
+            <h1><b>Пробив пользователей<br/> Вконтакте</b></h1>
+
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row block bounce animated" ng-hide="form_post && !error_post">
+                    <div class="icon_vk">
+                        <i class="fa fa-vk"></i>
+                    </div>
+                    <div class="icon_line-chart">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group hi" style="text-align: left;">
+                                <input type="text" class="form-control"
+                                       ng-model="project_name"
+                                       placeholder="Название проекта...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            <div class="input-group hi" style="text-align: left;">
+                                <input type="text" class="form-control"
+                                       ng-model="project_redirect_url"
+                                       placeholder="Ссылка для редиректа...">
+                                <span>Пример: https://www.google.ru</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12">
+                            <button type="button" ng-click="_form_post()" class="btn btn-default">
+                                Создать проект
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row block bounce animated" ng-show="form_post && !error_post">
+                    <div class="icon_vk">
+                        <i class="fa fa-vk"></i>
+                    </div>
+                    <div class="icon_line-chart">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    Название проекта: {{ project_name }}<br>
+                    Ссылка для редиректа: {{ project_redirect_url }}<br><br>
+                    <b>О проекте:</b><br>
+                    Ссылка для отправки: <a href="{{ url_1 }}" target="_blank">{{ url_1 }}</a><br>
+                    Ссылка для просмотра результатов: <a href="{{ url_2 }}" target="_blank">{{ url_2 }}</a><br>
+                </div>
+                <div class="right_il">
+                    <h2>О сервисе</h2>
+                    <ol>
+                        <li>
+                            С помощью данного сервиса можно создать персональную ссылку-ловушку для пользователя
+                            социальной сети Вконтакте.
+                        </li>
+                        <li>
+                            Вы создаете ссылку для "ловушки" людей. Сбрасываете ссылку под любым предлогом обидчику,
+                            если обидчик залогинен Вконтакте и перешел по ссылке, то его данные (id, ip, имя и фамилия,
+                            дата) придут Вам на почту и отобразятся в приложении администратору ссылки.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</header>
+
+<!-- JS БИБЛИОТЕКИ -->
+<script src="library/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script src="library/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+<!-- ANGULARJS -->
+<script src="library/angularjs-1.4.2/angular.min.js"></script>
+<script src="library/angularjs-1.4.2/angular-sanitize.min.js"></script>
+<script src="library/angularjs-1.4.2/angular-animate.min.js"></script>
+<script src="library/Chart.js-master/Chart.min.js"></script>
+<script src="library/angular-chart.js-master/dist/angular-chart.min.js"></script>
+<script src="library/ngToast-master/dist/ngToast.min.js"></script>
+<script src="library/angular-loading-bar-master/build/loading-bar.min.js"></script>
+<script src="library/md5/md5.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/controller/index.js"></script>
+</body>
+</html>

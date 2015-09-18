@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="description"
+          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/app.v2.css" type="text/css"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/font.css" type="text/css" cache="false"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src="http://flatfull.com/themes/todo/js/ie/respond.min.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/html5.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/excanvas.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/fix.js" cache="false"></script> <![endif]--></head>
+<style>
+    .subtask td:first-child {
+        padding-left: 50px;
+    }
+    .subtask td:first-child i {
+        transform: rotate(90deg);
+        margin-right: 5px;
+    }
+</style>
+<body>
+<section class="hbox stretch"> <!-- .aside -->
+
+    <aside class="bg-dark aside-sm" id="nav">
+        <section class="vbox">
+            <header class="dker nav-bar"><a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen"
+                                            data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#"
+                                                                                                   class="nav-brand"
+                                                                                                   data-toggle="fullscreen">Название</a>
+                <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"> <i
+                        class="fa fa-comment-o"></i> </a></header>
+            <section>
+                <div class="lter nav-user hidden-xs pos-rlt">
+                    <div class="nav-avatar pos-rlt"><a href="#" class="thumb-sm avatar animated rollIn"
+                                                       data-toggle="dropdown"> <img
+                            src="http://flatfull.com/themes/todo/images/avatar.jpg" alt=""
+                            class=""> <span
+                            class="caret caret-white"></span> </a>
+                        <ul class="dropdown-menu m-t-sm"><span class="arrow top"></span>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="profile.html">Профиль</a></li>
+                            <li><a href="#"> <span class="badge bg-danger pull-right">3</span> Уведомления </a></li>
+                            <li class="divider"></li>
+                            <li><a href="docs.html">Помощь</a></li>
+                            <li><a href="signin.html">Выход</a></li>
+                        </ul>
+                        <div class="visible-xs m-t m-b"><a href="#" class="h3">Андрей Попов</a>
+
+                            <p><i class="fa fa-map-marker"></i> Ижевск, Россия</p></div>
+                    </div>
+                    <div class="nav-msg"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
+                            class="badge badge-white count-n">1</b> </a>
+                        <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                            <div class="arrow left"></div>
+                            <section class="panel bg-white">
+                                <header class="panel-heading"><strong>У вас <span class="count-n">1</span>
+                                    сообщения</strong></header>
+                                <div class="list-group"><a href="#" class="media list-group-item"> <span
+                                        class="pull-left thumb-sm"> <img
+                                        src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                                        class="img-circle"> </span> <span
+                                        class="media-body block m-b-none"> Сегодня вы должны обзвонить 28 человек<br> <small
+                                        class="text-muted">08 сентября 2015
+                                </small> </span> </a></div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+                <nav class="nav-primary hidden-xs">
+                    <ul class="nav">
+                        <li class="dropdown-submenu"><a href="index.html" class="dropdown-toggle">
+                            <i class="fa fa-newspaper-o"></i> <span>Дашборд</span> </a>
+                        </li>
+                        <li class="dropdown-submenu"><a href="index4.html" class="dropdown-toggle">
+                            <i class="fa fa-plus"></i> <span>Новый клиент</span> </a>
+                        </li>
+                        <li class="dropdown-submenu active"><a href="index3.html" class="dropdown-toggle"> <i
+                                class="fa fa-tasks"></i> <span>Мои задачи</span> </a>
+                        </li>
+                        <li class="dropdown-submenu"><a href="#" class="dropdown-toggle"> <i
+                                class="fa fa-file-text"></i> <span>Клиенты</span> </a>
+                        </li>
+                        <li><a href=""> <b class="badge bg-primary pull-right">3</b> <i
+                                class="fa fa-envelope-o"></i> <span>Почта</span> </a></li>
+                        <li><a href="notes.html"> <i class="fa fa-pencil"></i> <span>Заметки</span> </a></li>
+                    </ul>
+                </nav>
+            </section>
+            <footer class="footer bg-gradient hidden-xs"><a href="modal.lockme.html" data-toggle="ajaxModal"
+                                                            class="btn btn-sm btn-link m-r-n-xs pull-right"> <i
+                    class="fa fa-power-off"></i> </a> <a href="#nav" data-toggle="class:nav-vertical"
+                                                         class="btn btn-sm btn-link m-l-n-sm"> <i
+                    class="fa fa-bars"></i> </a></footer>
+        </section>
+    </aside>
+    <!-- /.aside -->
+
+
+    <aside class="aside-lg bg-light lter b-r">
+        <section class="vbox">
+            <section class="scrollable">
+                <div class="wrapper">
+                    <div class="clearfix m-b"><a href="#" class="pull-left thumb m-r"> <img
+                            src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                            class="img-circle"> </a>
+
+                        <div class="clear">
+                            <div class="h3 m-t-xs m-b-xs">Андрей Попов</div>
+                            <small class="text-muted">Продавец консультант</small>
+                        </div>
+                    </div>
+                    <div class="panel wrapper" align="center">
+                        План продаж за сентябрь<br/><br/>
+                        <div class="row">
+                            <div class="col-xs-6" align="center"><a href="#"> <span class="m-b-xs h4 block">245</span>
+                                <small class="text-muted">План</small>
+                            </a></div>
+                            <div class="col-xs-6" align="center"><a href="#"> <span class="m-b-xs h4 block">55</span>
+                                <small class="text-muted">Выполнено</small>
+                            </a></div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified m-b"><a class="btn btn-success btn-rounded"
+                                                                      data-toggle="button"> <span class="text"> <i
+                            class="fa fa-eye"></i> Позвонить </span> <span class="text-active"> <i class="fa fa-eye"></i> Звоним </span>
+                    </a> <a class="btn btn-info btn-rounded"> <i class="fa fa-comment-o"></i> Чат </a></div>
+
+                </div>
+            </section>
+        </section>
+    </aside>
+
+    <!-- .vbox -->
+    <section id="content">
+        <section class="hbox stretch">
+            <section class="panel">
+                <header class="panel-heading"><span class="label bg-danger pull-right">2 активных задач</span> Задачи</header>
+                <table class="table table-striped m-b-none text-sm">
+                    <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th width="150">Процесс</th>
+                        <th width="150">Назначена</th>
+                        <th width="150">Скрок выполнения</th>
+                        <th width="70"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            Переговоры с холдингом ИКЕА
+                        </td>
+                        <td>
+                            <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                                <div class="progress-bar progress-bar-success" data-toggle="tooltip"
+                                     data-original-title="80%" style="width: 80%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            25.01.15 15:00
+                        </td>
+                        <td>
+                            25.01.15 15:00
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-pencil"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Изменить статус</a></li>
+                                    <li><a href="#">Назначить задачу</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Удалить задачу</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3 звонка по базе
+                        </td>
+                        <td>
+                            <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                                <div class="progress-bar progress-bar-success" data-toggle="tooltip"
+                                     data-original-title="70%" style="width: 70%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            25.01.15 15:00
+                        </td>
+                        <td>
+                            25.10.15 15:00
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-pencil"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Изменить статус</a></li>
+                                    <li><a href="#">Назначить задачу</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Удалить задачу</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="subtask">
+                        <td>
+                            <i class="fa fa-level-up"></i>
+                            Позвонить в отель Лунная саната
+                        </td>
+                        <td>
+                            <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                                <div class="progress-bar progress-bar-info" data-toggle="tooltip"
+                                     data-original-title="100%" style="width: 100%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            25.01.15 15:00
+                        </td>
+                        <td>
+                            25.10.15 15:00
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-pencil"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Изменить статус</a></li>
+                                    <li><a href="#">Назначить задачу</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Удалить задачу</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="subtask">
+                        <td>
+                            <i class="fa fa-level-up"></i>
+                            Позвонить управляющему сети кофейн CoffeePop
+                        </td>
+                        <td>
+                            <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                                <div class="progress-bar progress-bar-info" data-toggle="tooltip"
+                                     data-original-title="100%" style="width: 100%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            25.01.15 15:00
+                        </td>
+                        <td>
+                            25.10.15 15:00
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-pencil"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Изменить статус</a></li>
+                                    <li><a href="#">Назначить задачу</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Удалить задачу</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="subtask">
+                        <td>
+                            <i class="fa fa-level-up"></i>
+                            Связаться с поставщиком
+                        </td>
+                        <td>
+                            <div class="progress progress-sm progress-striped active m-t-xs m-b-none">
+                                <div class="progress-bar progress-bar-info" data-toggle="tooltip"
+                                     data-original-title="0%" style="width: 0%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            25.01.15 15:00
+                        </td>
+                        <td style="color: #fb6b5b;">
+                            17.09.15 15:00
+                        </td>
+                        <td class="text-right">
+                            <div class="btn-group"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                    class="fa fa-pencil"></i></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Изменить статус</a></li>
+                                    <li><a href="#">Назначить задачу</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Удалить задачу</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </section>
+</section>
+</aside>
+</section>
+<a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+</section>
+<!-- /.vbox --> </section>
+<script src="http://flatfull.com/themes/todo/js/app.v2.js"></script>
+<!-- Bootstrap --> <!-- App -->
+<script src="http://flatfull.com/themes/todo/js/slimscroll/jquery.slimscroll.min.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/libs/moment.min.js"></script>
+</body>
+</html>

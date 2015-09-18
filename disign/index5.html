@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="description"
+          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/app.v2.css" type="text/css"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/js/nestable/nestable.css" type="text/css"
+          cache="false"/>
+    <link rel="stylesheet" href="http://flatfull.com/themes/todo/css/font.css" type="text/css" cache="false"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+    <script src="http://flatfull.com/themes/todo/js/ie/respond.min.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/html5.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/excanvas.js" cache="false"></script>
+    <script src="http://flatfull.com/themes/todo/js/ie/fix.js" cache="false"></script> <![endif]-->
+</head>
+<body>
+<section class="hbox stretch"> <!-- .aside -->
+    <aside class="bg-dark aside-sm" id="nav">
+        <section class="vbox">
+            <header class="dker nav-bar"><a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen"
+                                            data-target="#nav"> <i class="fa fa-bars"></i> </a> <a href="#"
+                                                                                                   class="nav-brand"
+                                                                                                   data-toggle="fullscreen">Название</a>
+                <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user"> <i
+                        class="fa fa-comment-o"></i> </a></header>
+            <section>
+                <div class="lter nav-user hidden-xs pos-rlt">
+                    <div class="nav-avatar pos-rlt"><a href="#" class="thumb-sm avatar animated rollIn"
+                                                       data-toggle="dropdown"> <img
+                            src="http://flatfull.com/themes/todo/images/avatar.jpg" alt=""
+                            class=""> <span
+                            class="caret caret-white"></span> </a>
+                        <ul class="dropdown-menu m-t-sm"><span class="arrow top"></span>
+                            <li><a href="#">Настройки</a></li>
+                            <li><a href="profile.html">Профиль</a></li>
+                            <li><a href="#"> <span class="badge bg-danger pull-right">3</span> Уведомления </a></li>
+                            <li class="divider"></li>
+                            <li><a href="docs.html">Помощь</a></li>
+                            <li><a href="signin.html">Выход</a></li>
+                        </ul>
+                        <div class="visible-xs m-t m-b"><a href="#" class="h3">Андрей Попов</a>
+
+                            <p><i class="fa fa-map-marker"></i> Ижевск, Россия</p></div>
+                    </div>
+                    <div class="nav-msg"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b
+                            class="badge badge-white count-n">1</b> </a>
+                        <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+                            <div class="arrow left"></div>
+                            <section class="panel bg-white">
+                                <header class="panel-heading"><strong>У вас <span class="count-n">1</span>
+                                    сообщения</strong></header>
+                                <div class="list-group"><a href="#" class="media list-group-item"> <span
+                                        class="pull-left thumb-sm"> <img
+                                        src="http://flatfull.com/themes/todo/images/avatar.jpg"
+                                        class="img-circle"> </span> <span
+                                        class="media-body block m-b-none"> Сегодня вы должны обзвонить 28 человек<br> <small
+                                        class="text-muted">08 сентября 2015
+                                </small> </span> </a></div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+                <nav class="nav-primary hidden-xs">
+                    <ul class="nav">
+                        <li class="dropdown-submenu"><a href="index.html" class="dropdown-toggle">
+                            <i class="fa fa-newspaper-o"></i> <span>Дашборд</span> </a>
+                        </li>
+                        <li class="dropdown-submenu active"><a href="index4.html" class="dropdown-toggle">
+                            <i class="fa fa-plus"></i> <span>Новый клиент</span> </a>
+                        </li>
+                        <li class="dropdown-submenu"><a href="index3.html" class="dropdown-toggle"> <i
+                                class="fa fa-tasks"></i> <span>Мои задачи</span> </a>
+                        </li>
+                        <li class="dropdown-submenu"><a href="#" class="dropdown-toggle"> <i
+                                class="fa fa-file-text"></i> <span>Клиенты</span> </a>
+                        </li>
+                        <li><a href=""> <b class="badge bg-primary pull-right">3</b> <i
+                                class="fa fa-envelope-o"></i> <span>Почта</span> </a></li>
+                        <li><a href="notes.html"> <i class="fa fa-pencil"></i> <span>Заметки</span> </a></li>
+                    </ul>
+                </nav>
+            </section>
+            <footer class="footer bg-gradient hidden-xs"><a href="modal.lockme.html" data-toggle="ajaxModal"
+                                                            class="btn btn-sm btn-link m-r-n-xs pull-right"> <i
+                    class="fa fa-power-off"></i> </a> <a href="#nav" data-toggle="class:nav-vertical"
+                                                         class="btn btn-sm btn-link m-l-n-sm"> <i
+                    class="fa fa-bars"></i> </a></footer>
+        </section>
+    </aside>
+    <!-- /.aside --> <!-- .vbox -->
+    <section id="content">
+        <section class="vbox">
+            <header class="header bg-dark bg-gradient">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#sparkline" data-toggle="tab">Статистика</a></li>
+                    <!--<li class=""><a href="#morris" data-toggle="tab">Продажи</a></li>-->
+                    <!--<li class=""><a href="#easy-pie-chart" data-toggle="tab">Easy pie chart</a></li>-->
+                </ul>
+            </header>
+            <section class="scrollable wrapper">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="sparkline">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <section class="panel">
+                                    <header class="panel-heading"> Количетсво продаж, сравнение с предыдущим днем
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="btn-group" data-toggle="buttons"><label
+                                                class="btn btn-sm btn-white active"> <input type="radio" name="options"
+                                                                                            id="option1"> День </label>
+                                            <label class="btn btn-sm btn-white"> <input type="radio" name="options"
+                                                                                        id="option2"> Неделя </label>
+                                            <label class="btn btn-sm btn-white"> <input type="radio" name="options"
+                                                                                        id="option2"> Месяц </label>
+                                            <label class="btn btn-sm btn-white"> <input type="radio" name="options"
+                                                                                        id="option2"> Год </label>
+                                        </div>
+                                        <div class="line line-lg pull-in"></div>
+                                        <div class="sparkline" data-type="line" data-resize="true" data-height="185"
+                                             data-width="100%" data-line-width="1" data-line-color="#afcf6f"
+                                             data-spot-color="#afcf6f" data-fill-color="rgba(240,240,240,0.5)"
+                                             data-highlight-line-color="#e1e5e9" data-spot-radius="4"
+                                             data-data="[120,250,200,325,400,380,250,320,345,250,250,250,200,325,300,365,250,210,200,180,150,160,250,250,250,200,300,310,330,250,320,205]"
+                                             data-composite-config='{"lineColor":"#dddddd","fillColor":"#ffffff","spotColor":"#dddddd","spotRadius":"4"}'
+                                             data-composite-data="[325,220,250,200,350,380,250,320,345,250,250,250,200,325,300,365,250,210,200,180,150,160,250,250,250,200,300,310,330,250,320,205]"></div>
+                                        <ul class="list-inline text-muted axis">
+                                            <li>12:00<br>am</li>
+                                            <li>2:00</li>
+                                            <li>4:00</li>
+                                            <li>6:00</li>
+                                            <li>8:00</li>
+                                            <li>10:00</li>
+                                            <li>12:00<br>pm</li>
+                                            <li>2:00</li>
+                                            <li>4:00</li>
+                                            <li>6:00</li>
+                                            <li>8:00</li>
+                                            <li>10:00</li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading"> Топ продаж</header>
+                                    <div id="hero-bar" class="graph" style="position: relative;">
+                                        <svg height="250" version="1.1" width="569" xmlns="http://www.w3.org/2000/svg"
+                                             style="overflow: hidden; position: relative;">
+                                            <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with
+                                                Raphaël 2.0.1
+                                            </desc>
+                                            <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+                                            <text x="43.5" y="181.985167404" text-anchor="end"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M56,181.985167404H544"
+                                                  stroke-width="0.5"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                            <text x="43.5" y="142.738875553" text-anchor="end"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal">
+                                                <tspan dy="4.004500553000014"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">500
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M56,142.738875553H544"
+                                                  stroke-width="0.5"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                            <text x="43.5" y="103.492583702" text-anchor="end"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal">
+                                                <tspan dy="4.008208702000005"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">1,000
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M56,103.492583702H544"
+                                                  stroke-width="0.5"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                            <text x="43.5" y="64.24629185100001" text-anchor="end"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal">
+                                                <tspan dy="4.011916851000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">1,500
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M56,64.24629185100001H544"
+                                                  stroke-width="0.5"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                            <text x="43.5" y="25" text-anchor="end" font="10px &quot;Arial&quot;"
+                                                  stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal">
+                                                <tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                                    2,000
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M56,25H544" stroke-width="0.5"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path>
+                                            <text x="503.3333333333333" y="194.485167404" text-anchor="middle"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal"
+                                                  transform="matrix(0.8192,-0.5736,0.5736,0.8192,-40.595,343.6559)">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Ёршик
+                                                </tspan>
+                                            </text>
+                                            <text x="422" y="194.485167404" text-anchor="middle"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal"
+                                                  transform="matrix(0.8192,-0.5736,0.5736,0.8192,-58.5797,299.3024)">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Салфетки
+                                                </tspan>
+                                            </text>
+                                            <text x="340.6666666666667" y="194.485167404" text-anchor="middle"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal"
+                                                  transform="matrix(0.8192,-0.5736,0.5736,0.8192,-70.0139,250.3512)">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Жидкое мыло
+                                                </tspan>
+                                            </text>
+                                            <text x="259.33333333333337" y="194.485167404" text-anchor="middle"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal"
+                                                  transform="matrix(0.8192,-0.5736,0.5736,0.8192,-91.6847,208.5787)">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Освежитель
+                                                </tspan>
+                                            </text>
+                                            <text x="178" y="194.485167404" text-anchor="middle"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal"
+                                                  transform="matrix(0.8192,-0.5736,0.5736,0.8192,-103.1161,159.6365)">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Влажные салфетки
+                                                </tspan>
+                                            </text>
+                                            <text x="96.66666666666666" y="194.485167404" text-anchor="middle"
+                                                  font="10px &quot;Arial&quot;" stroke="none" fill="#888888"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: sans-serif;"
+                                                  font-size="12px" font-family="sans-serif" font-weight="normal"
+                                                  transform="matrix(0.8192,-0.5736,0.5736,0.8192,-110.045,107.5307)">
+                                                <tspan dy="4.000792404000009"
+                                                       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Другое
+                                                </tspan>
+                                            </text>
+                                            <rect x="66.16666666666667" y="171.31017602052802" width="61"
+                                                  height="10.67499138347199" r="0" rx="0" ry="0" fill="#aeb6cb"
+                                                  stroke="#000" stroke-width="0"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+                                            <rect x="147.49999999999997" y="171.23168343682602" width="61"
+                                                  height="10.753483967173992" r="0" rx="0" ry="0" fill="#aeb6cb"
+                                                  stroke="#000" stroke-width="0"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+                                            <rect x="228.83333333333331" y="160.39970688595" width="61"
+                                                  height="21.585460518050013" r="0" rx="0" ry="0" fill="#aeb6cb"
+                                                  stroke="#000" stroke-width="0"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+                                            <rect x="310.1666666666667" y="152.15798559724" width="61"
+                                                  height="29.827181806759995" r="0" rx="0" ry="0" fill="#aeb6cb"
+                                                  stroke="#000" stroke-width="0"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+                                            <rect x="391.5" y="130.57252507919" width="61" height="51.41264232481001"
+                                                  r="0" rx="0" ry="0" fill="#aeb6cb" stroke="#000" stroke-width="0"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+                                            <rect x="472.8333333333333" y="58.673318408157996" width="61"
+                                                  height="123.31184899584201" r="0" rx="0" ry="0" fill="#aeb6cb"
+                                                  stroke="#000" stroke-width="0"
+                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect>
+                                        </svg>
+                                        <div class="morris-hover morris-default-style" style="display: none;"></div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading">Топ менеджеров по продажам (месяц)</header>
+                                    <div class="panel-body text-center">
+                                        <div class="sparkline inline" data-type="bar" data-height="160"
+                                             data-bar-width="122" data-bar-spacing="4"
+                                             data-stacked-bar-color="['#afcf6f', '#eee']">
+                                            5:5,8:4,12:5,10:6
+                                        </div>
+                                        <ul class="list-inline text-muted axis">
+                                            <li style="text-align: left">
+                                                <b>Андрей Попов</b><br/>
+                                                Месяц: 5<br/>
+                                                Прошлый месяц: 5.
+                                            </li>
+                                            <li style="text-align: left">
+                                                <b>Семен Попов</b><br/>
+                                                Месяц: 8<br/>
+                                                Прошлый месяц: 4.
+                                            </li>
+                                            <li style="text-align: left">
+                                                <b>Андрей Попов</b><br/>
+                                                Месяц: 12<br/>
+                                                Прошлый месяц: 5.
+                                            </li>
+                                            <li style="text-align: left">
+                                                <b>Андрей Попов</b><br/>
+                                                Месяц: 10<br/>
+                                                Прошлый месяц: 5.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="morris">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading"> Jaguar 'E' Type vehicles in the UK</header>
+                                    <div id="hero-graph" class="graph"></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading"> Donut flavours</header>
+                                    <div id="hero-donut" class="graph"></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading"> Quarterly Apple iOS device unit sales</header>
+                                    <div id="hero-area" class="graph"></div>
+                                </section>
+                            </div>
+                            <div class="col-lg-6">
+                                <section class="panel">
+                                    <header class="panel-heading"> iPhone CPU benchmarks</header>
+                                    <div id="hero-bar" class="graph"></div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="easy-pie-chart">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <section class="panel">
+                                    <header class="panel-heading"> Conversion</header>
+                                    <div class="panel-body text-center">
+                                        <h4>62.5
+                                            <small> hrs</small>
+                                        </h4>
+                                        <small class="text-muted block">Updated at 2 minutes ago</small>
+                                        <div class="inline">
+                                            <div class="easypiechart" data-percent="75" data-line-width="16"
+                                                 data-loop="false" data-size="188"><span class="h2">75</span>%
+                                                <div class="easypie-text">
+                                                    <button class="btn btn-link m-t-n-sm" data-toggle="class:pie"><i
+                                                            class="fa fa-play text text-muted"></i><i
+                                                            class="fa fa-pause text-active text-muted"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <small>% of avarage rate of the Conversion</small>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4">
+                                <section class="panel">
+                                    <header class="panel-heading"> Bounce rate</header>
+                                    <div class="panel-body text-center">
+                                        <h4>
+                                            <small>last</small>
+                                            12
+                                            <small> hrs</small>
+                                        </h4>
+                                        <small class="text-muted block">yesterday: 20%</small>
+                                        <div class="inline">
+                                            <div class="easypiechart" data-percent="25" data-line-width="6"
+                                                 data-loop="false" data-size="188"><span class="h2">25</span>%
+                                                <div class="easypie-text">Today</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <small>% of change</small>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="col-lg-4">
+                                <section class="panel">
+                                    <header class="panel-heading"> New visitors</header>
+                                    <div class="panel-body text-center"><h4>3,450</h4>
+                                        <small class="text-muted block">Worldwide visitors</small>
+                                        <div class="inline">
+                                            <div class="easypiechart" data-percent="60" data-line-width="30"
+                                                 data-track-color="#eee" data-bar-color="#afcf6f"
+                                                 data-scale-color="#fff" data-loop="false" data-size="188"><span
+                                                    class="h2">60</span>%
+                                                <div class="easypie-text">new visits</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <small>% of avarage rate of the visits</small>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
+    <!-- /.vbox --> </section>
+<script src="http://flatfull.com/themes/todo/js/app.v2.js"></script>
+<script src="http://flatfull.com/themes/todo/js/charts/morris/raphael-min.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/charts/morris/morris.min.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/slimscroll/jquery.slimscroll.min.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/libs/moment.min.js"></script>
+<script src="http://flatfull.com/themes/todo/js/sortable/jquery.sortable.js"></script>
+<script src="http://flatfull.com/themes/todo/js/nestable/jquery.nestable.js" cache="false"></script>
+<script src="http://flatfull.com/themes/todo/js/nestable/demo.js"></script>
+</body>
+</html>

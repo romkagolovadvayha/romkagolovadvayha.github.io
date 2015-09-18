@@ -1,0 +1,157 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+
+header {
+    min-height: 100vh;
+    background: url(../images/bg.jpg) center center no-repeat;
+    position: relative;
+    font-family: 'PT Sans', sans-serif;
+}
+
+header .block {
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    min-height: 200px;
+    padding: 20px;
+    /*border-radius: 3px;*/
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.36);
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    margin-top: 100px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+header .right_il {
+    color: #fff;
+    padding: 20px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+header .right_il h2 {
+    margin-top: 0;
+    color: #fff;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+header h1 b {
+    display: block;
+}
+
+header .red_border {
+    border-color: red;
+}
+
+header .input-group.hi span {
+    font-size: 10px;
+    padding: 5px;
+    font-family: 'PT Sans', sans-serif;
+    text-transform: uppercase;
+}
+
+header .input-group.remove {
+    text-align: left;
+    float: left;
+    margin-left: 15px;
+    margin-right: 5px;
+    font-size: 24px;
+    line-height: 34px;
+    color: rgba(0, 0, 0, 0.50);
+}
+
+header .block .icon_vk {
+    position: absolute;
+    background-color: #fff;
+    width: 50px;
+    line-height: 50px;
+    top: 25px;
+    left: -51px;
+    color: #3f5d81;
+    font-size: 24px;
+    border-right: 4px solid #3f5d81;
+    text-align: center;
+    z-index: -2;
+}
+
+header .block .icon_line-chart {
+    position: absolute;
+    background-color: #fff;
+    width: 50px;
+    line-height: 50px;
+    top: 85px;
+    left: -51px;
+    color: #3f5d81;
+    font-size: 24px;
+    border-right: 4px solid #3f5d81;
+    text-align: center;
+    z-index: -2;
+}
+
+header .input-group.price {
+    text-align: left;
+    float: left;
+    font-size: 24px;
+    line-height: 34px;
+}
+
+.alert-success.alert-dismissible {
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 0;
+}
+
+.alert-success.alert-dismissible .media {
+    margin: 0;
+    color: #fff;
+}
+
+.alert-success.alert-dismissible .media .img {
+    border: 1px solid #1A663A;
+}
+
+.alert-success {
+    background-color: #2ecc71;
+    border-color: #29b865;
+    color: #fff;
+    border-radius: 0;
+}
+
+.alert-success.alert-dismissible .close {
+    color: #ecf0f1;
+    text-shadow: none;
+    right: 3px;
+    filter: alpha(opacity=100);
+    opacity: 1;
+    outline: none;
+}
+
+.alert-success.alert-dismissible .close:hover {
+    color: #fff;
+}
+
+.form-control, .btn-default, .form-control:focus, .btn-default:focus, .btn-default:active, .form-control:active {
+    border-radius: 0;
+    outline: none;
+}
+
+.btn-default:focus {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.alert-danger {
+    border-radius: 0;
+}
+
+.ng-toast .alert-success {
+    text-transform: uppercase;
+    font-size: 12px;
+}
