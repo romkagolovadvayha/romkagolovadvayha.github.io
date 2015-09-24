@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="application">
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>Форматирование кода</title>
+
+    <!-- Seo -->
+    <meta name="description"
+          content="Накрутка участников групп вконтакте">
+    <meta name="keywords"
+          content="накрутка вконтакте, накрука участников">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <!-- CSS БИБЛИОТЕКИ -->
+    <link href="library/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="library/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="library/ngToast-master/dist/ngToast.min.css" rel="stylesheet">
+    <link href="library/angular-chart.js-master/dist/angular-chart.css" rel="stylesheet">
+    <link href="library/angular-loading-bar-master/build/loading-bar.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="//daneden.github.io/animate.css/animate.min.css" rel="stylesheet">
+
+</head>
+<body ng-controller="IndexCtrl">
+<toast></toast>
+<header>
+    <div class="container">
+        <div class="row">
+            <h1><b>ФОРМАТТЕР КОДА</b></h1>
+
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row block bounce animated">
+                    <div class="icon_vk">
+                        <i class="fa fa-html5"></i>
+                    </div>
+                    <div class="icon_line-chart">
+                        <i class="fa fa-css3"></i>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group hi" style="text-align: left;">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <span>Отступ</span>
+                                        <select class="form-control" ng-model="indent_char">
+                                            <option value="&#9;">Таб</option>
+                                            <option value=" ">Пробел</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span>Количество</span>
+                                        <select class="form-control" ng-model="indent_size">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group hi" style="text-align: left;">
+                                <span>Введите JavaScript код</span>
+                                <textarea class="form-control" rows="10" cols="45" ng-model="code"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-12">
+                            <button type="button" ng-click="_form_post()" class="btn btn-default">
+                                Форматировать код
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_il">
+                    <h2>О сервисе</h2>
+                    <ol>
+                        <li>
+                            С помощью нашего сервиса, вы в два клика можете придать читабельный вид вашему коду.
+                        </li>
+                        <li>
+                            Наш сервис полностью бесплатный, поддерживает пока только один язык программирования -
+                            javascript.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</header>
+
+<!-- JS БИБЛИОТЕКИ -->
+<script src="library/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script src="library/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+<!-- ANGULARJS -->
+<script src="library/angularjs-1.4.2/angular.min.js"></script>
+<script src="library/angularjs-1.4.2/angular-sanitize.min.js"></script>
+<script src="library/angularjs-1.4.2/angular-animate.min.js"></script>
+<script src="library/Chart.js-master/Chart.min.js"></script>
+<script src="library/angular-chart.js-master/dist/angular-chart.min.js"></script>
+<script src="library/ngToast-master/dist/ngToast.min.js"></script>
+<script src="library/angular-loading-bar-master/build/loading-bar.min.js"></script>
+<script src="js/beautify.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/controller/index.js"></script>
+</body>
+</html>
