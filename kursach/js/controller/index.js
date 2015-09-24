@@ -7,7 +7,9 @@ app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) 
     $scope.form_post = false;
     $scope.error_post = false;
     $scope.indent_char = "\t";
-    $scope.indent_size = 1;
+    $scope.indent_size = "1";
+
+    $scope.code = '$scope._form_post = function () {cfpLoadingBar.start();$scope.error_post = false;$scope.form_post = true;if (!$scope.code)$scope.error_post = true;cfpLoadingBar.complete(); for (var i=0;i<10;i++) {var u = 0;}};';
 
     $scope.groupFormActive = false;
 
@@ -24,7 +26,7 @@ app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) 
         else {
             $scope.code = js_beautify($scope.code, {
                 'indent_size' : $scope.indent_size,
-                'indent_char' : $scope.ind
+                'indent_char' : $scope.indent_char
             });
             $scope.writeError('Код успешно отформатирован!');
         }
