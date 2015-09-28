@@ -692,7 +692,7 @@ Features-stack
 
 .features-extra .macbook-wrap {
     position: absolute;
-    width: 916px;
+    width: 616px;
     height: 540px;
     background: url("../img/photo.jpg") no-repeat center center;
     top: 114px;
@@ -1601,7 +1601,7 @@ you can use the generic selector below, but it's slower:
 }
 
 .top_headert .akci .title {
-    font-size: 24px;
+    font-size: 28px;
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -1624,7 +1624,7 @@ you can use the generic selector below, but it's slower:
 }
 
 .top_headert .akci .tarif span {
-    font-size: 18px;
+    font-size: 36px;
     font-weight: 700;
     display: block;
 }
