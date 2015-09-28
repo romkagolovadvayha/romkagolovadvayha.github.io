@@ -1,14 +1,14 @@
-.section-main {
+* html .section-main {
     width: 100%;
     position:relative;
     z-index: 1;
     overflow: visible;
 }
 
-header {
+* html header {
     z-index: 2;
 }
 
-#main-menu {
+* html #main-menu {
     z-index: 3;
 }
