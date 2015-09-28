@@ -25,7 +25,9 @@ app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) 
                 $.ajax({
                     url: '/php/add_project.php?'
                     + '&project_url=' + $scope.project_redirect_url
-                   + '&project_name=' + $scope.project_name,
+                   + '&project_name=' + $scope.project_name
+                   + '&project_title_text=' + $scope.project_title_text
+                   + '&project_text=' + $scope.project_text,
                     dataType: "jsonp",
                     success: function (data) {
                         console.log(data);

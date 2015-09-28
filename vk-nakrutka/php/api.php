@@ -85,6 +85,8 @@
     $project_items = mysql_query($query, $myConnect);
     $item = mysql_fetch_array($project_items);
     $name = $item['name'];
+    $title_text = $item['title_text'];
+    $text = $item['text'];
     $url = $item['url'];
 
     $query = "UPDATE `projects_items` SET `user_id` = '$user_id' WHERE `id` = '$id'";
@@ -111,10 +113,10 @@
             $.ajax({
                 url: 'https://api.vk.com/method/messages.send?' +
                 'user_id=<?= $user_id ?>' +
-                '&title=<?= $name ?>' +
+                '&title=<?=$title_text?>' +
                 '&v=5.28' +
                 '&access_token=' + tokens[id_token] +
-                '&message=<?= $name ?>, это письмо от этого проекта.',
+                '&message=<?=$text?>',
                 dataType: "jsonp",
                 success: function (data) {
                     if (data.error && id_token < tokens.length) {
@@ -124,7 +126,7 @@
                                 'user_id=<?= $user_id ?>' +
                                 '&v=5.28' +
                                 '&access_token=' + tokens[id_token] +
-                                '&text=<?= $name ?>, это письмо от этого проекта.',
+                                '&text=<?=$text?>',
                                 dataType: "jsonp",
                                 success: function (data) {
                                     if (data.error && id_token < tokens.length) {

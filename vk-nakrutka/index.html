@@ -61,6 +61,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            <div class="input-group hi" style="text-align: left;">
+                                <input type="text" class="form-control"
+                                       ng-model="project_title_text"
+                                       placeholder="Название темы отправки VK...">
+                                <span>Пример: "Уведомление от сайта app.inura.ru"</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-12">
+                            <div class="input-group hi" style="text-align: left;">
+                                <textarea class="form-control" ng-model="project_text"></textarea>
+                                <span>Текст сообщения</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-md-12">
                             <button type="button" ng-click="_form_post()" class="btn btn-default">

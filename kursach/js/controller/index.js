@@ -1,5 +1,5 @@
 /**
- * OnlineMemberCtrl
+ * IndexCtrl
  */
 'use strict';
 app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
@@ -25,8 +25,8 @@ app.controller('IndexCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) 
             $scope.writeError('Неверно заполнены поля!');
         else {
             $scope.code = js_beautify($scope.code, {
-                'indent_size' : $scope.indent_size,
-                'indent_char' : $scope.indent_char
+                'indent_size': $scope.indent_size,
+                'indent_char': $scope.indent_char
             });
             $scope.writeError('Код успешно отформатирован!');
         }
