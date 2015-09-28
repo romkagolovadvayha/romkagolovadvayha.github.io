@@ -1,0 +1,14 @@
+.section-main {
+    width: 100%;
+    position:relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+header {
+    z-index: 2;
+}
+
+#main-menu {
+    z-index: 3;
+}
