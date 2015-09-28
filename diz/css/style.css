@@ -3689,3 +3689,7 @@ a.button-7:hover, a.button-7:focus {
     text-align: center;
     color: #2980b9;
 }
+
+.messageOuter h1 {
+    color: #202020;
+}
