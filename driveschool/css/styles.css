@@ -1635,6 +1635,10 @@ you can use the generic selector below, but it's slower:
     text-align: center;
 }
 
+.top_headert .akci .form-input-group input {
+    color: #202020;
+}
+
 .sign-up.top_headert {
    color: #fff;
     text-align: center;
