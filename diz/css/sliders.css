@@ -1,0 +1,107 @@
+body{
+	background-color: #fbfff5;
+}
+.slider-install ol li:before {
+	content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    top: 0px;
+    left: -30px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.slider-install ol li p {
+    float: left;
+    text-align: left;
+    display: block;
+    position: relative;
+    font-weight: normal;
+    color: #666;
+	margin:0;
+	padding:0;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+}
+
+.slider-install ol li{
+	position:relative;
+	line-height:24px;
+	min-height:24px;
+	margin:0 0 10px 0;
+	padding:0;
+	display:block;
+}
+.slider-install ol{
+	position:relative;
+	display:block;
+	min-height:200px;
+	height:auto;
+	margin:0;
+	padding:0;
+}
+.slider-install {
+	z-index: 9;
+    width: 560px;
+    margin: 0 0 7px;
+	padding:100px 0 0 0;
+    position: relative;
+    background: url(../img/har.jpg) 50% 0 no-repeat;
+}
+.slider{
+	width: 640px;
+	margin: 30px auto;
+	position:relative;
+	padding: 20px;
+	background: #FFF;
+	/* border: 1px solid rgb(235, 235, 235); */
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.slider-wrapper{
+	position: relative;
+	overflow: hidden;
+}
+.slider-items{
+	width: 10000px; 
+	position: relative;
+	left:0px;	
+}
+.wu-slider-block{
+	float: left;
+	margin:0;
+	text-align: center;
+}
+.sl-left,
+.sl-right{
+	position: absolute;
+	z-index: 999;
+	top: 50%;
+	color: #868282;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(230, 230, 230);
+	font-size: 32px;
+	padding: 0 5px;
+	margin-top:-20px;
+	cursor: pointer;
+}
+.sl-left{
+	left: -44px;
+	border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+}	
+.sl-right{
+	right: -44px;
+	border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	-webkit-border-radius: 0 3px 3px 0;
+}	
+.sl-left:hover,
+.sl-right:hover{
+	color: #67BE17;
+}
+	

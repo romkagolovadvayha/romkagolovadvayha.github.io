@@ -1,0 +1,964 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Calix</title>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link href="css/timer-1.css" rel="stylesheet" type="text/css">
+    <link href="css/fonts/pt-sans/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="css/fonts/pt-sans-caption/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/styless.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="favicon.png">
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.1.3.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.transit.min.js"></script>
+    <!--<script type="text/javascript" src="js/prefixfree.js"></script>-->
+    <script type="text/javascript" src="js/timer-1.js"></script>
+    <script type="text/javascript"
+            src="../../cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+    <script type="text/javascript" src="js/landing.js"></script>
+    <script type="text/javascript" src="js/parcer.js"></script>
+    <!--<script type="text/javascript" src="js/menu.js"></script>-->
+    <!-- use jssor.slider.mini.js (40KB) instead for release -->
+    <!-- jssor.slider.mini.js = (jssor.js + jssor.slider.js) -->
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/jssor.js"></script>
+    <script type="text/javascript" src="js/jssor.slider.js"></script>
+    <link href="css/sliders.css" type="text/css" rel="stylesheet">
+    <!--<script src="../carousel.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body id="fixwidth">
+<div id="mescont">
+    <div class="messageWindow">
+        <a href="javascript:;" onClick="closeMsg('mescont', false)" class="close-button">&nbsp;</a>
+
+        <div class="messageCaption"><h2>Сообщение с сайта</h2></div>
+        <div class="messageOuter">
+            <div class="message" id="message"></div>
+        </div>
+        <div class="closeBtn">
+            <a href="javascript:;" class="button-4" onClick="closeMsg('mescont', false)">Закрыть</a>
+        </div>
+    </div>
+</div>
+<div id="usercont" class="popupForm">
+    <div class="messageWindow">
+        <a href="javascript:;" onClick="closeMsg('usercont', false)" class="close-button">&nbsp;</a>
+
+        <div class="messageCaption"><h2 id="userFormCaption">Введите ваши данные</h2></div>
+        <div class="messageOuter">
+            <div class="message" id="message">
+                <form id="userForm" name="userForm" enctype="multipart/form-data" action="/httpr/Robokassa.php"
+                      method="post">
+                    <fieldset>
+                        <label></label>
+                        <input type="text" id="name" name="name" placeholder="Ваше имя">
+                    </fieldset>
+                    <fieldset>
+                        <label></label>
+                        <input type="text" class="tel" id="phone" name="phone" placeholder="Ваш телефон">
+                    </fieldset>
+                    <input type="hidden" id="targetKind" name="targetKind">
+                    <input type="hidden" id="security" name="security" value="8853">
+                </form>
+            </div>
+        </div>
+        <div class="closeBtn">
+            <a href="javascript:;" class="button-4" onClick="sendFormAjax('userForm')">Отправить</a>
+            <!-- <a href="javascript:;" class="button-4" onClick="closeMsg('usercont',true)">Отменить</a>-->
+        </div>
+    </div>
+</div>
+<!--
+<div id="repost">
+	<script type="text/javascript" src="../yandex.st/share/share.js" charset="utf-8"></script>
+	<div class="yashare-auto-init" data-yashareL10n="ru" data-yashareQuickServices="vkontakte,facebook,twitter,odnoklassniki,gplus" data-yashareTheme="counter"></div>
+</div>
+-->
+<div id="body">
+    <div id="warper">
+
+        <div id="fixedMenu">
+            <div class="fixwidth">
+                <div class="short menubtn" onClick="showSlideMenu();">
+                    <img src="img/menubtn.png">
+                </div>
+
+                <ul class="full">
+                    <li><img id="logotype" src="img/logo.png" onClick="scrollOn('#warper')"></li>
+                    <li><a href="#advantages"> Сравнение</a></li>
+                    <li><a href="#bath">Доставка</a></li>
+                    <li><a href="#polza2">Преимущества</a></li>
+                    <li><a href="#partners">Поиск</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#856">Контакты</a></li>
+                </ul>
+                <ul class="short">
+                    <li><img id="logotype" src="img/logo.png" onClick="scrollOn('#warper')"></li>
+                </ul>
+                <div id="t-phone">
+                    <div><span>+7 (495)</span> 565-30-66</div>
+                    <a href="javascript:;" onClick="showUserForm('2','Введите ваши данные, мы вам перезвоним!')">заказать
+                        обратный звонок</a></div>
+            </div>
+        </div>
+
+        <div id="slideMenu">
+            <ul>
+                <li><a href="javascript:;" onClick="hideSlideMenu()"><img src="img/close.png"></a></li>
+                <li><a href="javascript:;" onClick="scrollOn('#advantages'); hideSlideMenu();">Сравнение</a></li>
+                <li><a href="javascript:;" onClick="scrollOn('#bath'); hideSlideMenu();">Доставка</a></li>
+                <li><a href="javascript:;" onClick="scrollOn('#polza'); hideSlideMenu();">Преимущества</a></li>
+                <li><a href="javascript:;" onClick="scrollOn('#partners'); hideSlideMenu();">Поиск</a></li>
+                <li><a href="javascript:;" onClick="scrollOn('#reviews'); hideSlideMenu();">Отзывы</a></li>
+                <li><a href="javascript:;" onClick="scrollOn('#map'); hideSlideMenu();">Контакты</a></li>
+            </ul>
+        </div>
+
+        <section style="background-image: none; height: 657px;padding-top:0;" class="dark page valign">
+            <div class="parallaxCrop">
+                <div class="parallaxing"
+                     style="background-image: url('img/Car-Wallpaper-5C7.jpg'); height: 1260px; bottom: -252px;"></div>
+            </div>
+            <div class="stars"></div>
+            <div class="header-parallax p-17 si-floating2" data-xmove="0.6" data-ymove="0.2"><img
+                    src="img/d1ee93aab3a75d472246964399dd5031.png" alt="" class="parallax-image" width="200px">
+            </div>
+            <div class="header-parallax p-16 si-floating" data-xmove="0.2" data-ymove="0.1"><img
+                    src="img/publicity_prosperity3.png" alt="" width="300px" class="parallax-image">
+            </div>
+            <div class="header-parallax p-15 si-floating2" data-xmove="0.4" data-ymove="0.3"><img src="img/lestar_l.png"
+                                                                                                 alt=""
+                                                                                                 class="parallax-image">
+            </div>
+            <div class="header-parallax p-18 si-floating3" data-xmove="0.1" data-ymove="0.3"><img
+                    src="img/2025745209_08-803.png" alt="" class="parallax-image">
+            </div>
+            <!--<div class="overlay" data-style="background:url(img/bg-pixel.png)"></div>-->
+            <div class="inner" style="padding-top:111px; position:relative;">
+                <div>
+                    <div class="headframed" style="margin-bottom:-45px;"><h1>Предпусковые<br/> подогреватели двигателя
+                    </h1></div>
+                    <div><h2 class="blue">доставка по России</h2></div>
+                </div>
+                <h1 class="shad">Сделайте заказ<br/> и получите скидку <span>5%</span></h1><br>
+
+                <div class="timer" id="timer1" style="margin-bottom:35px;float:none;width:345px;">
+                    <h2>до конца акции осталось:</h2>
+                    <!--<div class="time1" style="">-->
+                    <!--<div class="c-block c-block-3"><div class="bl-inner"><span>3</span></div><span class="etitle etitle-1">дней</span></div><ins></ins>-->
+                    <!--<div class="c-block c-block-2"><div class="bl-inner"><span>12</span></div><span class="etitle etitle-2">часов</span></div><ins></ins>-->
+                    <!--<div class="c-block c-block-2"><div class="bl-inner"><span>1</span></div><span class="etitle etitle-2">минут</span></div><ins></ins>-->
+                    <!--<div class="c-block c-block-2"><div class="bl-inner"><span>1</span></div> <span class="etitle etitle-2">секунд</span></div>-->
+                    <!--<div class="pad"></div>-->
+                    <!--</div>-->
+                    <script src="http://megatimer.ru/s/08ca7fe8b2e1e8b9981c58186b170b2e.js"></script>
+                </div>
+                <div>
+                    <a href="#" class="button-4" onClick="showUserForm('1','Введите ваши данные')">Отправить заявку</a>
+                </div>
+                <div class="clear" style="height:40px;"></div>
+            </div>
+        </section>
+        <!--newblock-->
+        <div class="slider12 clearfix1">
+            <pre class="a1"
+            <h1="">РЕШЕНИЯ CALIX
+            <h2 style="margin-top: 10px;" class="a2">для легковых автомобилей</h2> </pre>
+            <div class="sliders1">
+                <div id="slideshow-wrap">
+                    <input type="radio" id="button-1" name="controls" checked="checked"/>
+                    <label for="button-1"></label>
+                    <input type="radio" id="button-2" name="controls"/>
+                    <label for="button-2"></label>
+                    <input type="radio" id="button-3" name="controls"/>
+                    <label for="button-3"></label>
+                    <input type="radio" id="button-4" name="controls"/>
+                    <label for="button-4"></label>
+
+                    <div id="slideshow-inner">
+                        <ul>
+                            <li id="slide1">
+                                <div class="slide"><pre> Простота установки &mdash; система не затрагивает топливную
+и электронную системы автомобиля, кабельные системы
+бронированы, изолированы и имеют разъемы Plug-and-Play</pre>
+                                </div>
+                            </li>
+                            <li id="slide2">
+<pre>       Малые габариты и вес позволяют удобно, 
+      просто и быстро установить оборудование</pre>
+                            </li>
+                            <li id="slide3">
+<pre>Одобрено автопроизводителями и устанавливается
+на заводах Man, Volvom Scania, jcb, ford cargo,Renault trucks,
+Mercedes-benz, john deere</pre>
+                            </li>
+                            <li id="slide4">
+  <pre>Модульность - позволяет Вам выбрать компоненты 
+              и установить их на любую технику </pre>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+		<pre>       <img src="nr/1.png"
+                         onmouseover="this.src='nr/1+.png';"
+                         onmouseout="this.src='nr/1.png';"/><img src="nr/2.png"
+                                                                 onmouseover="this.src='nr/2+.png';"
+                                                                 onmouseout="this.src='nr/2.png';"/> <img src="nr/3.png"
+                                                                                                          onmouseover="this.src='nr/3+.png';"
+                                                                                                          onmouseout="this.src='nr/3.png';"/>    <img
+                src="nr/4.png"
+                onmouseover="this.src='nr/4+.png';"
+                onmouseout="this.src='nr/4.png';"/>
+</pre>
+            <img src="nr/sxema.png" style="margin-left:25px">
+
+            <div class="photos1">
+
+	
+<pre><img src="nr/5.png" onmouseover="this.src='nr/5+.png';" onmouseout="this.src='nr/5.png';">        <img
+        src="nr/6.png" onmouseover="this.src='nr/6+.png';" onmouseout="this.src='nr/6.png';">       <img src="nr/7.png"
+                                                                                                         onmouseover="this.src='nr/7+.png';"
+                                                                                                         onmouseout="this.src='nr/7.png';">        <img
+        src="nr/8.png" onmouseover="this.src='nr/8+.png';" onmouseout="this.src='nr/8.png';">
+		
+		
+		</pre>
+                <!-- <img src="img/scheme.jpg"> -->
+            </div>
+        </div>
+
+
+        <a name="advantages2" class="anchor"></a>
+
+
+        <section id="advantages" class="light infoBlocks col4 animated anim-opacity">
+            <div class="fixwidth" style="margin-top:100px">
+                <h1>СРАВНЕНИЕ ЭКСПЕРТОВ</h1>
+
+                <h2 style="margin-top:-30px ">c автономным предпусковым
+                    подогревателем</h2>
+
+                <p class="lead">
+                <table class="mytable" width="70%" cellpadding="10" style="">
+                    <colgroup>
+                        <col span="10">
+                    </colgroup>
+                    <tbody>
+                    <tr bgcolor="#EBEBEB" height="35px" width="28%">
+                        <td class="bgbg"><b>Характеристика</b></td>
+                        <td width="8%"><b>Автономный<br/>обогреватель</b></td>
+                        <td width="8%" class="bgbg"><img src="img/calix.png"></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px"> Автономность, независимость от розетки 220В</td>
+                        <td><!--<img src="img/YESN.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                        <td class="bgbg"></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Не расходуется топливо при прогреве</td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Доступная цена базового комплекта</td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Низкая стоимость и простота установки</td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Независимость от заряда аккумулятора</td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Не требуется много места для установки</td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Подзарядка аккумулятора и обогрев салона перед<br/> анчалом
+                            движения
+                        </td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+
+                    <tr>
+                        <td bgcolor="#EBEBEB" height="35px">Не требует послепродажного обслуживания</td>
+                        <td></td>
+                        <td><!--<img src="img/YES1.jpg"/>!--><span style="color:green;font-size:25px;">✔</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+                </p>
+
+            </div>
+        </section>
+        <a name="bath2" class="anchor"></a>
+        <section id="bath" class="light" style="background-color:#fff;">
+            <div class="fixwidth" style="margin-top:100px;">
+                <h1>ТРИ ЛЕГКИХ ШАГА</h1>
+
+                <h2 style="margin-top:-20px">ДЛЯ ДОСТАВКИ НА ДОМ</h2>
+
+                <div>
+                    <p style="text-align:center;"><img src="img/form2.jpg" style="width:100%; max-width:450px"></p>
+
+                    <p style="text-align:center;"><img src="img/vanna.png" style="width:100%; max-width:653px"></p>
+                    <small>
+                        <h6>
+                            <div style="text-align:center; margin-left:-480px">Сообщите нам<br>модель вашего<br>автомобиля
+                            </div>
+                        </h6>
+                        <h6>
+                            <div style="text-align:center; margin-left:30px;margin-top:-50px">В этот же день мы<br>сделаем
+                                расчёт<br>вашего комплекта
+                            </div>
+                        </h6>
+                        <h6>
+                            <div style="text-align:center; margin-left:480px;margin-top:-47px">Доставка до г.<br>Урюпинск
+                                всего<br>400р
+                            </div>
+                        </h6>
+                    </small>
+                    <h2 style="max-width:680px; margin:20px auto 0 auto;">Хотите знать больше, чтобы сделать выбор?
+                        Воспользуйтесь бесплатной консультацией специалиста по телефону!</h2>
+
+                    <p style="text-align:center; margin-top:30px;">
+                        <a href="#" class="button-4" style="display:inline-block"
+                           onClick="showUserForm('3','Введите ваши данные')">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+                    </p>
+
+                </div>
+            </div>
+        </section>
+        <a name="polza3" class="anchor"></a>
+        <section id="polza2" class="dark"
+                 style="background:url('http://dreempics.com/img/picture/Apr/09/aab957d779097247a3a23212d1b3af65/1.jpg') no-repeat 50% -110px; background-size:cover;">
+            <div class="fixwidth" style="margin-top:100px; max-width:850px">
+                <h1>НАШИ ПРЕИМУЩЕСТВА</h1>
+
+                <div id="rounds3" class="item">
+
+
+                    <div id="rounds21" class="item21">
+
+                        <ol class="rounded-list">
+                            <li><h2>Безотказный пуск - исключение простоя техники</h2></li>
+                            <li><h2>Уменьшение расхода топлива до 2 раз - экономия на топливе</h2></li>
+                            <li><h2>Уменьшение износа двигателя до 1.5 раз - экономия на обслуживание</h2></li>
+                            <li><h2>Доступная цена комплекта</h2></li>
+                        </ol>
+
+
+                        </ol>
+
+                    </div>
+
+                    <div id="rounds21" class="item21">
+
+                        <ol class="rounded-list">
+                            <li><h2>Снижение аварийности вождения в холодном салоне</h2></li>
+                            <li><h2>Снижение риска простудных заболеваний</h2></li>
+                            <li><h2>Не расходуется топливо при прогреве</h2></li>
+                            <li><h2>Продление срока службы аккумулятора до 1.5 раз - экономия на запчастях</h2></li>
+                        </ol>
+                    </div>
+
+
+                    <!--
+                         <ol class="rounded-list">
+                            <li><h2>Безотказный пуск - исключение простоя техники</h2></li>
+                            <li><h2>Уменьшение расхода топлива до 2 раз - экономия на топливе</h2></li>
+                            <li><h2>Уменьшение износа двигателя до 1.5 раз - экономия на обслуживание</h2>   </li>
+                            <li><h2>Продление срока службы аккумулятора до 1.5 раз - экономия на запчастях</h2></li>
+
+                            <li><h2>Снижение аварийности вождения в холодном салоне</h2></li>
+                            <li><h2>Снижение риска простудных заболеваний</h2></li>
+                            <li><h2>Не расходуется топливо при прогреве</h2></li>
+                            <li><h2>Доступная цена комплекта</h2></li></ol> -->
+
+
+                </div>
+            </div>
+        </section>
+
+        <section id="polza" class="light" style="background:#fff">
+            <div class="fixwidth" style="max-width:650px">
+                <h1>МЫ В ОРИГИНАЛЕ ПОСТАВЛЯЕМСЯ НА:</h1>
+                <!-- <div style="text-align:center"> -->
+
+                <img src="1/volvo1.png"
+                     onmouseover="this.src='1/volvo.png';"
+                     onmouseout="this.src='1/volvo1.png';"/>
+                <img src="1/wv1.png"
+                     onmouseover="this.src='1/wv.png';"
+                     onmouseout="this.src='1/wv1.png';"/>
+                <img src="1/audi1.png"
+                     onmouseover="this.src='1/audi.png';"
+                     onmouseout="this.src='1/audi1.png';"/>
+                <img src="1/daf1.png"
+                     onmouseover="this.src='1/daf.png';"
+                     onmouseout="this.src='1/daf1.png';"/>
+                <img src="1/gm1.png"
+                     onmouseover="this.src='1/gm.png';"
+                     onmouseout="this.src='1/gm1.png';"/>
+                <img src="1/ford1.png"
+                     onmouseover="this.src='1/ford.png';"
+                     onmouseout="this.src='1/ford1.png';"/>
+                <img src="1/bmw1.png"
+                     onmouseover="this.src='1/bmw.png';"
+                     onmouseout="this.src='1/bmw1.png';"/>
+                <img src="1/man1.png" width="83" height="51"
+                     onmouseover="this.src='1/man.png';"
+                     onmouseout="this.src='1/man1.png';"/>
+                <img src="1/opel1.png"
+                     onmouseover="this.src='1/opel.png';"
+                     onmouseout="this.src='1/opel1.png';"/>
+                <img src="1/mass1.png"
+                     onmouseover="this.src='1/mass.png';"
+                     onmouseout="this.src='1/mass1.png';"/>
+                <img src="1/renault1.png"
+                     onmouseover="this.src='1/renault.png';"
+                     onmouseout="this.src='1/renault1.png';"/>
+                <img src="1/mbenz1.png"
+                     onmouseover="this.src='1/mbenz.png';"
+                     onmouseout="this.src='1/mbenz1.png';"/>
+                <img src="1/scania1.png"
+                     onmouseover="this.src='1/scania.png';"
+                     onmouseout="this.src='1/scania1.png';"/>
+                <img src="1/jaguar1.png"
+                     onmouseover="this.src='1/jaguar.png';"
+                     onmouseout="this.src='1/jaguar1.png';"/>
+                <img src="1/johndeere1.png"
+                     onmouseover="this.src='1/johndeere.png';"
+                     onmouseout="this.src='1/johndeere1.png';"/>
+                <img src="1/chevrolet1.png"
+                     onmouseover="this.src='1/chevrolet.png';"
+                     onmouseout="this.src='1/chevrolet1.png';"/>
+                <!--
+                <div class="slider1" id="slider1_container">
+                    <div class="sl-left">&larr;</div>
+                    <div class="sl-right">&rarr;</div>
+                    <div class="slider-wrapper">
+                        <div class="slider-items">
+
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/volvo1.png"
+                                onmouseover="this.src='1/volvo.png';"
+                onmouseout="this.src='1/volvo1.png';"/></a>
+                            </div>
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/wv1.png"
+                                onmouseover="this.src='1/wv.png';"
+                onmouseout="this.src='1/wv1.png';"/></a>
+                            </div>
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/audi1.png"
+                onmouseover="this.src='1/audi.png';"
+                onmouseout="this.src='1/audi1.png';"				/></a>
+                            </div>
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/bmw1.png"
+                                onmouseover="this.src='1/bmw.png';"
+                onmouseout="this.src='1/bmw1.png';"/></a>
+                            </div>
+
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/daf1.png"
+                onmouseover="this.src='1/daf.png';"
+                onmouseout="this.src='1/daf1.png';" /></a>
+                            </div>
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/chevrolet1.png"
+                onmouseover="this.src='1/chevrolet.png';"
+                onmouseout="this.src='1/chevrolet1.png';" /></a>
+                            </div>
+                            <div class="wu-slider-block">
+                                <a href="#"><img src="1/gm1.png"
+                onmouseover="this.src='1/gm.png';"
+                onmouseout="this.src='1/gm1.png';" /></a>
+                            </div>
+
+                                        <div class="wu-slider-block">
+                                <a href="#"><img src="1/ford1.png"
+                onmouseover="this.src='1/ford.png';"
+                onmouseout="this.src='1/ford1.png';" /></a>
+                            </div>
+
+
+                                        <div class="wu-slider-block">
+                                <a href="#"><img src="1/man1.png" width="83" height="51"
+                onmouseover="this.src='1/man.png';"
+                onmouseout="this.src='1/man1.png';" /></a>
+                            </div>
+
+                                        <div class="wu-slider-block">
+                                <a href="#"><img src="1/opel1.png"
+                onmouseover="this.src='1/opel.png';"
+                onmouseout="this.src='1/opel1.png';" /></a>
+                            </div>
+
+                                        <div class="wu-slider-block">
+                                <a href="#"><img src="1/mass1.png"
+                onmouseover="this.src='1/mass.png';"
+                onmouseout="this.src='1/mass1.png';" /></a>
+                            </div>
+
+                                        <div class="wu-slider-block">
+                                <a href="#"><img src="1/renault1.png"
+                onmouseover="this.src='1/renault.png';"
+                onmouseout="this.src='1/renault1.png';" /></a>
+                            </div>
+
+                                                    <div class="wu-slider-block">
+                                <a href="#"><img src="1/mbenz1.png"
+                onmouseover="this.src='1/mbenz.png';"
+                onmouseout="this.src='1/mbenz1.png';" /></a>
+                            </div>
+                                                    <div class="wu-slider-block">
+                                <a href="#"><img src="1/scania1.png"
+                onmouseover="this.src='1/scania.png';"
+                onmouseout="this.src='1/scania1.png';" /></a>
+                            </div>
+                 <div class="wu-slider-block">
+                              <a href="#"><img src="1/jaguar1.png"
+                onmouseover="this.src='1/jaguar.png';"
+                onmouseout="this.src='1/jaguar1.png';" /></a>
+                              </div>
+                               <div class="wu-slider-block">
+                              <a href="#"><img src="1/johndeere1.png"
+                onmouseover="this.src='1/johndeere.png';"
+                onmouseout="this.src='1/johndeere1.png';" /></a>
+                              </div>
+                        </div>
+                    </div>
+                </div> -->
+                <br>
+                <!-- <img src="img/vanno.jpg" style="width:100%; max-width:750px"> -->
+            </div>
+            <br>
+
+            <p style="text-align:center; margin-top:10px;">
+                <br><a href="#" class="button-4" style="display:inline-block"
+                       onClick="showUserForm('1','Введите ваши данные')">ВЫГОДНО ЗАКАЗАТЬ</a>
+            </p>
+            <!--   </div> -->
+        </section>
+
+        <style>
+            <section
+            id
+
+            =
+            "works"
+            class
+
+            =
+            "multiimage dark"
+            >
+            <
+            h1 style
+
+            =
+            "padding-bottom:10px"
+            >
+            ПРОСТАЯ УСТАНОВКА<
+
+            /
+            h1 >
+            <
+
+            /
+            section ></style>
+
+        <section id="katal">
+            <div class="container">
+                <h2>ПОЛУЧИТЕ КОМПЛЕКТ ПРЕДПУСКОВОГО ПОДОГРЕВАТЕЛЯ<br/>ПО ЦЕНЕ ПРОИЗВОДИТЕЛЯ ОТ 8249 Р.</h2>
+
+                <div class="table-container">
+                    <table class="mytable2" width="100%" cellpadding="10" border="0">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Silver</th>
+                            <th>Gold</th>
+                            <th>Platinum</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th class="orangebg">от 8249 р</th>
+                            <th class="orangebg">от 17994р</th>
+                            <th class="orangebg">от 30258р</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><img src="img/k1.jpg"/></td>
+                            <td><span style="color:green;font-size:25px;">✔</span></td>
+                            <td><span style="color:green;font-size:25px;">✔</span></td>
+                            <td><span style="color:green;font-size:25px;">✔</span></td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/k2.jpg"/></td>
+                            <td></td>
+                            <td><span style="color:green;font-size:25px;">✔</span></td>
+                            <td><span style="color:green;font-size:25px;">✔</span></td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/k3.jpg"/></td>
+                            <td></td>
+                            <td></td>
+                            <td><span style="color:green;font-size:25px;">✔</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--
+                            <center> <h3><small></small></h3><br/><br/><br/>
+                            <h4><div><img src="img/k1.jpg"/> <big>=</big>  <small> ОТ</small> 8249р.</div></h4><br/>
+                            <h4><div><img src="img/k1.jpg"/><big><big> + </big></big><img src="img/k2.jpg"/>  <big>=</big>  <small> ОТ</small> 17994р.</div></h4><br/>
+                            <h4><div><img src="img/k1.jpg"/><big><big> + </big></big><img src="img/k2.jpg"/><big><big> + </big></big><img src="img/k3.jpg"/>  <big>=</big>  <small> ОТ</small> 30258р.</div></h4><br/>
+                -->
+                <h6>
+                    <small>* Цена комплектов указана для подогревателя RE194A, который подходит на большое количество
+                        автомобилей в том числе:
+                        FORD: Escort, Fiesta, Focus, Maverik, Transit; HYUNDAI: Accent, Coupe, Elantra, Gets, H1, I30,
+                        Matrix, Santa Fe, Sonata, Traget, Tucson
+                        JEEP: Cherokee, Grand Cherokee; KIA: Carnival, Ceed, Cerato, Rio, Sportage; Mazda: 2, 3, 5, 6,
+                        CX-7, MPV; MITSUBISHI: Colt, L200, Lancer, Pajero; NISSAN: Patrol; TOYOTA: 4-
+                        Runner, Avensis, Camry, Corolla, Hilux, Landcruiser, RAV 4; VOLVO: S 40, V 40
+                        Все комплекты включают провода для внутреннего и внешнего подключения, в расчёте выше показан
+                        комплект с проводами подключения MKMS 1525. Система так же
+                        может включать зарядное устройство аккумулятора и обогреватель салона в расчёте выше показан
+                        комплект с зарядным устройством BC60 + SK05 и обогреватель салона
+                        SlimLine 800 + GL2,5.
+                        Конечная стоимость комплекта на конкретную модель автомобиля может отличаться в зависимости от
+                        модели автомобиля, года выпуска, типа двигателя и выбранных
+                        комплектующих.
+                    </small>
+                </h6>
+            </div>
+        </section>
+        <a name="partners2" class="anchor"></a>
+        <section id="partners" class="light logos rotate">
+            <div class="fixwidth" style="margin-top:100px;">
+                <h1>ПОИСК КОМПЛЕКТА ПОДОГРЕВАТЕЛЕЙ</h1>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="select-wrapper">
+                                <input type="text" id="selectMark" placeholder="Выбор марки">
+
+                                <div class="select-scroll" id="listMark">
+                                    <ul>
+                                        <li class="mark-item" value="ALFA ROMEO">ALFA ROMEO</li>
+                                        <li class="mark-item" value="AUDI">AUDI</li>
+                                        <li class="mark-item" value="BMW">BMW</li>
+                                        <li class="mark-item" value="CHEVROLET">CHEVROLET</li>
+                                        <li class="mark-item" value="CHRYSLER">CHRYSLER</li>
+                                        <li class="mark-item" value="CITROEN">CITROEN</li>
+                                        <li class="mark-item" value="CUMMINS">CUMMINS</li>
+                                        <li class="mark-item" value="DACIA">DACIA</li>
+                                        <li class="mark-item" value="DAEWOO">DAEWOO</li>
+                                        <li class="mark-item" value="DAIHATSU">DAIHATSU</li>
+                                        <li class="mark-item" value="DODGE">DODGE</li>
+                                        <li class="mark-item" value="FIAT">FIAT</li>
+                                        <li class="mark-item" value="FORD">FORD</li>
+                                        <li class="mark-item" value="FORD USA">FORD USA</li>
+                                        <li class="mark-item" value="HONDA">HONDA</li>
+                                        <li class="mark-item" value="HUMMER">HUMMER</li>
+                                        <li class="mark-item" value="HYUNDAI">HYUNDAI</li>
+                                        <li class="mark-item" value="ISUZU">ISUZU</li>
+                                        <li class="mark-item" value="IVECO">IVECO</li>
+                                        <li class="mark-item" value="JEEP">JEEP</li>
+                                        <li class="mark-item" value="KIA">KIA</li>
+                                        <li class="mark-item" value="LANCIA">LANCIA</li>
+                                        <li class="mark-item" value="LAND ROVER">LAND ROVER</li>
+                                        <li class="mark-item" value="LEXUS">LEXUS</li>
+                                        <li class="mark-item" value="MAZDA">MAZDA</li>
+                                        <li class="mark-item" value="MERCEDES">MERCEDES</li>
+                                        <li class="mark-item" value="MINI">MINI</li>
+                                        <li class="mark-item" value="MITSUBISHI">MITSUBISHI</li>
+                                        <li class="mark-item" value="NEW HOLLAND">NEW HOLLAND</li>
+                                        <li class="mark-item" value="NISSAN">NISSAN</li>
+                                        <li class="mark-item" value="OPEL">OPEL</li>
+                                        <li class="mark-item" value="PERKINS">PERKINS</li>
+                                        <li class="mark-item" value="PEUGEOT">PEUGEOT</li>
+                                        <li class="mark-item" value="PORSCHE">PORSCHE</li>
+                                        <li class="mark-item" value="RENAULT">RENAULT</li>
+                                        <li class="mark-item" value="SAAB">SAAB</li>
+                                        <li class="mark-item" value="SEAT">SEAT</li>
+                                        <li class="mark-item" value="SKODA">SKODA</li>
+                                        <li class="mark-item" value="SSANG YONG">SSANG YONG</li>
+                                        <li class="mark-item" value="SUBARU">SUBARU</li>
+                                        <li class="mark-item" value="SUZUKI">SUZUKI</li>
+                                        <li class="mark-item" value="TOYOTA">TOYOTA</li>
+                                        <li class="mark-item" value="VOLKSWAGEN">VOLKSWAGEN</li>
+                                        <li class="mark-item" value="VOLVO">VOLVO</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="select-wrapper">
+                                <input type="text" id="selectModel" placeholder="Выбор модели" disabled>
+
+                                <div class="select-scroll" id="listModel">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="select-wrapper">
+                                <input type="text" id="selectYear" placeholder="Год выпуска" disabled>
+
+                                <div class="select-scroll" id="listYear">
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="select-wrapper">
+                                <input type="text" id="selectMotor" placeholder="Выбор двигателя" disabled>
+
+                                <div class="select-scroll" id="listMotor">
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col=sm-offset-3">
+                            <p></p>
+                            <button class="btn btn-success btn-lg" id="findSome">Найти!</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="content" id="contentParcer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <a name="reviews2" class="anchor"></a>
+        <!--  <section id="reviews" class="light reviews animated anim-opacity" style="background:#fff;"> -->
+        <section id="reviews" class="light reviews" style="background:#fff;">
+            <div class="fixwidth" style="margin-top:100px;">
+                <h1>ОТЗЫВЫ НАШИХ КЛИЕНТОВ</h1>
+
+                <div class="item">
+                    <div class="img"><img src="img/client4.jpg"></div>
+                    <h2>Лидия <span>(г. Самара)</span></h2>
+
+                    <div class="text">
+                        <div class="hvost"></div>
+                        <p>Слышала истории о чудодейственном эффекте. Зашла на сайт просто из любопытства... и не смогла
+                            устоять. В отличие от многих других магазинов, здесь можно посмотреть все модели и
+                            оборудовать необходимыми опциями на свой вкус. Выбор очень большой. Рекомендую!</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="img"><img src="img/client5.jpg"></div>
+                    <h2>Евгений Леонидович <span>(г. Москва)</span></h2>
+
+                    <div class="text">
+                        <div class="hvost"></div>
+                        <p>Первый комплект я купил в 2009 году, потом еще две для сына и дочери. Также по моему совету в
+                            этой компании купили подогревали два моих знакомых. «Calix» именно та компания, которую
+                            можно рекомендовать друзьям.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="img"><img src="img/client6.jpg"></div>
+                    <h2>Анатолий <span>(г. С-Петербург)</span></h2>
+
+                    <div class="text">
+                        <div class="hvost"></div>
+                        <p>Прекрасная компания и не менее прекрасное производство! Спасибо за простую и удобную
+                            возможность выбрать необходимую комплектацию к машине. Просто выбираешь модель — и
+                            добавляешь к ней «навороты». </p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </section>
+        <div class="slider12 clearfix1">
+            <pre class="a1"
+            <h1="">Установить - просто!
+            </pre>
+            <div class="photos1">
+                <img src="img/E.jpg" width="360" height="357" style="margin-left:25px">
+
+
+                </pre>
+                <!-- <img src="img/scheme.jpg"> -->
+            </div>
+            <div class="slider-install">
+                <ol>
+                    <li><p>Безотказный пуск - исключение простоя техники</p></li>
+                    <li><p>Уменьшение расхода топлива до 2 раз - экономия на топливе</p></li>
+                    <li><p>Уменьшение износа двигателя до 1.5 раз - экономия на обслуживание</p></li>
+                    <li><p>Продление срока службы аккумулятора до 1.5 раз - экономия на запчастях</p></li>
+                    <li><p>Снижение аварийности вождения в холодном салоне</p></li>
+                    <li><p>Снижение риска простудных заболеваний</p></li>
+                    <li><p>Не расходуется топливо при прогреве</p></li>
+                    <li><p>Доступная цена комплекта</p></li>
+                </ol>
+
+            </div>
+
+
+        </div>
+
+        <!-- <section id="advantages" class="light infoBlocks col4 animated anim-opacity"> -->
+
+        <section id="advantages" class="light infoBlocks col4">
+            <div class="fixwidth">
+
+
+                <h1>СТАНЬТЕ ПАРТНЁРОМ СALIX В Г.УРЮПИНСК</h1>
+                <center><img src="img/partners/s1.png"></center>
+                <div class="rounds-container">
+                    <div id="rounds" class="item">
+                        <h2>Согласитесь на</h2>
+                        <ol class="rounded-list">
+                            <li><h2>Технологию успешных продаж</h2></li>
+                            <li><h2>Профессиональную техническую поддержку</h2></li>
+                            <li><h2>Контроль импортера над РРЦ</h2></li>
+                            <li><h2>Защиту склада от неликвидов (возможность обмена на более оборачиваемые позиции)</h2>
+                            </li>
+                            <li><h2>Беспрецедентную гарантию 3 года</h2></li>
+                            <li><h2>Персонального менеджела (тел. +7(495)565-30-66)</h2></li>
+
+                        </ol>
+
+
+                        <!--
+                            <p>1.Технологию успешных продаж<br>
+            2.профессиональную техническую поддержку<br>
+            3.гарантированную марку<br>
+            4.контроль импортера над РРЦ<br>
+            5.защиту склада от неликвидов (возможность обмена на более оборачиваемые позиции)<br>
+            6.беспрецедентную гарантию 3 года<br>
+            7.персонального менеджела (тел. +7(495)565-30-66)</p>
+            -->
+
+                    </div>
+
+                    <div id="rounds" class="item">
+                        <h2>И приобретите</h2>
+                        <ol class="rounded-list">
+                            <li><h2>Стартовый ассортимент на специальных условиях</h2></li>
+                            <li><h2>Пройдите первоначальное бесплатное, дистанционное обучение установке и технике
+                                продаж.</h2></li>
+                            <li><h2>Разместите бесплатные пропагандистские материалы в месте продажи/установки.</h2>
+                            </li>
+                            <li><h2>Начните зарабатывать на продаже и/или установке.</h2></li>
+                            <li><h2>Повышайте квалификацию сотрудников.</h2></li>
+                            <li><h2>Обменяйте "зависшие" товары на более востребованные.</h2></li>
+                            <li><h2>Увеличивайте заработок.</h2></li>
+
+                        </ol>
+                    </div>
+
+                    <!--
+                         1.Сформируйте стартовый ассортемент на специальных условиях.<br>
+            2.Пройдите первоначальное бесплатное, дистанционное обучение<br>
+            установке и технике продаж.<br>
+            3.Разместите бесплатные пропагандистские материалы в месте
+            продажи/установки.<br>
+            4.Начните зарабатывать на продаже и/или установке.<br>
+            5.Повышайте квалификацию сотрудников.<br>
+            6.Обменяйте "зависшие" товары на более востребованные.<br>
+            7.Увеличивайте заработок.</p>
+                        <div class="item">
+                            <div class="img"><img src="ico/flat1/Tool.png"></div>
+                            <h2></h2>
+                            <p></p>
+                        </div> -->
+                </div>
+            </div>
+        </section>
+        <!-- <a name="8562" class="anchor"></a> -->
+        <section class="dark footer parallax" style="width:100%; max-width:100%">
+            <div class="timer fixwidth" id="timer2">
+                <h2 style="color:#fff;">Сделайте заказ на комплект подогревателей двигателя до конца ноября со скидкой
+                    5%!</h2>
+
+                <h1 class="shad">ДО КОНЦА АКЦИИ ОСТАЛОСЬ:</h1>
+
+                <div class="time1">
+                    <div class="c-block c-block-3">
+                        <div class="bl-inner"><span>3</span></div>
+                        <span class="etitle etitle-1">дней</span></div>
+                    <ins></ins>
+                    <div class="c-block c-block-2">
+                        <div class="bl-inner"><span>12</span></div>
+                        <span class="etitle etitle-2">часов</span></div>
+                    <ins></ins>
+                    <div class="c-block c-block-2">
+                        <div class="bl-inner"><span>1</span></div>
+                        <span class="etitle etitle-2">минут</span></div>
+                    <ins></ins>
+                    <div class="c-block c-block-2">
+                        <div class="bl-inner"><span>1</span></div>
+                        <span class="etitle etitle-2">секунд</span></div>
+                    <div class="pad"></div>
+                    <p style="text-align:center; margin-top:-40px;">
+                        <a href="#" class="button-4" style="display:inline-block"
+                           onClick="showUserForm('4','Введите ваши данные')">ХОЧУ ЗАКАЗАТЬ СЕЙЧАС</a>
+                    </p>
+                </div>
+            </div>
+            <div class="textblock">
+                <h1>СКОРЕЕ СВЯЖИТЕСЬ С НАМИ!</h1>
+
+                <div class="avatars"><img src="img/avatar_p.png"></div>
+                <p><b>Остались вопросы? Звоните, поможем!</b></p>
+
+                <p>тел. <b>8 (495) 565-30-66</b><br>
+                    Сергей Чичмарев <br>Директор В2В<br></p>
+                <a href="#" target="_blank" style="font-size:12px; color:#d0d0d0;">Политика конфиденциальности</a>
+            </div>
+        </section>
+
+        <article id="856">
+        </article>
+
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>

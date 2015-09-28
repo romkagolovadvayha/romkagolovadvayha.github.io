@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'pt-sans';
+    src: url('pts56f.eot');
+    src: url('pts56f.eot_5F5F40#iefix') format('embedded-opentype'),
+         url('pts56f.woff') format('woff'),
+         url('pts56f.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'pt-sans';
+    src: url('pts76f.eot');
+    src: url('pts76f.eot_5F5F40#iefix') format('embedded-opentype'),
+         url('pts76f.woff') format('woff'),
+         url('pts76f.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'pt-sans';
+    src: url('pts75f.eot');
+    src: url('pts75f.eot_5F5F40#iefix') format('embedded-opentype'),
+         url('pts75f.woff') format('woff'),
+         url('pts75f.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+     font-family: 'pt-sans';
+    src: url('pts55f.eot');
+    src: url('pts55f.eot_5F5F40#iefix') format('embedded-opentype'),
+         url('pts55f.woff') format('woff'),
+         url('pts55f.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
