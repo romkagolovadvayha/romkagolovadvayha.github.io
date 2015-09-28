@@ -47,9 +47,8 @@ body{
 	z-index: 9;
     width: 560px;
     margin: 0 0 7px;
-	padding:100px 0 0 0;
+	padding: 20px 0 0 0;
     position: relative;
-    background: url(../img/har.jpg) 50% 0 no-repeat;
 }
 .slider{
 	width: 640px;
