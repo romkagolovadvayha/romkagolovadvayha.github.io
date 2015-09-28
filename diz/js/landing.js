@@ -478,8 +478,8 @@ function showParamForm() {
 function showUserForm(kind, head) {
 	$('#targetKind').val(kind);
 	$('#userFormCaption').html(head);
-	$('#pageScrollBar').fadeOut('fast');
-	$('#usercont').fadeIn('slow');
+	$('#pageScrollBar').hide('fast');
+	$('#usercont').show('slow');
 	yaCounter27066428.reachGoal('TARGET'+kind);
 }
 
