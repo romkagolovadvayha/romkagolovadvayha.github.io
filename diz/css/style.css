@@ -3693,3 +3693,7 @@ a.button-7:hover, a.button-7:focus {
 .messageOuter h1 {
     color: #202020;
 }
+
+h1 {
+    font-weight: 500 !important;
+}
