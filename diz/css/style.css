@@ -1974,6 +1974,8 @@ label b {
     color: #202020 !important;
     text-transform: uppercase;
     border: solid 4px #fff;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .vanna {
@@ -3694,6 +3696,8 @@ a.button-7:hover, a.button-7:focus {
     color: #202020;
 }
 
-h1 {
+.fixwidth > h1,
+.slider12 h1,
+#katal h1 {
     font-weight: 500 !important;
 }
