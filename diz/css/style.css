@@ -83,14 +83,14 @@ dText {
 }
 
 h1 {
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     font-size: 36px;
     margin: 0 0 18px 0;
     line-height: 130%;
 }
 
 h2 {
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     font-size: 24px;
     font-weight: normal;
     margin: 0 0 36px 0;
@@ -704,12 +704,12 @@ section .inner {
     text-decoration: none;
     text-shadow: 0px 1px 0px #ffee66;
     margin-bottom: 18px;
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
 }
 
 a.button-1 {
     color: #333333;
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
 }
 
 .button-1:hover {
@@ -729,7 +729,7 @@ a.button-1 {
     border-radius: 10px;
     padding: 20px;
     font-size: 22px;
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
@@ -749,7 +749,7 @@ a.button-2 {
     border-radius: 10px;
     padding: 15px;
     font-size: 18px;
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
@@ -1451,7 +1451,7 @@ h1 span {
 
 #t-phone div {
     margin-bottom: 0;
-    font-family: pt-sans-caption;
+    font-family: pt-sans;
 }
 
 #t-phone a {
@@ -1523,7 +1523,7 @@ h1 span {
 }
 
 #slideMenu ul li a {
-    font-family: pt-sans-caption;
+    font-family: pt-sans;
     font-size: 32px;
     color: #fff;
     text-decoration: none;
@@ -1710,7 +1710,7 @@ label b {
 
 .inputBox label {
     color: #000;
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     font-weight: bold;
     font-size: 18px;
     padding-bottom: 3px;
@@ -1790,7 +1790,7 @@ label b {
 
 #projectForm h3 {
     font-size: 18px;
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     margin: 0 0 5px 0;
 }
 
@@ -2222,7 +2222,7 @@ div.slide {
 }
 
 .a1 {
-    font-family: pt-sans-caption, arial;
+    font-family: pt-sans, arial;
     color: #282828;
     font-size: 32.4px;
     /* letter-spacing: -3px; */
@@ -2977,7 +2977,7 @@ h6 {
     border-collapse: collapse;
     width: 100%;
     margin: 0 auto;
-    font-family: pt-sans-caption;
+    font-family: pt-sans;
     color: #333;
 }
 
