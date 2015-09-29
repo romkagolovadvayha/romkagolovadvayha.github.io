@@ -1359,7 +1359,7 @@ h1 span {
 
 }
 
-#fixedMenu ul li a:hover {
+#fixedMenu ul li a:hover, #fixedMenu ul li a.active {
     border-bottom: 4px solid #202020;
     color: #202020;
     transition: 0.2s;
