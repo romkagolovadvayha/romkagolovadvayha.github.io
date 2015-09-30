@@ -103,4 +103,39 @@ body{
 .sl-right:hover{
 	color: #67BE17;
 }
-	
+
+
+
+.huadg ol li {
+    list-style: none !important;
+}
+
+.slider-install.huadg ol li:before {
+    display: none;
+}
+
+.huadg ol li {
+    width: 150px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+}
+
+.huadg ol li span {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    margin: 10px 0;
+    color: #fff;
+    background-color: #45aed8;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 700;
+}
+
+.huadg ol li p {
+    display: block !important;
+    text-align: center;
+    font-weight: 500;
+}
