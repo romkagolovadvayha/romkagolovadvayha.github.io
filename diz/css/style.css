@@ -3701,3 +3701,8 @@ a.button-7:hover, a.button-7:focus {
 #katal h1 {
     font-weight: 500 !important;
 }
+
+.mytable td {
+    background: url(../img/table_bg.png) repeat 0 0;
+    font-size: 16px;
+}
