@@ -3705,4 +3705,19 @@ a.button-7:hover, a.button-7:focus {
 .mytable td {
     background: url(../img/table_bg.png) repeat 0 0;
     font-size: 16px;
+    font-weight: 600;
+}
+
+.mytable td:nth-child(1):before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "\A";
+    border-style: solid;
+    border-width: 20px 0px 20px 40px;
+    border-color: transparent transparent transparent rgb(255,68,11);
+}
+
+.mytable TR TD:first-child {
+    padding-left: 65px;
 }
