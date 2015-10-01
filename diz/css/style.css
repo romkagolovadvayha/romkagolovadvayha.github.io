@@ -3715,7 +3715,7 @@ a.button-7:hover, a.button-7:focus {
     content: "\A";
     border-style: solid;
     border-width: 20px 0px 20px 40px;
-    border-color: transparent transparent transparent rgb(255,68,11);
+    border-color: transparent transparent transparent #2980b9;
 }
 
 .mytable TR TD:first-child {
