@@ -52,10 +52,9 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
 
         $scope.groupID = 0;
         $scope.getGroupsInfo = function (groupID) {
-            VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.34'}, function (data) {
+            VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.37'}, function (data) {
                 if (data.response) {
                     $scope.group = data.response[0];
-                    $scope.group.photo_50 = $scope.group.photo_50.replace(/http/g,"https");
                     $scope.groupID = groupID;
                     $scope.getMembers20k(groupID, data.response[0].members_count);
                     $scope.groupFormActive = true;
