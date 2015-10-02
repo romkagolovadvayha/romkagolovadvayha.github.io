@@ -15,28 +15,23 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
         };
         $scope.groupFormActive = false;
 
-        $scope.start = function (response) {
+        $scope.start = function () {
             cfpLoadingBar.start();
             var url = $scope.groupUrl;
             if (url) {
-                if (response && response.session) {
-                    if (url.indexOf("com/") >= 0)
-                        url = url.split('com/')[1];
-                    VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
-                        if (data.response) {
-                            if (data.response.type == 'group') {
-                                $scope.getGroupsInfo(data.response.object_id);
-                                //$scope.startStats(data.response.object_id);
-                            } else {
-                                cfpLoadingBar.complete();
-                                $scope.writeError('Неверно указана ссылка');
-                            }
+                if (url.indexOf("com/") >= 0)
+                    url = url.split('com/')[1];
+                VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
+                    if (data.response) {
+                        if (data.response.type == 'group') {
+                            $scope.getGroupsInfo(data.response.object_id);
+                            //$scope.startStats(data.response.object_id);
+                        } else {
+                            cfpLoadingBar.complete();
+                            $scope.writeError('Неверно указана ссылка');
                         }
-                    });
-                } else {
-                    cfpLoadingBar.complete();
-                    VK.Auth.login($scope.start);
-                }
+                    }
+                });
             } else {
                 cfpLoadingBar.complete();
                 $scope.writeError('Введите ссылку');
@@ -44,7 +39,8 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
         };
 
         $scope.startVK = function () {
-            VK.Auth.getLoginStatus($scope.start);
+            //VK.Auth.getLoginStatus($scope.start);
+            $scope.start();
         };
 
 
