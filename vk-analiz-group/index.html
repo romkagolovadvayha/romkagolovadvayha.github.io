@@ -22,82 +22,166 @@
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- OPEN API VK -->
-    <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
-
+    <!--<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>-->
+    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+    <script src="js/arraymath.js"></script>
 </head>
-<body ng-controller="OnlineMemberCtrl">
+<body>
 <toast></toast>
 <header>
     <div class="container" style="margin-top: 20px;">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="input-group">
-                        <input type="text" class="form-control"
-                               ng-model="groupUrl"
-                               ng-disabled="groupFormActive"
-                               placeholder="Введите ссылку на группу...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"
-                            ng-disabled="groupFormActive"
-                            ng-click="startVK()">Старт
-                    </button>
-                </span>
-                    </div>
-                    <div class="alert alert-success alert-dismissible" ng-show="groupFormActive">
-                        <button type="button" class="close" ng-click="reset()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="media">
-                            <div class="media-left">
-                                <div class="img">
-                                    <a href="https://vk.com/{{ group.screen_name }}" target="_blank">
-                                        <img class="media-object" ng-src="{{ group.photo_50 }}">
-                                    </a>
-                                </div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab" id="show-mutual-participants-and-friends">Сравнение аудитории</a></li>
+            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ группы в режиме онлайн</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane active" id="mutual-participants-and-friends">
+                <div class="row" ng-controller="MutualParticipantsAndFriendsCtrl" style="margin-top: 20px;">
+
+
+                    <div class="col-md-6">
+                        <center>
+                            <div onclick="invite()" class="btn btn-primary">Пригласить друзей</div>
+                            <div onclick="wall()" class="btn btn-primary">Рассказать друзьям</div>
+                        </center>
+                        <div class="contacts-widget" style="margin-top: 10px;">
+                            <div class="widget-body 300-scroll">
+                                <ul class="list-unstyled scrollbar" style="overflow-y: auto;height:95px;" id="friend_app">
+                                    <li class="contact-alpha">
+                                        Друзья в приложении <span class="label label-info pull-right" id="friend_app_count">0</span>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <div class="errorL" id="errorK">В приложении нет ваших друзей!<br/><div onclick="invite()" style="text-transform: uppercase; color: #333;cursor:pointer;font-weight: 700;">Пригласить друзей</div></div>
+                                </ul>
                             </div>
-                            <div class="media-body">
-                                <strong>{{ group.name }}</strong><br/>
-                                Участников: {{ group.members_count }}
+                            <div class="widget-foot"></div>
+                        </div>
+                        <div class="contacts-widget" style="margin-top: 20px;">
+                            <div class="widget-body 300-scroll">
+                                <ul class="list-unstyled">
+                                    <li class="c-list pulse animated">
+                                        <div class="contact-pic photo_result_api"></div>
+                                        <div class="contact-details">
+                                            <div class="pull-left name_result_api"></div>
+                                            <div class="pull-right add_result_api"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputUser" placeholder="Ссылку на профиль пользователя или группы...">
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-info" onclick="ClickAdd();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+						</span>
+                        </div>
+                        <div id="error"></div>
+                        <div class="contacts-widget" style="margin-top: 20px;">
+                            <div class="widget-body 300-scroll">
+                                <ul class="list-unstyled scrollbar" style="overflow-y: auto;height:270px;" id="profiles">
+                                    <li class="contact-alpha">
+                                        Добавлено <span class="label label-info pull-right" id="prof_count">0</span>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <div class="errorL" id="errorL">Список пуст!</div>
+                                </ul>
+                            </div>
+                            <div class="widget-foot"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row" align="center">
                     <div class="col-md-6">
-                        <h2>Были на сайте:</h2>
-                        <canvas class="chart chart-doughnut" data="dataMembersLastSeenTime"
-                                labels="labelsMembersLastSeenTime"></canvas>
+                        <div class="contacts-widget">
+                            <div class="widget-body">
+                                <ul class="list-unstyled scrollbar" style="overflow-y: auto;height:545px;" id="friends">
+                                    <li class="contact-alpha">
+                                        Общего <span class="label label-info pull-right">0</span>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <div class="errorL">Нет общего!</div>
+                                </ul>
+                            </div>
+                            <div class="widget-foot"></div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <h2>Страны:</h2>
-                        <canvas class="chart chart-doughnut" data="dataMembersCountry"
-                                labels="labelsMembersCountry"></canvas>
-                    </div>
-                </div>
-                <div class="row" align="center">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                        <h2>Активные:</h2>
-                        <canvas class="chart chart-PolarArea" data="dataMembersDeactivated"
-                                labels="labelsMembersDeactivated"></canvas>
-                    </div>
-                    <div class="col-md-1"></div>
+
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <canvas options="options" class="chart chart-line" data="data"
-                                labels="labels" legend="true" series="series" colours="colours">
-                        </canvas>
+            <div class="tab-pane" id="vk-analiz-group">
+                <div class="row" ng-controller="OnlineMemberCtrl" style="margin-top: 20px;">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="groupUrl"
+                                       ng-disabled="groupFormActive"
+                                       placeholder="Введите ссылку на группу...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"
+                                            ng-disabled="groupFormActive"
+                                            ng-click="startVK()">Старт
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="alert alert-success alert-dismissible" ng-show="groupFormActive">
+                                <button type="button" class="close" ng-click="reset()">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <div class="img">
+                                            <a href="https://vk.com/{{ group.screen_name }}" target="_blank">
+                                                <img class="media-object" ng-src="{{ group.photo_50 }}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <strong>{{ group.name }}</strong><br/>
+                                        Участников: {{ group.members_count }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" align="center">
+                            <div class="col-md-6">
+                                <h2>Были на сайте:</h2>
+                                <canvas class="chart chart-doughnut" data="dataMembersLastSeenTime"
+                                        labels="labelsMembersLastSeenTime"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>Страны:</h2>
+                                <canvas class="chart chart-doughnut" data="dataMembersCountry"
+                                        labels="labelsMembersCountry"></canvas>
+                            </div>
+                        </div>
+                        <div class="row" align="center">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <h2>Активные:</h2>
+                                <canvas class="chart chart-PolarArea" data="dataMembersDeactivated"
+                                        labels="labelsMembersDeactivated"></canvas>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <canvas options="optionsMobile" class="chart chart-line" data="dataMobile"
-                                labels="labelsMobile" legend="true" series="seriesMobile" colours="coloursMobile">
-                        </canvas>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <canvas options="options" class="chart chart-line" data="data"
+                                        labels="labels" legend="true" series="series" colours="colours">
+                                </canvas>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <canvas options="optionsMobile" class="chart chart-line" data="dataMobile"
+                                        labels="labelsMobile" legend="true" series="seriesMobile" colours="coloursMobile">
+                                </canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,5 +203,6 @@
 <script src="library/angular-loading-bar-master/build/loading-bar.min.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/controller/onlineMember.js"></script>
+<script src="js/controller/mutualParticipantsAndFriends.js"></script>
 </body>
 </html>
