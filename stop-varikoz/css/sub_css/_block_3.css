@@ -1,0 +1,52 @@
+.block_3 {
+    width: 820px;
+    max-width: 100%;
+    min-height: 100px;
+    position: relative;
+    background-color: #92bb5d;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.block_3 .h3 {
+    line-height: 36px;
+    background-color: #256817;
+    font-weight: 300;
+    font-size: 17px;
+    text-align: center;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+}
+
+.block_3 p {
+    border: 2px solid #fff;
+    font-weight: 400;
+    font-size: 19px;
+    text-align: center;
+    color: #fff;
+    padding: 30px 0 60px 0;
+    margin: 0;
+}
+
+.block_3 p del {
+    text-align: center;
+    color: #c7ea9b;
+    display: block;
+}
+
+.block_3 p b {
+    font-weight: 900;
+    font-size: 19px;
+    text-align: center;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+}
+
+.block_3 .but {
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+    left: 0;
+}

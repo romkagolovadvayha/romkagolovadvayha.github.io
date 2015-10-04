@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,900,100);
+@import url(sub_css/_section_1.css);
+@import url(sub_css/_section_2.css);
+@import url(sub_css/_section_3.css);
+@import url(sub_css/_section_4.css);
+@import url(sub_css/_section_5.css);
+@import url(sub_css/_section_6.css);
+@import url(sub_css/_pop_up.css);
+@import url(sub_css/_block_1.css);
+@import url(sub_css/_block_2.css);
+@import url(sub_css/_block_3.css);
+
+html, body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif, Arial;
+}
+
+body {
+    position: relative;
+    background-color: #fff;
+}
+
+.container {
+    position: relative;
+}
+
+.row {
+    margin: 0;
+}
+
+.button_small {
+    font-weight: 700;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 40px;
+    height: 40px;
+    width: 216px;
+    text-align: center;
+    margin: 5px 0;
+    background: #2e8c79 url(../images/button.jpg) 50% 40% no-repeat;
+    background-size: cover;
+    border-bottom: 5px solid #257061;
+    cursor: pointer;
+    /*box-shadow: 0 0 10px #39907e;*/
+    transition: 0.1s;
+}
+
+.button_small:hover {
+    background: #257061;
+    border-bottom: 5px solid #1d5a4d;
+    transition: 0.1s;
+}
+
+.button_small:active {
+    background: #257061;
+    border-bottom: 5px solid #257061;
+    transition: 0.1s;
+    box-shadow: 0 0 0 #39907e;
+}
+
+.button_big {
+    font-weight: 700;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 60px;
+    height: 60px;
+    width: 216px;
+    text-align: center;
+    margin: 5px 0;
+    background: #2e8c79 url(../images/button.jpg) 50% 40% no-repeat;
+    background-size: cover;
+    border-bottom: 5px solid #257061;
+    cursor: pointer;
+    box-shadow: 0 0 10px #39907e;
+    transition: 0.1s;
+    position: relative;
+}
+
+.button_big:hover {
+    background: #257061;
+    border-bottom: 5px solid #1d5a4d;
+    transition: 0.1s;
+}
+
+.button_big:active {
+    background: #257061;
+    border-bottom: 5px solid #257061;
+    transition: 0.1s;
+    box-shadow: 0 0 0 #39907e;
+}
+
+.button_big_light {
+    font-weight: 700;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 60px;
+    height: 60px;
+    width: 216px;
+    text-align: center;
+    margin: 5px 0;
+    background: #74964b url(../images/button_light.jpg) 50% 40% no-repeat;
+    background-size: cover;
+    border-bottom: 5px solid #74964b;
+    cursor: pointer;
+    box-shadow: 0 0 10px #378f7c;
+    transition: 0.1s;
+    position: relative;
+}
+
+.button_big_light:hover {
+    background: #5d783c;
+    border-bottom: 5px solid #3f5229;
+    transition: 0.1s;
+}
+
+.button_big_light:active {
+    background: #6f8f48;
+    border-bottom: 5px solid #6f8f48;
+    transition: 0.1s;
+    box-shadow: 0 0 0 #39907e;
+}
+
+.month1, .month2 {
+    text-transform: lowercase;
+}
