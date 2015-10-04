@@ -1,0 +1,40 @@
+.section_4 {
+    background: url(../../images/section_4/bg.png) top center no-repeat;
+    overflow: hidden;
+    background-size: cover;
+    padding: 150px 0 80px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+}
+
+.section_4 h2 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 25px;
+    color: #28323c;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.section_4 p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section_4 img {
+    width: 100%;
+    margin-top: -40px;
+}
+
+@media (max-width: 992px) {
+    .section_4 img {
+        width: 100%;
+        margin-top: -10px;
+    }
+}
