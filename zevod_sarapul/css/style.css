@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100);
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-brand {
+    height: auto !important;
+}
+
+.navbar-nav>li>a {
+    line-height: 50px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #333;
+}
+
+.navbar-nav>li {
+    list-style: none !important;
+}
+
+.icon-bar {
+    background-color: #333;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+.top50 {
+    margin-top: 50px;
+}
+
+p {
+    padding: 20px;
+}
