@@ -499,6 +499,12 @@ header a {
 
 header a.login {
     margin-right: 20px;
+    font-size: 18px;
+}
+
+header a.login span {
+    font-weight: 700;
+    font-size: 24px;
 }
 
 header .logo {
@@ -692,12 +698,26 @@ Features-stack
 
 .features-extra .macbook-wrap {
     position: absolute;
-    width: 616px;
-    height: 540px;
+    width: 516px;
+    height: 340px;
     background: url("../img/photo.jpg") no-repeat center center;
     top: 114px;
     z-index: 4;
     left: 50%;
+    background-size: cover;
+}
+
+.features-extra .macbook-wrap .title {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.87);
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
 }
 
 /* ==========================================================================

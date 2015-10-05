@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?117"></script>
 </head>
 <body id="top">
 <!--[if lt IE 8]>
@@ -47,7 +48,7 @@
                             <li><a href="#link_6">Контакты</a></li>
                         </ul>
                         <ul class="member-actions">
-                            <li><a class="login">+7 (8182) 477 921</a></li>
+                            <li><a class="login">+7 (8182) <span>477 921</span></a></li>
                             <li><a href="#link_6" class="btn-white btn-small">Заказать звонок</a></li>
                         </ul>
                     </nav>
@@ -63,7 +64,7 @@
             <div class="col-md-3 top_headert">
                 <div class="akci" style="margin-top: 150px;">
                     <div class="title">СУПЕР СНИЖЕНИЕ <span>до 20 октября</span></div>
-                    <div class="text">Сделай репост акции в группе Вконтакте и учись по специальной цене</div>
+                    <div class="text">Сделай репост акции в группе <a href="https://vk.com/avtoshkola_like_arhangelsk" target="_blank">Вконтакте</a> и учись по специальной цене</div>
                     <div class="tarif"><span>26700 р</span> если пришел один</div>
                     <div class="tarif"><span>25900 р</span> если пришли с друзьями</div>
                 </div>
@@ -73,9 +74,8 @@
                     <img src="img/logo_h.png">
 
                     <h1>Лицензированная автошкола<br/> <b>Архангельск</b></h1>
-                    <a href="#link_6" class="btn btn-fill btn-large btn-margin-right">Заказать звонок</a> <a
-                        href="#link_6"
-                        class="btn btn-accent btn-large">Контакты</a>
+                    <a href="#link_6" class="btn btn-fill btn-large btn-margin-right">Заказать звонок</a>
+                    <!--<a href="#link_6" class="btn btn-accent btn-large">Контакты</a>-->
                 </div>
             </div>
             <div class="col-md-3 sign-up top_headert">
@@ -231,29 +231,45 @@
                 <div class="feature-list">
                     <h3>О автошколе</h3>
 
-                    <p>Автошкола "Архангельск" - это лицензированя автошкола, филиал холдинга Like. Современные методы
-                        обучения и большой багаж знаний, дают нам возможность впускать учеников практически со 100%
-                        стачами в ГАИ.</p>
+                    <p>Автошкола "Like" - это лицензированная автошкола, филиал холдинга Like. Современные методы обучения и большой багаж знаний, дают нам возможность выпускать водителей с высоким уровнем подготовки.</p>
 
-                    <p>Опытные преподователи готовы сделать все, чтобы каждый ученик получил права с первого раза.
-                    </p>
-                    <a href="#link_6" class="btn btn-ghost btn-accent btn-small">Заказать звонок</a>
+                    <a href="#link_6" class="btn btn-ghost btn-accent btn-small">Подробнее</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="macbook-wrap wp3"></div>
+    <div class="macbook-wrap wp3">
+        <div class="title">Светло и уютно</div>
+    </div>
     <div class="responsive-feature-img"><img src="img/photo.jpg" alt="responsive devices"></div>
 </section>
 <section class="hero-strip section-padding">
     <div class="container">
         <div class="col-md-12 text-center">
-            <h2>
-                Все еще без прав?
-            </h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>
+                        Получение прав – это первый шаг к покупке машины и новым возможностям.
+                    </h2>
 
-            <p>Запишитесь в автошколу прямо сейчас!</p>
-            <a href="#link_6" class="btn btn-ghost btn-accent btn-large">Записаться</a>
+                    <p>Сделай этот шаг прямо сейчас!</p>
+                    <a href="#link_6" class="btn btn-ghost btn-accent btn-large">Записаться</a>
+                </div>
+                <div class="col-md-6">
+                    <!-- VK Widget -->
+                    <div id="vk_groups2" style="margin-top: 10px;"></div>
+                    <script type="text/javascript">
+                        VK.Widgets.Group("vk_groups2", {
+                            mode: 0,
+                            width: "400",
+                            height: "300",
+                            color1: 'FFFFFF',
+                            color2: '2B587A',
+                            color3: '5B7FA6'
+                        }, 95931311);
+                    </script>
+                </div>
+            </div>
 
             <div class="logo-placeholder floating-logo"><img
                     src="http://www.findbusinessonline.com.au/site/driving-school-geelong/images/driving_school_car.png"
@@ -437,7 +453,7 @@
     </div>
 </section>
 <div>
-    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=KSoqwBBHmV7BMAi7sKWZjxHPCd-tH47Y&width=100%&height=300px&lang=ru_RU&sourceType=constructor"></script>
+    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=KSoqwBBHmV7BMAi7sKWZjxHPCd-tH47Y&width=100%&height=400%&lang=ru_RU&sourceType=constructor"></script>
 </div>
 <footer>
     <div class="container">
@@ -462,8 +478,6 @@
             </div>
             <div class="col-md-5" align="center">
                 <div class="footer-links" align="center">
-                    <script type="text/javascript" src="//vk.com/js/api/openapi.js?117"></script>
-
                     <!-- VK Widget -->
                     <div id="vk_groups"></div>
                     <script type="text/javascript">
