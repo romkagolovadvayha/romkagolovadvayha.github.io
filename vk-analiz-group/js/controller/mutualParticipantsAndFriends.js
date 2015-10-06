@@ -9,7 +9,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     $scope.dataFriendsCounts = [[]];
 
     $scope.arrUrls = [];
-    $scope.limit = 10;
+    $scope.limit = 30;
     $scope.sort = '-id';
     //$scope.url = "habr";
 
