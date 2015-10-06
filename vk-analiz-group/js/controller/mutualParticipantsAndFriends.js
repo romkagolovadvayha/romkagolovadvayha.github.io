@@ -11,7 +11,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     $scope.arrUrls = [];
     $scope.limit = 10;
     $scope.sort = '-id';
-    $scope.url = "habr";
+    //$scope.url = "habr";
 
     var _arrMutual = [];
     $scope.arrMutual = [];
