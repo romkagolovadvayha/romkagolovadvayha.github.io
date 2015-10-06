@@ -26,7 +26,7 @@ $(document).ready(function() {
 	/***************** Initiate Fancybox ******************/
 
 	$('.single_image').fancybox({
-		padding: 4,
+		padding: 4
 	});
 
 	/***************** Tooltips ******************/
@@ -60,10 +60,10 @@ $(document).ready(function() {
 					"padding": "35px 0"
 				});
 				$('header .member-actions').css({
-					"top": "26px",
+					"top": "26px"
 				});
 				$('header .navicon').css({
-					"top": "34px",
+					"top": "34px"
 				});
 			} else {
 				$('section.navigation').removeClass('fixed');
@@ -72,10 +72,10 @@ $(document).ready(function() {
 					"padding": "50px 0"
 				});
 				$('header .member-actions').css({
-					"top": "41px",
+					"top": "41px"
 				});
 				$('header .navicon').css({
-					"top": "48px",
+					"top": "48px"
 				});
 			}
 		});
@@ -91,7 +91,7 @@ $(document).ready(function() {
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 				if (target.length) {
 					$('html,body').animate({
-						scrollTop: target.offset().top
+						scrollTop: target.offset().top-60
 					}, 500);
 					return false;
 				}
