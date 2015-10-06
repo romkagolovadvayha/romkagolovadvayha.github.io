@@ -27,7 +27,7 @@
 }
 
 .block_1 p span {
-    font-weight: 500;
+    font-weight: 900;
     font-size: 17px;
     text-align: center;
     color: #1a5d08;
@@ -116,6 +116,10 @@
 }
 
 @media (max-width: 992px) {
+    .block_1 .h3 {
+        padding: 5px;
+        font-size: 14px;
+    }
     .block_1 .old_post {
         position: relative;
         right: 0;

@@ -15,7 +15,7 @@
 
     <!-- CSS БИБЛИОТЕКИ -->
     <link href="library/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="library/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="library/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="library/ngToast-master/dist/ngToast.min.css" rel="stylesheet">
     <link href="library/angular-chart.js-master/dist/angular-chart.css" rel="stylesheet">
     <link href="library/angular-loading-bar-master/build/loading-bar.min.css" rel="stylesheet">
@@ -32,84 +32,172 @@
     <div class="container" style="margin-top: 20px;">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab" id="show-mutual-participants-and-friends">Сравнение аудитории</a></li>
-            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ группы в режиме онлайн</a></li>
+            <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab"
+                                  id="show-mutual-participants-and-friends">Сравнение аудитории</a></li>
+            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ группы в режиме онлайн</a>
+            </li>
+            <li><a href="#about" data-toggle="tab" id="show-about">О приложении</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
+
+            <!-- Общие друзья -->
             <div class="tab-pane active" id="mutual-participants-and-friends">
                 <div class="row" ng-controller="MutualParticipantsAndFriendsCtrl" style="margin-top: 20px;">
 
-
                     <div class="col-md-6">
-                        <center>
-                            <div onclick="invite()" class="btn btn-primary">Пригласить друзей</div>
-                            <div onclick="wall()" class="btn btn-primary">Рассказать друзьям</div>
-                        </center>
-                        <div class="contacts-widget" style="margin-top: 10px;">
-                            <div class="widget-body 300-scroll">
-                                <ul class="list-unstyled scrollbar" style="overflow-y: auto;height:95px;" id="friend_app">
-                                    <li class="contact-alpha">
-                                        Друзья в приложении <span class="label label-info pull-right" id="friend_app_count">0</span>
-                                        <div class="clearfix"></div>
-                                    </li>
-                                    <div class="errorL" id="errorK">В приложении нет ваших друзей!<br/><div onclick="invite()" style="text-transform: uppercase; color: #333;cursor:pointer;font-weight: 700;">Пригласить друзей</div></div>
-                                </ul>
+                        <div class="row">
+                            <span class="text_label">Ссылка на профиль или группу:</span>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="url"
+                                       placeholder="Ссылку на профиль пользователя или группы...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"
+                                            ng-click="add()">Добавить
+                                    </button>
+                                    <button class="btn btn-success" ng-show="arrUrls.length > 1" type="button"
+                                            ng-click="start()">Начать анализ
+                                    </button>
+                                </span>
                             </div>
-                            <div class="widget-foot"></div>
                         </div>
-                        <div class="contacts-widget" style="margin-top: 20px;">
-                            <div class="widget-body 300-scroll">
-                                <ul class="list-unstyled">
-                                    <li class="c-list pulse animated">
-                                        <div class="contact-pic photo_result_api"></div>
-                                        <div class="contact-details">
-                                            <div class="pull-left name_result_api"></div>
-                                            <div class="pull-right add_result_api"></div>
-                                            <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="add_info" ng-show="arrUrls.length > 0">
+                                <div class="left">Добавлено</div>
+                                <div class="right">{{ arrUrls.length }}</div>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn btn-primary" type="button"
+                                        ng-click="invite()"><i class="fa fa-child"></i> Пригласить друзей
+                                </button>
+                                <button class="btn btn-info" type="button"
+                                        ng-click="wall()"><i class="fa fa-commenting-o"></i> Рассказать друзьям
+                                </button>
+                            </div>
+                            <div class="scroll_bar">
+                                <div class="alert alert-success alert-dismissible"
+                                     ng-repeat="url in arrUrls | orderBy: '-id_'">
+                                    <div class="close" ng-click="deleteElFromUrls(url.screen_name)">
+                                        <i class="fa fa-times"></i>
+                                    </div>
+                                    <a href="https://vk.com/{{ url.screen_name }}" target="_blank">
+                                        <div class="close">
+                                            <i class="fa fa-vk"></i>
                                         </div>
-                                    </li>
-                                </ul>
+                                    </a>
+
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="img">
+                                                <a href="https://vk.com/{{ url.screen_name }}" target="_blank">
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
+                                                         height="50px">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <strong>{{ url.name }}</strong><br/>
+                                            {{ url.membersListCount }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="arrUrlsLength0" ng-show="arrUrls.length <= 0">Список пуст.<br/> Добавьте ссылку
+                                на группу или человека в форме выше
+                            </div>
+                            <div class="arrUrlsLength0" ng-show="arrUrls.length == 1">Чтобы начать анализ введите еще
+                                одну ссылку
                             </div>
                         </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputUser" placeholder="Ссылку на профиль пользователя или группы...">
-						<span class="input-group-btn">
-							<button type="submit" class="btn btn-info" onclick="ClickAdd();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-						</span>
-                        </div>
-                        <div id="error"></div>
-                        <div class="contacts-widget" style="margin-top: 20px;">
-                            <div class="widget-body 300-scroll">
-                                <ul class="list-unstyled scrollbar" style="overflow-y: auto;height:270px;" id="profiles">
-                                    <li class="contact-alpha">
-                                        Добавлено <span class="label label-info pull-right" id="prof_count">0</span>
-                                        <div class="clearfix"></div>
-                                    </li>
-                                    <div class="errorL" id="errorL">Список пуст!</div>
-                                </ul>
+                        <div class="row" style="padding-top: 50px;" align="center">
+                            <div style="width: 300px;">
+                                <canvas class="chart chart-bar" data="dataFriendsCounts" labels="labelsFriendsNames"
+                                        series="seriesFriends"></canvas>
                             </div>
-                            <div class="widget-foot"></div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
-                        <div class="contacts-widget">
-                            <div class="widget-body">
-                                <ul class="list-unstyled scrollbar" style="overflow-y: auto;height:545px;" id="friends">
-                                    <li class="contact-alpha">
-                                        Общего <span class="label label-info pull-right">0</span>
-                                        <div class="clearfix"></div>
-                                    </li>
-                                    <div class="errorL">Нет общего!</div>
-                                </ul>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <span class="text_label">Поиск:</span>
+                                    <input type="text" class="form-control"
+                                           ng-model="search"
+                                           placeholder="Имя...">
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="text_label">Выводимых:</span>
+                                    <input type="number" class="form-control"
+                                           ng-model="limit"
+                                           placeholder="Ссылку на профиль пользователя или группы...">
+                                </div>
+                                <div class="col-md-5">
+                                    <span class="text_label">Сортировать:</span>
+                                    <select class="form-control ng-pristine ng-valid ng-touched"
+                                            ng-model="sort">
+                                        <option value="-id">ID по убыванию</option>
+                                        <option value="+id">ID по возрастанию</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="widget-foot"></div>
+                            <div class="add_info" ng-show="arrUrls.length > 0">
+                                <div class="left">Общего</div>
+                                <div class="right">{{ arrMutual.length }}</div>
+                            </div>
+                            <div class="scroll_bar" style="max-height: 280px;">
+                                <div class="alert alert-success alert-dismissible"
+                                     ng-repeat="url in arrMutual | orderBy: sort | filter: search | limitTo: limit">
+                                    <a href="https://vk.com/id{{ url.id }}" target="_blank">
+                                        <div class="close">
+                                            <i class="fa fa-vk"></i>
+                                        </div>
+                                    </a>
+                                    <a ng-click="addUser(url.id)">
+                                        <div class="close">
+                                            <i class="fa fa-plus"></i>
+                                        </div>
+                                    </a>
+
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="img">
+                                                <a href="https://vk.com/id{{ url.id }}" target="_blank">
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
+                                                         height="50px">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <strong>{{ url.first_name }} {{ url.last_name }}</strong><br/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="arrUrlsLength0" ng-show="arrMutual.length <= 0">
+                                Нет ничего общего
+                            </div>
+                            <div class="buttons" ng-show="arrMutual.length > 0">
+                                <button class="btn btn-success" type="button"
+                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в Excel
+                                </button>
+                                <button class="btn btn-info" type="button"
+                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в Word
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+
+            <!-- Онлайн проверка -->
             <div class="tab-pane" id="vk-analiz-group">
                 <div class="row" ng-controller="OnlineMemberCtrl" style="margin-top: 20px;">
                     <div class="col-md-6">
@@ -134,7 +222,8 @@
                                     <div class="media-left">
                                         <div class="img">
                                             <a href="https://vk.com/{{ group.screen_name }}" target="_blank">
-                                                <img class="media-object" ng-src="{{ group.photo_50 }}">
+                                                <img class="media-object" ng-src="{{ group.photo_50 }}" width="50px"
+                                                     height="50px">
                                             </a>
                                         </div>
                                     </div>
@@ -178,15 +267,54 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <canvas options="optionsMobile" class="chart chart-line" data="dataMobile"
-                                        labels="labelsMobile" legend="true" series="seriesMobile" colours="coloursMobile">
+                                        labels="labelsMobile" legend="true" series="seriesMobile"
+                                        colours="coloursMobile">
                                 </canvas>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- О приложении -->
+            <div class="tab-pane" id="about">
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Последнее обновление <span class="label label-success">[ 2.0 ]</span>
+                            </div>
+                            <div class="panel-footer">
+                                <ol>
+                                    <li>Получение онлайн пользователей группы, онлайн с телефонов, забаненные и
+                                        удаленные,
+                                        страны и когда последний раз были на сайте VK.com.
+                                    </li>
+                                    <li>Редизайн приложения</li>
+                                    <li>Устранены проблемы старой версии с зацикливанием</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                Контакты
+                            </div>
+                            <div class="panel-footer">
+                                <p>Если у вас появлись вопросы или предложения, пишите по следующим контактам</p>
+                                <ol>
+                                    <li>Вконтакте: <a href="https://vk.com/daaaaaaaaa" target="_blank">https://vk.com/daaaaaaaaa</a>
+                                    </li>
+                                    <li>Скайп: xmawer</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
 </header>
 
 <!-- JS БИБЛИОТЕКИ -->

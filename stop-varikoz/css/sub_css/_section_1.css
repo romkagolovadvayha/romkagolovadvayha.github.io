@@ -16,13 +16,15 @@
 }
 
 .section_1 .logo_block .logo {
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     height: 64px;
     margin-left: 55px;
 }
 
 .section_1 .logo_block .text {
-    float: left;
+    display: inline-block;
+    vertical-align: top;
     height: 64px;
     text-align: left;
     margin-left: 27px;
@@ -37,7 +39,7 @@
     padding: 0;
 }
 
-.section_1 .logo_block .text p {
+.section_1 .logo_block .text .p {
     font-weight: 300;
     color: #000;
     line-height: 18px;
@@ -46,7 +48,7 @@
     padding: 0;
 }
 
-.section_1 .logo_block .text p span {
+.section_1 .logo_block .text .p span {
     font-weight: 500;
 }
 
@@ -55,10 +57,10 @@
 }
 
 .section_1 .bonus {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
-.section_1 .bonus p {
+.section_1 .bonus .p {
     font-weight: 300;
     color: #000;
     font-size: 15px;
@@ -68,7 +70,7 @@
     padding: 0;
 }
 
-.section_1 .bonus p span {
+.section_1 .bonus .p span {
     font-weight: 700;
     color: #399226;
 }
@@ -77,7 +79,7 @@
     color: #399226;
     font-weight: 900;
     font-size: 15px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .section_1 .green h2 {
@@ -96,7 +98,7 @@
     .section_1 .green h2 {
         width: 100%;
         text-align: center;
-        font-size: 14px;
+        font-size: 18px;
     }
     .section_1 .logo_block {
         width: 100%;
@@ -107,4 +109,22 @@
     .section_1 .bonus .title {
         margin-top: 10px;
     }
+    .section_1 .logo_block .text h1 {
+        font-size: 24px;
+    }
+    .bottom_blue del {
+        font-size: 24px !important;
+    }
+    .bottom_blue del {
+        font-size: 24px !important;
+    }
+    .section_6 p {
+        font-size: 24px !important;
+    }
+}
+
+form input {
+    height: 40px !important;
+    line-height: normal !important;
+    padding-top: 5px !important;
 }

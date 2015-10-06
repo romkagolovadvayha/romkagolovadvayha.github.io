@@ -1,6 +1,6 @@
 .section_5 {
     background: #89C263;
-    padding: 220px 0 150px 0;
+    padding: 220px 0 50px 0;
     margin-top: -200px;
     position: relative;
     z-index: 1;
@@ -28,7 +28,7 @@
     margin-bottom: 40px;
     text-align: center;
     border: 5px solid #fff;
-    padding: 30px 0;
+    padding: 30px 10px;
     margin-top: -15px;
 }
 

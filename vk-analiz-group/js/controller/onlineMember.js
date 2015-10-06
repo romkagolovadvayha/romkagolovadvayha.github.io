@@ -86,9 +86,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
 
         $scope.labels = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         $scope.series = ['Онлайн'];
-        $scope.data = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ];
+        $scope.data = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
         $scope.options = {
             animation: false
         };

@@ -28,39 +28,58 @@ window.onload = function () {
     if (el_m == 2) $('.minute0').html('4');
     if (el_m == 3) $('.minute0').html('26');
 
+    function close_pop_up() {
+        $('.pop_up').hide();
+        $('html, body').css('overflowY', 'visible')
+    }
+
+    function open_pop_up() {
+        $('.pop_up').show();
+        $('html, body').css('overflowY', 'hidden')
+    }
+
+    $('.pop_up .close').click(function () {
+        close_pop_up();
+    });
+
+    $('.open_pop_up_1').click(function () {
+        $('.pop_up h3').html('Cколько лет вы мучаетесь с варикозом?');
+        $('.pop_up p').html('Может, стоит сделать что-то для своего здоровья сейчас,<br/>пока это бесплатно?');
+        $('.pop_up .button_big').html('Записаться на прием !');
+        open_pop_up();
+    });
+
+    $('.open_pop_up_2').click(function () {
+        $('.pop_up h3').html('Не знаете сможете ли прийти?');
+        $('.pop_up p').html('Все-равно лучше записаться сейчас, а определиться позже.<br/> Чтоб 100% забронировать себе место');
+        $('.pop_up .button_big').html('Записаться на прием !');
+        open_pop_up();
+    });
+
+    $('.open_pop_up_3').click(function () {
+        $('.pop_up h3').html('Какой точный адрес центра?');
+        $('.pop_up p').html('Заполните форму, чтобы получить необходимую информацию, <br/>а так же узнать, как к нему лучше подъехать');
+        $('.pop_up .button_big').html('ПРОКОНСУЛЬТИРУЙТЕ !');
+        open_pop_up();
+    });
+
+    window.onbeforeunload = function(e) {
+        $('.pop_up h3').html('Не знаете сможете ли прийти?');
+        $('.pop_up p').html('Все-равно лучше записаться сейчас, а определиться позже.<br/> Чтоб 100% забронировать себе место');
+        $('.pop_up .button_big').html('Записаться на прием !');
+        open_pop_up();
+        //var msg = 'Внесенные изменения будут потеряны!';
+        //if(typeof e == "undefined")
+        //    e = window.event;
+        //if(e)
+        //    e.returnValue = msg;
+        return 'Не знаете сможете ли прийти?';
+    };
+
+    $('.down_scroll').click(function () {
+        $('html, body').animate({
+            scrollTop: $("#block_1").offset().top-40
+        }, 1000);
+    });
+
 };
-
-function close_pop_up() {
-    $('.pop_up').hide();
-    $('html, body').css('overflowY', 'visible')
-}
-
-function open_pop_up() {
-    $('.pop_up').show();
-    $('html, body').css('overflowY', 'hidden')
-}
-
-$('.pop_up .close').click(function () {
-    close_pop_up();
-});
-
-$('.open_pop_up_1').click(function () {
-    $('.pop_up h3').html('Cколько лет вы мучаетесь с варикозом?');
-    $('.pop_up p').html('Может, стоит сделать что-то для своего здоровья сейчас,<br/>пока это бесплатно?');
-    $('.pop_up .button_big').html('Записаться на прием !');
-    open_pop_up();
-});
-
-$('.open_pop_up_2').click(function () {
-    $('.pop_up h3').html('Не знаете сможете ли прийти?');
-    $('.pop_up p').html('Все-равно лучше записаться сейчас, а определиться позже.<br/> Чтоб 100% забронировать себе место');
-    $('.pop_up .button_big').html('Записаться на прием !');
-    open_pop_up();
-});
-
-$('.open_pop_up_3').click(function () {
-    $('.pop_up h3').html('Какой точный адрес центра?');
-    $('.pop_up p').html('Заполните форму, чтобы получить необходимую информацию, <br/>а так же узнать, как к нему лучше подъехать');
-    $('.pop_up .button_big').html('ПРОКОНСУЛЬТИРУЙТЕ !');
-    open_pop_up();
-});

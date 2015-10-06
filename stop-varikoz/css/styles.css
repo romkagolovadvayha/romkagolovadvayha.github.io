@@ -126,3 +126,11 @@ body {
 .month1, .month2 {
     text-transform: lowercase;
 }
+
+.month0 {
+    text-transform: uppercase;
+}
+
+.ptop20 {
+    padding-top: 20px;
+}
