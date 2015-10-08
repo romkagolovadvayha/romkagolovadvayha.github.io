@@ -1,0 +1,34 @@
+		.aim {
+		    position: relative;
+		    overflow: hidden;
+		    margin: 0;
+		    clear: both;
+		    padding: 0
+		}
+		
+		.aim a {
+		    background-position: center center;
+		    cursor: pointer;
+		    display: block;
+		    overflow: hidden;
+		    position: relative;
+		    float: left;
+		    text-decoration: none
+		}
+		
+		.aim a:hover,
+		.aim a:visited {
+		    text-decoration: none
+		}
+		
+		.aim ul {
+		    list-style: none
+		}
+		
+		.aim li {
+		    display: block;
+		    overflow: hidden;
+		    float: left;
+		}
+		
+	

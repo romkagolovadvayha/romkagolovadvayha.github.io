@@ -1,0 +1,245 @@
+.gallery_block {
+    position: relative;
+    z-index: 2;
+    max-height: 5000px;
+    transition: 5s;
+    padding-bottom: 20px;
+}
+
+.gallery_block {
+    margin-top: -20px;
+}
+
+.gallery_block.first {
+    margin-top: 0 !important;
+}
+
+.gallery_block .row > .title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 25px;
+    float: left;
+    padding-bottom: 17px;
+    color: #383838;
+    font-weight: 700;
+}
+
+.gallery_block .row > a.brend {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 25px;
+    float: right;
+    padding-bottom: 1px;
+    color: #383838;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.gallery_block a.brend > span {
+    border-bottom: 1px solid #383838;
+}
+
+.gallery_block ul {
+    text-align: center;
+    display: block;
+    list-style: none;
+}
+
+.gallery_block ul > li {
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.gallery_block ul > li:nth-child(3n-1),
+.gallery_block ul > li:nth-child(3n-2) {
+    margin-right: 18px;
+}
+
+.gallery_block ul > li > .image {
+    position: relative;
+    width: 355px;
+    height: 473px;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(3, 3, 3, 0.55);
+}
+
+.gallery_block ul > li > .image > img {
+    width: 355px;
+}
+
+.gallery_block ul > li > .image > .hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f6f6f6;
+    height: 0;
+    transition: 0.1s;
+}
+
+.gallery_block ul > li > .image > .hover > .title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding-top: 20px;
+    float: left;
+    padding-left: 8px;
+    color: #383838;
+    font-weight: 700;
+}
+
+.gallery_block ul > li > .image > .hover > a {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 12px;
+    float: right;
+    margin-right: 8px;
+    color: #fff;
+    background-color: #4b4b4f;
+    font-weight: 700;
+    padding: 6px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.gallery_block ul > li > .image > .hover > a:hover {
+    background-color: #3e3e42;
+}
+
+.gallery_block ul > li > .image:hover .hover {
+    height: 55px;
+    transition: 0.1s;
+}
+
+.gallery_block .bg_light_gradient {
+    display: none;
+}
+
+.gallery_block.all_not_active {
+    overflow: hidden;
+    max-height: 630px;
+}
+
+.gallery_block.all_not_active > .bg_light_gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 2;
+    background: url(../images/bg_light_gradient.png) repeat;
+    height: 104px;
+    text-align: center;
+}
+
+
+.gallery_block.all_not_active > .bg_light_gradient > a.all_active {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 45px;
+    padding-bottom: 0;
+    color: #383838;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid #383838;
+}
+
+.window {
+    position: fixed;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.50);
+    padding-bottom: 50px;
+    display: none;
+}
+
+.window > .main {
+    background: #000;
+    position: relative;
+    margin-top: 95px;
+    width: 876px;
+    height: 515px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.45);
+}
+
+.window > .main > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.window > .main > ul > li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 515px;
+    width: 292px;
+    overflow: hidden;
+}
+
+.window > .main > ul > li > img {
+    height: 515px;
+    opacity: 0.6;
+}
+
+/*@media (max-width: 992px) {*/
+    /*.window > .main > ul > li {*/
+        /*height: auto;*/
+        /*display: none;*/
+        /*width: 100%;*/
+    /*}*/
+    /*.window > .main > ul > li.active {*/
+        /*display: inline-block;*/
+    /*}*/
+    /*.window > .main > ul > li > img {*/
+        /*height: auto;*/
+        /*width: 100%;*/
+        /*opacity: 0.6;*/
+    /*}*/
+/*}*/
+
+.window > .main > ul > li.active > img {
+    opacity: 1;
+}
+
+.window > .main > .arrow_left {
+    background: url(../images/arrow.png);
+    width: 58px;
+    height: 58px;
+    left: 200px;
+    top: 50%;
+    margin-top: -29px;
+    transform: rotate(180deg);
+    position: absolute;
+    cursor: pointer;
+}
+
+.window > .main > .arrow_right {
+    background: url(../images/arrow.png);
+    width: 58px;
+    height: 58px;
+    right: 200px;
+    top: 50%;
+    margin-top: -29px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.window > .main > .arrow_right:hover,
+.window > .main > .arrow_left:hover {
+    opacity: 0.7;
+}
+
+.image ul {
+    display: none;
+}
