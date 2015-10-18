@@ -1,0 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100);
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(20,20,20,0.8);
+    border-radius: 0;
+}
+
+.navbar-brand {
+    height: auto !important;
+}
+
+.navbar-nav>li>a {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+}
+
+.navbar-nav>li>a:hover {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    background-color: #000;
+}
+
+.navbar-nav>li {
+    list-style: none !important;
+}
+
+.icon-bar {
+    background-color: #fff;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+.top50 {
+    margin-top: 50px;
+}
+
+p {
+    padding: 20px;
+}
+
+header {
+    min-height: 100vh;
+    position: relative;
+}
+
+header .bg {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 400px;
+    z-index: -1;
+    position: absolute;
+    background: url(../images/bg_logo.jpg) bottom left no-repeat;
+}
+
+header .logo {
+    margin-bottom: 100px;
+    margin-top: 100px;
+}

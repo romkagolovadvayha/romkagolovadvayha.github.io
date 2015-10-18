@@ -22,8 +22,8 @@
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- OPEN API VK -->
-    <!--<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>-->
-    <script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+    <script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+    <!--<script src="//vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>-->
     <script src="js/arraymath.js"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
                                   id="show-mutual-participants-and-friends">Сравнение аудитории</a></li>
             <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ группы в режиме онлайн</a>
             </li>
+            <li><a href="#private-friends" data-toggle="tab" id="show-private-friends">Скрытые друзья</a></li>
             <li><a href="#about" data-toggle="tab" id="show-about">О приложении</a></li>
         </ul>
 
@@ -115,8 +116,8 @@
                             </div>
                         </div>
                         <!--<div class="row" style="padding-top: 50px;" align="center">-->
-                                <!--<canvas class="chart chart-bar" data="dataFriendsCounts" labels="labelsFriendsNames"-->
-                                        <!--series="seriesFriends"></canvas>-->
+                        <!--<canvas class="chart chart-bar" data="dataFriendsCounts" labels="labelsFriendsNames"-->
+                        <!--series="seriesFriends"></canvas>-->
                         <!--</div>-->
                     </div>
 
@@ -183,10 +184,12 @@
                             </div>
                             <div class="buttons" ng-show="arrMutual.length > 0">
                                 <button class="btn btn-success" type="button"
-                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт (всех) в Excel
+                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт (всех) в
+                                    Excel
                                 </button>
                                 <button class="btn btn-info" type="button"
-                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт (всех) в Word
+                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт (всех) в
+                                    Word
                                 </button>
                             </div>
                         </div>
@@ -312,6 +315,60 @@
                 </div>
 
             </div>
+
+            <!-- Скрытые друзья -->
+            <div class="tab-pane" id="private-friends">
+                <div class="row" ng-controller="PrivateFriendsCtrl" style="margin-top: 30px;">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   ng-model="userUrl"
+                                   ng-disabled="userFormActive"
+                                   placeholder="Введите ссылку на пользователя...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"
+                                            ng-disabled="userFormActive"
+                                            ng-click="start()">Поиск скрытых друзей
+                                    </button>
+                                </span>
+                        </div>
+                        <div class="row">
+                            <div class="alert alert-success alert-dismissible" ng-show="userFormActive">
+                                <div class="close" ng-click="deleteUser()">
+                                    <i class="fa fa-times"></i>
+                                </div>
+                                <a href="https://vk.com/id{{ user.id }}" target="_blank">
+                                    <div class="close">
+                                        <i class="fa fa-vk"></i>
+                                    </div>
+                                </a>
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <div class="img">
+                                            <a href="https://vk.com/id{{ user.id }}" target="_blank">
+                                                <img class="media-object" ng-src="{{ user.photo_50 }}" width="50px"
+                                                     height="50px">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <strong>{{ user.first_name }} {{ user.last_name }}</strong><br/>
+                                        Количество друзей: {{ user.counters.friends }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="arrUrlsLength0" ng-show="arrUrls.length <= 0">Список пуст.<br/> Добавьте ссылку
+                                на группу или человека в форме выше
+                            </div>
+                            <div class="arrUrlsLength0" ng-show="arrUrls.length == 1">Чтобы начать анализ введите еще
+                                одну ссылку
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 </header>
 
@@ -330,5 +387,6 @@
 <script src="js/scripts.js"></script>
 <script src="js/controller/onlineMember.js"></script>
 <script src="js/controller/mutualParticipantsAndFriends.js"></script>
+<script src="js/controller/privateFriends.js"></script>
 </body>
 </html>
