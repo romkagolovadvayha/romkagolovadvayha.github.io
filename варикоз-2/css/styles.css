@@ -20,3 +20,17 @@ body {
 .row {
     margin: 0;
 }
+
+.button {
+    background: url(../images/button.png);
+    width: 306px;
+    height: 55px;
+    display: inline-block;
+    cursor: pointer;
+    color: transparent;
+    font-size: 14px;
+}
+
+.button:hover {
+    background: url(../images/button_hover.png);
+}
