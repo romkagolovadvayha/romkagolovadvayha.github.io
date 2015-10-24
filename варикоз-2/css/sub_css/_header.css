@@ -1,0 +1,46 @@
+header {
+    background: #81BB54;
+    background-size: cover;
+    min-height: 100px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+
+.logo .image,
+.logo .white,
+.logo .black {
+    display: block;
+}
+
+header .white_info_left {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 55px;
+    display: block;
+}
+
+header .white_info_right {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 44px;
+    display: block;
+}
+
+.logo .image {
+    margin-top: 15px;
+}
+
+.logo .white {
+    font-size: 32px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.logo .black {
+    font-size: 32px;
+    color: #000;
+    font-weight: 400;
+}

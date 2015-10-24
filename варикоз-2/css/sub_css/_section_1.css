@@ -1,0 +1,21 @@
+.section_1 {
+    background: url(../../images/section_1/bg.jpg) center bottom no-repeat;
+    background-size: cover;
+    min-height: 780px;
+    padding-bottom: 150px;
+    overflow: hidden;
+}
+
+.section_1 .block_1 {
+    font-size: 35px;
+    color: #000;
+    font-weight: 700;
+    margin-top: 120px;
+    float: right;
+    text-align: right;
+}
+
+.section_1 .block_1 b {
+    color: #ff0000;
+    text-transform: uppercase;
+}

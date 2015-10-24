@@ -58,7 +58,7 @@
                     animate: 2000,
                     lineCap:'butt',
                     scaleColor: false,
-                    barColor: '#FF5252',
+                    barColor: '#44c2bd',
                     trackColor: 'transparent',
                     lineWidth: 10
                 });
@@ -138,18 +138,20 @@
 
 			var c_name = $('#c_name').val();
 			var c_email = $('#c_email').val();
-			var c_message = $('#c_message ').val();
+			var c_date = $('#c_date').val();
+			var c_phone = $('#c_phone').val();
 			var response = $('#contact-form .ajax-response');
 			
 			var formData = {
 				'name'       : c_name,
 				'email'      : c_email,
-				'message'    : c_message
+				'date'    : c_date,
+				'phone'    : c_phone
 			};
 
-			if (( c_name== '' || c_email == '' || c_message == '') || (!isValidEmailAddress(c_email) )) {
+			if (( c_name== '' || c_email == '' || c_date == '' || c_phone == '') || (!isValidEmailAddress(c_email) )) {
 				response.fadeIn(500);
-				response.html('<i class="fa fa-warning"></i> Please fix the errors and try again.');
+				response.html('<i class="fa fa-warning"></i> Запонены не все поля.');
 			}
 
 			else {
