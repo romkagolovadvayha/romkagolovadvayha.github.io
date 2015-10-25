@@ -47,6 +47,7 @@ window.onload = function () {
         $('.pop_up p').html('Может, стоит сделать что-то для своего здоровья сейчас,<br/>пока это бесплатно?');
         $('.pop_up .button_big').html('Записаться на прием !');
         $('.pop_up .main').css('background', "#80bb52");
+        $('.pop_up .close').css('background', "url(../../images/pop_up/close.png)");
         open_pop_up();
     });
 
@@ -55,6 +56,7 @@ window.onload = function () {
         $('.pop_up p').html('Все-равно лучше записаться сейчас, а определиться позже.<br/> Чтоб 100% забронировать себе место');
         $('.pop_up .button_big').html('Записаться на прием !');
         $('.pop_up .main').css('background', "#80bb52");
+        $('.pop_up .close').css('background', "url(../../images/pop_up/close.png)");
         open_pop_up();
     });
 
@@ -63,6 +65,7 @@ window.onload = function () {
         $('.pop_up p').html('а также как и на чём к нему лучше подъехать<br/> заполните форму');
         $('.pop_up .button_big').html('ПРОКОНСУЛЬТИРУЙТЕ !');
         $('.pop_up .main').css('background', "#e5a630");
+        $('.pop_up .close').css('background', "url(../../images/pop_up/close_2.png)");
         open_pop_up();
     });
 
