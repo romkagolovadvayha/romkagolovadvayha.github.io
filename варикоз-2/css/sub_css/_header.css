@@ -2,7 +2,7 @@ header {
     background: #81BB54;
     background-size: cover;
     min-height: 100px;
-    padding-bottom: 10px;
+    padding-bottom: 0;
     overflow: hidden;
 }
 

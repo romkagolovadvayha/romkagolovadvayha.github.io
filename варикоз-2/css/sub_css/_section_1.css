@@ -1,8 +1,8 @@
 .section_1 {
     background: url(../../images/section_1/bg.jpg) center bottom no-repeat;
     background-size: cover;
-    min-height: 780px;
-    padding-bottom: 150px;
+    padding-bottom: 50px;
+    margin-top: -40px;
     overflow: hidden;
 }
 
@@ -24,10 +24,10 @@
     text-transform: uppercase;
 }
 
-
 @media (max-width: 1000px) {
     .section_1 .block_1 {
         font-size: 25px;
+        margin-top: 200px;
     }
 }
 
@@ -74,6 +74,7 @@
     padding: 24px 10px;
     border-radius: 3px;
     font-size: 25px;
+    z-index: 2;
 }
 
 .block_2 .block_form p {
@@ -91,4 +92,103 @@
 .block_2 .info_count span {
     font-weight: 700;
     color: #80bb52;
+}
+
+.block_2 form {
+    padding-bottom: 20px;
+}
+
+.block_2 form input {
+    margin: 20px 0;
+    font-weight: 300;
+    line-height: 60px;
+    color: #000000;
+    font-size: 19px;
+    height: 60px;
+    border: 1px solid #bfbfbf;
+    border-radius: 1px;
+    padding-left: 21px;
+    font-style: italic;
+}
+
+.block_2 .input_old {
+    position: relative;
+    display: inline-block;
+    width: 459px;
+    max-width: 100%;
+}
+
+.block_2 form input::-webkit-input-placeholder {
+    color: #000000;
+}
+
+.block_2 form input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #000000;
+}
+
+.block_2 form input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #000000;
+}
+
+.block_2 form input:-ms-input-placeholder {
+    color: #000000;
+}
+
+.block_2 .button {
+    position: relative;
+}
+
+.block_2 .old_post {
+    position: absolute;
+    font-weight: 300;
+    font-size: 13px;
+    color: #333333;
+    z-index: 2;
+    padding: 20px;
+    right: -80px;
+    top: -70px;
+    background: url(../../images/arrow.png);
+    width: 126px;
+    height: 122px;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .block_2 form .input_old {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .block_2 .old_post {
+        display: block;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: transparent;
+        margin-top: -20px;
+    }
+}
+
+.block_2 .plus {
+    position: relative;
+    width: 100%;
+    background: #e5a630 url(../../images/plus.jpg) 30px 40px no-repeat;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000;
+    margin-top: -2px;
+    z-index: 1;
+    padding: 10px 0;
+    padding-left: 70px;
+}
+.block_2 .plus span {
+    font-weight: 700;
+    font-size: 30px;
+    color: #fff;
 }

@@ -6,80 +6,105 @@
     right: 0;
     height: 100vh;
     z-index: 100;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.56);
     padding-bottom: 50px;
     display: none;
 }
 
-.pop_up .bg {
-    background: #fff;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 0;
-}
-
 .pop_up .main {
     padding: 30px;
-    background: #8eb958;
+    background: #80bb52;
     position: relative;
-    margin-top: 240px;
-    width: 540px;
+    margin-top: 140px;
+    width: 650px;
     min-height: 200px;
     max-width: 80%;
 }
 
 .pop_up .main .close {
-    width: 21px;
-    height: 21px;
+    width: 22px;
+    height: 22px;
     background: url(../../images/pop_up/close.png);
     position: absolute;
-    right: -30px;
-    top: 0;
+    right: 8px;
+    top: 8px;
     opacity: 1;
 }
 
+.pop_up .main .close:hover {
+    opacity: 0.8;
+}
+
 .pop_up .main h3 {
-    font-size: 21px;
+    font-size: 26px;
     color: #fff;
-    font-weight: 400;
+    font-weight: 900;
     padding-top: 10px;
+    text-transform: uppercase;
 }
 
 .pop_up .main p {
-    font-size: 17px;
+    font-size: 18px;
     color: #fff;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .pop_up .main form input {
     margin: 20px 0;
     font-weight: 300;
-    background: none;
-    line-height: 34px;
-    color: #fff;
-    width: 300px;
+    line-height: 60px;
+    color: #000000;
+    font-size: 19px;
+    height: 60px;
+    border: 1px solid #bfbfbf;
+    border-radius: 1px;
+    padding-left: 21px;
+    font-style: italic;
+    width: 458px;
     max-width: 100%;
-    font-size: 14px;
-    border: 3px solid #fff;
-    border-radius: 0;
-    overflow: visible;
 }
 
 .pop_up .main form input::-webkit-input-placeholder {
-     color: #ffffff;
- }
-
-.pop_up .main form input:-moz-placeholder { /* Firefox 18- */
-    color: #ffffff;
+    color: #000000;
 }
 
-.pop_up .main form input::-moz-placeholder {  /* Firefox 19+ */
-    color: #ffffff;
+.pop_up .main form input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #000000;
+}
+
+.pop_up .main form input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #000000;
 }
 
 .pop_up .main form input:-ms-input-placeholder {
-    color: #ffffff;
+    color: #000000;
+}
+
+.pop_up .button_big {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 900;
+    display: block;
+    padding: 20px 0;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: red;
+    border: 3px solid red;
+    cursor: pointer;
+    margin: 10px 10px;
+}
+
+.pop_up .button_big:hover {
+    background-color: transparent;
+    color: red;
+}
+
+@media (max-width: 960px) {
+    .pop_up .button_big {
+        font-size: 16px;
+        padding: 10px 10px;
+        display: block;
+    }
 }

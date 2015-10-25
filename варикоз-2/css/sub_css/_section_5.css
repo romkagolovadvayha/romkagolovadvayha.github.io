@@ -1,0 +1,25 @@
+.section_5 {
+    padding-bottom: 50px;
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.section_5 img {
+    max-width: 100%;
+}
+
+.section_5 .title {
+    font-size: 35px;
+    color: #80bb52;
+    font-weight: 900;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.section_5 .text {
+    font-size: 22px;
+    color: #000;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 20px;
+}

@@ -1,6 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,900,100);
 @import url(sub_css/_header.css);
 @import url(sub_css/_section_1.css);
+@import url(sub_css/_section_2.css);
+@import url(sub_css/_section_3.css);
+@import url(sub_css/_section_4.css);
+@import url(sub_css/_section_5.css);
+@import url(sub_css/_section_6.css);
+@import url(sub_css/_section_7.css);
 @import url(sub_css/_pop_up.css);
 
 html, body {
@@ -33,4 +39,33 @@ body {
 
 .button:hover {
     background: url(../images/button_hover.png);
+}
+
+.button_red {
+    background: url(../images/button_red.jpg) repeat;
+    height: 56px;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 84px;
+    line-height: 56px;
+    border-radius: 5px;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.button_red:hover {
+    background: #ffba00;
+}
+
+@media (max-width: 800px) {
+    .button_red {
+        font-size: 14px;
+    }
+}
+@media (max-width: 450px) {
+    .button_red {
+        font-size: 12px;
+    }
 }

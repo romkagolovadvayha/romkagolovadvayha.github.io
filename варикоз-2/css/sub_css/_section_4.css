@@ -1,0 +1,72 @@
+.section_4 {
+    background: url(../../images/section_4/bg.jpg) center bottom no-repeat;
+    background-size: cover;
+    padding-bottom: 50px;
+    margin-top: -10px;
+    min-height: 700px;
+    overflow: hidden;
+}
+
+.section_4 .title {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-top: 100px;
+    text-transform: uppercase;
+    width: 780px;
+    max-width: 100%;
+}
+
+.section_4 .text {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-top: 30px;
+    width: 780px;
+    max-width: 100%;
+}
+
+.section_4 .title_2 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    display: block;
+    margin-top: 30px;
+}
+
+.section_4 .image {
+    max-width: 100%;
+}
+
+.section_4 .button_red_light {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 900;
+    display: inline-block;
+    padding: 30px 137px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: red;
+    border: 3px solid red;
+    cursor: pointer;
+    margin: 30px 40px;
+}
+
+.section_4 .button_red_light:hover {
+    background-color: transparent;
+    color: red;
+}
+
+@media (max-width: 960px) {
+    .section_4 .button_red_light {
+        font-size: 20px;
+        padding: 30px 20px;
+        display: block;
+    }
+}

@@ -1,0 +1,28 @@
+.section_3 {
+    background: #81BB54;
+    background-size: cover;
+    min-height: 100px;
+    padding-bottom: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.section_3 .title {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 900;
+    display: inline-block;
+    margin-top: 10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e5a630;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+}
+
+
+.section_3 .text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
