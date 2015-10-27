@@ -32,39 +32,44 @@
         }
 
         header .white_info_left {
-            font-size: 24px;
+            font-size: 18px;
             color: #fff;
             font-weight: 300;
-            margin-top: 0;
+            margin-top: 26px;
             display: block;
         }
 
         header .white_info_right {
-            font-size: 24px;
+            font-size: 18px;
             color: #fff;
             font-weight: 300;
-            margin-top: 0;
+            margin-top: 26px;
             display: block;
         }
 
         .logo .image {
-            margin-top: 3px;
+            margin-top: 8px;
+        }
+
+
+        .logo .image img {
+            width: 30px;
         }
 
         .logo .white {
             font-size: 24px;
             color: #fff;
             font-weight: 400;
-            margin-top: 0;
+            margin-top: 5px;
         }
 
         .logo .black {
-            font-size: 24px;
+            font-size: 22px;
             color: #000;
             font-weight: 400;
             padding: 0;
             display: block;
-            margin-top: -10px;
+            margin-top: -5px;
         }
         .section_1 {
             background: url(images/section_1/bg.jpg) 50% -10px no-repeat;
@@ -84,8 +89,9 @@
             font-size: 24px;
             color: #000;
             font-weight: 700;
-            margin-top: 70px;
+            margin-top: 100px;
             display: block;
+            margin-bottom: 50px;
             text-align: right;
         }
 
@@ -192,16 +198,25 @@
         }
 
         .block_2 form input {
-            margin: 10px 0;
+            margin: 20px 0;
             font-weight: 300;
             padding: 6px 0;
             color: #000000;
-            font-size: 16px;
-            height: 40px;
+            font-size: 19px;
+            height: 60px;
             border: 1px solid #bfbfbf;
             border-radius: 1px;
             padding-left: 21px;
             font-style: italic;
+            width: 458px;
+            max-width: 100%;
+        }
+
+        @media (max-width: 1000px) {
+            .block_2 form input {
+                display: block;
+                width: 100%;
+            }
         }
 
         .block_2 .input_old {
@@ -773,59 +788,63 @@
 <section class="section_1">
     <div class="container">
         <div class="row">
-            <div class="block_1" align="right">
-                <div class="info">
-                    УЗИ вен + консультация врача<br/>
-                    = <strike>3 500 рублей</strike> <b>бесплатно</b>
-                </div>
-                <div class="button open_pop_up_1">Записаться сейчас</div>
-            </div>
-            <div class="block_2" align="right">
-                <div class="info">
-                    <b>АКЦИЯ!</b> В честь открытия 2х новых филиалов
-                </div>
-                <div class="green_bg">
-                    Узнай насколько запущен ваш варикоз
-                </div>
-                <div class="none_bg">
-                    что с этим можно сделать, а что вам делать категорически нельзя, чтобы не стало еще хуже
-                </div>
-                <div class="block_form" align="center">
-                    <p>
-                        Акция! Только с <font class="day1"></font> <font class="month1"></font> по <font class="day2"></font> <font class="month2"></font> в нашей клинике аппаратная
-                        диагностика вен + консультация врача = <strike>3500 р.</strike>
-                        <span style="color: red;">абсолютно бесплатно!</span>
-                    </p>
-
-                    <div class="info_count">
-                        Записалось <span>78</span> человек, осталось <span>12</span> мест!
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="block_1" align="right">
+                    <div class="info">
+                        УЗИ вен + консультация врача<br/>
+                        = <strike>3 500 рублей</strike> <b>бесплатно</b>
                     </div>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6" align="right">
-                                <div class="input_old">
-                                    <input class="form-control" placeholder="Представьтесь (необязательно)">
-                                </div>
-                            </div>
-                            <div class="col-md-6" align="left">
-                                <div class="input_old">
-                                    <input class="form-control" placeholder="Введите ваш телефон">
+                    <div class="button open_pop_up_1">Записаться сейчас</div>
+                </div>
+                <div class="block_2" align="right">
+                    <div class="info">
+                        <b>АКЦИЯ!</b> В честь открытия 2х новых филиалов
+                    </div>
+                    <div class="green_bg">
+                        Узнай насколько запущен ваш варикоз
+                    </div>
+                    <div class="none_bg">
+                        что с этим можно сделать, а что вам делать категорически нельзя, чтобы не стало еще хуже
+                    </div>
+                    <div class="block_form" align="center">
+                        <p>
+                            Акция! Только с <font class="day1"></font> <font class="month1"></font> по <font class="day2"></font> <font class="month2"></font> в нашей клинике аппаратная
+                            диагностика вен + консультация врача = <strike>3500 р.</strike>
+                            <span style="color: red;">абсолютно бесплатно!</span>
+                        </p>
 
-                                    <div class="old_post">
-                                        Последняя запись<br> была <font class="minute0">8</font> минут назад
-                                        <div class="arrow"></div>
+                        <div class="info_count">
+                            Записалось <span>78</span> человек, осталось <span>12</span> мест!
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6" align="right">
+                                    <div class="input_old">
+                                        <input class="form-control" placeholder="Представьтесь (необязательно)">
                                     </div>
                                 </div>
+                                <div class="col-md-6" align="left">
+                                    <div class="input_old">
+                                        <input class="form-control" placeholder="Введите ваш телефон">
+
+                                        <div class="old_post">
+                                            Последняя запись<br> была <font class="minute0">8</font> минут назад
+                                            <div class="arrow"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button_red">Записаться на УЗИ + консультацию</div>
                             </div>
-                            <div class="button_red">Записаться на УЗИ + консультацию</div>
-                        </div>
-                    </form>
-                </div>
-                <div class="plus">
-                    + Запишитесь сегодня, <font style="font-weight: 700;"><font class="day0"></font> <font class="month0"></font></font>, и пройдите уникальную процедуру <font style="font-weight: 700;">“Антиболь”</font>, <br/>уменьшающую
-                    боль, судороги, отеки ног, <strike>2700 р.</strike> <span>0 рублей!</span>
+                        </form>
+                    </div>
+                    <div class="plus">
+                        + Запишитесь сегодня, <font style="font-weight: 700;"><font class="day0"></font> <font class="month0"></font></font>, и пройдите уникальную процедуру <font style="font-weight: 700;">“Антиболь”</font>, <br/>уменьшающую
+                        боль, судороги, отеки ног, <strike>2700 р.</strike> <span>0 рублей!</span>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </section>
