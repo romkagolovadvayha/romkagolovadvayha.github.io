@@ -78,7 +78,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
                 url = url.split('com/')[1];
             VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
                 if (data.response) {
-                    if (data.response.type == 'group' || data.response.type == 'public') {
+                    if (data.response.type == 'group' || data.response.type == 'page') {
                         $scope.addGroup(data.response.object_id);
                     } else {
                         if (data.response.type == 'user') {
