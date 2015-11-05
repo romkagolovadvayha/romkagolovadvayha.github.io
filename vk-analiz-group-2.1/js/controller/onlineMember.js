@@ -23,7 +23,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
                     url = url.split('com/')[1];
                 VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
                     if (data.response) {
-                        if (data.response.type == 'group') {
+                        if (data.response.type == 'group' || data.response.type == 'page') {
                             $scope.getGroupsInfo(data.response.object_id);
                             //$scope.startStats(data.response.object_id);
                         } else {
