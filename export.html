@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jszip.js"></script>
+    <script>
+        var mas = [];
+        for (var i = 0; i < 10000; i++) {
+            mas[mas.length] = i+i*i;
+        }
+        result = '<html><head><meta charset="UTF-8"></head><body style="color:red;">'+mas.join()+'</body></html>';
+        function export_file(file_type, file_text, file_name) {
+            var zip = new JSZip();
+            zip.add("ged.txt", result);
+            zip.add("hello2.txt", result + 'g');
+            zip.add("hello4.txt", result + 'fgfrg');
+            content = zip.generate();
+
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:' + file_type + ';base64,' + content);
+            element.setAttribute('download', file_name);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    </script>
+</head>
+<body>
+<!--<div onclick="export_file('application/msword', 'текст текст', 'тестовый файл msword')">msword</div>-->
+<!--<div onclick="export_file('application/vnd.ms-excel', 'текст текст', 'тестовый файл excel')">vnd.ms-excel</div>-->
+<!--<div onclick="export_file('text/plain', 'текст текст', 'тестовый файл txt')">text/plain</div>-->
+<div onclick="export_file('application/zip', 'текст текст', 'тестовый файл txt')">text/plain</div>
+</body>
+</html>

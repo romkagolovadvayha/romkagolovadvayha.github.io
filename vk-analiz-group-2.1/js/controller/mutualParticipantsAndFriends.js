@@ -78,7 +78,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
                 url = url.split('com/')[1];
             VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
                 if (data.response) {
-                    if (data.response.type == 'group') {
+                    if (data.response.type == 'group' || data.response.type == 'public') {
                         $scope.addGroup(data.response.object_id);
                     } else {
                         if (data.response.type == 'user') {
@@ -217,7 +217,14 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
                 break;
         }
         result += '</table></html>';
-        window.open('data:application/vnd.ms-excel,' + encodeURIComponent(result));
+        //window.open('data:application/vnd.ms-excel,' + encodeURIComponent(result));
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:application/vnd.ms-excel,'+ encodeURIComponent(result));
+        element.setAttribute('download', 'Общие_участники_(ограничено_не_более_1000)');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
         return false;
     };
     $scope.export_word = function () {
@@ -230,7 +237,14 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
                 break;
         }
         result += '</table></html>';
-        window.open('data:application/msword,' + encodeURIComponent(result));
+        //window.open('data:application/msword,' + encodeURIComponent(result));
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:application/msword,'+ encodeURIComponent(result));
+        element.setAttribute('download', 'Общие_участники_(ограничено_не_более_1000)');
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
         return false;
     }
 
