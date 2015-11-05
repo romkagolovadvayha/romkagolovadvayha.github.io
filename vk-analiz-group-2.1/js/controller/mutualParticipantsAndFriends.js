@@ -210,7 +210,9 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     $scope.export_excel = function () {
         $scope.wall();
         //var result = $scope.arrMutual_.join();
-        var result = '<html><head><meta charset="UTF-8"></head><table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
+        var result = '<html><head><meta charset="UTF-8"></head>' +
+            'Экспорт ограничен до 1000 общих участников.<br/>' +
+            '<table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
         for (var i = 0; i < $scope.arrMutual_.length; i++) {
             result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual_[i] + '</td></tr>';
             if (i >= 999)
@@ -230,7 +232,9 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     $scope.export_word = function () {
         $scope.wall();
         //var result = $scope.arrMutual_.join();
-        var result = '<html><head><meta charset="UTF-8"></head><table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
+        var result = '<html><head><meta charset="UTF-8"></head>' +
+            'Экспорт ограничен до 1000 общих участников.<br/>' +
+            '<table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
         for (var i = 0; i < $scope.arrMutual_.length; i++) {
             result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual_[i] + '</td></tr>';
             if (i >= 999)
