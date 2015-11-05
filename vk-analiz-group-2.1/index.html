@@ -147,7 +147,7 @@
                             </div>
                             <div class="add_info">
                                 <div class="left">Общего</div>
-                                <div class="right">{{ arrMutual.length }}</div>
+                                <div class="right">{{ arrMutual_.length }}</div>
                             </div>
                             <div class="scroll_bar" style="max-height: 280px;">
                                 <div class="alert alert-success alert-dismissible"
@@ -179,16 +179,26 @@
 
                                 </div>
                             </div>
+
                             <div class="arrUrlsLength0" ng-show="arrMutual.length <= 0">
                                 Нет ничего общего
                             </div>
+
+                            <div class="start" ng-show="start_load >= 0">
+                                Обработка ссылки "<b>{{ index_name }}</b>"
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar"  role="progressbar" aria-valuenow="{{ start_load }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ start_load }}%">
+                                        <span class="sr-only">{{ start_load }}</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="buttons" ng-show="arrMutual.length > 0">
                                 <button class="btn btn-success" type="button"
-                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт (всех) в
+                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт (не более 1000) в
                                     Excel
                                 </button>
                                 <button class="btn btn-info" type="button"
-                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт (всех) в
+                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт (не более 1000) в
                                     Word
                                 </button>
                             </div>

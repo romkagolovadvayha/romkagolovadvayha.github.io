@@ -105,6 +105,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
         }
         _arrMutual = [];
         $scope.arrMutual = [];
+        $scope.arrMutual_ = [];
         $scope.arrUrls = newArrUrls;
         $scope.chartsFriends();
     };
@@ -122,10 +123,17 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     var nextFuncMutual = function (index) {
+        $scope.start_load = -1;
         if ($scope.arrUrls.length - 1 > index) {
             funcMutual(++index);
         } else {
-            VK.api('users.get', {user_ids: _arrMutual.join(), fields: 'photo_50', v: '5.27'}, function (data) {
+            var users_ = [];
+            $scope.arrMutual_ = _arrMutual;
+            $scope.$digest();
+            for (var i = 0; i < 1000; i++) {
+                users_[users_.length] = _arrMutual[i];
+            }
+            VK.api('users.get', {user_ids: users_.join(), fields: 'photo_50', v: '5.27'}, function (data) {
                 if (data.response)
                     $scope.arrMutual = data.response;
                 cfpLoadingBar.complete();
@@ -133,31 +141,35 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             });
         }
     };
-
     // получаем участников группы, members_count - количество участников
-    var getMembers20k = function (group_id, members_count, index) {
-        var code = 'var members = API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "count": "1000", "offset": ' + $scope._arrMutualMemberGroupIDs.length + '}).items;' // делаем первый запрос и создаем массив
+    var getMembers20k = function (group_id, members_count, index, _arrMutualMemberGroupIDs) {
+        var code = 'var members = API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "count": "1000", "offset": ' + _arrMutualMemberGroupIDs.length + '}).items;' // делаем первый запрос и создаем массив
             + 'var offset = 1000;' // это сдвиг по участникам группы
-            + 'while (offset < 25000 && (offset + ' + $scope._arrMutualMemberGroupIDs.length + ') < ' + members_count + ')' // пока не получили 20000 и не прошлись по всем участникам
+            + 'while (offset < 25000 && (offset + ' + _arrMutualMemberGroupIDs.length + ') < ' + members_count + ')' // пока не получили 20000 и не прошлись по всем участникам
             + '{'
-            + 'members = members + "," + API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "count": "1000", "offset": (' + $scope._arrMutualMemberGroupIDs.length + ' + offset)}).items;' // сдвиг участников на offset + мощность массива
+            + 'members = members + "," + API.groups.getMembers({"group_id": ' + group_id + ', "v": "5.27", "sort": "id_asc", "count": "1000", "offset": (' + _arrMutualMemberGroupIDs.length + ' + offset)}).items;' // сдвиг участников на offset + мощность массива
             + 'offset = offset + 1000;' // увеличиваем сдвиг на 1000
             + '};'
             + 'return members;'; // вернуть массив members
 
         VK.api("execute", {code: code}, function (data) {
             if (data.response) {
-                $scope._arrMutualMemberGroupID = $scope._arrMutualMemberGroupIDs.concat(JSON.parse("[" + data.response + "]")); // запишем это в массив
-                if (members_count > $scope._arrMutualMemberGroupIDs.length + 15) { // если еще не всех участников получили
+                if (/\d/.test(data.response))
+                    _arrMutualMemberGroupIDs = _arrMutualMemberGroupIDs.concat(JSON.parse("[" + data.response + "]")); // запишем это в массив
+
+                $scope.start_load = (_arrMutualMemberGroupIDs.length / members_count) * 100;
+                //alert(_arrMutualMemberGroupIDs.length);
+                //alert(members_count);
+                if (members_count > _arrMutualMemberGroupIDs.length + 15) { // если еще не всех участников получили
                     setTimeout(function () {
-                        getMembers20k(group_id, members_count);
+                        getMembers20k(group_id, members_count, index, _arrMutualMemberGroupIDs);
                     }, 350); // задержка 0.35 с. после чего запустим еще раз
                 } else // если конец то
                 {
                     if (_arrMutual.length <= 0)
-                        _arrMutual = $scope._arrMutualMemberGroupIDs;
+                        _arrMutual = _arrMutualMemberGroupIDs;
                     else
-                        _arrMutual = ArrMath.Intersection($scope._arrMutualMemberGroupIDs, _arrMutual);
+                        _arrMutual = ArrMath.Intersection(_arrMutualMemberGroupIDs, _arrMutual);
                     $scope.$digest();
                     nextFuncMutual(index);
                 }
@@ -170,10 +182,12 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     var funcMutual = function (index) {
         if ($scope.arrUrls[index].members_count) {
             // подписчики группы
-            $scope._arrMutualMemberGroupIDs = [];
-            getMembers20k($scope.arrUrls[index].id, $scope.arrUrls[index].members_count, index);
+            $scope.index_name = $scope.arrUrls[index].name;
+            var _arrMutualMemberGroupIDs = [];
+            getMembers20k($scope.arrUrls[index].id, $scope.arrUrls[index].members_count, index, _arrMutualMemberGroupIDs);
         } else {
             // друзья пользователя
+            $scope.index_name = $scope.arrUrls[index].name;
             VK.api('friends.get', {user_id: $scope.arrUrls[index].id, v: '3.0'}, function (data) {
                 if (data.response) {
                     if (_arrMutual.length <= 0)
@@ -185,17 +199,22 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             });
         }
     };
-
+    $scope.start_load = -1;
     $scope.start = function () {
         cfpLoadingBar.start();
+        $scope.start_load = 0;
+        $scope.index_name = 0;
         funcMutual(0);
     };
 
     $scope.export_excel = function () {
         $scope.wall();
-        var result = '<html><head><meta charset="UTF-8"></head><table><tr><td></td><td></td><td style="font-weight: 700">Имя Фамилия</td><td style="font-weight: 700">ID</td></tr>';
-        for (var i = 0; i < $scope.arrMutual.length; i++) {
-            result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual[i].first_name + ' ' + $scope.arrMutual[i].last_name + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual[i].id + '</td></tr>';
+        //var result = $scope.arrMutual_.join();
+        var result = '<html><head><meta charset="UTF-8"></head><table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
+        for (var i = 0; i < $scope.arrMutual_.length; i++) {
+            result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual_[i] + '</td></tr>';
+            if (i >= 999)
+                break;
         }
         result += '</table></html>';
         window.open('data:application/vnd.ms-excel,' + encodeURIComponent(result));
@@ -203,9 +222,12 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
     $scope.export_word = function () {
         $scope.wall();
-        var result = '<html><head><meta charset="UTF-8"></head><table><tr><td></td><td></td><td style="font-weight: 700">Имя Фамилия</td><td style="font-weight: 700">ID</td></tr>';
-        for (var i = 0; i < $scope.arrMutual.length; i++) {
-            result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual[i].first_name + ' ' + $scope.arrMutual[i].last_name + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual[i].id + '</td></tr>';
+        //var result = $scope.arrMutual_.join();
+        var result = '<html><head><meta charset="UTF-8"></head><table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
+        for (var i = 0; i < $scope.arrMutual_.length; i++) {
+            result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual_[i] + '</td></tr>';
+            if (i >= 999)
+                break;
         }
         result += '</table></html>';
         window.open('data:application/msword,' + encodeURIComponent(result));
