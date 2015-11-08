@@ -21,7 +21,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
             if (url) {
                 if (url.indexOf("com/") >= 0)
                     url = url.split('com/')[1];
-                VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
+                VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27', https: 1}, function (data) {
                     if (data.response) {
                         if (data.response.type == 'group' || data.response.type == 'page') {
                             $scope.getGroupsInfo(data.response.object_id);
@@ -52,7 +52,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
 
         $scope.groupID = 0;
         $scope.getGroupsInfo = function (groupID) {
-            VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.37'}, function (data) {
+            VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.37', https: 1}, function (data) {
                 if (data.response) {
                     $scope.group = data.response[0];
                     $scope.groupID = groupID;
@@ -261,7 +261,7 @@ app.controller('OnlineMemberCtrl', function ($scope, ngToast, $timeout, cfpLoadi
                     + 'offset = offset + 1000;' // увеличиваем сдвиг на 1000
                     + '};'
                     + 'return [membersOnline, membersOnlineMobile, membersLastSeenTime, membersCountry, membersDeactivated];'; // вернуть массив members
-                VK.api("execute", {code: code}, function (data) {
+                VK.api("execute", {code: code, https: 1}, function (data) {
                     if (data.response) {
                         if ($scope.groupFormActive) {
                             memberOnline = memberOnline.concat(JSON.parse("[" + data.response[0] + "]"));

@@ -47,7 +47,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     $scope.addGroup = function (groupID) {
-        VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.37'}, function (data) {
+        VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.37', https: 1}, function (data) {
             if (data.response) {
                 data.response[0].membersListCount = 'Количество участников: ' + data.response[0].members_count;
                 $scope.checkAdds(data.response[0], 'Группа уже добавлена в список');
@@ -58,7 +58,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     $scope.addUser = function (user_id) {
-        VK.api('users.get', {user_ids: user_id, fields: 'photo_50,counters', v: '5.27'}, function (data) {
+        VK.api('users.get', {user_ids: user_id, fields: 'photo_50,counters', v: '5.27', https: 1}, function (data) {
             if (data.response) {
                 data.response[0].membersListCount = 'Количество друзей: ' + data.response[0].counters.friends;
                 data.response[0].name = data.response[0].first_name + '  ' + data.response[0].last_name;
@@ -76,7 +76,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
         if (url) {
             if (url.indexOf("com/") >= 0)
                 url = url.split('com/')[1];
-            VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27'}, function (data) {
+            VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27', https: 1}, function (data) {
                 if (data.response) {
                     if (data.response.type == 'group' || data.response.type == 'page') {
                         $scope.addGroup(data.response.object_id);
@@ -116,7 +116,8 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     $scope.wall = function () {
         VK.api('wall.post', {
             message: 'Просмотр общих друзей и подписчиков у любых людей и сообществ! https://vk.com/app4236781',
-            attachments: 'photo33610634_350256389, https://vk.com/app4236781'
+            attachments: 'photo33610634_350256389, https://vk.com/app4236781',
+            https: 1
         }, function (data) {
 
         });
@@ -133,7 +134,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             for (var i = 0; i < 1000; i++) {
                 users_[users_.length] = _arrMutual[i];
             }
-            VK.api('users.get', {user_ids: users_.join(), fields: 'photo_50', v: '5.27'}, function (data) {
+            VK.api('users.get', {user_ids: users_.join(), fields: 'photo_50', v: '5.27', https: 1}, function (data) {
                 if (data.response)
                     $scope.arrMutual = data.response;
                 cfpLoadingBar.complete();
@@ -152,7 +153,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             + '};'
             + 'return members;'; // вернуть массив members
 
-        VK.api("execute", {code: code}, function (data) {
+        VK.api("execute", {code: code, https: 1}, function (data) {
             if (data.response) {
                 if (/\d/.test(data.response))
                     _arrMutualMemberGroupIDs = _arrMutualMemberGroupIDs.concat(JSON.parse("[" + data.response + "]")); // запишем это в массив
@@ -188,7 +189,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
         } else {
             // друзья пользователя
             $scope.index_name = $scope.arrUrls[index].name;
-            VK.api('friends.get', {user_id: $scope.arrUrls[index].id, v: '3.0'}, function (data) {
+            VK.api('friends.get', {user_id: $scope.arrUrls[index].id, v: '3.0', https: 1}, function (data) {
                 if (data.response) {
                     if (_arrMutual.length <= 0)
                         _arrMutual = data.response;

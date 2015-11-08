@@ -1,0 +1,64 @@
+.top-navbar {
+    position: fixed;
+    width: 100%;
+    border: none;
+    background-color: #000;
+    z-index: 10;
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 16px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #717171;
+    background-color: transparent;
+    cursor: default;
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #202020;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: transparent;
+    cursor: pointer;
+    color: #000;
+}
+
+.phone {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.top-navbar.navbar.navbar-default {
+    border-radius: 0;
+    background: #fff url(../../images/footer-border-top.png) bottom left repeat-x;
+    transition: 0.2s;
+}
+
+.top-navbar.navbar.navbar-default.on {
+    background-color: rgba(0, 0, 0, 0.67);
+    border-radius: 0;
+    transition: 0.2s;
+}
+
+.navbar-toggle {
+    border: 1px solid #000;
+    box-shadow: none;
+    border-radius: 0;
+    color: #000;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus
+{
+    background-color: rgba(0, 0, 0, 0.06);
+}

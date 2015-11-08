@@ -37,6 +37,7 @@
             <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ группы в режиме онлайн</a>
             </li>
             <!--<li><a href="#private-friends" data-toggle="tab" id="show-private-friends">Скрытые друзья</a></li>-->
+            <li><a href="#profile" data-toggle="tab" id="show-profile">О пользователе</a></li>
             <li><a href="#about" data-toggle="tab" id="show-about">О приложении</a></li>
         </ul>
 
@@ -379,6 +380,14 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Мой профиль -->
+            <div class="tab-pane" id="profile">
+                <div class="row" ng-controller="ProfileCtrl" style="margin-top: 20px;">
+
+                </div>
+            </div>
+
         </div>
 </header>
 
@@ -398,5 +407,6 @@
 <script src="js/controller/onlineMember.js"></script>
 <script src="js/controller/mutualParticipantsAndFriends.js"></script>
 <script src="js/controller/privateFriends.js"></script>
+<script src="js/controller/profile.js"></script>
 </body>
 </html>

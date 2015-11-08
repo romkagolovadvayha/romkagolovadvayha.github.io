@@ -1,0 +1,7 @@
+.section_1 {
+    /*background: url(../../images/section_1/bg.jpg) center bottom no-repeat;*/
+    background-size: cover;
+    min-height: 780px;
+    padding-bottom: 150px;
+    overflow: hidden;
+}
