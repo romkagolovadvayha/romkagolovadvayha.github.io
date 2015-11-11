@@ -2,7 +2,7 @@
 <html ng-app="application">
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>Статистика пользователей группы</title>
+    <title>Общие друзья и подписчики людей, групп сравнение</title>
 
     <!-- Seo -->
     <meta name="description"
@@ -148,7 +148,7 @@
                             </div>
                             <div class="add_info">
                                 <div class="left">Общего</div>
-                                <div class="right">{{ arrMutual_.length }}</div>
+                                <div class="right">{{ arrMutual_.length ? arrMutual_.length : 0 }}</div>
                             </div>
                             <div class="scroll_bar" style="max-height: 280px;">
                                 <div class="alert alert-success alert-dismissible"

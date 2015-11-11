@@ -39,7 +39,6 @@
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
 
-
 }
 
 .section_1 .title span {
@@ -55,7 +54,7 @@
     bottom: 0;
     top: 0;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.2;
     /*background: rgba(97, 11, 4, 0.80);*/
     position: absolute;
 }
@@ -103,39 +102,57 @@
 }
 
 /*.section_1 .surpriz {*/
-    /*background: url(../../images/suvenirnaya-produkciya-k-novomu-godu.png);*/
-    /*height: 85px;*/
-    /*width: 80px;*/
-    /*position: absolute;*/
-    /*top: 80px;*/
-    /*right: 50px;*/
-    /*z-index: 3;*/
-    /*cursor: pointer;*/
-    /*transform: rotate(-10deg);*/
+/*background: url(../../images/suvenirnaya-produkciya-k-novomu-godu.png);*/
+/*height: 85px;*/
+/*width: 80px;*/
+/*position: absolute;*/
+/*top: 80px;*/
+/*right: 50px;*/
+/*z-index: 3;*/
+/*cursor: pointer;*/
+/*transform: rotate(-10deg);*/
 /*}*/
 
 .section_1 .button_invent {
-    /*background: url(../../images/bg_text.png) center center repeat;*/
-    background: rgba(255, 255, 255, 0.64);
+    background-color: #ba5027;
+    position: relative;
+    z-index: 3;
+    text-decoration: none;
+    color: #fff;
+    background-image: linear-gradient(bottom, rgb(170, 70, 25) 0%, rgb(212, 76, 28) 100%);
+    box-shadow: inset 0px 1px 0px #f16b37, 0px 6px 0px #6f2c17;
+    border-radius: 5px;
     padding: 10px 60px;
     font-weight: 700;
     display: inline-block;
-    color: #444444;
     text-shadow: 1px 1px 0 #000;
     text-transform: uppercase;
     font-size: 32px;
-    /*border: 1px solid #fff;*/
-    box-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, 2px 2px 0 #202020, 2px 5px 0 #202020, 3px 6px 0 #fff;
-    border-radius: 3px;
-    margin-top: 30px;
-    cursor: pointer;
-    position: relative;
-    z-index: 3;
-    transition: 0.1s;
 }
 
-.section_1 .button_invent:hover {
-    background: rgba(225, 225, 225, 1);
-    /*box-shadow: 1px 0 0 #C51609, -1px 0 0 #C51609, 0 -1px 0 #C51609, 0 1px 0 #C51609, 2px 2px 0 #202020, 2px 5px 0 #202020, 3px 6px 0 #C51609;*/
-    transition: 0.1s;
+.section_1 .button_invent:active {
+    top: 7px;
+    background-image: linear-gradient(bottom, rgb(170, 60, 34) 100%, rgb(212, 94, 56) 0%);
+    box-shadow: inset 0px 1px 0px #f1623f, inset 0px -1px 0px #6f3023;
+    color: #85311f;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
+    background: rgb(202, 64, 40);
+}
+
+.section_1 .button_invent::before {
+    background-color: #fff;
+    content: "";
+    width: 15%;
+    height:80%;
+
+    -webkit-clip-path: polygon(0 0, 8% 13%, 19% 21%, 28% 25%, 39% 28%, 52% 30%, 64% 31%, 77% 29%, 88% 23%, 94% 15%, 97% 0);
+    clip-path: polygon(0 0, 8% 13%, 19% 21%, 28% 25%, 39% 28%, 52% 30%, 64% 31%, 77% 29%, 88% 23%, 94% 15%, 97% 0);
+
+    position: absolute;
+    right: 15px;
+    top: -2px;
+    box-shadow: inset 0px 1px 0px #19120f, 1px 1px 0px #000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: 0.2s;
 }

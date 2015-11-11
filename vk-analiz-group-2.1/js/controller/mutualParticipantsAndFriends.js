@@ -79,9 +79,11 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             VK.api('utils.resolveScreenName', {screen_name: url, v: '5.27', https: 1}, function (data) {
                 if (data.response) {
                     if (data.response.type == 'group' || data.response.type == 'page') {
+                        $scope.url = "";
                         $scope.addGroup(data.response.object_id);
                     } else {
                         if (data.response.type == 'user') {
+                            $scope.url = "";
                             $scope.addUser(data.response.object_id);
                         } else {
                             cfpLoadingBar.complete();
@@ -251,6 +253,18 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
         element.click();
         document.body.removeChild(element);
         return false;
-    }
+    };
+
+    $(document).bind('keydown', function() {
+        if (event.keyCode == 13) {
+            if ($scope.url) {
+                $scope.add();
+            } else {
+                if ($scope.arrUrls.length > 1) {
+                    $scope.start();
+                }
+            }
+        }
+    });
 
 });
