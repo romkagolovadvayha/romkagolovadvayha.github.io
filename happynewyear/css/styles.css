@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,900,100);
 @import url(sub_css/_section_1.css);
 @import url(sub_css/_section_2.css);
+@import url(sub_css/_section_3.css);
 @import url(sub_css/nav.css);
 @import url(sub_css/_pop_up.css);
 
@@ -12,6 +13,7 @@ html, body {
 body {
     position: relative;
     background-color: #fff;
+    overflow-y: hidden !important;
 }
 
 .container {

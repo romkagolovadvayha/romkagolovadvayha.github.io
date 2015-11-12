@@ -114,6 +114,7 @@
 /*}*/
 
 .section_1 .button_invent {
+    margin-top: 15px;
     background-color: #ba5027;
     position: relative;
     z-index: 3;
@@ -139,20 +140,32 @@
     background: rgb(202, 64, 40);
 }
 
-.section_1 .button_invent::before {
-    background-color: #fff;
-    content: "";
-    width: 15%;
-    height:80%;
+/*.section_1 .button_invent::before {*/
+    /*background-color: #fff;*/
+    /*content: "";*/
+    /*width: 15%;*/
+    /*height:80%;*/
 
-    -webkit-clip-path: polygon(0 0, 8% 13%, 19% 21%, 28% 25%, 39% 28%, 52% 30%, 64% 31%, 77% 29%, 88% 23%, 94% 15%, 97% 0);
-    clip-path: polygon(0 0, 8% 13%, 19% 21%, 28% 25%, 39% 28%, 52% 30%, 64% 31%, 77% 29%, 88% 23%, 94% 15%, 97% 0);
+    /*-webkit-clip-path: polygon(0 0, 8% 13%, 19% 21%, 28% 25%, 39% 28%, 52% 30%, 64% 31%, 77% 29%, 88% 23%, 94% 15%, 97% 0);*/
+    /*clip-path: polygon(0 0, 8% 13%, 19% 21%, 28% 25%, 39% 28%, 52% 30%, 64% 31%, 77% 29%, 88% 23%, 94% 15%, 97% 0);*/
 
-    position: absolute;
-    right: 15px;
-    top: -2px;
-    box-shadow: inset 0px 1px 0px #19120f, 1px 1px 0px #000;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    transition: 0.2s;
+    /*position: absolute;*/
+    /*right: 15px;*/
+    /*top: -2px;*/
+    /*box-shadow: inset 0px 1px 0px #19120f, 1px 1px 0px #000;*/
+    /*border-top-left-radius: 5px;*/
+    /*border-top-right-radius: 5px;*/
+    /*transition: 0.2s;*/
+/*}*/
+
+.section_1 .small_text {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 400px;
+    max-width: 100%;
+    color: #fff;
+}
+
+.section_1 .small_text span {
+    font-weight: 700;
 }
