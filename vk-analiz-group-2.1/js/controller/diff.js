@@ -13,17 +13,6 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
     $scope.sort = '-id';
     //$scope.url = "habr";
 
-    $scope.sumMembers = 0;
-
-    $scope.resetSumMembers = function () {
-        $scope.sumMembers = 0;
-        for (var i = 0; i < $scope.arrUrls.length; i++) {
-            var object = $scope.arrUrls[i];
-            if (object.counters || object.members_count) {
-                $scope.sumMembers += object.counters && object.counters.friends ? object.counters.friends : object.members_count;
-            }
-        }
-    };
 
     var _arrMutual = [];
     $scope.arrMutual = [];
@@ -149,8 +138,6 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         } else {
             var users_ = [];
             $scope.arrMutual_ = _arrMutual;
-            $scope.resetSumMembers();
-            $scope.dataMembersCountry = [$scope.sumMembers, $scope.arrMutual_.length];
             $scope.$digest();
             for (var i = 0; i < 1000; i++) {
                 users_[users_.length] = _arrMutual[i];
