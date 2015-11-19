@@ -1,0 +1,81 @@
+.section_4 {
+    min-height: 200px;
+    position: relative;
+    background: #fff;
+    z-index: 2;
+    margin-top: 30px;
+    padding-bottom: 40px;
+}
+
+.section_4 .price {
+    font-size: 22px;
+    position: relative;
+    margin-top: 30px;
+    padding-left: 10px;
+}
+
+.section_4 .price .dotted {
+    position: absolute;
+    border-bottom: 2px dotted #C51609;
+    width: 960px;
+    margin-top: 5px;
+    margin-left: -10px;
+}
+
+.section_4 .price span {
+    font-weight: 700;
+    color: #efc832;
+    font-size: 28px;
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+.section_4 .podarok {
+    background: url(../../images/podarok.png);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    right: 20px;
+    cursor: pointer;
+}
+
+.section_4 .podarok:hover {
+    opacity: 0.5;
+}
+
+.section_4 .podarok {
+    /*-webkit-animation-delay: 2s;*/
+    /*animation-delay: 2s;*/
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.section_4 .podaroks {
+    width: 300px;
+    position: absolute;
+    top: 100px;
+    background-size: cover;
+    right: 20px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 30px;
+    box-shadow: 0 0 10px #000;
+    display: none;
+}
+
+.section_4 .podaroks:before, .section_4 .podaroks:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    z-index: 2;
+    top: -20px;
+    right: 40px;
+}

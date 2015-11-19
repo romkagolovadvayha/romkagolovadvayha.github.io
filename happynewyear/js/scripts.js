@@ -43,4 +43,8 @@ window.onload = function () {
         }, 1000);
     });
 
+    $('.section_4 .podarok').click(function () {
+       $('.section_4 .podaroks').toggle('show');
+    });
+
 };

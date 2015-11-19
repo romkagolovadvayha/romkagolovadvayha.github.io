@@ -2,8 +2,8 @@
     min-height: 200px;
     position: relative;
     padding-bottom: 80px;
-    background: #fff;
-    z-index: 2;
+    margin-top: 10px;
+    z-index: 3;
 }
 
 .section_3 .bg {
@@ -48,9 +48,13 @@
     text-shadow: 1px 1px 0 #000;
 }
 
+.section_3 .mar3 {
+    margin-top: 70px;
+}
+
 .section_3 .text_box .text {
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 18px;
+    margin-top: 30px;
     font-weight: 400;
     color: #fff;
     text-shadow: 1px 1px 0 #000;

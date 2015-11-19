@@ -1,0 +1,11 @@
+.slider .carousel {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.slider .carousel {
+    height: 700px;
+    transform: rotate(-1deg);
+    width: 110%;
+    left: -5%;
+}

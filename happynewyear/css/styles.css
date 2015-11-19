@@ -2,8 +2,13 @@
 @import url(sub_css/_section_1.css);
 @import url(sub_css/_section_2.css);
 @import url(sub_css/_section_3.css);
+@import url(sub_css/_section_4.css);
+@import url(sub_css/_section_6.css);
 @import url(sub_css/nav.css);
 @import url(sub_css/_pop_up.css);
+@import url(sub_css/slider.css);
+@import url(sub_css/component.css);
+@import url(sub_css/lightbox.css);
 
 html, body {
     overflow-x: hidden;

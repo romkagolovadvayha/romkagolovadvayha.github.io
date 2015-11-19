@@ -1,0 +1,14 @@
+.section_6 {
+    height: 600px;
+    position: relative;
+    background: #fff;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.section_6 video {
+    /*height: 200px;*/
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
