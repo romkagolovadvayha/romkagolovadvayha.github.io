@@ -420,7 +420,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control"
                                        ng-model="url"
-                                       ng-class="arrUrls.length >= 2 ? 'disabled' : ''"
+                                       ng-disabled="arrUrls.length >= 2"
                                        placeholder="Ссылку на профиль пользователя или группы...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"
