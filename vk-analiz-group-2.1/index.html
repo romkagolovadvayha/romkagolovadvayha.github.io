@@ -36,7 +36,7 @@
                                   id="show-mutual-participants-and-friends">Общая аудитория</a></li>
             <li><a href="#unik" data-toggle="tab"
                                   id="show-unik">Уникальная аудитория</a></li> <li><a href="#diff" data-toggle="tab"
-                                  id="show-diff">Вычтенная аудитория</a></li>
+                                  id="show-diff">Вычитание аудитории</a></li>
             <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Участники онлайн</a>
             </li>
             <!--<li><a href="#private-friends" data-toggle="tab" id="show-private-friends">Скрытые друзья</a></li>-->
@@ -326,15 +326,6 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="margin: 20px 0">
-                                <!--<div class="col-md-3"></div>-->
-                                <div class="col-md-12">
-                                    <canvas class="chart chart-PolarArea" data="dataMembersCountry"
-                                            labels="labelsMembersCountry"></canvas>
-                                </div>
-                                <!--<div class="col-md-3"></div>-->
-                            </div>
-
                             <div class="add_info">
                                 <div class="left">Уникальная аудитория</div>
                                 <div class="right">{{ arrMutual_.length ? arrMutual_.length : 0 }}</div>
@@ -398,7 +389,7 @@
                 </div>
             </div>
 
-            <!-- Вычтенная аудитория -->
+            <!-- Вычитание аудитории -->
             <div class="tab-pane" id="diff">
                 <div class="row" ng-controller="DiffCtrl" style="margin-top: 20px;">
                     <!--<div class="alert alert-info">Обновление! Исправлены ошибки зацикливания.</div>-->
@@ -410,7 +401,7 @@
                                         <img class="media-object" src="images/Graphicloads-100-Flat-New.ico" width="50px">
                                     </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading" style="margin-top: 5px;">Вычтенная аудитория</h4>
+                                        <h4 class="media-heading" style="margin-top: 5px;">Вычитание аудитории</h4>
                                         Позволяет просматривать участников, которые есть в первом сообществе, но которых нет во втором.
                                     </div>
                                 </li>

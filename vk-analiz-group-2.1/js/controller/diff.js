@@ -238,7 +238,7 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         $scope.wall();
         //var result = $scope.arrMutual_.join();
         var result = '<html><head><meta charset="UTF-8"></head>' +
-            'Экспорт ограничен до 1000 уникальных участников.<br/>' +
+            'Экспорт ограничен до 1000 участников.<br/>' +
             '<table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
         for (var i = 0; i < $scope.arrMutual_.length; i++) {
             result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual_[i] + '</td></tr>';
@@ -249,7 +249,7 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         //window.open('data:application/vnd.ms-excel,' + encodeURIComponent(result));
         var element = document.createElement('a');
         element.setAttribute('href', 'data:application/vnd.ms-excel,' + encodeURIComponent(result));
-        element.setAttribute('download', 'Уникальные_участники_(ограничено_не_более_1000)');
+        element.setAttribute('download', 'Вычитание_аудитории_(ограничено_не_более_1000)');
         element.style.display = 'none';
         document.body.appendChild(element);
         element.click();
@@ -260,7 +260,7 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         $scope.wall();
         //var result = $scope.arrMutual_.join();
         var result = '<html><head><meta charset="UTF-8"></head>' +
-            'Экспорт ограничен до 1000 уникальных участников.<br/>' +
+            'Экспорт ограничен до 1000 участников.<br/>' +
             '<table><tr><td></td><td></td><td style="font-weight: 700">ID</td></tr>';
         for (var i = 0; i < $scope.arrMutual_.length; i++) {
             result += '<tr><td></td><td style="border: 1px solid #000;">' + (i + 1) + '</td><td style="border: 1px solid #000;">' + $scope.arrMutual_[i] + '</td></tr>';
@@ -271,7 +271,7 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         //window.open('data:application/msword,' + encodeURIComponent(result));
         var element = document.createElement('a');
         element.setAttribute('href', 'data:application/msword,' + encodeURIComponent(result));
-        element.setAttribute('download', 'Уникальные_участники_(ограничено_не_более_1000)');
+        element.setAttribute('download', 'Вычитание_аудитории_(ограничено_не_более_1000)');
         element.style.display = 'none';
         document.body.appendChild(element);
         element.click();
