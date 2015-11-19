@@ -293,7 +293,7 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
     });
 
     $('#show-unik').on('shown.bs.tab', function (e) {
-        $scope.labelsMembersCountry = ["Всего", "Уникальньная"];
+        $scope.labelsMembersCountry = ["Всего", "Уникальные"];
         $scope.dataMembersCountry = [1, 1];
         $scope.$digest();
     });
