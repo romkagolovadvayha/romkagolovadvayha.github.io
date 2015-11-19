@@ -423,7 +423,7 @@
                                        ng-disabled="arrUrls.length >= 2"
                                        placeholder="Ссылку на профиль пользователя или группы...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"
+                                    <button class="btn btn-default" ng-disabled="arrUrls.length >= 2" type="button"
                                             ng-click="add()">Добавить
                                     </button>
                                     <button class="btn btn-success" ng-show="arrUrls.length > 1" type="button"
