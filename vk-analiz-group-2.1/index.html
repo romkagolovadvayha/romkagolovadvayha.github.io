@@ -36,7 +36,7 @@
                                   id="show-mutual-participants-and-friends">Общая аудитория</a></li>
             <li><a href="#unik" data-toggle="tab"
                                   id="show-unik">Уникальная аудитория</a></li>
-            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ группы в режиме онлайн</a>
+            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Участники онлайн</a>
             </li>
             <!--<li><a href="#private-friends" data-toggle="tab" id="show-private-friends">Скрытые друзья</a></li>-->
             <!--<li><a href="#profile" data-toggle="tab" id="show-profile">О пользователе</a></li>-->
@@ -214,20 +214,20 @@
             <!-- Уникальная аудитория -->
             <div class="tab-pane" id="unik">
                 <div class="row" ng-controller="UnikCtrl" style="margin-top: 20px;">
-                    <ul class="media-list" style="margin-top: 10px;margin-left: 20px;margin-bottom: 20px;">
-                        <li class="media">
-                            <a class="pull-left">
-                                <img class="media-object" src="images/Graphicloads-100-Flat-New.ico" width="50px">
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading" style="margin-top: 5px;">Уникальная аудитория</h4>
-                                Позволяет просматривать участников, без повторений.
-                            </div>
-                        </li>
-                    </ul>
                     <!--<div class="alert alert-info">Обновление! Исправлены ошибки зацикливания.</div>-->
                     <div class="col-md-6">
                         <div class="row">
+                            <ul class="media-list" style="margin-top: 10px;margin-left: 20px;margin-bottom: 20px;">
+                                <li class="media">
+                                    <a class="pull-left">
+                                        <img class="media-object" src="images/Graphicloads-100-Flat-New.ico" width="50px">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" style="margin-top: 5px;">Уникальная аудитория</h4>
+                                        Позволяет просматривать участников, без повторений.
+                                    </div>
+                                </li>
+                            </ul>
                             <span class="text_label">Ссылка на профиль или группу:</span>
 
                             <div class="input-group">
@@ -324,6 +324,14 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="row" style="margin: 20px 0">
+                                <div class="col-md-6">
+                                    <canvas class="chart chart-doughnut" data="dataMembersCountry"
+                                            labels="labelsMembersCountry"></canvas>
+                                </div>
+                            </div>
+
                             <div class="add_info">
                                 <div class="left">Уникальная аудитория</div>
                                 <div class="right">{{ arrMutual_.length ? arrMutual_.length : 0 }}</div>
