@@ -430,7 +430,7 @@
                                             ng-click="start()">Начать сравнение
                                     </button>
                                 </span>
-                                <ul class="autocomplete_">
+                                <ul class="autocomplete_" ng-hide="myGroups,length < 1">
                                     <li ng-repeat="myGroup in myGroups | filter: url | limitTo: 5">
                                         <div class="row">
                                             <img src="{{ myGroup.photo_50 }}">
