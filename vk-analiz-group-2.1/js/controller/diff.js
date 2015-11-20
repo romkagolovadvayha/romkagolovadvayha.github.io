@@ -279,5 +279,6 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
     });
 
     $scope.myGroups = myGroups;
+    $scope.$digest();
 
 });
