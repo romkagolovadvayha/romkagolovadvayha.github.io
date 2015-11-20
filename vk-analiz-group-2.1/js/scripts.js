@@ -1,9 +1,9 @@
 var app = angular.module('application', ['ngToast', 'chart.js', 'cfp.loadingBar']);
 
 var myGroups = [];
-VK.api('groups.get', {extended: 1, v: '5.40', https: 1}, function (data) {
+VK.api('groups.get', {extended: 1, v: '5.40', https: 1, count: 300}, function (data) {
     if (data.response) {
-        myGroups = data.response;
+        myGroups = data.response.items;
     }
 });
 
