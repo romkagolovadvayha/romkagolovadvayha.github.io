@@ -278,6 +278,7 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         }
     });
 
+    $scope.showFocus = false;
     $scope.myGroups = [];
     VK.api('groups.get', {extended: 1, v: '5.40', https: 1, count: 300}, function (data) {
         if (data.response) {

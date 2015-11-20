@@ -420,6 +420,8 @@
                             <div class="input-group">
                                 <input type="text" class="form-control"
                                        ng-model="url"
+                                       ng-focus="showFocus=true"
+                                       ng-blur="showFocus=false"
                                        ng-disabled="arrUrls.length >= 2"
                                        placeholder="Ссылку на профиль пользователя или группы...">
                                 <span class="input-group-btn">
@@ -430,7 +432,7 @@
                                             ng-click="start()">Начать сравнение
                                     </button>
                                 </span>
-                                <ul class="autocomplete_" ng-hide="myGroups,length < 1">
+                                <ul class="autocomplete_" ng-hide="myGroups,length < 1 || !showFocus">
                                     <li ng-repeat="myGroup in myGroups | filter: url | limitTo: 5">
                                         <div class="row">
                                             <img src="{{ myGroup.photo_50 }}">
