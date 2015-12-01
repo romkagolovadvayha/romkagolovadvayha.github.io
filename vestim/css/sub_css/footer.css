@@ -1,0 +1,42 @@
+footer {
+    background: #000 url(../../images/bg-news.jpg) center center;
+    padding: 20px 0;
+    background-size: cover;
+    box-shadow: -2px 0 10px #000;
+    position: relative;
+    z-index: 8;
+}
+
+footer .ten {
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.66);
+    position: absolute;
+    z-index: 1;
+}
+
+footer {
+    color: #fff;
+}
+
+footer .nav li {
+    display: inline-block;
+}
+
+footer .nav li a, footer .nav li a:focus {
+    color: #ffffff;
+    background: transparent;
+    text-decoration: none;
+}
+
+footer .nav li a:hover {
+    color: #47abff;
+    background: transparent;
+    text-decoration: none;
+}
+
+footer img {
+    border-radius: 5px;
+}

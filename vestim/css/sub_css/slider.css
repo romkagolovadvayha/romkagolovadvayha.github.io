@@ -1,0 +1,27 @@
+.slider .carousel {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.slider .carousel {
+    height: 700px;
+    transform: rotate(-1deg);
+    width: 110%;
+    left: -5%;
+}
+
+.slider2 .carousel {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.slider2 .carousel {
+    height: 700px;
+    transform: rotate(-1deg);
+    width: 110%;
+    left: -5%;
+}
+
+.slider2 .grid li {
+    height: 110px;
+}

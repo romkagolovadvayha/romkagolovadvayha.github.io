@@ -1,0 +1,130 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,900,100);
+@import url(sub_css/_section_1.css);
+@import url(sub_css/_section_2.css);
+@import url(sub_css/_section_3.css);
+@import url(sub_css/_section_4.css);
+@import url(sub_css/_section_6.css);
+@import url(sub_css/_section_7.css);
+@import url(sub_css/nav.css);
+@import url(sub_css/_pop_up.css);
+@import url(sub_css/slider.css);
+@import url(sub_css/component.css);
+@import url(sub_css/lightbox.css);
+@import url(sub_css/footer.css);
+
+html, body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif, Arial;
+}
+
+body {
+    position: relative;
+    background-color: #fff;
+    overflow-y: hidden !important;
+}
+
+.container {
+    position: relative;
+}
+
+.row {
+    margin: 0;
+}
+
+.right {
+    float: right !important;
+}
+
+.s1 {
+    animation-delay: 1s;
+}
+
+.s2 {
+    animation-delay: 2s;
+}
+
+.s3 {
+    animation-delay: 3s;
+}
+
+.srol {
+    overflow: visible;
+    box-shadow: 0 0 10px #000;
+    background: url(../images/bg-news.jpg) center center repeat;
+    padding: 50px 0;
+    z-index: 2;
+    position: relative;
+}
+
+.invate {
+    background: url(../images/bg_butt.jpg) center center no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 40px 0;
+    box-shadow: inset 0 0 10px #000;
+}
+
+.invate .title {
+    /*margin-top: 30px;*/
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    padding: 0 40px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.invate .button {
+    background: rgba(255, 255, 255, 0.72);
+    color: #000;
+    margin-top: 25px;
+    padding: 15px 40px;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.invate .button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.notifyjs-metro-base {
+    position: relative;
+    min-height: 52px;
+    color: #444;
+}
+
+.notifyjs-metro-base .image {
+    display: table;
+    position: absolute;
+    height: auto;
+    width: auto;
+    left: 25px;
+    top: 50%;
+
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notifyjs-metro-base .text-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin: 10px 10px 10px 52px;
+    clear: both;
+    font-family: 'Segoe UI';
+}
+
+.notifyjs-metro-base .title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.notifyjs-metro-base .text {
+    font-size: 12px;
+    font-weight: normal;
+    vertical-align: middle;
+}

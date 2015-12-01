@@ -1,0 +1,77 @@
+.section_6 {
+    height: 600px;
+    position: relative;
+    background: #fff;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.section_6 video {
+    /*height: 200px;*/
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 4;
+}
+
+.section_6 .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 6;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.section_6 .snow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5) url(../../images/81390751_0_920be_74a0f99c_L.png) repeat;
+    opacity: 1;
+    z-index: 6;
+}
+
+.section_6 h1 {
+    color: #fff;
+    margin-top: 140px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 48px;
+    text-shadow: 1px 1px 0 #000;
+    font-family: Helvetica, 'PT Sans Narrow', sans-serif;
+}
+
+.section_6 .contact {
+    color: #fff;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.section_6 .contact span {
+    font-size: 22px;
+}
+
+.section_6 .contact .number {
+    font-size: 36px;
+}
+
+.section_6 .contact p {
+    margin-top: 40px;
+}
+
+.section_6 hr {
+    max-width: 100px;
+    width: 100%;
+}
+
+.section_6 a {
+    color: #fff;
+}
+
+.section_6 a:hover {
+    color: #f0f0f0;
+}
