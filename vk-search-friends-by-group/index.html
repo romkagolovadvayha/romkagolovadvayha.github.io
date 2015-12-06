@@ -139,7 +139,13 @@
                                             </div>
                                         </div>
                                         <div class="media-body">
-                                            <strong>{{ object.group.name }}</strong><br/>
+                                            <strong>{{ object.group.name }}</strong>
+                                            <ul>
+                                                <li ng-repeat="item in object.items">
+                                                    <div class="photo_50"><img src="{{ item.photo_50 }}"/></div>
+                                                    <div class="full_name">{{ item.first_name }}</div>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
 
