@@ -24,6 +24,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         });
     };
 
+    console.clear();
     var array_groups_and_items = [];
     var get_friends_from_groups = function (items, offset, count) {
         var groups = [];
