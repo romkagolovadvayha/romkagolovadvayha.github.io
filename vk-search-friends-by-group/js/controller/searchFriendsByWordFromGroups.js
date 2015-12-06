@@ -4,6 +4,8 @@
 'use strict';
 app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
+    $scope.word = "Порно";
+
     var array_members_in_groups;
     $.get('js/execute/get_array_members_in_groups.js', function () {}).fail(function(code) {
         array_members_in_groups = code.responseText
