@@ -291,12 +291,12 @@ ul.autocomplete_ li:hover {
     font-weight: 700;
 }
 
-.friends ul {
+.friends {
     margin: 0;
     padding: 0;
 }
 
-.friends ul li {
+.friends li {
      list-style: none;
      width: 55px;
      display: inline-block;
