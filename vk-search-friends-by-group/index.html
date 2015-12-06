@@ -122,8 +122,8 @@
                             </div>
                             <div class="scroll_bar" style="max-height: 280px;">
                                 <div class="alert alert-success alert-dismissible"
-                                     ng-repeat="group in result_array | orderBy: sort | filter: search_result | limitTo: limit">
-                                    <a href="https://vk.com/id{{ group.id }}" target="_blank">
+                                     ng-repeat="object in result_array | orderBy: sort | filter: search_result | limitTo: limit">
+                                    <a href="https://vk.com/id{{ object.group.id }}" target="_blank">
                                         <div class="close">
                                             <i class="fa fa-vk"></i>
                                         </div>
@@ -132,14 +132,14 @@
                                     <div class="media">
                                         <div class="media-left">
                                             <div class="img">
-                                                <a href="https://vk.com/id{{ group.id }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ group.photo_50 }}" width="50px"
+                                                <a href="https://vk.com/id{{ object.group.id }}" target="_blank">
+                                                    <img class="media-object" ng-src="{{ object.group.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="media-body">
-                                            <strong>{{ group.name }}</strong><br/>
+                                            <strong>{{ object.group.name }}</strong><br/>
                                         </div>
                                     </div>
 
