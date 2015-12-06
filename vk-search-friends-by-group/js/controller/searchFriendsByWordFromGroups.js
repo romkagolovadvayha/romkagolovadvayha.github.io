@@ -39,7 +39,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
             .replace("$groups_ids$", JSON.stringify(groups));
         console.log(code);
         VK.api("execute", {code: code, https: 1}, function (data) {
-            array_groups_and_items = ArrMath.Sum(array_groups_and_items, data.response);
+            array_groups_and_items = ArrMath.Sum(array_groups_and_items, JSON.stringify(eval("(" + data.response + ")")));
             if (offset + 25 < count) {
                 setTimeout(function () {
                     get_friends_from_groups(items, offset + 25, count);
