@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="buttons">
+                            <div class="buttons" ng-controller="InviteCtrl">
                                 <button class="btn btn-primary" type="button"
                                         ng-click="invite()"><i class="fa fa-child"></i> Пригласить друзей
                                 </button>
@@ -160,16 +160,6 @@
                                         <span class="sr-only">{{ start_load }}</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="buttons" ng-controller="InviteCtrl" ng-show="arrMutual.length > 0">
-                                <button class="btn btn-success" type="button"
-                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в
-                                    Excel
-                                </button>
-                                <button class="btn btn-info" type="button"
-                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в
-                                    Word
-                                </button>
                             </div>
                         </div>
                     </div>
