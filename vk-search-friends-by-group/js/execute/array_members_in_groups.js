@@ -1,4 +1,4 @@
-var members = $data$;
+var groups_ids = $data$;
 var offset = 1000; // это сдвиг по участникам группы
 while (offset < 25000 && (offset + ' + _arrMutualMemberGroupIDs.length + ') < ' + members_count + ') // пока не получили 20000 и не прошлись по всем участникам
 {

@@ -27,9 +27,19 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
             https: 1,
             v: '5.40'
         }, function (data) {
-            var code = array_members_in_groups.replace("$data$", JSON.stringify(data));
-            console.log(code);
+            get_friends_from_groups(data.response.items, 0, data.response.items.length);
         });
+    };
+
+    var get_friends_from_groups = function (items, offset, count) {
+        var groups_ids = [];
+        var index = 0;
+        for (var i = offset; i < count; i++) {
+            groups_ids[index] = items[offset + i];
+            index++;
+        }
+        var code = array_members_in_groups.replace("$data$", JSON.stringify(groups_ids));
+        alert(code);
     };
 
     $scope.invite = function () {
