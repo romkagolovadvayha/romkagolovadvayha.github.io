@@ -19,7 +19,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
             .replace("$word$", $scope.word);
         VK.api("execute", {code: code, https: 1}, function (data) {
             console.log(data);
-            get_friends_from_groups(data.response.items, 0, data.response.items.length);
+            get_friends_from_groups(data.response, 0, data.response.length);
         });
     };
 
