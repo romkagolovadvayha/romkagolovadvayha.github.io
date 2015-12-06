@@ -15,18 +15,25 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
 
     $scope.search = function () {
         console.clear();
-        VK.api("groups.search", {q: $scope.word, count: "1000", https: "1", v: "5.40"}, function (data) {
-            var groups_public = [];
-            var items = data.response.items;
-            for (var i = 0; i < items.length; i++) {
-                if (items[i].is_closed == 0 || items[i].is_closed == 1) {
-                    groups_public[groups_public.length] = items[i].id;
+        if ($scope.word) {
+            $scope.disabled = true;
+            cfpLoadingBar.start();
+            VK.api("groups.search", {q: $scope.word, count: "1000", https: "1", v: "5.40"}, function (data) {
+                var groups_public = [];
+                var items = data.response.items;
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].is_closed == 0 || items[i].is_closed == 1) {
+                        groups_public[groups_public.length] = items[i].id;
+                    }
                 }
-            }
-            setTimeout(function () {
-                get_friends_from_groups(groups_public, 0, groups_public.length);
-            }, 350);
-        });
+                setTimeout(function () {
+                    get_friends_from_groups(groups_public, 0, groups_public.length);
+                }, 350);
+            });
+        } else {
+            cfpLoadingBar.complete();
+            $scope.writeError('Введите слово');
+        }
     };
 
     var array_groups_and_items = [];
@@ -69,7 +76,6 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                         }, function (users) {
                             for (var i = 0; i < groups.response.length; i++) {
                                 var items = [];
-                                console.log(result_array_groups[i]);
                                 for (var j = 0; j < result_array_groups[i].items.length; j++) {
                                     for (var r = 0; r < users.response.length; r++) {
                                         if (result_array_groups[i].items[j] == users.response[r].id) {
@@ -79,6 +85,8 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                                 }
                                 result_array[result_array.length] = {group: groups.response[i], items: items};
                             }
+                            cfpLoadingBar.complete();
+                            $scope.disabled = false;
                             console.log(result_array);
                         });
                     });
@@ -94,5 +102,9 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         }
     });
 
+    $scope.writeError = function (error) {
+        ngToast.success(error);
+        $scope.$digest();
+    };
 
 });

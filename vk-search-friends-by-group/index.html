@@ -65,9 +65,12 @@
                             <div class="input-group">
                                 <input type="text" class="form-control"
                                        ng-model="word"
+                                       ng-disabled="disabled"
                                        placeholder="Слово, которое указано в названии группы...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-success" type="button"
+                                    <button class="btn btn-success"
+                                            type="button"
+                                            ng-disabled="disabled"
                                             ng-click="search()">Начать поиск
                                     </button>
                                 </span>
