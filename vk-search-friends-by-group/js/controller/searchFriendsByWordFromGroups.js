@@ -89,6 +89,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                             cfpLoadingBar.complete();
                             $scope.disabled = false;
                             $scope.result_array = result_array;
+                            console.log(result_array);
                             $scope.$digest();
                         });
                     });
