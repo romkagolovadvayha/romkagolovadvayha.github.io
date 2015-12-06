@@ -19,9 +19,9 @@ while (i < groups_ids.length) {
         j = j + 1;
     }
     if (i == 0)
-        arr_groups = "{'id': " + groups_ids[i] + ", 'items': [" + items_result + "]}";
+        arr_groups = "{\"id\": " + groups_ids[i] + ", \"items\": [" + items_result + "]}";
     else
-        arr_groups = arr_groups + ", {'id': " + groups_ids[i] + ", 'items': [" + items_result + "]}";
+        arr_groups = arr_groups + ", {\"id\": " + groups_ids[i] + ", \"items\": [" + items_result + "]}";
     i = i + 1;
 }
 
