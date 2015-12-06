@@ -20,6 +20,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                     groups_public[groups_public.length] = items[i].id;
                 }
             }
+            console.log(1);
             get_friends_from_groups(groups_public, 0, groups_public.length);
         });
     };
@@ -27,6 +28,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     console.clear();
     var array_groups_and_items = [];
     var get_friends_from_groups = function (items, offset, count) {
+        console.log(2);
         var groups = [];
         for (var i = offset, j = 0; i < offset + 25; i++, j++) {
             if (i < count) {
