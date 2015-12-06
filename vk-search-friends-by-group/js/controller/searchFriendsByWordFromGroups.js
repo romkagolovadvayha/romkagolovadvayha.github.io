@@ -21,7 +21,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     });
 
     $scope.search = function () {
-        VK.Api('groups.search', {
+        VK.api('groups.search', {
             q: $scope.word,
             count: 1000,
             https: 1,
