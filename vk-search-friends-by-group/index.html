@@ -140,10 +140,10 @@
                                         </div>
                                         <div class="media-body">
                                             <strong>{{ object.group.name }}</strong>
-                                            <ul>
+                                            <div class="friends_title">В данной группе <b>{{ object.items.length }}</b> ваших друзей</div>
+                                            <ul class="friends">
                                                 <li ng-repeat="item in object.items">
-                                                    <div class="photo_50"><img src="{{ item.photo_50 }}"/></div>
-                                                    <div class="full_name">{{ item.first_name }}</div>
+                                                    <img width="32" src="{{ item.photo_50 }}" alt="{{ item.first_name }} {{ item.last_name }}" title="{{ item.first_name }} {{ item.last_name }}"/>
                                                 </li>
                                             </ul>
                                         </div>
