@@ -118,40 +118,35 @@
                             </div>
                             <div class="add_info">
                                 <div class="left">Результат</div>
-                                <div class="right">{{ arrMutual_.length ? arrMutual_.length : 0 }}</div>
+                                <div class="right">{{ result_array.length ? result_array.length : 0 }}</div>
                             </div>
                             <div class="scroll_bar" style="max-height: 280px;">
                                 <div class="alert alert-success alert-dismissible"
-                                     ng-repeat="url in arrMutual | orderBy: sort | filter: search_result | limitTo: limit">
-                                    <a href="https://vk.com/id{{ url.id }}" target="_blank">
+                                     ng-repeat="group in result_array | orderBy: sort | filter: search_result | limitTo: limit">
+                                    <a href="https://vk.com/id{{ group.id }}" target="_blank">
                                         <div class="close">
                                             <i class="fa fa-vk"></i>
-                                        </div>
-                                    </a>
-                                    <a ng-click="addUser(url.id)">
-                                        <div class="close">
-                                            <i class="fa fa-plus"></i>
                                         </div>
                                     </a>
 
                                     <div class="media">
                                         <div class="media-left">
                                             <div class="img">
-                                                <a href="https://vk.com/id{{ url.id }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
+                                                <a href="https://vk.com/id{{ group.id }}" target="_blank">
+                                                    <img class="media-object" ng-src="{{ group.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="media-body">
-                                            <strong>{{ url.first_name }} {{ url.last_name }}</strong><br/>
+                                            <strong>{{ group.name }}</strong><br/>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
 
-                            <div class="arrUrlsLength0" ng-show="arrMutual.length <= 0">
+                            <div class="arrUrlsLength0" ng-show="result_array.length <= 0">
                                 Ничего не найдено!
                             </div>
 

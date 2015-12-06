@@ -5,6 +5,7 @@
 app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
     $scope.word = "Порно";
+    $scope.result_array = [];
 
     var array_members_in_groups;
     $.get('js/execute/get_array_members_in_groups.js', function () {
@@ -87,7 +88,8 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                             }
                             cfpLoadingBar.complete();
                             $scope.disabled = false;
-                            console.log(result_array);
+                            $scope.result_array = result_array;
+                            $scope.$digest();
                         });
                     });
                 }, 350);
