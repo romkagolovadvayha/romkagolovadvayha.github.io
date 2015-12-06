@@ -9,11 +9,12 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     var array_members_in_groups;
     $.get('js/execute/get_array_members_in_groups.js', function () {
     }).fail(function (code) {
-        array_members_in_groups = code.responseText
+        array_members_in_groups = code.responseText;
         console.clear();
     });
 
     $scope.search = function () {
+        console.clear();
         VK.api("groups.search", {q: $scope.word, count: "1000", https: "1", v: "5.40"}, function (data) {
             var groups_public = [];
             var items = data.response.items;
