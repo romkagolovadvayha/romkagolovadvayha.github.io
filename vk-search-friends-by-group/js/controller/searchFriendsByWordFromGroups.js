@@ -27,7 +27,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
             https: 1,
             v: '5.40'
         }, function (data) {
-            var code = array_members_in_groups.replace("$data$", data);
+            var code = array_members_in_groups.replace("$data$", JSON.stringify(data));
             console.log(code);
         });
     };
