@@ -68,7 +68,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                             v: "5.40"
                         }, function (users) {
                             for (var i = 0; i < groups.response.length; i++) {
-                                var items;
+                                var items = [];
                                 for (var j = 0; j < result_array_groups[i].items.length; j++) {
                                     for (var r = 0; r < result_array_groups[i].items.length; r++) {
                                         if (result_array_groups[i].items[j] == users.response[r].id) {
