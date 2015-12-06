@@ -7,7 +7,8 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     $scope.word = "Порно";
 
     var array_members_in_groups;
-    $.get('js/execute/get_array_members_in_groups.js', function () {}).fail(function(code) {
+    $.get('js/execute/get_array_members_in_groups.js', function () {
+    }).fail(function (code) {
         array_members_in_groups = code.responseText
     });
 
@@ -20,15 +21,15 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                     groups_public[groups_public.length] = items[i].id;
                 }
             }
-            console.log(1);
-            get_friends_from_groups(groups_public, 0, groups_public.length);
+            setTimeout(function () {
+                get_friends_from_groups(groups_public, 0, groups_public.length);
+            }, 350);
         });
     };
 
     console.clear();
     var array_groups_and_items = [];
     var get_friends_from_groups = function (items, offset, count) {
-        console.log(2);
         var groups = [];
         for (var i = offset, j = 0; i < offset + 25; i++, j++) {
             if (i < count) {
@@ -39,7 +40,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
             .replace("$groups_ids$", JSON.stringify(groups));
         console.log(code);
         VK.api("execute", {code: code, https: 1}, function (data) {
-            array_groups_and_items = ArrMath.Sum(array_groups_and_items, JSON.stringify(eval("(" + data.response + ")")));
+            array_groups_and_items = ArrMath.Sum(array_groups_and_items, $.parseJSON(data.response));
             if (offset + 25 < count) {
                 setTimeout(function () {
                     get_friends_from_groups(items, offset + 25, count);
