@@ -24,7 +24,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
 
     var get_friends_from_groups = function (items, offset, count) {
         var code = array_members_in_groups
-            .replace("$groups_ids$", JSON.stringify(items));
+            .replace("$groups_ids$", JSON.stringify(array_slice(items, offset, 25)));
         console.log(code); //
     };
 
