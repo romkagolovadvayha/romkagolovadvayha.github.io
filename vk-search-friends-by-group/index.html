@@ -2,13 +2,13 @@
 <html ng-app="application">
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>Общие друзья и подписчики людей, групп сравнение</title>
+    <title>Всевидящее око</title>
 
     <!-- Seo -->
     <meta name="description"
-          content="Анализ участников группы в режиме онлайн">
+          content="Всевидящее око">
     <meta name="keywords"
-          content="Онлайн с телефонов, онлайн участники, активные пользователи">
+          content="Всевидящее око, узнать все о друзьях">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png"/>
@@ -32,6 +32,7 @@
     <div class="container" style="margin-top: 20px;">
 
         <div align="left" class="friends_app scroll_bar" ng-controller="FriendsAppCtrl" ng-show="friendsApp.length > 0">
+            <div class="titlet">Друзья в приложении</div>
             <ul>
                 <a ng-repeat="friend in friendsApp" href="https://vk.com/id{{ friend.id }}" target="_blank">
                     <li>
