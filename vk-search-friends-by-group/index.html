@@ -145,12 +145,12 @@
                                             <div class="friends_title">В данной группе <b>{{ object.items.length }}</b>
                                                 ваших друзей
                                             </div>
-                                            <div class="scroll_bar" style="height: 40px;">
+                                            <div class="scroll_bar" style="height: 31px;">
                                                 <ul class="friends">
                                                     <a ng-repeat="item in object.items"
                                                        href="https://vk.com/id{{ item.id }}" target="_blank">
                                                         <li>
-                                                            <img width="32" src="{{ item.photo_50 }}"
+                                                            <img src="{{ item.photo_50 }}"
                                                                  alt="{{ item.first_name }} {{ item.last_name }}"
                                                                  title="{{ item.first_name }} {{ item.last_name }}"/>
                                                         </li>

@@ -298,16 +298,15 @@ ul.autocomplete_ li:hover {
 
 .friends li {
      list-style: none;
-     width: 55px;
+     width: 35px;
      display: inline-block;
-     background: #fff;
      text-align: center;
      cursor: pointer;
-     margin: 10px 0;
+     margin: 3px 0;
  }
 
 .friends li img {
-    width: 32px;
+    width: 25px;
     display: inline-block;
 }
 
@@ -318,4 +317,8 @@ ul.autocomplete_ li:hover {
 .friends a:hover {
     text-decoration: none;
     opacity: 0.7;
+}
+
+.friends_title {
+    font-size: 10px;
 }
