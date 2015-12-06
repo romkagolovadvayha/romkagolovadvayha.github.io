@@ -161,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="buttons" ng-show="arrMutual.length > 0">
+                            <div class="buttons" ng-controller="InviteCtrl" ng-show="arrMutual.length > 0">
                                 <button class="btn btn-success" type="button"
                                         ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в
                                     Excel
@@ -227,5 +227,6 @@
 <script src="js/scripts.js"></script>
 <script src="js/controller/searchFriendsByWordFromGroups.js"></script>
 <script src="js/controller/friendsApp.js"></script>
+<script src="js/controller/invite.js"></script>
 </body>
 </html>
