@@ -10,6 +10,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     $.get('js/execute/get_array_members_in_groups.js', function () {
     }).fail(function (code) {
         array_members_in_groups = code.responseText
+        console.clear();
     });
 
     $scope.search = function () {
@@ -27,7 +28,6 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         });
     };
 
-    console.clear();
     var array_groups_and_items = [];
     var get_friends_from_groups = function (items, offset, count) {
         var groups = [];
