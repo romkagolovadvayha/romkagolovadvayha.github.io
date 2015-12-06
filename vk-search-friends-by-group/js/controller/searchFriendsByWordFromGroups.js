@@ -48,12 +48,24 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                 }, 350);
             } else {
                 var result_array_groups = [];
+                var groups_ids = [];
+                var users_ids = [];
                 for (var i = 0; i < array_groups_and_items.length; i++) {
                     if (array_groups_and_items[i].items.length > 0) {
                         result_array_groups[result_array_groups.length] = array_groups_and_items[i];
+                        groups_ids[groups_ids.length] = array_groups_and_items[i].id;
+                        users_ids = ArrMath.Sum(users_ids, array_groups_and_items[i].items);
                     }
                 }
-                console.log(result_array_groups);
+
+                setTimeout(function () {
+                    VK.api("groups.getById", {group_ids: groups_ids.join(),  https: "1", v: "5.40"}, function (data) {
+                        VK.api("users.get", {user_ids: users_ids.join(), fields: "photo_50", https: "1", v: "5.40"}, function (data) {
+
+                        });
+                    });
+                }, 350);
+
             }
         });
     };
