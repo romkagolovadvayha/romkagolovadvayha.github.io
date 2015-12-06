@@ -59,9 +59,26 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                 }
 
                 setTimeout(function () {
-                    VK.api("groups.getById", {group_ids: groups_ids.join(),  https: "1", v: "5.40"}, function (data) {
-                        VK.api("users.get", {user_ids: users_ids.join(), fields: "photo_50", https: "1", v: "5.40"}, function (data) {
-
+                    var result_array = [];
+                    VK.api("groups.getById", {group_ids: groups_ids.join(), https: "1", v: "5.40"}, function (groups) {
+                        VK.api("users.get", {
+                            user_ids: users_ids.join(),
+                            fields: "photo_50",
+                            https: "1",
+                            v: "5.40"
+                        }, function (users) {
+                            for (var i = 0; i < groups.response.length; i++) {
+                                var items;
+                                for (var j = 0; j < result_array_groups[i].items.length; j++) {
+                                    for (var r = 0; r < result_array_groups[i].items.length; r++) {
+                                        if (result_array_groups[i].items[j] == users.response[r].id) {
+                                            items[items.length] = users.response[r];
+                                        }
+                                    }
+                                }
+                                result_array[result_array.length] = {group: groups.response[i], items: items};
+                            }
+                            console.log(result_array);
                         });
                     });
                 }, 350);
