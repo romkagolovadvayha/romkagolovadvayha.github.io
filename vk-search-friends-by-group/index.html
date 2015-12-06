@@ -111,8 +111,8 @@
                                     <span class="text_label">Сортировать:</span>
                                     <select class="form-control ng-pristine ng-valid ng-touched"
                                             ng-model="sort">
-                                        <option value="-group.id">ID по убыванию</option>
-                                        <option value="+group.id">ID по возрастанию</option>
+                                        <option value="-items.length">Друзей по убыванию</option>
+                                        <option value="+items.length">Друзей по возрастанию</option>
                                     </select>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                             </div>
                             <div class="scroll_bar" style="max-height: 280px;">
                                 <div class="alert alert-success alert-dismissible"
-                                     ng-repeat="object in result_array | orderBy: sort : '+items.length' | filter: search_result | limitTo: limit">
+                                     ng-repeat="object in result_array | orderBy: sort | filter: search_result | limitTo: limit">
                                     <a href="https://vk.com/{{ object.group.screen_name }}" target="_blank">
                                         <div class="close">
                                             <i class="fa fa-vk"></i>
