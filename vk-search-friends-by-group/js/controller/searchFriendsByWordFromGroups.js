@@ -4,29 +4,21 @@
 'use strict';
 app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
-    //$scope.addGroup = function (groupID) {
-    //    VK.api('groups.getById', {group_id: groupID, fields: 'members_count', v: '5.37', https: 1}, function (data) {
-    //        if (data.response) {
-    //            data.response[0].membersListCount = 'Количество участников: ' + data.response[0].members_count;
-    //            $scope.checkAdds(data.response[0], 'Группа уже добавлена в список');
-    //            cfpLoadingBar.complete();
-    //            $scope.$digest();
-    //        }
-    //    });
-    //};
-
     var array_members_in_groups;
-    $.get('js/execute/array_members_in_groups.js', function () {}).fail(function(code) {
+    $.get('js/execute/get_array_members_in_groups.js', function () {}).fail(function(code) {
         array_members_in_groups = code.responseText
     });
 
+    var array_groups_by_word;
+    $.get('js/execute/get_array_groups_by_word.js', function () {}).fail(function(code) {
+        array_groups_by_word = code.responseText
+    });
+
     $scope.search = function () {
-        VK.api('groups.search', {
-            q: $scope.word,
-            count: 1000,
-            https: 1,
-            v: '5.40'
-        }, function (data) {
+        var code = array_groups_by_word
+            .replace("$word$", $scope.word);
+        VK.api("execute", {code: code, https: 1}, function (data) {
+            console.log(data);
             get_friends_from_groups(data.response.items, 0, data.response.items.length);
         });
     };
@@ -41,8 +33,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
             }
         }
         var code = array_members_in_groups
-            .replace("$data$", JSON.stringify(groups_ids));
-            //.replace("$offset$", offset);
+            .replace("$groups_ids$", JSON.stringify(groups_ids));
         console.log(code); //
     };
 
