@@ -1,14 +1,16 @@
 var groups_ids = $data$;
-var offset = 1000; // это сдвиг по участникам группы
-while (offset < 25000 && (offset + ' + _arrMutualMemberGroupIDs.length + ') < ' + members_count + ') // пока не получили 20000 и не прошлись по всем участникам
+var arr_groups = [];
+
+var i = 0;
+while (i < groups_ids.length)
 {
-    members = members + "," + API.groups.getMembers({
-        "group_id": ' + group_id + ',
+    arr_groups[groups_ids[i]] = API.groups.getMembers({
+        "group_id": groups_ids[i],
         "v": "5.27",
         "sort": "id_asc",
         "count": "1000",
-        "offset": (' + _arrMutualMemberGroupIDs.length + ' + offset)
-    }).items; // сдвиг участников на offset + мощность массива
-    offset = offset + 1000; // увеличиваем сдвиг на 1000
+        filter: 'friends'
+    }).items;
 }
-return members; // вернуть массив members
+
+return arr_groups;

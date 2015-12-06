@@ -40,7 +40,9 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                 index++;
             }
         }
-        var code = array_members_in_groups.replace("$data$", JSON.stringify(groups_ids));
+        var code = array_members_in_groups
+            .replace("$data$", JSON.stringify(groups_ids));
+            //.replace("$offset$", offset);
         alert(code);
     };
 
