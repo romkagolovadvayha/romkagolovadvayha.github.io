@@ -18,22 +18,13 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         var code = array_groups_by_word
             .replace("$word$", $scope.word);
         VK.api("execute", {code: code, https: 1}, function (data) {
-            console.log(data);
             get_friends_from_groups(data.response, 0, data.response.length);
         });
     };
 
     var get_friends_from_groups = function (items, offset, count) {
-        var groups_ids = [];
-        var index = 0;
-        for (var i = offset; i < offset + 25; i++) {
-            if (offset < count) {
-                groups_ids[index] = items[offset + i].id;
-                index++;
-            }
-        }
         var code = array_members_in_groups
-            .replace("$groups_ids$", JSON.stringify(groups_ids));
+            .replace("$groups_ids$", JSON.stringify(items));
         console.log(code); //
     };
 
