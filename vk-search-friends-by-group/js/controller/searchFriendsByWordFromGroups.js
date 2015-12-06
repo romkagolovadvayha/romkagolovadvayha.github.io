@@ -43,7 +43,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         var code = array_members_in_groups
             .replace("$data$", JSON.stringify(groups_ids));
             //.replace("$offset$", offset);
-        console.log(code);
+        console.log(code); //
     };
 
     $scope.invite = function () {
