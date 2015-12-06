@@ -24,6 +24,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         });
     };
 
+    var array_groups_and_items = [];
     var get_friends_from_groups = function (items, offset, count) {
         var groups = [];
         for (var i = offset, j = 0; i < offset + 25; i++, j++) {
@@ -33,7 +34,17 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         }
         var code = array_members_in_groups
             .replace("$groups_ids$", JSON.stringify(groups));
-        console.log(code); //
+        console.log(code);
+        VK.api("execute", {code: code, https: 1}, function (data) {
+            array_groups_and_items = ArrMath.Sum(array_groups_and_items, data.response);
+            if (offset + 25 < count) {
+                setTimeout(function () {
+                    get_friends_from_groups(items, offset + 25, count);
+                }, 350);
+            } else {
+                console.log(array_groups_and_items);
+            }
+        });
     };
 
     $(document).bind('keydown', function () {
