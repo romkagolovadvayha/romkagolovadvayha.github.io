@@ -20,7 +20,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                     groups_public[groups_public.length] = items[i].id;
                 }
             }
-            get_friends_from_groups(groups_public.response, 0, groups_public.length);
+            get_friends_from_groups(groups_public, 0, groups_public.length);
         });
     };
 
