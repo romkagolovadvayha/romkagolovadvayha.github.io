@@ -290,3 +290,32 @@ ul.autocomplete_ li:hover {
     color: #45688e;
     font-weight: 700;
 }
+
+.friends ul {
+    margin: 0;
+    padding: 0;
+}
+
+.friends ul li {
+     list-style: none;
+     width: 55px;
+     display: inline-block;
+     background: #fff;
+     text-align: center;
+     cursor: pointer;
+     margin: 10px 0;
+ }
+
+.friends li img {
+    width: 32px;
+    display: inline-block;
+}
+
+.friends a {
+    text-decoration: none;
+}
+
+.friends a:hover {
+    text-decoration: none;
+    opacity: 0.7;
+}

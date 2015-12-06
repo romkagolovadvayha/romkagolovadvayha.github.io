@@ -133,18 +133,27 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/{{ object.group.screen_name }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ object.group.photo_50 }}" width="50px"
+                                                    <img class="media-object" ng-src="{{ object.group.photo_50 }}"
+                                                         width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="media-body">
                                             <strong>{{ object.group.name }}</strong>
-                                            <div class="friends_title">В данной группе <b>{{ object.items.length }}</b> ваших друзей</div>
+
+                                            <div class="friends_title">В данной группе <b>{{ object.items.length }}</b>
+                                                ваших друзей
+                                            </div>
                                             <ul class="friends">
-                                                <li ng-repeat="item in object.items">
-                                                    <img width="32" src="{{ item.photo_50 }}" alt="{{ item.first_name }} {{ item.last_name }}" title="{{ item.first_name }} {{ item.last_name }}"/>
-                                                </li>
+                                                <a ng-repeat="item in object.items"
+                                                   href="https://vk.com/id{{ item.id }}" target="_blank">
+                                                    <li>
+                                                        <img width="32" src="{{ item.photo_50 }}"
+                                                             alt="{{ item.first_name }} {{ item.last_name }}"
+                                                             title="{{ item.first_name }} {{ item.last_name }}"/>
+                                                    </li>
+                                                </a>
                                             </ul>
                                         </div>
                                     </div>
@@ -176,26 +185,27 @@
                 <div class="row" style="margin-top: 30px;" align="center">
 
 
-                        <div class="friends_app_c">
-                            <ul>
-                                <a href="https://vk.com/daaaaaaaaa" target="_blank">
-                                    <li>
-                                        <img src="https://pp.vk.me/c627929/v627929634/131a7/jQHuXS7FP_k.jpg">
+                    <div class="friends_app_c">
+                        <ul>
+                            <a href="https://vk.com/daaaaaaaaa" target="_blank">
+                                <li>
+                                    <img src="https://pp.vk.me/c627929/v627929634/131a7/jQHuXS7FP_k.jpg">
 
-                                        <div class="text">Роман Мещеряков</div>
-                                    </li>
-                                </a>
-                            </ul>
-                        </div>
-
-                        <div align="left" style="display: inline-block;">
-                            <p>Если у вас появлись вопросы или предложения,<br/> пишите по следующим контактам</p>
-                            <ol>
-                                <li>Вконтакте: <a href="https://vk.com/daaaaaaaaa" target="_blank">https://vk.com/daaaaaaaaa</a>
+                                    <div class="text">Роман Мещеряков</div>
                                 </li>
-                                <li>Скайп: xmawer</li>
-                            </ol>
-                        </div>
+                            </a>
+                        </ul>
+                    </div>
+
+                    <div align="left" style="display: inline-block;">
+                        <p>Если у вас появлись вопросы или предложения,<br/> пишите по следующим контактам</p>
+                        <ol>
+                            <li>Вконтакте: <a href="https://vk.com/daaaaaaaaa"
+                                              target="_blank">https://vk.com/daaaaaaaaa</a>
+                            </li>
+                            <li>Скайп: xmawer</li>
+                        </ol>
+                    </div>
 
                 </div>
 
