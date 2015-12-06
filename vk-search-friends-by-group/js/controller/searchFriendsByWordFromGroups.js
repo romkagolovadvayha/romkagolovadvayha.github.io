@@ -5,6 +5,8 @@
 app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
     $scope.word = "Порно";
+    $scope.limit = 30;
+    $scope.sort = '-id';
     $scope.result_array = [];
 
     var array_members_in_groups;
