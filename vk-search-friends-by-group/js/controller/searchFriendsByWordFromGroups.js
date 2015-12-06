@@ -11,16 +11,16 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
         array_members_in_groups = code.responseText
     });
 
-    var array_groups_by_word;
-    $.get('js/execute/get_array_groups_by_word.js', function () {}).fail(function(code) {
-        array_groups_by_word = code.responseText
-    });
-
     $scope.search = function () {
-        var code = array_groups_by_word
-            .replace("$word$", $scope.word);
-        VK.api("execute", {code: code, https: 1}, function (data) {
-            get_friends_from_groups(data.response, 0, data.response.length);
+        VK.api("groups.search", {q: $scope.word, count: "1000", https: "1", v: "5.40"}, function (data) {
+            var groups_public = [];
+            var items = data.response.items;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].is_closed == 0 || items[i].is_closed == 1) {
+                    groups_public[groups_public.length] = items[i].id;
+                }
+            }
+            get_friends_from_groups(groups_public.response, 0, groups_public.length);
         });
     };
 
