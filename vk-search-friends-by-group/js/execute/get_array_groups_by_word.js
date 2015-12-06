@@ -1,5 +1,5 @@
 return API.groups.search({
-    q: $word$,
+    q: "$word$",
     count: 1000,
     https: 1,
     v: "5.40"
