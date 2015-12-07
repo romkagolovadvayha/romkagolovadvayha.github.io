@@ -13,11 +13,11 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     $.get('https://romkagolovadvayha.github.io/vk-search-friends-by-group/js/execute/get_array_members_in_groups.js', function () {
     }).fail(function (code) {
         array_members_in_groups = code.responseText;
-        console.clear();
+        //console.clear();
     });
 
     $scope.search = function () {
-        console.clear();
+        //console.clear();
         if ($scope.word) {
             $scope.disabled = true;
             cfpLoadingBar.start();
