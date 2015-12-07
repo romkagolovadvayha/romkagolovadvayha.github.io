@@ -47,13 +47,13 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab"
                                   id="show-mutual-participants-and-friends">Общая аудитория</a></li>
-            <li class="active"><a href="#search-group" data-toggle="tab"
-                                  id="show-search-group">Поиск друзей в группах</a></li>
+            <li><a href="#search-group" data-toggle="tab"
+                                  id="show-search-group">Друзья в группах</a></li>
             <li><a href="#unik" data-toggle="tab"
                    id="show-unik">Уникальная аудитория</a></li>
             <li><a href="#diff" data-toggle="tab"
                    id="show-diff">Вычитание аудитории</a></li>
-            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Участники онлайн</a>
+            <li><a href="#vk-analiz-group" data-toggle="tab" id="show-vk-analiz-group">Анализ</a>
             </li>
             <!--<li><a href="#private-friends" data-toggle="tab" id="show-private-friends">Скрытые друзья</a></li>-->
             <!--<li><a href="#profile" data-toggle="tab" id="show-profile">О пользователе</a></li>-->
@@ -241,11 +241,24 @@
             </div>
 
             <!-- Друзья в сообществах -->
-            <div class="tab-pane active" id="search-group">
+            <div class="tab-pane" id="search-group">
                 <div class="row" ng-controller="SearchFriendsByWordFromGroupsCtrl" style="margin-top: 20px;">
                     <!--<div class="alert alert-info">Обновление! Исправлены ошибки зацикливания.</div>-->
                     <div class="col-md-6">
                         <div class="row">
+                            <ul class="media-list" style="margin-top: 10px;margin-left: 20px;margin-bottom: 20px;">
+                                <li class="media">
+                                    <a class="pull-left">
+                                        <img class="media-object" src="images/Graphicloads-100-Flat-New.ico"
+                                             width="50px">
+                                    </a>
+
+                                    <div class="media-body">
+                                        <h4 class="media-heading" style="margin-top: 5px;">Друзья в сообществах</h4>
+                                        Позволяет просматривать все группы по запросу, в которых есть ваши друзья.
+                                    </div>
+                                </li>
+                            </ul>
                             <span class="text_label">Введите поисковый запрос (Например: "порно"):</span>
 
                             <div class="input-group">
