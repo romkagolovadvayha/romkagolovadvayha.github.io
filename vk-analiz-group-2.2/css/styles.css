@@ -206,7 +206,7 @@ ul.autocomplete_ li:hover {
 }
 
 .friends_app  {
-    height: 90px;
+    height: 115px;
 }
 
 .friends_app a {
@@ -284,4 +284,41 @@ ul.autocomplete_ li:hover {
     margin-top: 5px;
     color: #45688e;
     font-weight: bold;
+}
+
+.titlet {
+    color: #45688e;
+    font-weight: 700;
+}
+
+.friends {
+    margin: 0;
+    padding: 0;
+}
+
+.friends li {
+    list-style: none;
+    width: 35px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    margin: 3px 0;
+}
+
+.friends li img {
+    width: 25px;
+    display: inline-block;
+}
+
+.friends a {
+    text-decoration: none;
+}
+
+.friends a:hover {
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.friends_title {
+    font-size: 10px;
 }

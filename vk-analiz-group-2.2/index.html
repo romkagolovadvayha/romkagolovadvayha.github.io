@@ -47,6 +47,8 @@
         <ul class="nav nav-tabs">
             <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab"
                                   id="show-mutual-participants-and-friends">Общая аудитория</a></li>
+            <li class="active"><a href="#search-group" data-toggle="tab"
+                                  id="show-search-group">Поиск друзей в группах</a></li>
             <li><a href="#unik" data-toggle="tab"
                    id="show-unik">Уникальная аудитория</a></li>
             <li><a href="#diff" data-toggle="tab"
@@ -231,6 +233,134 @@
                                         ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в
                                     Word
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Друзья в сообществах -->
+            <div class="tab-pane active" id="search-group">
+                <div class="row" ng-controller="SearchFriendsByWordFromGroupsCtrl" style="margin-top: 20px;">
+                    <!--<div class="alert alert-info">Обновление! Исправлены ошибки зацикливания.</div>-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <span class="text_label">Введите поисковый запрос (Например: "порно"):</span>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       ng-model="word"
+                                       ng-disabled="disabled"
+                                       placeholder="Слово, которое указано в названии группы...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success"
+                                            type="button"
+                                            ng-disabled="disabled"
+                                            ng-click="search()">Начать поиск
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="buttons" ng-controller="InviteCtrl">
+                                <button class="btn btn-primary" type="button"
+                                        ng-click="invite()"><i class="fa fa-child"></i> Пригласить друзей
+                                </button>
+                                <button class="btn btn-info" type="button"
+                                        ng-click="wall()"><i class="fa fa-commenting-o"></i> Рассказать друзьям
+                                </button>
+                            </div>
+                        </div>
+                        <!--<div class="row" style="padding-top: 50px;" align="center">-->
+                        <!--<canvas class="chart chart-bar" data="dataFriendsCounts" labels="labelsFriendsNames"-->
+                        <!--series="seriesFriends"></canvas>-->
+                        <!--</div>-->
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="text_label">Поиск:</span>
+                                    <input type="text" class="form-control"
+                                           ng-model="search_result"
+                                           placeholder="Название...">
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="text_label">Выводимых:</span>
+                                    <input type="number" class="form-control"
+                                           ng-model="limit"
+                                           placeholder="Ссылку на профиль пользователя или группы...">
+                                </div>
+                                <div class="col-md-5">
+                                    <span class="text_label">Сортировать:</span>
+                                    <select class="form-control ng-pristine ng-valid ng-touched"
+                                            ng-model="sort">
+                                        <option value="-items.length">По убыванию</option>
+                                        <option value="+items.length">По возрастанию</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="add_info">
+                                <div class="left">Результат</div>
+                                <div class="right">{{ result_array.length ? result_array.length : 0 }}</div>
+                            </div>
+                            <div class="scroll_bar" style="max-height: 280px;">
+                                <div class="alert alert-success alert-dismissible"
+                                     ng-repeat="object in result_array | orderBy: sort | filter: search_result | limitTo: limit">
+                                    <a href="https://vk.com/{{ object.group.screen_name }}" target="_blank">
+                                        <div class="close">
+                                            <i class="fa fa-vk"></i>
+                                        </div>
+                                    </a>
+
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="img">
+                                                <a href="https://vk.com/{{ object.group.screen_name }}" target="_blank">
+                                                    <img class="media-object" ng-src="{{ object.group.photo_50 }}"
+                                                         width="50px"
+                                                         height="50px">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="media-body">
+                                            <strong>{{ object.group.name }}</strong>
+
+                                            <div class="friends_title">В данной группе <b>{{ object.items.length }}</b>
+                                                ваших друзей
+                                            </div>
+                                            <div class="scroll_bar" style="height: 31px;">
+                                                <ul class="friends">
+                                                    <a ng-repeat="item in object.items"
+                                                       href="https://vk.com/id{{ item.id }}" target="_blank">
+                                                        <li>
+                                                            <img src="{{ item.photo_50 }}"
+                                                                 alt="{{ item.first_name }} {{ item.last_name }}"
+                                                                 title="{{ item.first_name }} {{ item.last_name }}"/>
+                                                        </li>
+                                                    </a>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="arrUrlsLength0" ng-show="result_array.length <= 0">
+                                Ничего не найдено!
+                            </div>
+
+                            <div class="start" ng-show="start_load >= 0">
+                                Обработка ссылки "<b>{{ index_name }}</b>"
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ start_load }}"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: {{ start_load }}%">
+                                        <span class="sr-only">{{ start_load }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -836,7 +966,9 @@
 <script src="js/controller/unik.js"></script>
 <script src="js/controller/diff.js"></script>
 <script src="js/controller/privateFriends.js"></script>
+<script src="js/controller/searchFriendsByWordFromGroups.js"></script>
 <script src="js/controller/friendsApp.js"></script>
+<script src="js/controller/invite.js"></script>
 <script src="js/controller/profile.js"></script>
 </body>
 </html>
