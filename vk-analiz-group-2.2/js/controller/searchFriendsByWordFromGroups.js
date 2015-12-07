@@ -4,7 +4,7 @@
 'use strict';
 app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
-    $scope.word = "Порно";
+    $scope.word = "";
     $scope.limit = 30;
     $scope.sort = '-items.length';
     $scope.result_array = [];
