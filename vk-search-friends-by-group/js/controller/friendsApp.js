@@ -2,7 +2,7 @@
  * FriendsAppCtrl
  */
 'use strict';
-app.controller('FriendsAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
+app.controller('FriendsAppCtrl', function ($scope) {
 
     VK.api('friends.getAppUsers', {v: '5.40', https: 1}, function (friends) {
         if (friends.response) {
