@@ -11,7 +11,7 @@ function ArrayMath() {
 			if (j == N && k == c) C[c++] = A[ i ];
 		}
 		return C;
-	}
+	};
 
 	this.Intersection = function(X,Y)
 	{
@@ -33,7 +33,7 @@ function ArrayMath() {
 			}
 		}
 	 	return Z;
-	}
+	};
 
 	this.Sum = function(A,B)
 	{
@@ -49,7 +49,7 @@ function ArrayMath() {
 			if (plus === false) C[count++] = B[i];
 		}
 		return C;
-	}
+	};
 
 	this.SymmetricDiff = function(A,B)
 	{
@@ -69,7 +69,7 @@ function ArrayMath() {
 			if (j == M && k == c) C[c++] = B[ i ];
 		}
 		return C;
-	}
+	};
 
 }
 var ArrMath = new ArrayMath();
