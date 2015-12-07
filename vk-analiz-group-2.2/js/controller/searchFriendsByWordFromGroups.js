@@ -19,6 +19,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
     $scope.search = function () {
         //console.clear();
         if ($scope.word) {
+            $scope.result_array = [];
             $scope.disabled = true;
             cfpLoadingBar.start();
             VK.api("groups.search", {q: $scope.word, count: "1000", https: "1", v: "5.40"}, function (data) {
