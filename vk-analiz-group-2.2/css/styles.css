@@ -298,11 +298,12 @@ ul.autocomplete_ li:hover {
 
 .friends li {
     list-style: none;
-    width: 35px;
+    width: 25px;
     display: inline-block;
     text-align: center;
     cursor: pointer;
     margin: 3px 0;
+    padding: 0;
 }
 
 .friends li img {
