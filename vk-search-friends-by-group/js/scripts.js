@@ -1,6 +1,4 @@
-var app = angular.module('application', ['ngToast', 'chart.js', 'cfp.loadingBar']);
-
-var myGroups = [];
+var app = angular.module('application', ['ngToast', 'cfp.loadingBar']);
 
 
 //VK.init({
