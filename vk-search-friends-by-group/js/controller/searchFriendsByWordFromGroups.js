@@ -31,6 +31,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                         }
                     }
                     setTimeout(function () {
+                        array_groups_and_items = [];
                         get_friends_from_groups(groups_public, 0, groups_public.length);
                     }, 350);
                 });
