@@ -31,6 +31,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                     }
                 }
                 setTimeout(function () {
+                    array_groups_and_items = [];
                     get_friends_from_groups(groups_public, 0, groups_public.length);
                 }, 350);
             });
@@ -70,7 +71,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                 }
 
                 setTimeout(function () {
-                    $scope.result_array = [];
+                    var result_array = [];
                     VK.api("groups.getById", {group_ids: groups_ids.join(), https: "1", v: "5.40"}, function (groups) {
                         VK.api("users.get", {
                             user_ids: users_ids.join(),
@@ -87,11 +88,11 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                                         }
                                     }
                                 }
-                                $scope.result_array[$scope.result_array.length] = {group: groups.response[i], items: items};
+                                result_array[result_array.length] = {group: groups.response[i], items: items};
                             }
                             cfpLoadingBar.complete();
                             $scope.disabled = false;
-                            //$scope.result_array = result_array;
+                            $scope.result_array = result_array;
                             //console.log(result_array);
                             $scope.$digest();
                         });
