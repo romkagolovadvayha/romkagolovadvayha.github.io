@@ -235,6 +235,11 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         funcMutual(0);
     };
 
+    $scope.export_test = function () {
+        $('#export_test').html($scope.arrMutual_.join());
+        $('#myModal').modal('show');
+    };
+
     $scope.export_excel = function () {
         $scope.wall();
         //var result = $scope.arrMutual_.join();
