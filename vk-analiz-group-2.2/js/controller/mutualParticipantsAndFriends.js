@@ -255,6 +255,11 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
         return false;
     };
 
+    $scope.export_test = function () {
+        $('#export_test').html($scope.arrMutual_.join());
+        $('#myModal').modal('show');
+    };
+
     $(document).bind('keydown', function () {
         if (event.keyCode == 13) {
             if ($scope.url) {

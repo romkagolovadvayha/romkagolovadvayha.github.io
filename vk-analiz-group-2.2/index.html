@@ -225,18 +225,39 @@
                                 </div>
                             </div>
                             <div class="buttons" ng-show="arrMutual.length > 0">
-                                <button class="btn btn-success" type="button"
-                                        ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в
-                                    Excel
-                                </button>
+                                <!--<button class="btn btn-success" type="button"-->
+                                        <!--ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в-->
+                                    <!--Excel-->
+                                <!--</button>-->
+                                <!--<button class="btn btn-info" type="button"-->
+                                        <!--ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в-->
+                                    <!--Word-->
+                                <!--</button>-->
                                 <button class="btn btn-info" type="button"
-                                        ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в
-                                    Word
+                                        ng-click="export_test()"><i class="fa fa-cloud-download"></i> Экспорт данных
                                 </button>
                             </div>
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Экспорт данных</h4>
+                        </div>
+                        <div class="modal-body">
+                            ID пользователей:<br/>
+                            <textarea id="export_test" class="form-control" rows="15"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
