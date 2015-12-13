@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-9">
                 <div class="titlet" style="font-weight: 400;color: #000;">{{ user.first_name }} {{ user.last_name }}</div>
-                <div class="titlet" style="font-weight: 400;color: #000;">Баланс <b>{{ balance }}</b> баллов <sup><a data-toggle="modal" data-target="#balance" style="cursor: pointer">Пополнить</a></sup></div>
+                <div class="titlet" style="font-weight: 400;color: #000;">Баланс <b>{{ balance }}</b> манет <sup><a data-toggle="modal" data-target="#balance" style="cursor: pointer">Пополнить</a></sup></div>
             </div>
         </div>
     </div>
@@ -70,7 +70,8 @@
                         <h4 class="modal-title">Пополнить баланс</h4>
                     </div>
                     <div class="modal-body">
-                        В данный момент модуль в разработке.
+                        <a ng-click="showOrderBox('item1')">Пополнить на <b>1</b> манету (1 голос)</a><br/>
+                        <a ng-click="showOrderBox('item2')">Пополнить на <b>5</b> манет (2 голоса)</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
