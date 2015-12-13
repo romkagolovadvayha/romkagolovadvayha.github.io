@@ -26,6 +26,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
         dataType: "jsonp",
         success: function (data) {
             $scope.balance = data[0].balance;
+            $scope.$digest();
         }
     });
 
