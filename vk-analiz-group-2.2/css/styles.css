@@ -330,3 +330,7 @@ hr {
     margin-top: 5px;
     margin-bottom: 10px;
 }
+
+.nav>li>a {
+    font-size: 11px;
+}
