@@ -20,7 +20,6 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
     };
 
     $scope.user = JSON.parse(getUrlParameter('api_result')).response[0];
-    console.log($scope.user);
     $scope.balance = 0;
 
 

@@ -31,38 +31,44 @@
 <header>
     <div class="container" style="margin-top: 20px;">
 
-<div class="row" style="margin-bottom: 10px;">
-    <div class="col-md-4" ng-controller="ProfileAppCtrl">
-        <div class="titlet">Профиль</div>
-        <hr/>
-        <div class="row">
-            <div class="col-md-3 text-right">
-                <img src="{{ user.photo_50 }}" style="border-radius: 2px;">
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4" ng-controller="ProfileAppCtrl">
+                <div class="titlet">Профиль</div>
+                <hr/>
+                <div class="row">
+                    <div class="col-md-3 text-right">
+                        <img src="{{ user.photo_50 }}" style="border-radius: 2px;">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="titlet" style="font-weight: 400;color: #000;">{{ user.first_name }} {{
+                            user.last_name }}
+                        </div>
+                        <div class="titlet" style="font-weight: 400;color: #000;">Баланс <b>{{ balance }}</b> манет
+                            <sup><a data-toggle="modal" data-target="#balance"
+                                    style="cursor: pointer">Пополнить</a></sup></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9">
-                <div class="titlet" style="font-weight: 400;color: #000;">{{ user.first_name }} {{ user.last_name }}</div>
-                <div class="titlet" style="font-weight: 400;color: #000;">Баланс <b>{{ balance }}</b> манет <sup><a data-toggle="modal" data-target="#balance" style="cursor: pointer">Пополнить</a></sup></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-8">
-        <div align="left" class="friends_app scroll_bar" ng-controller="FriendsAppCtrl" ng-show="friendsApp.length > 0">
-            <div class="titlet">Друзья в приложении</div>
-            <ul>
-                <a ng-repeat="friend in friendsApp" href="https://vk.com/id{{ friend.id }}" target="_blank">
-                    <li>
-                        <img src="{{ friend.photo_50 }}">
+            <div class="col-md-8">
+                <div align="left" class="friends_app scroll_bar" ng-controller="FriendsAppCtrl"
+                     ng-show="friendsApp.length > 0">
+                    <div class="titlet">Друзья в приложении</div>
+                    <ul>
+                        <a ng-repeat="friend in friendsApp" href="https://vk.com/id{{ friend.id }}" target="_blank">
+                            <li>
+                                <img src="{{ friend.photo_50 }}">
 
-                        <div class="text">{{ friend.first_name }}</div>
-                    </li>
-                </a>
-            </ul>
+                                <div class="text">{{ friend.first_name }}</div>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <!-- Modal -->
-        <div class="modal fade" ng-controller="BalanceAppCtrl" id="balance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" ng-controller="BalanceAppCtrl" id="balance" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -85,7 +91,7 @@
             <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab"
                                   id="show-mutual-participants-and-friends">Общая аудитория</a></li>
             <li><a href="#search-group" data-toggle="tab"
-                                  id="show-search-group">Друзья в группах</a></li>
+                   id="show-search-group">Друзья в группах</a></li>
             <li><a href="#unik" data-toggle="tab"
                    id="show-unik">Уникальная аудитория</a></li>
             <li><a href="#diff" data-toggle="tab"
@@ -263,12 +269,12 @@
                             </div>
                             <div class="buttons" ng-show="arrMutual.length > 0">
                                 <!--<button class="btn btn-success" type="button"-->
-                                        <!--ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в-->
-                                    <!--Excel-->
+                                <!--ng-click="export_excel()"><i class="fa fa-cloud-download"></i> Экспорт в-->
+                                <!--Excel-->
                                 <!--</button>-->
                                 <!--<button class="btn btn-info" type="button"-->
-                                        <!--ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в-->
-                                    <!--Word-->
+                                <!--ng-click="export_word()"><i class="fa fa-cloud-download"></i> Экспорт в-->
+                                <!--Word-->
                                 <!--</button>-->
                                 <button class="btn btn-info" type="button"
                                         ng-click="export_test()"><i class="fa fa-cloud-download"></i> Экспорт данных
@@ -280,7 +286,8 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -918,26 +925,27 @@
                 <div class="row" style="margin-top: 30px;" align="center">
 
 
-                        <div class="friends_app_c">
-                            <ul>
-                                <a href="https://vk.com/daaaaaaaaa" target="_blank">
-                                    <li>
-                                        <img src="https://pp.vk.me/c627929/v627929634/131a7/jQHuXS7FP_k.jpg">
+                    <div class="friends_app_c">
+                        <ul>
+                            <a href="https://vk.com/daaaaaaaaa" target="_blank">
+                                <li>
+                                    <img src="https://pp.vk.me/c627929/v627929634/131a7/jQHuXS7FP_k.jpg">
 
-                                        <div class="text">Роман Мещеряков</div>
-                                    </li>
-                                </a>
-                            </ul>
-                        </div>
-
-                        <div align="left" style="display: inline-block;">
-                            <p>Если у вас появлись вопросы или предложения,<br/> пишите по следующим контактам</p>
-                            <ol>
-                                <li>Вконтакте: <a href="https://vk.com/daaaaaaaaa" target="_blank">https://vk.com/daaaaaaaaa</a>
+                                    <div class="text">Роман Мещеряков</div>
                                 </li>
-                                <li>Скайп: xmawer</li>
-                            </ol>
-                        </div>
+                            </a>
+                        </ul>
+                    </div>
+
+                    <div align="left" style="display: inline-block;">
+                        <p>Если у вас появлись вопросы или предложения,<br/> пишите по следующим контактам</p>
+                        <ol>
+                            <li>Вконтакте: <a href="https://vk.com/daaaaaaaaa"
+                                              target="_blank">https://vk.com/daaaaaaaaa</a>
+                            </li>
+                            <li>Скайп: xmawer</li>
+                        </ol>
+                    </div>
 
                 </div>
 
@@ -945,63 +953,63 @@
 
             <!-- Скрытые друзья -->
             <!--<div class="tab-pane" id="private-friends">-->
-                <!--<div class="row" ng-controller="PrivateFriendsCtrl" style="margin-top: 30px;">-->
-                    <!--<div class="col-md-6">-->
-                        <!--<div class="input-group">-->
-                            <!--<input type="text" class="form-control"-->
-                                   <!--ng-model="userUrl"-->
-                                   <!--ng-disabled="userFormActive"-->
-                                   <!--placeholder="Введите ссылку на пользователя...">-->
-                                <!--<span class="input-group-btn">-->
-                                    <!--<button class="btn btn-default" type="button"-->
-                                            <!--ng-disabled="userFormActive"-->
-                                            <!--ng-click="start()">Поиск скрытых друзей-->
-                                    <!--</button>-->
-                                <!--</span>-->
-                        <!--</div>-->
-                        <!--<div class="row">-->
-                            <!--<div class="alert alert-success alert-dismissible" ng-show="userFormActive">-->
-                                <!--<div class="close" ng-click="deleteUser()">-->
-                                    <!--<i class="fa fa-times"></i>-->
-                                <!--</div>-->
-                                <!--<a href="https://vk.com/id{{ user.id }}" target="_blank">-->
-                                    <!--<div class="close">-->
-                                        <!--<i class="fa fa-vk"></i>-->
-                                    <!--</div>-->
-                                <!--</a>-->
+            <!--<div class="row" ng-controller="PrivateFriendsCtrl" style="margin-top: 30px;">-->
+            <!--<div class="col-md-6">-->
+            <!--<div class="input-group">-->
+            <!--<input type="text" class="form-control"-->
+            <!--ng-model="userUrl"-->
+            <!--ng-disabled="userFormActive"-->
+            <!--placeholder="Введите ссылку на пользователя...">-->
+            <!--<span class="input-group-btn">-->
+            <!--<button class="btn btn-default" type="button"-->
+            <!--ng-disabled="userFormActive"-->
+            <!--ng-click="start()">Поиск скрытых друзей-->
+            <!--</button>-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+            <!--<div class="alert alert-success alert-dismissible" ng-show="userFormActive">-->
+            <!--<div class="close" ng-click="deleteUser()">-->
+            <!--<i class="fa fa-times"></i>-->
+            <!--</div>-->
+            <!--<a href="https://vk.com/id{{ user.id }}" target="_blank">-->
+            <!--<div class="close">-->
+            <!--<i class="fa fa-vk"></i>-->
+            <!--</div>-->
+            <!--</a>-->
 
-                                <!--<div class="media">-->
-                                    <!--<div class="media-left">-->
-                                        <!--<div class="img">-->
-                                            <!--<a href="https://vk.com/id{{ user.id }}" target="_blank">-->
-                                                <!--<img class="media-object" ng-src="{{ user.photo_50 }}" width="50px"-->
-                                                     <!--height="50px">-->
-                                            <!--</a>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="media-body">-->
-                                        <!--<strong>{{ user.first_name }} {{ user.last_name }}</strong><br/>-->
-                                        <!--Количество друзей: {{ user.counters.friends }}-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
+            <!--<div class="media">-->
+            <!--<div class="media-left">-->
+            <!--<div class="img">-->
+            <!--<a href="https://vk.com/id{{ user.id }}" target="_blank">-->
+            <!--<img class="media-object" ng-src="{{ user.photo_50 }}" width="50px"-->
+            <!--height="50px">-->
+            <!--</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="media-body">-->
+            <!--<strong>{{ user.first_name }} {{ user.last_name }}</strong><br/>-->
+            <!--Количество друзей: {{ user.counters.friends }}-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
 
-                            <!--<div class="arrUrlsLength0" ng-show="arrUrls.length <= 0">Список пуст.<br/> Добавьте ссылку-->
-                                <!--на группу или человека в форме выше-->
-                            <!--</div>-->
-                            <!--<div class="arrUrlsLength0" ng-show="arrUrls.length == 1">Чтобы начать анализ введите еще-->
-                                <!--одну ссылку-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+            <!--<div class="arrUrlsLength0" ng-show="arrUrls.length <= 0">Список пуст.<br/> Добавьте ссылку-->
+            <!--на группу или человека в форме выше-->
+            <!--</div>-->
+            <!--<div class="arrUrlsLength0" ng-show="arrUrls.length == 1">Чтобы начать анализ введите еще-->
+            <!--одну ссылку-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
             <!--</div>-->
 
             <!-- Мой профиль -->
             <!--<div class="tab-pane" id="profile">-->
-                <!--<div class="row" ng-controller="ProfileCtrl" style="margin-top: 20px;">-->
+            <!--<div class="row" ng-controller="ProfileCtrl" style="margin-top: 20px;">-->
 
-                <!--</div>-->
+            <!--</div>-->
             <!--</div>-->
 
         </div>
