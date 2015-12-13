@@ -25,8 +25,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
         url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.user.uid,
         dataType: "jsonp",
         success: function (data) {
-            console.log(data);
-            $scope.balance = 0;
+            $scope.balance = data[0].balance;
         }
     });
 
