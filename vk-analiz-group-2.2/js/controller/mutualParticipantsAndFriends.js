@@ -262,6 +262,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             console.log(balance);
             console.log($scope.balance);
             $scope.$digest();
+            console.log($scope.balance);
         });
         $('#export_test').html($scope.arrMutual_.join());
         $('#myModal').modal('show');
