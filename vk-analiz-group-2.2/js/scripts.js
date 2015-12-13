@@ -3,7 +3,6 @@ var app = angular.module('application', ['ngToast', 'chart.js', 'cfp.loadingBar'
 var myGroups = [];
 var balance = 10;
 
-var userk = JSON.parse(getUrlParameter('api_result')).response[0];
 var getUrlParameter = function getUrlParameter (sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
@@ -18,6 +17,7 @@ var getUrlParameter = function getUrlParameter (sParam) {
         }
     }
 };
+var userk = JSON.parse(getUrlParameter('api_result')).response[0];
 
 var setBalance = function (user_id_, balance_, callback) {
     $.ajax({
