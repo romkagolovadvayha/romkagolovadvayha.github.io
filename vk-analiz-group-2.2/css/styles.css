@@ -325,3 +325,8 @@ ul.autocomplete_ li:hover {
 .friends_title {
     font-size: 10px;
 }
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}

@@ -31,6 +31,21 @@
 <header>
     <div class="container" style="margin-top: 20px;">
 
+<div class="row">
+    <div class="col-md-4" ng-controller="ProfileAppCtrl">
+        <div class="titlet">Профиль</div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ user.photo_50 }}">
+            </div>
+            <div class="col-md-8">
+                <div class="titlet" style="font-weight: 400;color: #000;">{{ user.first_name }} {{ user.last_name }}</div>
+                <div class="titlet" style="font-weight: 400;color: #000;">Баланс <b>{{ balance }}</b> баллов <sup><a data-toggle="modal" data-target="#balance" style="cursor: pointer">Пополнить</a></sup></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
         <div align="left" class="friends_app scroll_bar" ng-controller="FriendsAppCtrl" ng-show="friendsApp.length > 0">
             <div class="titlet">Друзья в приложении</div>
             <ul>
@@ -42,6 +57,26 @@
                     </li>
                 </a>
             </ul>
+        </div>
+    </div>
+</div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="balance" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Пополнить баланс</h4>
+                    </div>
+                    <div class="modal-body">
+                        В данный момент модуль в разработке.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Nav tabs -->
@@ -990,10 +1025,11 @@
 <script src="js/controller/mutualParticipantsAndFriends.js"></script>
 <script src="js/controller/unik.js"></script>
 <script src="js/controller/diff.js"></script>
-<script src="js/controller/privateFriends.js"></script>
+<!--<script src="js/controller/privateFriends.js"></script>-->
 <script src="js/controller/searchFriendsByWordFromGroups.js"></script>
 <script src="js/controller/friendsApp.js"></script>
 <script src="js/controller/invite.js"></script>
-<script src="js/controller/profile.js"></script>
+<!--<script src="js/controller/profile.js"></script>-->
+<script src="js/controller/profileApp.js"></script>
 </body>
 </html>
