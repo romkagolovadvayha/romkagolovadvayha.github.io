@@ -37,7 +37,7 @@
                 <hr/>
                 <div class="row">
                     <div class="col-md-3 text-right">
-                        <img src="{{ user.photo_50   ? user.photo_50 : 'https://vk.com/images/camera_50.png' }}" style="border-radius: 2px;width: 32px;">
+                        <img ng-src="{{ user.photo_50 }}" style="border-radius: 2px;width: 32px;">
                     </div>
                     <div class="col-md-9">
                         <div class="titlet" style="font-weight: 400;color: #000;">{{ user.first_name }} {{
@@ -55,7 +55,7 @@
                     <ul ng-show="friendsApp.length > 0">
                         <a ng-repeat="friend in friendsApp" href="https://vk.com/id{{ friend.id }}" target="_blank">
                             <li>
-                                <img src="{{ friend.photo_50   ? friend.photo_50 : 'https://vk.com/images/camera_50.png' }}">
+                                <img ng-src="{{ friend.photo_50 }}">
 
                                 <div class="text">{{ friend.first_name }}</div>
                             </li>
@@ -132,7 +132,7 @@
                                     <li ng-repeat="myGroup in myGroups | filter: url | limitTo: 5"
                                         ng-click="url_clear();addGroup(myGroup.id);">
                                         <div class="row">
-                                            <img src="{{ myGroup.photo_50 ? myGroup.photo_50 : 'https://vk.com/images/camera_50.png'}}">
+                                            <img ng-src="{{ myGroup.photo_50 }}">
 
                                             <div class="title">{{ myGroup.name }}</div>
                                         </div>
@@ -169,7 +169,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/{{ url.screen_name }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50  ? url.photo_50 : 'https://vk.com/images/camera_50.png' }}" width="50px"
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
@@ -242,7 +242,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/id{{ url.id }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50   ? url.photo_50 : 'https://vk.com/images/camera_50.png'}}" width="50px"
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
@@ -398,7 +398,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/{{ object.group.screen_name }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ object.group.photo_50   ? object.photo_50 : 'https://vk.com/images/camera_50.png' }}"
+                                                    <img class="media-object" ng-src="{{ object.group.photo_50 }}"
                                                          width="50px"
                                                          height="50px">
                                                 </a>
@@ -415,7 +415,7 @@
                                                     <a ng-repeat="item in object.items"
                                                        href="https://vk.com/id{{ item.id }}" target="_blank">
                                                         <li>
-                                                            <img src="{{ item.photo_50   ? item.photo_50 : 'https://vk.com/images/camera_50.png'}}"
+                                                            <img ng-src="{{ item.photo_50 }}"
                                                                  alt="{{ item.first_name }} {{ item.last_name }}"
                                                                  title="{{ item.first_name }} {{ item.last_name }}"/>
                                                         </li>
@@ -485,7 +485,7 @@
                                     <li ng-repeat="myGroup in myGroups | filter: url | limitTo: 5"
                                         ng-click="url_clear();addGroup(myGroup.id);">
                                         <div class="row">
-                                            <img src="{{ myGroup.photo_50   ? mtGroup.photo_50 : 'https://vk.com/images/camera_50.png' }}">
+                                            <img ng-src="{{ myGroup.photo_50 }}">
 
                                             <div class="title">{{ myGroup.name }}</div>
                                         </div>
@@ -522,7 +522,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/{{ url.screen_name }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50   ? url.photo_50 : 'https://vk.com/images/camera_50.png' }}" width="50px"
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
@@ -605,7 +605,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/id{{ url.id }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50   ? url.photo_50 : 'https://vk.com/images/camera_50.png' }}" width="50px"
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
@@ -682,7 +682,7 @@
                                     <li ng-repeat="myGroup in myGroups | filter: url | limitTo: 5"
                                         ng-click="url_clear();addGroup(myGroup.id);">
                                         <div class="row">
-                                            <img src="{{ myGroup.photo_50   ? myGroup.photo_50 : 'https://vk.com/images/camera_50.png' }}">
+                                            <img ng-src="{{ myGroup.photo_50 }}">
 
                                             <div class="title">{{ myGroup.name }}</div>
                                         </div>
@@ -719,7 +719,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/{{ url.screen_name }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50   ? url.photo_50 : 'https://vk.com/images/camera_50.png' }}" width="50px"
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
@@ -793,7 +793,7 @@
                                         <div class="media-left">
                                             <div class="img">
                                                 <a href="https://vk.com/id{{ url.id }}" target="_blank">
-                                                    <img class="media-object" ng-src="{{ url.photo_50   ? url.photo_50 : 'https://vk.com/images/camera_50.png' }}" width="50px"
+                                                    <img class="media-object" ng-src="{{ url.photo_50 }}" width="50px"
                                                          height="50px">
                                                 </a>
                                             </div>
@@ -852,7 +852,7 @@
                                     <li ng-repeat="myGroup in myGroups | filter: groupUrl | limitTo: 5"
                                         ng-click="url_clear();getGroupsInfo(myGroup.id);">
                                         <div class="row">
-                                            <img src="{{ myGroup.photo_50   ? myGroup.photo_50 : 'https://vk.com/images/camera_50.png' }}">
+                                            <img ng-src="{{ myGroup.photo_50 }}">
 
                                             <div class="title">{{ myGroup.name }}</div>
                                         </div>
@@ -867,7 +867,7 @@
                                     <div class="media-left">
                                         <div class="img">
                                             <a href="https://vk.com/{{ group.screen_name }}" target="_blank">
-                                                <img class="media-object" ng-src="{{ group.photo_50   ? group.photo_50 : 'https://vk.com/images/camera_50.png' }}" width="50px"
+                                                <img class="media-object" ng-src="{{ group.photo_50 }}" width="50px"
                                                      height="50px">
                                             </a>
                                         </div>
