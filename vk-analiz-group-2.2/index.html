@@ -943,65 +943,65 @@
             </div>
 
             <!-- Скрытые друзья -->
-            <div class="tab-pane" id="private-friends">
-                <div class="row" ng-controller="PrivateFriendsCtrl" style="margin-top: 30px;">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control"
-                                   ng-model="userUrl"
-                                   ng-disabled="userFormActive"
-                                   placeholder="Введите ссылку на пользователя...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"
-                                            ng-disabled="userFormActive"
-                                            ng-click="start()">Поиск скрытых друзей
-                                    </button>
-                                </span>
-                        </div>
-                        <div class="row">
-                            <div class="alert alert-success alert-dismissible" ng-show="userFormActive">
-                                <div class="close" ng-click="deleteUser()">
-                                    <i class="fa fa-times"></i>
-                                </div>
-                                <a href="https://vk.com/id{{ user.id }}" target="_blank">
-                                    <div class="close">
-                                        <i class="fa fa-vk"></i>
-                                    </div>
-                                </a>
+            <!--<div class="tab-pane" id="private-friends">-->
+                <!--<div class="row" ng-controller="PrivateFriendsCtrl" style="margin-top: 30px;">-->
+                    <!--<div class="col-md-6">-->
+                        <!--<div class="input-group">-->
+                            <!--<input type="text" class="form-control"-->
+                                   <!--ng-model="userUrl"-->
+                                   <!--ng-disabled="userFormActive"-->
+                                   <!--placeholder="Введите ссылку на пользователя...">-->
+                                <!--<span class="input-group-btn">-->
+                                    <!--<button class="btn btn-default" type="button"-->
+                                            <!--ng-disabled="userFormActive"-->
+                                            <!--ng-click="start()">Поиск скрытых друзей-->
+                                    <!--</button>-->
+                                <!--</span>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="alert alert-success alert-dismissible" ng-show="userFormActive">-->
+                                <!--<div class="close" ng-click="deleteUser()">-->
+                                    <!--<i class="fa fa-times"></i>-->
+                                <!--</div>-->
+                                <!--<a href="https://vk.com/id{{ user.id }}" target="_blank">-->
+                                    <!--<div class="close">-->
+                                        <!--<i class="fa fa-vk"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
 
-                                <div class="media">
-                                    <div class="media-left">
-                                        <div class="img">
-                                            <a href="https://vk.com/id{{ user.id }}" target="_blank">
-                                                <img class="media-object" ng-src="{{ user.photo_50 }}" width="50px"
-                                                     height="50px">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="media-body">
-                                        <strong>{{ user.first_name }} {{ user.last_name }}</strong><br/>
-                                        Количество друзей: {{ user.counters.friends }}
-                                    </div>
-                                </div>
-                            </div>
+                                <!--<div class="media">-->
+                                    <!--<div class="media-left">-->
+                                        <!--<div class="img">-->
+                                            <!--<a href="https://vk.com/id{{ user.id }}" target="_blank">-->
+                                                <!--<img class="media-object" ng-src="{{ user.photo_50 }}" width="50px"-->
+                                                     <!--height="50px">-->
+                                            <!--</a>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="media-body">-->
+                                        <!--<strong>{{ user.first_name }} {{ user.last_name }}</strong><br/>-->
+                                        <!--Количество друзей: {{ user.counters.friends }}-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
-                            <div class="arrUrlsLength0" ng-show="arrUrls.length <= 0">Список пуст.<br/> Добавьте ссылку
-                                на группу или человека в форме выше
-                            </div>
-                            <div class="arrUrlsLength0" ng-show="arrUrls.length == 1">Чтобы начать анализ введите еще
-                                одну ссылку
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <!--<div class="arrUrlsLength0" ng-show="arrUrls.length <= 0">Список пуст.<br/> Добавьте ссылку-->
+                                <!--на группу или человека в форме выше-->
+                            <!--</div>-->
+                            <!--<div class="arrUrlsLength0" ng-show="arrUrls.length == 1">Чтобы начать анализ введите еще-->
+                                <!--одну ссылку-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
             <!-- Мой профиль -->
-            <div class="tab-pane" id="profile">
-                <div class="row" ng-controller="ProfileCtrl" style="margin-top: 20px;">
+            <!--<div class="tab-pane" id="profile">-->
+                <!--<div class="row" ng-controller="ProfileCtrl" style="margin-top: 20px;">-->
 
-                </div>
-            </div>
+                <!--</div>-->
+            <!--</div>-->
 
         </div>
 
