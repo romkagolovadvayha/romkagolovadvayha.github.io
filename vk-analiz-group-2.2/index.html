@@ -50,10 +50,9 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div align="left" class="friends_app scroll_bar" ng-controller="FriendsAppCtrl"
-                     ng-show="friendsApp.length > 0">
+                <div align="left" class="friends_app scroll_bar" ng-controller="FriendsAppCtrl">
                     <div class="titlet">Друзья в приложении</div>
-                    <ul>
+                    <ul ng-show="friendsApp.length > 0">
                         <a ng-repeat="friend in friendsApp" href="https://vk.com/id{{ friend.id }}" target="_blank">
                             <li>
                                 <img src="{{ friend.photo_50 }}">
@@ -62,6 +61,7 @@
                             </li>
                         </a>
                     </ul>
+                    <p ng-hide="friendsApp.length > 0">Нет друзей в приложении</p>
                 </div>
             </div>
         </div>
