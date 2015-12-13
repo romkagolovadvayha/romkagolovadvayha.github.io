@@ -3,7 +3,8 @@ var app = angular.module('application', ['ngToast', 'chart.js', 'cfp.loadingBar'
 var myGroups = [];
 var balance = 10;
 
-var getUrlParameter = function getUrlParameter(sParam) {
+var userk = JSON.parse(getUrlParameter('api_result')).response[0];
+var getUrlParameter = function(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
         sParameterName,
@@ -16,4 +17,14 @@ var getUrlParameter = function getUrlParameter(sParam) {
             return sParameterName[1] === undefined ? true : sParameterName[1];
         }
     }
+};
+
+var setBalance = function (user_id_, balance_, callback) {
+    $.ajax({
+        url: 'https://byunow.ru/VKAPI/api.php?q=3&user_id=' + user_id_ + '&balance=' + balance_,
+        dataType: "jsonp",
+        success: function (data) {
+            callback(balance - balance_);
+        }
+    });
 };
