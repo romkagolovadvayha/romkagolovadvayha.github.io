@@ -5,7 +5,7 @@
 app.controller('BalanceAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
     console.log('error0');
-    var showOrderBox = function (item) {
+    $scope.showOrderBox = function (item) {
         var params = {
             type: 'item',
             item: item
