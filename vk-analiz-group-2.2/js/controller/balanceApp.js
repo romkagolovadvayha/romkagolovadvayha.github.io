@@ -1,8 +1,8 @@
 /**
- * ProfileAppCtrl
+ * BalanceAppCtrl
  */
 'use strict';
-app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
+app.controller('BalanceAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
     var showOrderBox = function (item) {
         var params = {
