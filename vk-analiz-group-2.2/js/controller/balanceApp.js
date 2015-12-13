@@ -4,6 +4,7 @@
 'use strict';
 app.controller('BalanceAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
+    console.clear();
     console.log('error23');
     $scope.showOrderBox = function (item) {
         var params = {
