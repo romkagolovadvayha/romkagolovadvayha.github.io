@@ -12,7 +12,7 @@ app.controller('BalanceAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
         };
         VK.callMethod('showOrderBox', params);
     };
-
+    $scope.user = JSON.parse(getUrlParameter('api_result')).response[0];
     VK.addCallback('onOrderSuccess', function(order_id) {
         $.ajax({
             url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.user.uid,
