@@ -4,7 +4,7 @@ var myGroups = [];
 var balance = 10;
 
 var userk = JSON.parse(getUrlParameter('api_result')).response[0];
-var getUrlParameter = function(sParam) {
+var getUrlParameter = function getUrlParameter (sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
         sURLVariables = sPageURL.split('&'),
         sParameterName,
