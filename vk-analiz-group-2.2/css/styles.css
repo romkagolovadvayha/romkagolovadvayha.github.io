@@ -206,7 +206,7 @@ ul.autocomplete_ li:hover {
 }
 
 .friends_app  {
-    height: 110px;
+    height: 90px;
 }
 
 .friends_app a {
@@ -224,16 +224,17 @@ ul.autocomplete_ li:hover {
 
 .friends_app ul li {
     list-style: none;
-    width: 98px;
+    width: 60px;
     display: inline-block;
     background: #fff;
     text-align: center;
     cursor: pointer;
+    font-size: 11px;
     margin: 10px 0;
 }
 
 .friends_app li img {
-    width: 50px;
+    width: 32px;
     display: inline-block;
     border-radius: 2px;
 }
@@ -289,6 +290,7 @@ ul.autocomplete_ li:hover {
 .titlet {
     color: #45688e;
     font-weight: 700;
+    font-size: 12px;
 }
 
 .friends {
