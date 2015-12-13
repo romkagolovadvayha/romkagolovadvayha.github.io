@@ -22,7 +22,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
     $scope.user = JSON.parse(getUrlParameter('api_result')).response[0];
     $scope.balance = 0;
     $.ajax({
-        url: 'http://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.user.uid,
+        url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.user.uid,
         dataType: "jsonp",
         success: function (data) {
             console.log(data);
