@@ -257,8 +257,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
 
     $scope.export_test = function () {
         setBalance($scope.userProfile.uid, 3, function(balance_) {
-            $scope.balance -= balance_;
-            $scope.$digest();
+            $scope.setBalance($scope.balance - balance_);
         });
         $('#export_test').html($scope.arrMutual_.join());
         $('#myModal').modal('show');
