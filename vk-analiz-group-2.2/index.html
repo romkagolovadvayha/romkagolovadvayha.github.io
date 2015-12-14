@@ -79,9 +79,41 @@
                         <h4 class="modal-title">Пополнить баланс</h4>
                     </div>
                     <div class="modal-body" ng-click="showOrderBox('item_2')">
-                        <!--<a ng-click="showOrderBox('item_1')">Пополнить на <b>1</b> манету (7 руб)</a><br/>-->
-                        <!--<a ng-click="showOrderBox('item_2')">Пополнить на <b>5</b> манет (14 руб)</a>-->
-                        Услуга временно недоступна.
+                        <table class="table table-bordered" style="width: 500px;max-width: 100%;" align="center">
+                            <thead>
+                            <tr>
+                                <th style="width: 150px;">Количество монет</th>
+                                <th class="text-center" style="width: 150px;">Стоимость</th>
+                                <th class="text-center" style="width: 150px;"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center" style="width: 150px;">10 монет</td>
+                                <td class="text-center success">7 <i class="fa fa-rub"></i></td>
+                                <td class="text-center"><a ng-click="showOrderBox('item_1')" style="cursor: pointer">Пополнить
+                                    баланс</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" style="width: 150px;">25 монет</td>
+                                <td class="text-center success">14 <i class="fa fa-rub"></i></td>
+                                <td class="text-center"><a ng-click="showOrderBox('item_2')" style="cursor: pointer">Пополнить
+                                    баланс</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" style="width: 150px;">50 монет</td>
+                                <td class="text-center success">21 <i class="fa fa-rub"></i></td>
+                                <td class="text-center"><a ng-click="showOrderBox('item_3')" style="cursor: pointer">Пополнить
+                                    баланс</a></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center" style="width: 150px;">100 монет</td>
+                                <td class="text-center success">35 <i class="fa fa-rub"></i></td>
+                                <td class="text-center"><a ng-click="showOrderBox('item_4')" style="cursor: pointer">Пополнить
+                                    баланс</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -99,9 +131,9 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title">Пополнить баланс</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" align="center">
                         <div class="alert alert-danger" id="errore"></div>
-                        <table class="table table-bordered" style="width: 500px;max-width: 100%;">
+                        <table class="table table-bordered" style="width: 500px;max-width: 100%;" align="center">
                             <thead>
                             <tr>
                                 <th style="width: 150px;">Количество монет</th>
