@@ -10,7 +10,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
         url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.user.uid,
         dataType: "jsonp",
         success: function (data) {
-            $scope.balance = balance = data[0].balance;
+            $scope.balance = data[0].balance;
             $scope.$digest();
         }
     });
@@ -20,7 +20,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
             url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.user.uid,
             dataType: "jsonp",
             success: function (data) {
-                $scope.balance = balance = data[0].balance;
+                $scope.balance = data[0].balance;
                 $scope.$digest();
             }
         });
