@@ -87,6 +87,27 @@
             </div>
         </div>
 
+        <!-- Modal -->
+        <div class="modal fade" ng-controller="BalanceAppCtrl" id="balance2" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Пополнить баланс</h4>
+                    </div>
+                    <div class="modal-body" ng-click="showOrderBox('item_2')">
+                        <div class="alert alert-danger" id="errore"></div>
+                        <a ng-click="showOrderBox('item_1')">Пополнить на <b>1</b> манету (7 руб)</a><br/>
+                        <a ng-click="showOrderBox('item_2')">Пополнить на <b>5</b> манет (14 руб)</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="active"><a href="#mutual-participants-and-friends" data-toggle="tab"

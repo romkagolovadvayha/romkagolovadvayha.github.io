@@ -26,3 +26,7 @@ var setBalance = function (user_id_, balance_, callback) {
         }
     });
 };
+
+var error_mod_ser = function error_mod_ser (error) {
+    $('#errore').html(error);
+};

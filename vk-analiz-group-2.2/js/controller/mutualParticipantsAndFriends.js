@@ -256,11 +256,17 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     $scope.export_test = function () {
-        setBalance($scope.userProfile.uid, 3, function(balance_) {
-            $scope.setBalance($scope.balance - balance_);
-        });
-        $('#export_test').html($scope.arrMutual_.join());
-        $('#myModal').modal('show');
+        var m = 3;
+        if ($scope.balance - m > 0) {
+            setBalance($scope.userProfile.uid, 3, function(balance_) {
+                $scope.setBalance($scope.balance - balance_);
+            });
+            $('#export_test').html($scope.arrMutual_.join());
+            $('#myModal').modal('show');
+        } else {
+            error_mod_ser('Данная функция стоит ' + m + ' манеты, у вас на счету ' + $scope.balance + ' манет.');
+            $('#balance2').modal('show');
+        }
     };
 
     $(document).bind('keydown', function () {
