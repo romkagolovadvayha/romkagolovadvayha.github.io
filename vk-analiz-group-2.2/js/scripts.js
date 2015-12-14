@@ -1,7 +1,6 @@
 var app = angular.module('application', ['ngToast', 'chart.js', 'cfp.loadingBar']);
 
 var myGroups = [];
-var balance = 10;
 
 var getUrlParameter = function getUrlParameter (sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
