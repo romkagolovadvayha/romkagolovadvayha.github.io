@@ -264,7 +264,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
             $('#export_test').html($scope.arrMutual_.join());
             $('#myModal').modal('show');
         } else {
-            error_mod_ser('Данная функция стоит ' + m + ' манеты, у вас на счету ' + $scope.balance + ' манет.');
+            error_mod_ser('Данная функция стоит ' + m + ' монеты, у вас на счету ' + $scope.balance + ' монет.');
             $('#balance2').modal('show');
         }
     };
