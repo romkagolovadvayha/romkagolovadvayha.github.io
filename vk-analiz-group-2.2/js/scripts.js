@@ -24,7 +24,7 @@ var setBalance = function (user_id_, balance_, callback) {
         url: 'https://byunow.ru/VKAPI/api.php?q=3&user_id=' + user_id_ + '&balance=' + balance_,
         dataType: "jsonp",
         success: function (data) {
-            callback(balance - balance_);
+            callback(balance_);
         }
     });
 };
