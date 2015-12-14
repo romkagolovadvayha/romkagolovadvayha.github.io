@@ -8,6 +8,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
     $scope.balance = 0;
     $scope.setBalance = function(balance){
         $scope.balance = balance;
+        $scope.$digest();
     };
     $.ajax({
         url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.userProfile.uid,
