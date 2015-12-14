@@ -17,7 +17,6 @@ var getUrlParameter = function getUrlParameter (sParam) {
         }
     }
 };
-var userk = JSON.parse(getUrlParameter('api_result')).response[0];
 
 var setBalance = function (user_id_, balance_, callback) {
     $.ajax({
