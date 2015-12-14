@@ -222,8 +222,17 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
     };
 
     $scope.export_test = function () {
-        $('#export_test').html($scope.arrMutual_.join());
-        $('#myModal').modal('show');
+        var m = 3;
+        if ($scope.balance - m >= 0) {
+            setBalance($scope.userProfile.uid, 3, function(balance_) {
+                $scope.setBalance($scope.balance - balance_);
+            });
+            $('#export_test').html($scope.arrMutual_.join());
+            $('#myModal').modal('show');
+        } else {
+            error_mod_ser('Данная функция стоит ' + m + ' монеты, у вас на счету ' + $scope.balance + ' монет.');
+            $('#balance2').modal('show');
+        }
     };
 
     $scope.export_excel = function () {
