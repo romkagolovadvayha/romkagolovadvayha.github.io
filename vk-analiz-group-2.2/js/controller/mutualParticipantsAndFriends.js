@@ -257,7 +257,7 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
 
     $scope.export_test = function () {
         var m = 3;
-        if ($scope.balance - m > 0) {
+        if ($scope.balance - m >= 0) {
             setBalance($scope.userProfile.uid, 3, function(balance_) {
                 $scope.setBalance($scope.balance - balance_);
             });
