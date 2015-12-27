@@ -256,8 +256,10 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     var export_format = function (arrMutual_) {
-        $scope.export_test = arrMutual_.join();
-        $('#myModal').modal('show');
+        if(confirm('За данную услугу будет списанно 3 манеты')) {
+            $scope.export_test = arrMutual_.join();
+            $('#myModal').modal('show');
+        }
     };
 
     $scope.export_test = function () {
