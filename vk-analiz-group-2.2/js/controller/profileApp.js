@@ -28,4 +28,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
         });
     });
 
+    $scope.pr_ = 'id';
+    $scope.symbol = ',';
+
 });
