@@ -220,15 +220,19 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         $scope.index_name = 0;
         funcMutual(0);
     };
-
+    var export_format = function (arrMutual_, m) {
+        if(confirm('За данную услугу будет списанно ' + m + ' монеты')) {
+            $scope.export_test = arrMutual_.join();
+            $('#myModal').modal('show');
+        }
+    };
     $scope.export_test = function () {
         var m = 3;
         if ($scope.balance - m >= 0) {
             setBalance($scope.userProfile.uid, 3, function(balance_) {
                 $scope.setBalance($scope.balance - balance_);
             });
-            $('#export_test').html($scope.arrMutual_.join());
-            $('#myModal').modal('show');
+            export_format($scope.arrMutual_, m);
         } else {
             error_mod_ser('Данная функция стоит ' + m + ' монеты, у вас на счету ' + $scope.balance + ' монет.');
             $('#balance2').modal('show');
