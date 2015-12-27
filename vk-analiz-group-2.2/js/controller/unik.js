@@ -241,13 +241,22 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
             $('#myModal').modal('show');
         }
     };
+
+    var m = 3;
+    $scope.$watch('symbol',function() {
+        export_format($scope.arrMutual_, m);
+    });
+    $scope.$watch('pr_',function() {
+        export_format($scope.arrMutual_, m);
+    });
     $scope.export_test = function () {
-        var m = 3;
         if ($scope.balance - m >= 0) {
-            setBalance($scope.userProfile.uid, 3, function(balance_) {
-                $scope.setBalance($scope.balance - balance_);
-            });
-            export_format($scope.arrMutual_, m);
+            if(confirm('За данную услугу будет списанно ' + m + ' монеты')) {
+                setBalance($scope.userProfile.uid, 3, function (balance_) {
+                    $scope.setBalance($scope.balance - balance_);
+                });
+                export_format($scope.arrMutual_, m);
+            }
         } else {
             error_mod_ser('Данная функция стоит ' + m + ' монеты, у вас на счету ' + $scope.balance + ' монет.');
             $('#balance2').modal('show');
