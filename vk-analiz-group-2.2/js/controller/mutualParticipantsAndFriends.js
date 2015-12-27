@@ -268,11 +268,11 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     $scope.$watch('symbol', function () {
-        if ($scope.arrMutual_.length)
+        if ($scope.arrMutual_ && $scope.arrMutual_.length)
             export_format($scope.arrMutual_);
     });
     $scope.$watch('pr_', function () {
-        if ($scope.arrMutual_.length)
+        if ($scope.arrMutual_ && $scope.arrMutual_.length)
             export_format($scope.arrMutual_);
     });
 

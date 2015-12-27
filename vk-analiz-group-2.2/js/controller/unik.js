@@ -246,12 +246,15 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         $('#myModal').modal('show');
     };
 
-    $scope.$watch('symbol',function() {
-        export_format($scope.arrMutual_);
+    $scope.$watch('symbol', function () {
+        if ($scope.arrMutual_ && $scope.arrMutual_.length)
+            export_format($scope.arrMutual_);
     });
-    $scope.$watch('pr_',function() {
-        export_format($scope.arrMutual_);
+    $scope.$watch('pr_', function () {
+        if ($scope.arrMutual_ && $scope.arrMutual_.length)
+            export_format($scope.arrMutual_);
     });
+
     $scope.export_test = function () {
         var m = 3;
         if ($scope.balance - m >= 0) {
