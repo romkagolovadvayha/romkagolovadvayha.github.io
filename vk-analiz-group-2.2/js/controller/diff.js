@@ -221,9 +221,15 @@ app.controller('DiffCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         funcMutual(0);
     };
     var export_format = function (arrMutual_, m) {
-            var result = arrMutual_.join();
-            $('#export_test').html(result);
-            $('#myModal').modal('show');
+        var result = "";
+        for (var i = 0; i < arrMutual_.length; i++) {
+            if (i == 0)
+                result += $scope.pr_ + arrMutual_[i];
+            else
+                result += $scope.symbol + $scope.pr_ + arrMutual_[i];
+        }
+        $('#export_test').html(result);
+        $('#myModal').modal('show');
     };
 
     var m = 3;

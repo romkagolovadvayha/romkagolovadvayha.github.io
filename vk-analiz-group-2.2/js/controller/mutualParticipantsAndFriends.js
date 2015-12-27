@@ -256,21 +256,27 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     };
 
     var export_format = function (arrMutual_, m) {
-            var result = arrMutual_.join();
-            $('#export_test').html(result);
-            $('#myModal').modal('show');
+        var result = "";
+        for (var i = 0; i < arrMutual_.length; i++) {
+            if (i == 0)
+                result += $scope.pr_ + arrMutual_[i];
+            else
+                result += $scope.symbol + $scope.pr_ + arrMutual_[i];
+        }
+        $('#export_test').html(result);
+        $('#myModal').modal('show');
     };
     var m = 3;
-    $scope.$watch('symbol',function() {
+    $scope.$watch('symbol', function () {
         export_format($scope.arrMutual_, m);
     });
-    $scope.$watch('pr_',function() {
+    $scope.$watch('pr_', function () {
         export_format($scope.arrMutual_, m);
     });
 
     $scope.export_test = function () {
         if ($scope.balance - m >= 0) {
-            if(confirm('За данную услугу будет списанно ' + m + ' монеты')) {
+            if (confirm('За данную услугу будет списанно ' + m + ' монеты')) {
                 setBalance($scope.userProfile.uid, m, function (balance_) {
                     $scope.setBalance($scope.balance - balance_);
                 });
