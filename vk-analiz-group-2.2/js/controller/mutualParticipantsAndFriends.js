@@ -257,8 +257,8 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
 
     var export_format = function (arrMutual_, m) {
         if(confirm('За данную услугу будет списанно ' + m + ' монеты')) {
-            $scope.export_test_ = arrMutual_.join();
-            $scope.$digest();
+            var result = arrMutual_.join();
+            $('#export_test').html(result);
             $('#myModal').modal('show');
         }
     };
