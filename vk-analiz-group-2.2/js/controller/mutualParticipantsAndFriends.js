@@ -255,8 +255,8 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
         return false;
     };
 
-    var export_format = function (arrMutual_) {
-        if(confirm('За данную услугу будет списанно 3 манеты')) {
+    var export_format = function (arrMutual_, m) {
+        if(confirm('За данную услугу будет списанно ' + m + ' манеты')) {
             $scope.export_test = arrMutual_.join();
             $('#myModal').modal('show');
         }
@@ -265,11 +265,11 @@ app.controller('MutualParticipantsAndFriendsCtrl', function ($scope, ngToast, $t
     $scope.export_test = function () {
         var m = 3;
         if ($scope.balance - m >= 0) {
-            setBalance($scope.userProfile.uid, 3, function(balance_) {
+            setBalance($scope.userProfile.uid, m, function(balance_) {
                 $scope.setBalance($scope.balance - balance_);
             });
 
-            export_format($scope.arrMutual_.join());
+            export_format($scope.arrMutual_.join(), m);
         } else {
             error_mod_ser('Данная функция стоит ' + m + ' монеты, у вас на счету ' + $scope.balance + ' монет.');
             $('#balance2').modal('show');
