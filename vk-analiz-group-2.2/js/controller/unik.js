@@ -234,7 +234,7 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         $scope.index_name = 0;
         funcMutual(0);
     };
-    var export_format = function (arrMutual_, m) {
+    var export_format = function (arrMutual_) {
         var result = "";
         for (var i = 0; i < arrMutual_.length; i++) {
             if (i == 0)
@@ -246,20 +246,20 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
         $('#myModal').modal('show');
     };
 
-    var m = 3;
     $scope.$watch('symbol',function() {
-        export_format($scope.arrMutual_, m);
+        export_format($scope.arrMutual_);
     });
     $scope.$watch('pr_',function() {
-        export_format($scope.arrMutual_, m);
+        export_format($scope.arrMutual_);
     });
     $scope.export_test = function () {
+        var m = 3;
         if ($scope.balance - m >= 0) {
             if(confirm('За данную услугу будет списанно ' + m + ' монеты')) {
                 setBalance($scope.userProfile.uid, 3, function (balance_) {
                     $scope.setBalance($scope.balance - balance_);
                 });
-                export_format($scope.arrMutual_, m);
+                export_format($scope.arrMutual_);
             }
         } else {
             error_mod_ser('Данная функция стоит ' + m + ' монеты, у вас на счету ' + $scope.balance + ' монет.');
