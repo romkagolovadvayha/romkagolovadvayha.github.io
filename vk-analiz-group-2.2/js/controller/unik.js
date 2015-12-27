@@ -237,6 +237,7 @@ app.controller('UnikCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
     var export_format = function (arrMutual_, m) {
         if(confirm('За данную услугу будет списанно ' + m + ' монеты')) {
             $scope.export_test_ = arrMutual_.join();
+            $scope.$digest();
             $('#myModal').modal('show');
         }
     };
