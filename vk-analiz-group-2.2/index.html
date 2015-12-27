@@ -390,6 +390,27 @@
                             <h4 class="modal-title" id="myModalLabel">Экспорт данных</h4>
                         </div>
                         <div class="modal-body">
+                            <div class="row" style="margin-bottom: 10px;">
+                                <div class="col-md-4">
+                                    <span class="text_label">Префикс:</span>
+                                    <input type="text" class="form-control ng-pristine ng-valid ng-touched" ng-model="pr_" placeholder="Префикс...">
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="text_label">Данные:</span>
+                                    ID пользователя
+                                </div>
+                                <div class="col-md-5">
+                                    <span class="text_label">Разделитель:</span>
+                                    <select class="form-control ng-pristine ng-valid ng-touched ng-untouched" ng-model="symbol">
+                                        <option value=",">Запятая</option>
+                                        <option value="\n">Перенос строки</option>
+                                        <option value=" ">Пробкл</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                {{ pr_ }}123{{ symbol }} {{ pr_ }}124{{ symbol }} {{ pr_ }}125
+                            </div>
                             ID пользователей:<br/>
                             <textarea
                                     id="export_test" class="form-control" rows="15"></textarea>
