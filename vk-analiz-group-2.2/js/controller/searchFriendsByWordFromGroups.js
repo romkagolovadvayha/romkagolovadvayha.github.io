@@ -79,16 +79,21 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                             https: "1",
                             v: "5.40"
                         }, function (users) {
-                            for (var i = 0; i < groups.response.length; i++) {
-                                var items = [];
-                                for (var j = 0; j < result_array_groups[i].items.length; j++) {
-                                    for (var r = 0; r < users.response.length; r++) {
-                                        if (result_array_groups[i].items[j] == users.response[r].id) {
-                                            items[items.length] = users.response[r];
+                            if (groups.response.length) {
+                                for (var i = 0; i < groups.response.length; i++) {
+                                    var items = [];
+                                    for (var j = 0; j < result_array_groups[i].items.length; j++) {
+                                        for (var r = 0; r < users.response.length; r++) {
+                                            if (result_array_groups[i].items[j] == users.response[r].id) {
+                                                items[items.length] = users.response[r];
+                                            }
                                         }
                                     }
+                                    result_array[result_array.length] = {group: groups.response[i], items: items};
                                 }
-                                result_array[result_array.length] = {group: groups.response[i], items: items};
+                            } else {
+                                cfpLoadingBar.complete();
+                                $scope.disabled = false;
                             }
                             cfpLoadingBar.complete();
                             $scope.disabled = false;
