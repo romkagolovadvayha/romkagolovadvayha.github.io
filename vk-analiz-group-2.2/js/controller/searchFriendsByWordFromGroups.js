@@ -79,7 +79,7 @@ app.controller('SearchFriendsByWordFromGroupsCtrl', function ($scope, ngToast, $
                             https: "1",
                             v: "5.40"
                         }, function (users) {
-                            if (groups.response && groups.response.length) {
+                            if (groups && groups.response && groups.response.length) {
                                 for (var i = 0; i < groups.response.length; i++) {
                                     var items = [];
                                     for (var j = 0; j < result_array_groups[i].items.length; j++) {
