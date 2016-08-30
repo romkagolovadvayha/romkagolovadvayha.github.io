@@ -5,7 +5,7 @@
 app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
     $scope.userProfile = JSON.parse(getUrlParameter('api_result')).response[0];
-    $scope.balance = 0;
+    $scope.balance = 10;
     $scope.setBalance = function(balance){
         $scope.balance = balance;
         $scope.$digest();
@@ -25,7 +25,7 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
                 $scope.setBalance(data[0].balance);
             }
         });*/
-        $scope.setBalance(10);
+        //$scope.setBalance(10);
     });
 
     $scope.pr_ = 'id';
