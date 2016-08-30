@@ -25,7 +25,7 @@ var setBalance = function (user_id_, balance_, callback) {
             callback(balance_);
         }
     });*/
-    callback(balance_);
+    //callback(balance_);
 };
 
 var error_mod_ser = function error_mod_ser (error) {
