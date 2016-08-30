@@ -5,7 +5,7 @@
 app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoadingBar) {
 
     $scope.userProfile = JSON.parse(getUrlParameter('api_result')).response[0];
-    $scope.balance = 10;
+    $scope.balance = 99999;
     $scope.setBalance = function(balance){
         $scope.balance = balance;
         $scope.$digest();
