@@ -17,16 +17,17 @@ app.controller('ProfileAppCtrl', function ($scope, ngToast, $timeout, cfpLoading
             $scope.setBalance(data[0].balance);
         }
     });*/
-   /* VK.addCallback('onOrderSuccess', function(order_id) {
-        $.ajax({
+    VK.addCallback('onOrderSuccess', function(order_id) {
+       /* $.ajax({
             url: 'https://byunow.ru/VKAPI/api.php?q=2&user_id=' + $scope.userProfile.uid,
             dataType: "jsonp",
             success: function (data) {
                 $scope.setBalance(data[0].balance);
             }
-        });
-    });*/
-$scope.setBalance(10);
+        });*/
+        $scope.setBalance(10);
+    });
+
     $scope.pr_ = 'id';
     $scope.symbol = ',';
 
