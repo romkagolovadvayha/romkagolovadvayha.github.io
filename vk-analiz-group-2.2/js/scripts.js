@@ -18,13 +18,14 @@ var getUrlParameter = function getUrlParameter (sParam) {
 };
 
 var setBalance = function (user_id_, balance_, callback) {
-    $.ajax({
+    /*$.ajax({
         url: 'https://byunow.ru/VKAPI/api.php?q=3&user_id=' + user_id_ + '&balance=' + balance_,
         dataType: "jsonp",
         success: function (data) {
             callback(balance_);
         }
-    });
+    });*/
+    callback(balance_);
 };
 
 var error_mod_ser = function error_mod_ser (error) {
