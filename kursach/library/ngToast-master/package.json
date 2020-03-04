@@ -34,7 +34,7 @@
   "devDependencies": {
     "caniuse-db": "latest",
     "colors": "^1.0.3",
-    "diff": "^1.0.8",
+    "diff": "^4.0.2",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^2.2.0",
     "grunt-contrib-clean": "~0.5.0",
